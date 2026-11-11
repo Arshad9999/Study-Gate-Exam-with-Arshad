@@ -1,0 +1,153 @@
+[
+  {
+    "id": "discrete-mathematics",
+    "title": "Discrete Mathematics",
+    "papers": [
+      "CS"
+    ],
+    "syllabus": "Propositional and first-order logic; sets, relations, functions, partial orders and lattices; monoids and groups; graph connectivity, matching and colouring; counting, recurrence relations and generating functions.",
+    "intro": "A relation on a set pairs its elements. For a partial order it must be reflexive, antisymmetric and transitive. Divisibility on positive integers is a partial order."
+  },
+  {
+    "id": "linear-algebra",
+    "title": "Linear Algebra",
+    "papers": [
+      "CS",
+      "DA"
+    ],
+    "syllabus": "CS: matrices, determinants, linear systems, eigenvalues and eigenvectors, LU decomposition. DA additionally includes vector spaces, subspaces, independence, matrix types, quadratic forms, Gaussian elimination, rank, nullity, projections and singular value decomposition.",
+    "intro": "An eigenvector v is nonzero and satisfies Av = λv. For diag(2,3), (1,0) has eigenvalue 2. Eigenvalues alone do not guarantee a matrix is invertible: zero must not be an eigenvalue."
+  },
+  {
+    "id": "calculus-optimization",
+    "title": "Calculus and Optimization",
+    "papers": [
+      "CS",
+      "DA"
+    ],
+    "syllabus": "CS: limits, continuity, differentiability, extrema, mean value theorem and integration. DA: single-variable functions, limits, continuity, differentiability, Taylor series and single-variable optimization.",
+    "intro": "A stationary point satisfies f′(x)=0 when the derivative exists. For f(x)=x²−4x, f′(x)=2x−4, giving x=2 and minimum value −4. Also check domain boundaries."
+  },
+  {
+    "id": "probability-statistics",
+    "title": "Probability and Statistics",
+    "papers": [
+      "CS",
+      "DA"
+    ],
+    "syllabus": "CS: random variables; uniform, normal, exponential, Poisson and binomial distributions; mean, median, mode, standard deviation, conditional probability and Bayes theorem. DA adds counting, probability axioms, joint and marginal probability, covariance, correlation, conditional moments, Bernoulli, t and chi-squared distributions, the central limit theorem, confidence intervals and hypothesis tests.",
+    "intro": "Conditional probability is P(A|B)=P(A∩B)/P(B), provided P(B)>0. If P(A∩B)=0.2 and P(B)=0.5, then P(A|B)=0.4. Independence is different from mutual exclusivity."
+  },
+  {
+    "id": "digital-logic",
+    "title": "Digital Logic",
+    "papers": [
+      "CS"
+    ],
+    "syllabus": "Boolean algebra and minimization using algebra, Karnaugh maps and tabular methods; combinational and sequential circuit design; fixed- and floating-point number representation and arithmetic.",
+    "intro": "A combinational circuit’s output depends on its current inputs. A sequential circuit also has state: for example, a flip-flop stores one bit."
+  },
+  {
+    "id": "computer-organization",
+    "title": "Computer Organization and Architecture",
+    "papers": [
+      "CS"
+    ],
+    "syllabus": "Instruction sets and addressing modes; ALU and control unit design; memory hierarchy, interfacing and cache mapping; interrupts and DMA; pipelines and hazards.",
+    "intro": "A cache exploits locality by keeping recently or nearby accessed data close to the processor. A cache hit avoids a lower-level access; misses require fetching the data."
+  },
+  {
+    "id": "programming-data-structures",
+    "title": "Programming and Data Structures",
+    "papers": [
+      "CS",
+      "DA"
+    ],
+    "syllabus": "CS: C, recursion, arrays, stacks, queues, linked lists, trees, binary search trees, binary heaps and graphs. DA: Python, stacks, queues, linked lists, trees and hash tables.",
+    "intro": "A stack follows last-in, first-out order. Pushing 2 then 5 and popping once returns 5. A queue follows first-in, first-out order."
+  },
+  {
+    "id": "algorithms",
+    "title": "Algorithms",
+    "papers": [
+      "CS",
+      "DA"
+    ],
+    "syllabus": "CS: searching, sorting, hashing, worst-case time and space complexity, greedy algorithms, dynamic programming, divide and conquer, graph traversal, minimum spanning trees and shortest paths. DA: linear and binary search; selection, bubble, insertion, merge and quicksort; graph traversals and shortest paths.",
+    "intro": "Binary search requires sorted data. Each comparison discards roughly half the remaining interval, so worst-case time is O(log n); direct indexing is needed for this bound."
+  },
+  {
+    "id": "theory-of-computation",
+    "title": "Theory of Computation",
+    "papers": [
+      "CS"
+    ],
+    "syllabus": "Regular expressions and finite automata; context-free grammars, pushdown automata and languages; pumping lemma; Turing machines and undecidability.",
+    "intro": "A deterministic finite automaton has one transition per state and input symbol. Its finite memory makes it appropriate for recognising regular languages."
+  },
+  {
+    "id": "compiler-design",
+    "title": "Compiler Design",
+    "papers": [
+      "CS"
+    ],
+    "syllabus": "Lexical analysis, parsing, syntax-directed translation, runtime environments, intermediate code generation, local optimization and data-flow analyses including constant propagation, liveness and common subexpression elimination.",
+    "intro": "Lexical analysis groups characters into tokens; parsing checks how tokens fit a grammar. For x = 2, an identifier, assignment operator and numeric literal are distinct tokens."
+  },
+  {
+    "id": "operating-systems",
+    "title": "Operating Systems",
+    "papers": [
+      "CS"
+    ],
+    "syllabus": "System calls, processes, threads, inter-process communication, concurrency and synchronization, deadlocks, CPU and I/O scheduling, memory management, virtual memory and file systems.",
+    "intro": "A process has its own execution context and address space; threads of a process share its address space. Shared memory enables communication but requires synchronization."
+  },
+  {
+    "id": "databases",
+    "title": "Databases and Data Warehousing",
+    "papers": [
+      "CS",
+      "DA"
+    ],
+    "syllabus": "Both: ER and relational models, relational algebra, tuple calculus, SQL, integrity constraints, normalization, file organization and indexing. CS additionally covers transactions and concurrency control; DA includes data transformation and multidimensional warehouse modelling.",
+    "intro": "A primary key uniquely identifies each row and cannot be null. A foreign key connects rows to a referenced key; its exact nullability depends on schema constraints."
+  },
+  {
+    "id": "computer-networks",
+    "title": "Computer Networks",
+    "papers": [
+      "CS"
+    ],
+    "syllabus": "Layering, switching and performance; error detection, medium access control and Ethernet; routing; IPv4 fragmentation, CIDR and NAT; TCP flow and congestion control, sockets, DNS and HTTP.",
+    "intro": "TCP provides a reliable ordered byte stream, while UDP exposes datagrams without TCP’s reliability guarantees. An application can add reliability on top of UDP."
+  },
+  {
+    "id": "machine-learning",
+    "title": "Machine Learning",
+    "papers": [
+      "DA"
+    ],
+    "syllabus": "Supervised regression and classification, linear and ridge regression, logistic regression, k-nearest neighbours, naive Bayes, LDA, SVM, decision trees, bias and variance, cross-validation and neural networks; clustering and principal component analysis.",
+    "intro": "In supervised learning, examples have target labels. In k-nearest neighbours classification, a query is assigned a class based on its nearest training examples; scaling features can change the neighbours."
+  },
+  {
+    "id": "artificial-intelligence",
+    "title": "Artificial Intelligence",
+    "papers": [
+      "DA"
+    ],
+    "syllabus": "Informed, uninformed and adversarial search; propositional and predicate logic; conditional independence, exact inference by variable elimination and approximate inference by sampling.",
+    "intro": "Breadth-first search explores a graph by increasing edge distance from the start. With equal edge costs, its first discovered path to a reachable goal has the fewest edges."
+  },
+  {
+    "id": "general-aptitude",
+    "title": "General Aptitude",
+    "papers": [
+      "CS",
+      "DA"
+    ],
+    "syllabus": "Verbal aptitude: grammar, vocabulary, comprehension and sequencing. Quantitative aptitude: data interpretation, computation, estimation, geometry, elementary statistics and probability. Analytical aptitude: logic and reasoning. Spatial aptitude: transformations, folding, cutting and patterns.",
+    "intro": "A percentage is a fraction out of 100. A 20% increase on 100 gives 120; a subsequent 20% decrease gives 96, because the base changed."
+  }
+]
