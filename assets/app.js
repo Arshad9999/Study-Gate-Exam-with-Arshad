@@ -1,15 +1,18 @@
 /**
- * Study GATE Exam with Arshad - Core Application Engine (Ultra Refined Edition)
+ * Study GATE Exam with Arshad - Core Application Engine (Master Edition)
  * Aesthetics: Apple-Inspired Editorial Minimalism · Velvet Burgundy & Champagne Gold
  * Architecture:
  *  - Zero-Flash Dual Theme (Light & Dark)
  *  - Universal Command Palette (Spotlight / Cmd+K)
  *  - 3D Kinetic Topology Particle Canvas in Mac-Style Chrome
  *  - Interactive Career & Pathway Matchmaker Wizard (CS vs DA)
+ *  - Official GATE Virtual Scientific Calculator Modal & Keypad
  *  - Persistent Study Docket with Integrated Pomodoro Revision Timer
- *  - Calendar Integration (.ics Export & Google Calendar One-Click Handoff)
+ *  - Direct Calendar Integration (.ics Export & Google Calendar One-Click Handoff)
  *  - Study Docket Sharing via URL Hash & Vector SVG QR Engine
- *  - Comprehensive Practice Engine supporting MCQ, MSQ & NAT Question Types
+ *  - 16-Subject Practice Engine supporting MCQ, MSQ & NAT with Real Tolerances
+ *  - Formula Quick-Reference Cheat Sheet Matrix on /resources/
+ *  - Exam Readiness Circular Progress Donut Visualizer
  *  - Complete 16-Subject Technical Formulations & Vector Schematics
  *  - Curated Platform Integration (GeeksforGeeks & NPTEL Course Codes)
  *  - Standard Textbook Library & Topic Alignment
@@ -205,7 +208,205 @@ function getGoogleCalendarUrl(subject) {
 }
 
 // -----------------------------------------------------------------------------
-// 4. Complete Technical Formulations & Schematics for All 16 Subjects
+// 4. Official GATE Virtual Scientific Calculator Engine
+// -----------------------------------------------------------------------------
+let calcMemory = 0;
+let calcExpression = '';
+let calcCurrentVal = '0';
+
+function initVirtualCalculator() {
+  let backdrop = document.getElementById('calc-backdrop');
+  if (!backdrop) {
+    backdrop = document.createElement('div');
+    backdrop.id = 'calc-backdrop';
+    backdrop.innerHTML = `
+      <div class="calc-modal" role="dialog" aria-modal="true" aria-label="GATE Virtual Calculator">
+        <div class="mac-titlebar" style="background: #1e0d11; color: #fff;">
+          <div class="mac-dots">
+            <span class="mac-dot red" id="close-calc-dot" style="cursor: pointer;"></span>
+            <span class="mac-dot yellow"></span>
+            <span class="mac-dot green"></span>
+          </div>
+          <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--accent-gold);">GATE Scientific Calculator</span>
+          <button id="close-calc-btn" class="dialog-close-btn" style="position: static; width: 22px; height: 22px; font-size: 0.75rem;">✕</button>
+        </div>
+        <div class="calc-display">
+          <div class="calc-sub-expr" id="calc-expr-display"></div>
+          <div class="calc-main-val" id="calc-val-display">0</div>
+        </div>
+        <div class="calc-grid">
+          <!-- Row 1 -->
+          <button class="calc-btn fn" data-act="mc">MC</button>
+          <button class="calc-btn fn" data-act="mr">MR</button>
+          <button class="calc-btn fn" data-act="ms">MS</button>
+          <button class="calc-btn fn" data-act="mplus">M+</button>
+          <button class="calc-btn action" data-act="clear">C</button>
+          <!-- Row 2 -->
+          <button class="calc-btn fn" data-act="sin">sin</button>
+          <button class="calc-btn fn" data-act="cos">cos</button>
+          <button class="calc-btn fn" data-act="tan">tan</button>
+          <button class="calc-btn fn" data-act="log">log</button>
+          <button class="calc-btn fn" data-act="ln">ln</button>
+          <!-- Row 3 -->
+          <button class="calc-btn fn" data-act="sqrt">√x</button>
+          <button class="calc-btn fn" data-act="square">x²</button>
+          <button class="calc-btn fn" data-act="power">x^y</button>
+          <button class="calc-btn fn" data-act="recip">1/x</button>
+          <button class="calc-btn fn" data-act="fact">n!</button>
+          <!-- Row 4 -->
+          <button class="calc-btn fn" data-act="pi">π</button>
+          <button class="calc-btn fn" data-act="e">e</button>
+          <button class="calc-btn op" data-val="(">(</button>
+          <button class="calc-btn op" data-val=")">)</button>
+          <button class="calc-btn action" data-act="del">DEL</button>
+          <!-- Row 5 -->
+          <button class="calc-btn" data-val="7">7</button>
+          <button class="calc-btn" data-val="8">8</button>
+          <button class="calc-btn" data-val="9">9</button>
+          <button class="calc-btn op" data-val="/">/</button>
+          <button class="calc-btn op" data-val="%">%</button>
+          <!-- Row 6 -->
+          <button class="calc-btn" data-val="4">4</button>
+          <button class="calc-btn" data-val="5">5</button>
+          <button class="calc-btn" data-val="6">6</button>
+          <button class="calc-btn op" data-val="*">*</button>
+          <button class="calc-btn fn" data-act="sign">±</button>
+          <!-- Row 7 -->
+          <button class="calc-btn" data-val="1">1</button>
+          <button class="calc-btn" data-val="2">2</button>
+          <button class="calc-btn" data-val="3">3</button>
+          <button class="calc-btn op" data-val="-">-</button>
+          <button class="calc-btn op" data-val="+">+</button>
+          <!-- Row 8 -->
+          <button class="calc-btn" data-val="0">0</button>
+          <button class="calc-btn" data-val=".">.</button>
+          <button class="calc-btn equals" data-act="equals">=</button>
+        </div>
+      </div>
+    `;
+    document.body.appendChild(backdrop);
+
+    const exprEl = document.getElementById('calc-expr-display');
+    const valEl = document.getElementById('calc-val-display');
+
+    function updateCalc() {
+      exprEl.textContent = calcExpression;
+      valEl.textContent = calcCurrentVal;
+    }
+
+    function calculateFactorial(n) {
+      if (n < 0 || n > 100) return NaN;
+      let res = 1;
+      for (let i = 2; i <= Math.floor(n); i++) res *= i;
+      return res;
+    }
+
+    backdrop.querySelectorAll('.calc-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const val = btn.dataset.val;
+        const act = btn.dataset.act;
+
+        if (val !== undefined) {
+          if (calcCurrentVal === '0' && val !== '.') {
+            calcCurrentVal = val;
+          } else {
+            calcCurrentVal += val;
+          }
+        } else if (act) {
+          switch (act) {
+            case 'clear':
+              calcExpression = '';
+              calcCurrentVal = '0';
+              break;
+            case 'del':
+              calcCurrentVal = calcCurrentVal.length > 1 ? calcCurrentVal.slice(0, -1) : '0';
+              break;
+            case 'equals':
+              try {
+                const expr = (calcExpression + calcCurrentVal).replace(/\^/g, '**');
+                const result = Function(`'use strict'; return (${expr})`)();
+                calcExpression = '';
+                calcCurrentVal = String(Number(result.toFixed(6)));
+              } catch (e) {
+                calcCurrentVal = 'Error';
+              }
+              break;
+            case 'sin':
+              calcCurrentVal = String(Math.sin(Number(calcCurrentVal) * Math.PI / 180).toFixed(6));
+              break;
+            case 'cos':
+              calcCurrentVal = String(Math.cos(Number(calcCurrentVal) * Math.PI / 180).toFixed(6));
+              break;
+            case 'tan':
+              calcCurrentVal = String(Math.tan(Number(calcCurrentVal) * Math.PI / 180).toFixed(6));
+              break;
+            case 'log':
+              calcCurrentVal = String(Math.log10(Number(calcCurrentVal)).toFixed(6));
+              break;
+            case 'ln':
+              calcCurrentVal = String(Math.log(Number(calcCurrentVal)).toFixed(6));
+              break;
+            case 'sqrt':
+              calcCurrentVal = String(Math.sqrt(Number(calcCurrentVal)).toFixed(6));
+              break;
+            case 'square':
+              calcCurrentVal = String(Math.pow(Number(calcCurrentVal), 2).toFixed(6));
+              break;
+            case 'recip':
+              calcCurrentVal = String((1 / Number(calcCurrentVal)).toFixed(6));
+              break;
+            case 'fact':
+              calcCurrentVal = String(calculateFactorial(Number(calcCurrentVal)));
+              break;
+            case 'sign':
+              calcCurrentVal = String(-Number(calcCurrentVal));
+              break;
+            case 'pi':
+              calcCurrentVal = String(Math.PI.toFixed(6));
+              break;
+            case 'e':
+              calcCurrentVal = String(Math.E.toFixed(6));
+              break;
+            case 'power':
+              calcExpression += calcCurrentVal + ' ^ ';
+              calcCurrentVal = '0';
+              break;
+            case 'ms':
+              calcMemory = Number(calcCurrentVal);
+              showToast('Memory Stored: ' + calcMemory);
+              break;
+            case 'mr':
+              calcCurrentVal = String(calcMemory);
+              break;
+            case 'mc':
+              calcMemory = 0;
+              showToast('Memory Cleared');
+              break;
+            case 'mplus':
+              calcMemory += Number(calcCurrentVal);
+              showToast('Memory: ' + calcMemory);
+              break;
+          }
+        }
+        updateCalc();
+      });
+    });
+
+    const close = () => backdrop.classList.remove('open');
+    document.getElementById('close-calc-btn').addEventListener('click', close);
+    document.getElementById('close-calc-dot').addEventListener('click', close);
+    backdrop.addEventListener('click', e => {
+      if (e.target === backdrop) close();
+    });
+  }
+
+  document.querySelectorAll('.calc-trigger').forEach(btn => {
+    btn.addEventListener('click', () => backdrop.classList.add('open'));
+  });
+}
+
+// -----------------------------------------------------------------------------
+// 5. Complete Technical Formulations & Schematics for All 16 Subjects
 // -----------------------------------------------------------------------------
 const SUBJECT_EXTRAS = {
   'discrete-mathematics': {
@@ -483,7 +684,7 @@ Work-Rate Principle:
 };
 
 // -----------------------------------------------------------------------------
-// 5. Curated Standard Textbooks & Reference Library
+// 6. Curated Standard Textbooks & Reference Library
 // -----------------------------------------------------------------------------
 const STANDARD_TEXTBOOKS = [
   { subject: 'Discrete Math', title: 'Discrete Mathematics and Its Applications', author: 'Kenneth H. Rosen', topic: 'Set Theory, Graph Theory, Combinatorics' },
@@ -498,7 +699,53 @@ const STANDARD_TEXTBOOKS = [
 ];
 
 // -----------------------------------------------------------------------------
-// 6. Practice Engine (MCQ, MSQ, and NAT Authentic Question Types)
+// 7. Formula Quick-Reference Lookbook Data
+// -----------------------------------------------------------------------------
+const FORMULA_LOOKBOOK = [
+  {
+    domain: 'Linear Algebra',
+    title: 'Eigenvalues & Invertibility',
+    body: `Trace(A) = sum(lambda_i)\nDet(A) = prod(lambda_i)\nDet(A) != 0 <=> all lambda_i != 0\nCayley-Hamilton: Every square matrix satisfies its own characteristic equation p(A) = 0`
+  },
+  {
+    domain: 'Calculus & Optimization',
+    title: 'Hessian Matrix Extremum Test',
+    body: `Stationary Point: grad f(x*) = 0\nH = [ d^2 f / dx_i dx_j ]\nH positive definite => Strict Local Minimum\nH negative definite => Strict Local Maximum\nH indefinite => Saddle point`
+  },
+  {
+    domain: 'Algorithms',
+    title: 'Divide & Conquer Master Theorem',
+    body: `T(n) = a * T(n/b) + f(n)\nc_crit = log_b(a)\nCase 1: f(n) = O(n^{c_crit - eps}) => T(n) = Theta(n^{c_crit})\nCase 2: f(n) = Theta(n^{c_crit} * log^k(n)) => T(n) = Theta(n^{c_crit} * log^{k+1}(n))`
+  },
+  {
+    domain: 'Operating Systems',
+    title: 'Two-Level Paging EAT & Banker Need',
+    body: `EAT = t_TLB + t_mem + (1 - Hit_TLB) * 2 * t_mem\nNeed[i][j] = Max[i][j] - Allocation[i][j]\nDisk Seek Times: FCFS, SSTF, SCAN (Elevator), C-SCAN, C-LOOK`
+  },
+  {
+    domain: 'Computer Architecture',
+    title: 'Cache Mapping & Pipeline Speedup',
+    body: `Cache Sets = (Cache Capacity) / (Associativity * Block Size)\nAddress Bits = Tag + Set Index + Word Offset\nPipeline Speedup S = (n * k) / (k + n - 1 + Stalls)`
+  },
+  {
+    domain: 'Computer Networks',
+    title: 'Sliding Window & Congestion Control',
+    body: `Efficiency eta = W / (1 + 2a), where a = T_prop / T_trans\nBandwidth-Delay Product (BDP) = Bandwidth * RTT\nAIMD: +1 MSS per RTT in Avoidance, Halve ssthresh on Packet Loss`
+  },
+  {
+    domain: 'Databases (DBMS)',
+    title: 'Lossless Join & Dependency Preservation',
+    body: `Lossless Decomposition: (R1 cap R2) -> R1 OR (R1 cap R2) -> R2 in F+\nBCNF: For every X -> Y, X MUST be a Superkey\n3NF: For every X -> Y, either X is Superkey OR Y is Prime Attribute`
+  },
+  {
+    domain: 'Machine Learning & AI',
+    title: 'Ridge Closed Form & A* Admissibility',
+    body: `Ridge w* = (X^T X + lambda * I)^{-1} X^T y\nLogistic Loss: L(w) = - [ y*log(p) + (1-y)*log(1-p) ]\nA* Heuristic: h(n) <= h*(n) guarantees optimal tree search`
+  }
+];
+
+// -----------------------------------------------------------------------------
+// 8. 16-Question Comprehensive Self-Assessment Question Bank
 // -----------------------------------------------------------------------------
 const PRACTICE_QUESTIONS = [
   {
@@ -517,6 +764,43 @@ const PRACTICE_QUESTIONS = [
     explanation: 'Sum of eigenvalues equals Trace(A) = 7; product equals Det(A) = 12. Characteristic equation lambda^2 - 7*lambda + 12 = 0 factors into (lambda - 3)(lambda - 4) = 0, giving 3 and 4.'
   },
   {
+    id: 'calc-1',
+    subject: 'calculus-optimization',
+    category: 'math',
+    paper: 'CS & DA',
+    type: 'nat',
+    question: 'Find the minimum value attained by the function f(x) = 2x^2 - 8x + 11 on the real line.',
+    correctVal: 3,
+    tolerance: [2.99, 3.01],
+    explanation: 'f\'(x) = 4x - 8 = 0 gives stationary point at x = 2. Second derivative f\'\'(2) = 4 > 0 confirms a minimum. Minimum value f(2) = 2(4) - 8(2) + 11 = 8 - 16 + 11 = 3.'
+  },
+  {
+    id: 'prob-1',
+    subject: 'probability-statistics',
+    category: 'math',
+    paper: 'CS & DA',
+    type: 'mcq',
+    question: 'Which of the following continuous probability distributions possesses the memoryless property P(X > s + t | X > s) = P(X > t)?',
+    options: [
+      { text: 'Exponential distribution', correct: true },
+      { text: 'Normal distribution', correct: false },
+      { text: 'Uniform distribution', correct: false },
+      { text: 'Gamma distribution with shape > 1', correct: false }
+    ],
+    explanation: 'The Exponential distribution is the unique continuous distribution characterized by the memoryless property. (In discrete distributions, the Geometric distribution is memoryless).'
+  },
+  {
+    id: 'dm-1',
+    subject: 'discrete-mathematics',
+    category: 'math',
+    paper: 'CS',
+    type: 'nat',
+    question: 'What is the chromatic number chi(G) of a complete bipartite graph K_{4, 6}?',
+    correctVal: 2,
+    tolerance: [2, 2],
+    explanation: 'Every non-empty bipartite graph can be 2-colored by assigning color 1 to the first partition and color 2 to the second partition. Hence, chi(K_{4,6}) = 2.'
+  },
+  {
     id: 'algo-1',
     subject: 'algorithms',
     category: 'ds-algo',
@@ -532,15 +816,19 @@ const PRACTICE_QUESTIONS = [
     explanation: 'By extended Master Theorem: a = 2, b = 2 => n^{log_b(a)} = n^1. Since f(n) = n*log(n) matches Case 2 with k = 1, T(n) = Theta(n * log^{k+1}(n)) = Theta(n * log^2(n)).'
   },
   {
-    id: 'os-1',
-    subject: 'operating-systems',
-    category: 'systems',
-    paper: 'CS',
-    type: 'nat',
-    question: 'A system uses 1-level paging. Memory access time is 100 ns and TLB access time is 20 ns. If TLB hit ratio is 90%, compute the effective memory access time (EAT) in nanoseconds.',
-    correctVal: 130,
-    tolerance: [129, 131],
-    explanation: 'EAT = Hit_TLB * (t_TLB + t_mem) + (1 - Hit_TLB) * (t_TLB + 2*t_mem) = 0.90 * (20 + 100) + 0.10 * (20 + 200) = 108 + 22 = 130 ns.'
+    id: 'pds-1',
+    subject: 'programming-data-structures',
+    category: 'ds-algo',
+    paper: 'CS & DA',
+    type: 'mcq',
+    question: 'What is the in-order traversal of a valid Binary Search Tree (BST) guaranteed to produce?',
+    options: [
+      { text: 'Elements in strictly non-decreasing sorted order', correct: true },
+      { text: 'Level-by-level breadth-first sequence', correct: false },
+      { text: 'Elements sorted in descending order only', correct: false },
+      { text: 'Post-fix evaluation sequence', correct: false }
+    ],
+    explanation: 'Because a BST enforces LeftChild <= Root <= RightChild for every node, recursive in-order traversal (Left, Root, Right) naturally visits all keys in sorted non-decreasing order.'
   },
   {
     id: 'dbms-1',
@@ -558,49 +846,15 @@ const PRACTICE_QUESTIONS = [
     explanation: 'Because A -> B -> C -> D -> A forms a complete dependency cycle, every single attribute {A}, {B}, {C}, and {D} is a candidate key. Since the LHS of every dependency is a superkey, R satisfies BCNF (and therefore 3NF).'
   },
   {
-    id: 'ml-1',
-    subject: 'machine-learning',
-    category: 'ai-data',
-    paper: 'DA',
-    type: 'mcq',
-    question: 'In Ridge Regression, as the regularization hyperparameter lambda increases from 0 toward infinity, what happens to model bias and variance?',
-    options: [
-      { text: 'Bias increases, Variance decreases', correct: true },
-      { text: 'Bias decreases, Variance increases', correct: false },
-      { text: 'Both Bias and Variance increase', correct: false },
-      { text: 'Both Bias and Variance decrease', correct: false }
-    ],
-    explanation: 'Increasing the L2 weight penalty lambda restricts model parameter freedom, dampening variance while systematically simplifying hypothesis space (increasing bias).'
-  },
-  {
-    id: 'toc-1',
-    subject: 'theory-of-computation',
+    id: 'os-1',
+    subject: 'operating-systems',
     category: 'systems',
     paper: 'CS',
-    type: 'msq',
-    question: 'Which of the following decision problems is/are UNDECIDABLE for Turing Machines? (Select all that apply)',
-    options: [
-      { text: 'Halting Problem: Does TM M halt on input w?', correct: true },
-      { text: 'Emptiness Problem: Is language L(M) empty?', correct: true },
-      { text: 'Finiteness Problem: Is language L(M) finite?', correct: true },
-      { text: 'Membership Problem for Regular Grammar: Does DFA D accept w?', correct: false }
-    ],
-    explanation: 'By Rice\'s Theorem, any non-trivial semantic property of RE languages (including emptiness, finiteness, and halting) is undecidable. Regular grammar membership is decidable in linear time on a DFA.'
-  },
-  {
-    id: 'dl-1',
-    subject: 'digital-logic',
-    category: 'systems',
-    paper: 'CS',
-    type: 'mcq',
-    question: 'In a master-slave D flip-flop circuit, what condition must hold to avoid setup time violations on the clock input?',
-    options: [
-      { text: 'T_clk >= T_cq + T_comb + T_setup', correct: true },
-      { text: 'T_cq + T_comb <= T_hold', correct: false },
-      { text: 'T_setup >= T_hold + T_comb', correct: false },
-      { text: 'T_clk <= T_cq + T_setup', correct: false }
-    ],
-    explanation: 'Setup time ensures data arrives before the clock edge by at least T_setup. Clock period T_clk must accommodate flip-flop propagation, combinational delay, and setup time.'
+    type: 'nat',
+    question: 'A system uses 1-level paging. Memory access time is 100 ns and TLB access time is 20 ns. If TLB hit ratio is 90%, compute the effective memory access time (EAT) in nanoseconds.',
+    correctVal: 130,
+    tolerance: [129, 131],
+    explanation: 'EAT = Hit_TLB * (t_TLB + t_mem) + (1 - Hit_TLB) * (t_TLB + 2*t_mem) = 0.90 * (20 + 100) + 0.10 * (20 + 200) = 108 + 22 = 130 ns.'
   },
   {
     id: 'coa-1',
@@ -625,6 +879,21 @@ const PRACTICE_QUESTIONS = [
     explanation: 'Subnet prefix /27 leaves 32 - 27 = 5 host bits. Usable addresses = 2^5 - 2 = 32 - 2 = 30 (excluding network address .0 and broadcast address .31).'
   },
   {
+    id: 'dl-1',
+    subject: 'digital-logic',
+    category: 'systems',
+    paper: 'CS',
+    type: 'mcq',
+    question: 'In a master-slave D flip-flop circuit, what condition must hold to avoid setup time violations on the clock input?',
+    options: [
+      { text: 'T_clk >= T_cq + T_comb + T_setup', correct: true },
+      { text: 'T_cq + T_comb <= T_hold', correct: false },
+      { text: 'T_setup >= T_hold + T_comb', correct: false },
+      { text: 'T_clk <= T_cq + T_setup', correct: false }
+    ],
+    explanation: 'Setup time ensures data arrives before the clock edge by at least T_setup. Clock period T_clk must accommodate flip-flop propagation, combinational delay, and setup time.'
+  },
+  {
     id: 'cd-1',
     subject: 'compiler-design',
     category: 'systems',
@@ -640,39 +909,65 @@ const PRACTICE_QUESTIONS = [
     explanation: 'Every LL(k) and LR(k) grammar is unambiguous by definition. An ambiguous grammar creates multiple derivation trees for the same input string, producing unavoidable parser conflicts.'
   },
   {
-    id: 'prob-1',
-    subject: 'probability-statistics',
-    category: 'math',
-    paper: 'CS & DA',
-    type: 'mcq',
-    question: 'Which of the following continuous probability distributions possesses the memoryless property P(X > s + t | X > s) = P(X > t)?',
+    id: 'toc-1',
+    subject: 'theory-of-computation',
+    category: 'systems',
+    paper: 'CS',
+    type: 'msq',
+    question: 'Which of the following decision problems is/are UNDECIDABLE for Turing Machines? (Select all that apply)',
     options: [
-      { text: 'Exponential distribution', correct: true },
-      { text: 'Normal distribution', correct: false },
-      { text: 'Uniform distribution', correct: false },
-      { text: 'Gamma distribution with shape > 1', correct: false }
+      { text: 'Halting Problem: Does TM M halt on input w?', correct: true },
+      { text: 'Emptiness Problem: Is language L(M) empty?', correct: true },
+      { text: 'Finiteness Problem: Is language L(M) finite?', correct: true },
+      { text: 'Membership Problem for Regular Grammar: Does DFA D accept w?', correct: false }
     ],
-    explanation: 'The Exponential distribution is the unique continuous distribution characterized by the memoryless property. (In discrete distributions, the Geometric distribution is memoryless).'
+    explanation: 'By Rice\'s Theorem, any non-trivial semantic property of RE languages (including emptiness, finiteness, and halting) is undecidable. Regular grammar membership is decidable in linear time on a DFA.'
   },
   {
-    id: 'pds-1',
-    subject: 'programming-data-structures',
-    category: 'ds-algo',
-    paper: 'CS & DA',
+    id: 'ml-1',
+    subject: 'machine-learning',
+    category: 'ai-data',
+    paper: 'DA',
     type: 'mcq',
-    question: 'What is the in-order traversal of a valid Binary Search Tree (BST) guaranteed to produce?',
+    question: 'In Ridge Regression, as the regularization hyperparameter lambda increases from 0 toward infinity, what happens to model bias and variance?',
     options: [
-      { text: 'Elements in strictly non-decreasing sorted order', correct: true },
-      { text: 'Level-by-level breadth-first sequence', correct: false },
-      { text: 'Elements sorted in descending order only', correct: false },
-      { text: 'Post-fix evaluation sequence', correct: false }
+      { text: 'Bias increases, Variance decreases', correct: true },
+      { text: 'Bias decreases, Variance increases', correct: false },
+      { text: 'Both Bias and Variance increase', correct: false },
+      { text: 'Both Bias and Variance decrease', correct: false }
     ],
-    explanation: 'Because a BST enforces LeftChild <= Root <= RightChild for every node, recursive in-order traversal (Left, Root, Right) naturally visits all keys in sorted non-decreasing order.'
+    explanation: 'Increasing the L2 weight penalty lambda restricts model parameter freedom, dampening variance while systematically simplifying hypothesis space (increasing bias).'
+  },
+  {
+    id: 'ai-1',
+    subject: 'artificial-intelligence',
+    category: 'ai-data',
+    paper: 'DA',
+    type: 'msq',
+    question: 'Which of the following conditions guarantee that the A* tree search algorithm returns an optimal solution path? (Select all that apply)',
+    options: [
+      { text: 'The heuristic function h(n) is admissible (h(n) <= h*(n))', correct: true },
+      { text: 'Step costs between all states are strictly positive (c(n, a, n\') >= eps > 0)', correct: true },
+      { text: 'The heuristic must equal 0 everywhere (breadth-first search)', correct: false },
+      { text: 'The search graph must have a finite branching factor', correct: true }
+    ],
+    explanation: 'A* tree search is optimal whenever h(n) is admissible and all edge costs exceed a positive lower bound. Graph search additionally requires monotonicity (consistency).'
+  },
+  {
+    id: 'ga-1',
+    subject: 'general-aptitude',
+    category: 'math',
+    paper: 'CS & DA',
+    type: 'nat',
+    question: 'Worker A can complete a project in 12 days, and Worker B can complete the same project in 24 days. Working together, in how many days will they finish the project?',
+    correctVal: 8,
+    tolerance: [7.99, 8.01],
+    explanation: 'Combined work rate = 1/12 + 1/24 = (2 + 1)/24 = 3/24 = 1/8. Hence, combined completion time = 8 days.'
   }
 ];
 
 // -----------------------------------------------------------------------------
-// 7. Interactive 3D Kinetic Canvas (Perspective Particle Topology in Hero)
+// 9. Interactive 3D Kinetic Canvas (Perspective Particle Topology in Hero)
 // -----------------------------------------------------------------------------
 function initKineticCanvas() {
   const canvas = document.getElementById('kinetic-canvas');
@@ -781,7 +1076,7 @@ function initKineticCanvas() {
 }
 
 // -----------------------------------------------------------------------------
-// 8. Career & Pathway Matchmaker Wizard
+// 10. Career & Pathway Matchmaker Wizard
 // -----------------------------------------------------------------------------
 function initMatchmakerWizard(subjects) {
   const container = document.getElementById('career-wizard');
@@ -899,7 +1194,7 @@ function initMatchmakerWizard(subjects) {
 }
 
 // -----------------------------------------------------------------------------
-// 9. Universal Command Palette (Spotlight / Cmd+K)
+// 11. Universal Command Palette (Spotlight / Cmd+K)
 // -----------------------------------------------------------------------------
 function initCommandPalette(subjects) {
   let backdrop = document.getElementById('cmd-palette-backdrop');
@@ -910,7 +1205,7 @@ function initCommandPalette(subjects) {
       <div class="cmd-modal" role="dialog" aria-modal="true" aria-label="Command Search">
         <div class="cmd-search-bar">
           <span style="color: var(--accent-gold); font-size: 1.2rem;">⌕</span>
-          <input type="search" id="cmd-input" placeholder="Search subjects, formulas, or actions (e.g. 'export', 'theme')..." autocomplete="off">
+          <input type="search" id="cmd-input" placeholder="Search subjects, formulas, or commands (e.g. 'calc', 'export', 'theme')..." autocomplete="off">
           <span class="kbd-badge">ESC</span>
         </div>
         <div class="cmd-results-list" id="cmd-results"></div>
@@ -944,6 +1239,7 @@ function initCommandPalette(subjects) {
     items = [];
 
     const actions = [
+      { title: 'Open GATE Scientific Calculator', action: () => document.getElementById('calc-backdrop')?.classList.add('open'), badge: 'TOOL', type: 'action' },
       { title: 'Export Revision Schedule (.ics)', action: () => exportDocketICS(subjects), badge: 'ACTION', type: 'action' },
       { title: 'Toggle Light/Dark Theme', action: toggleTheme, badge: 'ACTION', type: 'action' },
       { title: 'Open Study Docket Drawer', action: () => document.getElementById('study-docket-drawer')?.classList.add('open'), badge: 'ACTION', type: 'action' },
@@ -960,7 +1256,7 @@ function initCommandPalette(subjects) {
       { title: 'Interactive Self-Assessment Practice', url: `${root}practice/`, badge: 'QUIZ', type: 'tool' },
       { title: 'Study Progress Planner & Checklist', url: `${root}planner/`, badge: 'PLAN', type: 'tool' },
       { title: 'Official PYQ Papers & Master Keys', url: `${root}pyqs/`, badge: 'GATE', type: 'page' },
-      { title: 'Official Syllabus & Standard Textbooks', url: `${root}resources/`, badge: 'DOC', type: 'page' }
+      { title: 'Official Syllabus, Textbooks & Formula Cheatsheet', url: `${root}resources/`, badge: 'DOC', type: 'page' }
     ];
 
     staticRoutes.forEach(r => {
@@ -1061,7 +1357,7 @@ function initCommandPalette(subjects) {
 }
 
 // -----------------------------------------------------------------------------
-// 10. Persistent Study Docket Drawer, Pomodoro Timer & QR Share Engine
+// 12. Persistent Study Docket Drawer, Pomodoro Timer & QR Share Engine
 // -----------------------------------------------------------------------------
 let allLoadedSubjects = [];
 let timerInterval = null;
@@ -1279,7 +1575,7 @@ function renderDocketDrawer() {
 }
 
 // -----------------------------------------------------------------------------
-// 11. Floating Open-Source Community Pill & Drawer
+// 13. Floating Open-Source Community Pill & Drawer
 // -----------------------------------------------------------------------------
 function initCommunityPill() {
   if (localStorage.getItem('study-gate-community-dismissed') === 'true') return;
@@ -1326,7 +1622,7 @@ function initCommunityPill() {
 }
 
 // -----------------------------------------------------------------------------
-// 12. Header Enrichment & Navigation Helpers
+// 14. Header Enrichment & Navigation Helpers
 // -----------------------------------------------------------------------------
 function enrichSiteHeader() {
   const nav = document.querySelector('nav');
@@ -1349,6 +1645,9 @@ function enrichSiteHeader() {
   const actions = document.createElement('div');
   actions.className = 'header-actions';
   actions.innerHTML = `
+    <button class="icon-btn calc-trigger" title="Open GATE Scientific Calculator">
+      <span>🧮 Calc</span>
+    </button>
     <button class="icon-btn spotlight-trigger" title="Search Everything (Cmd+K)">
       <span>⌕</span>
       <span class="kbd-badge">⌘K</span>
@@ -1424,13 +1723,14 @@ if (menu) {
 }
 
 // -----------------------------------------------------------------------------
-// 13. Data Fetching & Dynamic Page Rendering
+// 15. Data Fetching & Dynamic Page Rendering
 // -----------------------------------------------------------------------------
 fetch(root + 'data/subjects.json')
   .then(r => { if (!r.ok) throw Error(); return r.json(); })
   .then(subjects => {
     enrichSiteHeader();
     initReadingProgress();
+    initVirtualCalculator();
     initCommandPalette(subjects);
     initDocketDrawer(subjects);
     initDialogInspector();
@@ -1461,6 +1761,14 @@ fetch(root + 'data/subjects.json')
     // PAGE: HOME
     // -------------------------------------------------------------------------
     if (page === 'home') {
+      const progress = getProgress();
+      const reviewedCount = subjects.filter(s => progress[s.id] === true).length;
+      const csReviewed = subjects.filter(s => s.papers.includes('CS') && progress[s.id] === true).length;
+      const daReviewed = subjects.filter(s => s.papers.includes('DA') && progress[s.id] === true).length;
+      const pct = Math.round((reviewedCount / subjects.length) * 100);
+      const circumference = 2 * Math.PI * 40;
+      const offset = circumference - (pct / 100) * circumference;
+
       main.innerHTML = `
         <section class="hero">
           <div>
@@ -1501,6 +1809,46 @@ fetch(root + 'data/subjects.json')
             </div>
           </div>
         </section>
+
+        <!-- Exam Readiness Circular Dashboard -->
+        <div class="readiness-dashboard">
+          <div class="readiness-ring-box">
+            <svg width="100" height="100" class="donut-svg">
+              <defs>
+                <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#4a0e17"/>
+                  <stop offset="50%" stop-color="#c5a059"/>
+                  <stop offset="100%" stop-color="#059669"/>
+                </linearGradient>
+              </defs>
+              <circle cx="50" cy="50" r="40" class="donut-circle-bg"/>
+              <circle cx="50" cy="50" r="40" class="donut-circle-fill" stroke-dasharray="${circumference}" stroke-dashoffset="${offset}"/>
+            </svg>
+            <div>
+              <div class="eyebrow" style="margin: 0 0 4px;"><span class="dot"></span> SYLLABUS READINESS</div>
+              <strong style="font-size: 1.3rem;">${pct}% Completed</strong>
+              <div style="font-size: 0.8rem; color: var(--text-muted);">${reviewedCount} of 16 Domains Reviewed</div>
+            </div>
+          </div>
+          <div class="readiness-stats">
+            <div class="readiness-stat-item">
+              <strong>${csReviewed} / 10</strong>
+              <span>CS Track Coverage</span>
+            </div>
+            <div class="readiness-stat-item">
+              <strong>${daReviewed} / 7</strong>
+              <span>DA Track Coverage</span>
+            </div>
+            <div class="readiness-stat-item">
+              <strong>7 Shared</strong>
+              <span>Core Foundation Domains</span>
+            </div>
+          </div>
+          <div style="display: flex; gap: 8px;">
+            <button class="button gold small calc-trigger">🧮 GATE Calc</button>
+            <a class="button outline small" href="${root}planner/">Full Planner ↗</a>
+          </div>
+        </div>
 
         <section class="intro-band">
           <div class="trust-badge-item">
@@ -1655,6 +2003,7 @@ fetch(root + 'data/subjects.json')
             <a href="#pyq">06. Previous Questions</a>
             <div style="margin-top: 24px; border-top: 1px solid var(--border-line); padding-top: 16px; display: flex; flex-direction: column; gap: 8px;">
               <button class="button gold small" id="subject-docket-add-btn" style="width: 100%;">+ Queue in Docket</button>
+              <button class="button outline small calc-trigger" style="text-align: center;">🧮 GATE Calculator</button>
               <a class="button outline small" href="${getGoogleCalendarUrl(s)}" target="_blank" style="text-align: center;">Schedule Google Cal ↗</a>
               <button class="button outline small" id="print-sheet-btn" style="text-align: center;">Print Study Sheet ⎙</button>
             </div>
@@ -1848,10 +2197,13 @@ fetch(root + 'data/subjects.json')
                 <button class="filter-pill ${activeFilter === 'math' ? 'active' : ''}" data-filter="math">Mathematics</button>
                 <button class="filter-pill ${activeFilter === 'systems' ? 'active' : ''}" data-filter="systems">Core Systems</button>
               </div>
-              <div class="score-badge">
-                <span>Score:</span>
-                <span class="score-badge-val">${correctTotal} / ${answeredTotal} (${accuracy}%)</span>
-                ${answeredTotal > 0 ? `<button id="reset-practice-btn" class="button outline small" style="padding: 4px 8px; font-size: 0.72rem;">Reset</button>` : ''}
+              <div style="display: flex; align-items: center; gap: 10px;">
+                <button class="button gold small calc-trigger">🧮 GATE Calc</button>
+                <div class="score-badge">
+                  <span>Score:</span>
+                  <span class="score-badge-val">${correctTotal} / ${answeredTotal} (${accuracy}%)</span>
+                  ${answeredTotal > 0 ? `<button id="reset-practice-btn" class="button outline small" style="padding: 4px 8px; font-size: 0.72rem;">Reset</button>` : ''}
+                </div>
               </div>
             </div>
 
@@ -1890,7 +2242,7 @@ fetch(root + 'data/subjects.json')
 
                   ${q.type === 'nat' ? `
                     <div class="quiz-nat-container">
-                      <input type="number" step="any" class="quiz-nat-input" placeholder="Value..." id="nat-input-${q.id}">
+                      <input type="number" step="any" class="quiz-nat-input" placeholder="Enter value..." id="nat-input-${q.id}">
                       <button class="button gold small submit-nat-btn" data-id="${q.id}">Check NAT Answer</button>
                     </div>
                   ` : ''}
@@ -1904,7 +2256,6 @@ fetch(root + 'data/subjects.json')
           </section>
         `;
 
-        // Filter button listeners
         document.querySelectorAll('.filter-pill').forEach(btn => {
           btn.addEventListener('click', () => {
             activeFilter = btn.dataset.filter;
@@ -2289,15 +2640,15 @@ fetch(root + 'data/subjects.json')
     }
 
     // -------------------------------------------------------------------------
-    // PAGE: RESOURCES (SYLLABUS & STANDARD TEXTBOOK DIRECTORY)
+    // PAGE: RESOURCES (SYLLABUS, FORMULA LOOKBOOK & STANDARD TEXTBOOKS)
     // -------------------------------------------------------------------------
     else {
       main.innerHTML = `
         ${crumb('Resources')}
         <section class="page-title">
-          <div class="eyebrow">OFFICIAL REFERENCES & TEXTBOOKS</div>
+          <div class="eyebrow">OFFICIAL REFERENCES & STANDARDS</div>
           <h1>Study Resources & Standards</h1>
-          <p>Authoritative IIT Madras guidelines, paper patterns, and standard textbook recommendations for GATE 2027.</p>
+          <p>Authoritative IIT Madras guidelines, curated textbook library, and high-yield formula cheatsheets for GATE 2027.</p>
         </section>
 
         <section class="section" style="padding-top: 0;">
@@ -2308,6 +2659,21 @@ fetch(root + 'data/subjects.json')
             <a href="${source.GA}" target="_blank">GATE 2027 General Aptitude (GA) Syllabus <span>Official PDF ↗</span></a>
             <a href="${official}question_paper_pattern" target="_blank">Official Question Paper Pattern & Marking Scheme <span>Official Site ↗</span></a>
             <a href="${official}download" target="_blank">Master Papers & Official Answer Keys <span>Official Site ↗</span></a>
+          </div>
+
+          <h2 style="margin-top: 50px;">High-Yield Formula & Theorem Quick-Reference</h2>
+          <p style="color: var(--text-muted); font-size: 0.95rem;">Essential mathematical relationships, network bounds, and algorithmic recurrence equations.</p>
+          <div class="formula-grid">
+            ${FORMULA_LOOKBOOK.map(item => `
+              <div class="formula-card">
+                <div class="formula-header">
+                  <span class="formula-tag">${item.domain}</span>
+                  <button class="copy-formula-btn" data-text="${escapeText(item.body)}">Copy</button>
+                </div>
+                <h3>${item.title}</h3>
+                <pre class="formula-body"><code>${escapeText(item.body)}</code></pre>
+              </div>
+            `).join('')}
           </div>
 
           <h2 style="margin-top: 50px;">Curated Standard Textbooks</h2>
@@ -2324,6 +2690,16 @@ fetch(root + 'data/subjects.json')
           </div>
         </section>
       `;
+
+      document.querySelectorAll('.copy-formula-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          navigator.clipboard.writeText(btn.dataset.text).then(() => {
+            const original = btn.textContent;
+            btn.textContent = 'Copied ✓';
+            setTimeout(() => btn.textContent = original, 2000);
+          });
+        });
+      });
     }
 
     function attachCardDocketListeners() {
@@ -2347,7 +2723,7 @@ fetch(root + 'data/subjects.json')
   });
 
 // -----------------------------------------------------------------------------
-// 14. Service Worker Registration (PWA Offline Capability)
+// 16. Service Worker Registration (PWA Offline Capability)
 // -----------------------------------------------------------------------------
 if ('serviceWorker' in navigator && window.location.protocol.startsWith('http')) {
   window.addEventListener('load', () => {
