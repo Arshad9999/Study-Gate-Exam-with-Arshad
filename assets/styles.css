@@ -2899,3 +2899,172 @@ footer a:hover {
   line-height: 1.45;
 }
 
+/* ==========================================================================
+   ACADEMIC DEFINITIONS, TAXONOMIES & COMPARISON MATRICES
+   ========================================================================== */
+
+/* Definitions Grid */
+.definitions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+  margin-top: 18px;
+}
+
+.definition-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-line);
+  border-radius: 8px;
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.definition-card:hover {
+  border-color: var(--accent-gold);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="dark"] .definition-card:hover {
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+}
+
+.def-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.def-term {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.def-pill {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: rgba(197, 160, 89, 0.14);
+  color: var(--accent-gold);
+  border: 1px solid rgba(197, 160, 89, 0.3);
+}
+
+.def-body {
+  font-size: 0.86rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+  margin: 0 0 10px 0;
+}
+
+.def-note {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  border-top: 1px solid var(--border-line);
+  padding-top: 8px;
+}
+
+/* Taxonomy Cards */
+.taxonomy-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 14px;
+  margin-top: 20px;
+}
+
+.taxonomy-card {
+  background: var(--bg-page);
+  border: 1px solid var(--border-line);
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.taxonomy-card strong {
+  display: block;
+  font-size: 0.92rem;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.taxonomy-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.taxonomy-card li {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  padding-left: 14px;
+  position: relative;
+}
+
+.taxonomy-card li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--accent-gold);
+}
+
+/* Comparison Matrix Table */
+.comparison-table-wrapper {
+  overflow-x: auto;
+  border: 1px solid var(--border-line);
+  border-radius: 8px;
+  background: var(--bg-surface);
+  margin-top: 20px;
+}
+
+.comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.86rem;
+  text-align: left;
+}
+
+.comparison-table th {
+  padding: 14px 18px;
+  background: var(--bg-page);
+  border-bottom: 2px solid var(--border-line);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-primary);
+}
+
+.comparison-table th:first-child {
+  width: 25%;
+}
+
+.comparison-table td {
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--border-line);
+  color: var(--text-secondary);
+  vertical-align: top;
+  line-height: 1.5;
+}
+
+.comparison-table tr:last-child td {
+  border-bottom: none;
+}
+
+.comparison-table tr:hover td {
+  background: rgba(197, 160, 89, 0.04);
+}
+
+.comparison-table td:first-child {
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+

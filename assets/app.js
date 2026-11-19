@@ -489,7 +489,101 @@ const SUBJECT_EXTRAS = {
         "theorem": "Handshaking Lemma: In any undirected graph G = (V, E), the sum of vertex degrees equals twice the edge count (sum deg(v) = 2|E|); consequently, the number of odd-degree vertices is always even.",
         "examTrap": "Planar Graph Face Count Trap: Remember that Euler\u2019s formula V - E + F = 2 includes the infinite exterior (outer) face. If a planar graph has k connected components, the formula becomes V - E + F = 1 + k."
       }
-    ]
+    ],
+    "definitions": [
+      {
+        "term": "Partial Order (Poset)",
+        "category": "Order Theory",
+        "definition": "A binary relation R on a set S that is reflexive, antisymmetric, and transitive. Represented visually by a Hasse diagram.",
+        "note": "Divisibility on positive integers (a | b) and set inclusion (A subset of B) are classic posets."
+      },
+      {
+        "term": "Lattice",
+        "category": "Algebraic Structures",
+        "definition": "A partially ordered set (L, <=) in which every two elements a, b in L possess a unique least upper bound (join, a v b) and a unique greatest lower bound (meet, a ^ b).",
+        "note": "A lattice is distributive iff it does not contain N_5 or M_3 as a sublattice."
+      },
+      {
+        "term": "Chromatic Number chi(G)",
+        "category": "Graph Theory",
+        "definition": "The minimum number of colors required to color the vertices of graph G such that no two adjacent vertices share the same color.",
+        "note": "Every bipartite graph has chi(G) = 2. Any planar graph has chi(G) <= 4 (Four Color Theorem)."
+      },
+      {
+        "term": "Eulerian Graph",
+        "category": "Graph Theory",
+        "definition": "A connected undirected graph containing a closed trail that visits every edge exactly once. Exists iff every vertex has an EVEN degree.",
+        "note": "If exactly 2 vertices have odd degree, it contains an open Eulerian path, not a circuit."
+      },
+      {
+        "term": "Monoid & Group",
+        "category": "Abstract Algebra",
+        "definition": "A monoid is an algebraic structure with an associative binary operation and an identity element. A group is a monoid in which every element has a unique inverse.",
+        "note": "Lagrange\u2019s Theorem: The order of any subgroup H divides the order of the finite group G."
+      }
+    ],
+    "taxonomies": [
+      {
+        "name": "Binary Relation Classifications",
+        "badge": "Relational Structures",
+        "items": [
+          "Reflexive (a R a for all a)",
+          "Symmetric (a R b => b R a)",
+          "Antisymmetric (a R b and b R a => a = b)",
+          "Transitive (a R b and b R c => a R c)",
+          "Equivalence (Reflexive + Symmetric + Transitive)",
+          "Partial Order (Reflexive + Antisymmetric + Transitive)"
+        ]
+      },
+      {
+        "name": "Graph Topologies in GATE",
+        "badge": "Graph Taxonomy",
+        "items": [
+          "Planar Graphs (V - E + F = 2, E <= 3V - 6)",
+          "Bipartite Graphs (No odd cycles, chi(G) = 2)",
+          "Trees & Forests (Acyclic connected, E = V - 1)",
+          "Complete Graphs K_n (Edges = n(n-1)/2, chi = n)",
+          "Regular Graphs (Every vertex has identical degree k)"
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "Partial Order (Poset) vs Equivalence Relation",
+      "entityA": "Partial Order (Poset)",
+      "entityB": "Equivalence Relation",
+      "rows": [
+        {
+          "property": "Symmetry Property",
+          "valA": "Antisymmetric: (a,b) and (b,a) in R implies a = b",
+          "valB": "Symmetric: (a,b) in R implies (b,a) in R"
+        },
+        {
+          "property": "Transitivity & Reflexivity",
+          "valA": "Both Reflexive and Transitive",
+          "valB": "Both Reflexive and Transitive"
+        },
+        {
+          "property": "Partitioning Behavior",
+          "valA": "Does NOT partition the set; elements form chains and antichains",
+          "valB": "Partitions the underlying set into disjoint equivalence classes"
+        },
+        {
+          "property": "Canonical Visual Representation",
+          "valA": "Hasse Diagram with upward directed edges",
+          "valB": "Venn diagram partitions or cluster graphs with cliques"
+        },
+        {
+          "property": "Extremal Elements",
+          "valA": "Possesses maximal, minimal, greatest (top), least (bottom) elements",
+          "valB": "No hierarchy; all elements within a class are mutually equivalent"
+        },
+        {
+          "property": "Prototypical Example",
+          "valA": "Divisibility relation on integers (a | b) or Subset inclusion (A subset B)",
+          "valB": "Modulo congruence: a equiv b (mod m) on integers"
+        }
+      ]
+    }
   },
   "linear-algebra": {
     "formulaName": "Eigenvalues & Singular Value Decomposition (SVD)",
@@ -571,7 +665,99 @@ const SUBJECT_EXTRAS = {
         "theorem": "Spectral Theorem for Real Symmetric Matrices: Any real symmetric matrix A can be orthogonally diagonalized as A = Q Lambda Q^T, where all eigenvalues are real and eigenvectors are mutually orthogonal.",
         "examTrap": "Singular Values vs Eigenvalues: Unlike eigenvalues which can be negative or complex, singular values sigma_i are strictly real and non-negative. For symmetric matrices, singular values equal the absolute values of the eigenvalues."
       }
-    ]
+    ],
+    "definitions": [
+      {
+        "term": "Linear Independence",
+        "category": "Vector Spaces",
+        "definition": "A set of vectors {v_1, ..., v_k} is linearly independent iff c_1 v_1 + ... + c_k v_k = 0 holds strictly and only when all scalar coefficients c_i = 0.",
+        "note": "If any vector can be written as a linear combination of the others, the set is dependent."
+      },
+      {
+        "term": "Rank-Nullity Theorem",
+        "category": "Linear Transformations",
+        "definition": "For any linear mapping represented by an m x n matrix A, the dimension of the column space plus the dimension of the nullspace equals the number of columns: rank(A) + nullity(A) = n.",
+        "note": "Column space and row space always have the exact same dimension, called the rank."
+      },
+      {
+        "term": "Eigenvalues & Characteristic Roots",
+        "category": "Spectral Theory",
+        "definition": "Scalars lambda satisfying Av = lambda v for some non-zero eigenvector v, computed as roots of the characteristic polynomial det(A - lambda I) = 0.",
+        "note": "Trace(A) equals the sum of eigenvalues; Det(A) equals the product of eigenvalues."
+      },
+      {
+        "term": "Singular Value Decomposition (SVD)",
+        "category": "Decompositions",
+        "definition": "Factorization of an m x n real matrix into A = U Sigma V^T, where U (m x m) and V (n x n) are orthogonal matrices and Sigma contains non-negative singular values sigma_i = sqrt(lambda_i(A^T A)).",
+        "note": "SVD exists for ALL matrices regardless of shape, rank, or invertibility."
+      },
+      {
+        "term": "Positive Definite Matrix",
+        "category": "Quadratic Forms",
+        "definition": "A symmetric matrix A is positive definite iff x^T A x > 0 for all non-zero vectors x, or equivalently, iff all eigenvalues are strictly positive.",
+        "note": "Sylvester\u2019s criterion: All leading principal minors must be strictly positive."
+      }
+    ],
+    "taxonomies": [
+      {
+        "name": "Matrix Algebraic Classes",
+        "badge": "Matrix Taxonomy",
+        "items": [
+          "Symmetric (A^T = A, all real eigenvalues)",
+          "Skew-Symmetric (A^T = -A, eigenvalues 0 or pure imaginary)",
+          "Orthogonal (A^T A = I, det = +/-1, preserves lengths)",
+          "Idempotent (A^2 = A, eigenvalues in {0, 1})",
+          "Nilpotent (A^k = 0 for some k, all eigenvalues are 0)"
+        ]
+      },
+      {
+        "name": "Linear Systems Solvability",
+        "badge": "System Taxonomy",
+        "items": [
+          "Consistent: Unique Solution (rank(A) = rank([A|B]) = n)",
+          "Consistent: Infinitely Many Solutions (rank(A) = rank([A|B]) < n)",
+          "Inconsistent: No Solution (rank(A) != rank([A|B]))",
+          "Homogeneous: Always consistent (trivial solution X=0 always exists)"
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "Eigenvalues vs Singular Values",
+      "entityA": "Eigenvalues (lambda_i)",
+      "entityB": "Singular Values (sigma_i)",
+      "rows": [
+        {
+          "property": "Applicable Matrix Geometry",
+          "valA": "Defined ONLY for square n x n matrices",
+          "valB": "Defined for ANY m x n rectangular matrix"
+        },
+        {
+          "property": "Numerical Domain",
+          "valA": "Can be real, negative, zero, or complex conjugate pairs",
+          "valB": "Strictly real and non-negative (sigma_i >= 0)"
+        },
+        {
+          "property": "Associated Basis Vectors",
+          "valA": "Same left and right direction: Av = lambda v",
+          "valB": "Two distinct orthonormal coordinate bases: Av = sigma u"
+        },
+        {
+          "property": "Connection to Invertibility",
+          "valA": "A is invertible iff zero is NOT an eigenvalue",
+          "valB": "A has full rank iff all min(m,n) singular values are non-zero"
+        },
+        {
+          "property": "Geometric Interpretation",
+          "valA": "Scaling along invariant directional eigenvectors",
+          "valB": "Lengths of the principal semi-axes of the transformed hyperellipsoid"
+        },
+        {
+          "property": "Mathematical Computation",
+          "valA": "Roots of characteristic polynomial det(A - lambda I) = 0",
+          "valB": "Square roots of eigenvalues of symmetric matrix A^T A"
+        }
+      ]
+    }
   },
   "calculus-optimization": {
     "formulaName": "Taylor Series & Gradient Optimization",
@@ -653,7 +839,98 @@ const SUBJECT_EXTRAS = {
         "theorem": "Global Optimality of Convex Functions: For a convex function defined on a convex set, every local minimum is guaranteed to be a global minimum.",
         "examTrap": "Learning Rate Divergence Trap: If the learning rate eta > 2/L (where L is the Lipschitz constant of grad f), gradient descent can diverge and oscillate into infinity instead of converging."
       }
-    ]
+    ],
+    "definitions": [
+      {
+        "term": "Continuity",
+        "category": "Foundations",
+        "definition": "A function f is continuous at x = c iff lim_{x -> c} f(x) exists and is strictly equal to the evaluated value f(c).",
+        "note": "Differentiability strictly implies continuity, but continuity does NOT imply differentiability."
+      },
+      {
+        "term": "Lagrange\u2019s Mean Value Theorem",
+        "category": "Differential Calculus",
+        "definition": "If f is continuous on [a, b] and differentiable on (a, b), there exists at least one c in (a, b) such that f\u2019(c) = (f(b) - f(a)) / (b - a).",
+        "note": "Rolle\u2019s Theorem is the special case where f(a) = f(b), yielding f\u2019(c) = 0."
+      },
+      {
+        "term": "Hessian Matrix",
+        "category": "Multivariable Optimization",
+        "definition": "The square matrix of second-order partial derivatives H_{ij} = d^2 f / (dx_i dx_j). Dictates the local curvature of a multivariable function.",
+        "note": "Positive definite H implies local min; negative definite implies local max; indefinite implies saddle point."
+      },
+      {
+        "term": "Convex Function",
+        "category": "Optimization Theory",
+        "definition": "A function where the line segment between any two points on its graph lies entirely on or above the graph: f(lambda x + (1-lambda)y) <= lambda f(x) + (1-lambda)f(y).",
+        "note": "Every local minimum of a convex function over a convex set is guaranteed to be a global minimum."
+      },
+      {
+        "term": "Gradient Descent",
+        "category": "Algorithmic Optimization",
+        "definition": "First-order iterative optimization algorithm that updates variables in the direction opposite to the gradient: x_{t+1} = x_t - eta grad f(x_t).",
+        "note": "Convergence depends critically on step size eta <= 2/L where L is Lipschitz smoothness."
+      }
+    ],
+    "taxonomies": [
+      {
+        "name": "Critical Point Classifications",
+        "badge": "Calculus Taxonomy",
+        "items": [
+          "Local Minimum (f'(x*)=0 and f''(x*) > 0, or H is positive definite)",
+          "Local Maximum (f'(x*)=0 and f''(x*) < 0, or H is negative definite)",
+          "Saddle Point (grad f(x*)=0 and H has mixed positive and negative eigenvalues)",
+          "Inflection Point (f''(x) changes sign, curvature inverts)"
+        ]
+      },
+      {
+        "name": "Optimization Methodologies",
+        "badge": "Optimization Taxonomy",
+        "items": [
+          "First-Order Methods (Gradient Descent, Momentum, Adam)",
+          "Second-Order Methods (Newton-Raphson, BFGS, Quasi-Newton)",
+          "Constrained Optimization (Lagrange Multipliers, KKT Conditions)",
+          "Linear Programming (Simplex Method, Duality Theory)"
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "Local Extrema vs Global (Absolute) Extrema",
+      "entityA": "Local (Relative) Extrema",
+      "entityB": "Global (Absolute) Extrema",
+      "rows": [
+        {
+          "property": "Domain Scope",
+          "valA": "Defined over an open neighborhood (delta-ball) around x*",
+          "valB": "Defined over the entire allowable domain or closed set S"
+        },
+        {
+          "property": "Derivative Condition",
+          "valA": "Must satisfy grad f(x*) = 0 (or derivative undefined)",
+          "valB": "May occur at stationary points OR at domain boundaries where grad f != 0"
+        },
+        {
+          "property": "Uniqueness",
+          "valA": "A function can have multiple distinct local minima and maxima",
+          "valB": "The extremum value is unique (though achieved at multiple points)"
+        },
+        {
+          "property": "Convex Function Behavior",
+          "valA": "Any local minimum is automatically a global minimum",
+          "valB": "Guaranteed to coincide with every local minimum in convex domains"
+        },
+        {
+          "property": "Verification Test",
+          "valA": "Second-derivative test f\u2019\u2019(x*) or Hessian matrix definiteness",
+          "valB": "Direct evaluation comparing all critical points and boundary limits"
+        },
+        {
+          "property": "GATE Examination Trap",
+          "valA": "Finding x* with f\u2019(x*)=0 is sufficient to identify local candidate",
+          "valB": "Forgetting boundary points on intervals [a, b] causes incorrect global answers"
+        }
+      ]
+    }
   },
   "probability-statistics": {
     "formulaName": "Bayes' Law & Central Limit Theorem",
@@ -735,7 +1012,98 @@ const SUBJECT_EXTRAS = {
         "theorem": "Central Limit Theorem (CLT): The normalized sum of n independent identically distributed random variables with finite variance converges in distribution to the standard normal distribution N(0,1).",
         "examTrap": "P-Value Decision Boundary: Reject H_0 if and only if p-value <= alpha. If p-value > alpha, we \"fail to reject H_0\" (we NEVER say \"we accept H_0\")."
       }
-    ]
+    ],
+    "definitions": [
+      {
+        "term": "Axiomatic Probability",
+        "category": "Probability Foundations",
+        "definition": "Probability measure P assigning values in [0, 1] to events, where P(S) = 1 and P(A v B) = P(A) + P(B) for mutually exclusive events.",
+        "note": "Complement rule: P(A\u2019) = 1 - P(A). General addition: P(A v B) = P(A) + P(B) - P(A cap B)."
+      },
+      {
+        "term": "Conditional Probability & Bayes\u2019 Rule",
+        "category": "Inference",
+        "definition": "P(A|B) = P(A cap B) / P(B) for P(B) > 0. Bayes\u2019 rule inverts conditional dependencies: P(A_i|B) = [P(B|A_i)P(A_i)] / sum P(B|A_j)P(A_j).",
+        "note": "Critical for updating belief distributions upon receiving noisy evidence."
+      },
+      {
+        "term": "Central Limit Theorem (CLT)",
+        "category": "Asymptotic Theory",
+        "definition": "The normalized sum (or sample mean) of n independent identically distributed random variables with mean mu and finite variance sigma^2 approaches a standard normal distribution N(0, 1) as n -> inf.",
+        "note": "Holds regardless of whether the original distribution was skewed, uniform, or discrete."
+      },
+      {
+        "term": "Covariance & Correlation",
+        "category": "Bivariate Moments",
+        "definition": "Cov(X, Y) = E[(X - mu_X)(Y - mu_Y)] = E[XY] - E[X]E[Y]. Pearson correlation rho = Cov(X, Y) / (sigma_X sigma_Y) bounded in [-1, +1].",
+        "note": "Independence implies Cov = 0, but Cov = 0 does NOT guarantee independence."
+      },
+      {
+        "term": "Hypothesis Testing & p-value",
+        "category": "Statistical Inference",
+        "definition": "Decision framework evaluating null hypothesis H_0 against alternative H_1. The p-value is the probability of observing data at least as extreme as the sample, assuming H_0 is true.",
+        "note": "Reject H_0 iff p-value <= alpha (significance level)."
+      }
+    ],
+    "taxonomies": [
+      {
+        "name": "Discrete Probability Distributions",
+        "badge": "Discrete Models",
+        "items": [
+          "Bernoulli (Single trial, outcomes in {0, 1})",
+          "Binomial B(n, p) (Mean np, Variance np(1-p))",
+          "Poisson Pois(lambda) (Mean = Variance = lambda, rare events)",
+          "Geometric (Memoryless discrete trials until first success)"
+        ]
+      },
+      {
+        "name": "Continuous Probability Distributions",
+        "badge": "Continuous Models",
+        "items": [
+          "Uniform U(a, b) (Constant density 1/(b-a))",
+          "Normal N(mu, sigma^2) (Symmetric Gaussian bell curve)",
+          "Exponential Exp(lambda) (Memoryless continuous waiting times)",
+          "Student\u2019s t-distribution (Heavy-tailed, small sample inference)"
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "Mutually Exclusive Events vs Independent Events",
+      "entityA": "Mutually Exclusive (Disjoint) Events",
+      "entityB": "Independent Events",
+      "rows": [
+        {
+          "property": "Mathematical Condition",
+          "valA": "P(A cap B) = 0 (Events cannot co-occur)",
+          "valB": "P(A cap B) = P(A) * P(B)"
+        },
+        {
+          "property": "Conditional Probability",
+          "valA": "P(A | B) = 0 (Knowledge of B guarantees A did not happen)",
+          "valB": "P(A | B) = P(A) (Knowledge of B gives zero information on A)"
+        },
+        {
+          "property": "Set-Theoretic Venn Representation",
+          "valA": "Disjoint, non-overlapping circles with empty intersection",
+          "valB": "Overlapping circles where intersection area matches the product of probabilities"
+        },
+        {
+          "property": "Compatibility with Non-Zero Probabilities",
+          "valA": "If P(A) > 0 and P(B) > 0, they can NEVER be independent",
+          "valB": "If P(A) > 0 and P(B) > 0, they can NEVER be mutually exclusive"
+        },
+        {
+          "property": "Union Formula Simplification",
+          "valA": "P(A v B) = P(A) + P(B)",
+          "valB": "P(A v B) = P(A) + P(B) - P(A)*P(B)"
+        },
+        {
+          "property": "Physical Interpretation",
+          "valA": "Rolling a die: getting a 2 and getting a 5 on the same roll",
+          "valB": "Flipping two separate independent coins: Heads on Coin 1 and Tails on Coin 2"
+        }
+      ]
+    }
   },
   "digital-logic": {
     "formulaName": "Sequential Timing & K-Map Boolean Optimization",
@@ -817,7 +1185,98 @@ const SUBJECT_EXTRAS = {
         "theorem": "Maximum Clock Frequency Bound: The minimum clock period T_{clk} is bounded by T_{clk} >= t_{cq(max)} + t_{comb(max)} + t_{su} - t_{skew}, giving f_{max} = 1 / T_{clk(min)}.",
         "examTrap": "Hold Time Independence from Clock: Hold time violations (t_{cq(min)} + t_{comb(min)} < t_h + t_{skew}) CANNOT be resolved by decreasing clock frequency! They depend purely on propagation delays."
       }
-    ]
+    ],
+    "definitions": [
+      {
+        "term": "Essential Prime Implicant (EPI)",
+        "category": "Boolean Optimization",
+        "definition": "A prime implicant subcube in a Karnaugh map that covers at least one minterm (1) that is covered by no other prime implicant.",
+        "note": "All EPIs must be included in every minimal sum-of-products (SOP) Boolean expression."
+      },
+      {
+        "term": "Setup Time (t_su)",
+        "category": "Sequential Timing",
+        "definition": "The minimum time duration for which data input must remain stable and unchanged BEFORE the active clock edge arrives at a flip-flop.",
+        "note": "Violating setup time results in metastability and corrupt state capture."
+      },
+      {
+        "term": "Hold Time (t_h)",
+        "category": "Sequential Timing",
+        "definition": "The minimum time duration for which data input must remain stable and unchanged AFTER the active clock edge arrives at a flip-flop.",
+        "note": "Hold time constraints are independent of clock period; cannot be fixed by slowing clock!"
+      },
+      {
+        "term": "Race Around Condition",
+        "category": "Memory Elements",
+        "definition": "Phenomenon in level-triggered JK flip-flops where output toggles repeatedly and unpredictably when J=1, K=1 and clock pulse width t_p > propagation delay t_{ff}.",
+        "note": "Resolved by edge-triggering or Master-Slave JK architecture."
+      },
+      {
+        "term": "Universal Logic Gate",
+        "category": "Gate Theory",
+        "definition": "A logic gate that can implement any arbitrary Boolean function without requiring any other gate type. NAND and NOR are the two canonical universal gates.",
+        "note": "Inverter, AND, and OR can all be synthesized purely from NAND or purely from NOR."
+      }
+    ],
+    "taxonomies": [
+      {
+        "name": "Flip-Flop Architectures",
+        "badge": "Sequential Blocks",
+        "items": [
+          "SR Flip-Flop (Undefined state when S=1, R=1)",
+          "JK Flip-Flop (Toggles on J=1, K=1; solves SR ambiguity)",
+          "D Flip-Flop (Delay element: Q_{next} = D, avoids invalid states)",
+          "T Flip-Flop (Toggle element: Q_{next} = T xor Q, divides frequency by 2)"
+        ]
+      },
+      {
+        "name": "Finite State Machine Models",
+        "badge": "FSM Taxonomy",
+        "items": [
+          "Mealy Machine (Outputs depend on current state AND inputs; fewer states)",
+          "Moore Machine (Outputs depend strictly on current state only; glitch-free)",
+          "Synchronous Counters (All flip-flops share identical clock pulse)",
+          "Ripple Counters (Clock of stage i+1 is driven by output of stage i)"
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "Combinational Circuits vs Sequential Circuits",
+      "entityA": "Combinational Logic Circuits",
+      "entityB": "Sequential Logic Circuits",
+      "rows": [
+        {
+          "property": "Memory Storage",
+          "valA": "No memory elements; contains no latches or flip-flops",
+          "valB": "Memory elements present to store system state history"
+        },
+        {
+          "property": "Output Dependency",
+          "valA": "Outputs depend strictly on present input values only",
+          "valB": "Outputs depend on present inputs AND past state history"
+        },
+        {
+          "property": "Clock Signal Requirement",
+          "valA": "Operates asynchronously; does not require a clock pulse",
+          "valB": "Usually driven by periodic clock signals (synchronous systems)"
+        },
+        {
+          "property": "Feedback Loops",
+          "valA": "Strictly feed-forward acyclic graph; no feedback paths",
+          "valB": "Feedback paths exist from memory outputs back to input logic"
+        },
+        {
+          "property": "Timing Analysis",
+          "valA": "Governed purely by cumulative gate propagation delays",
+          "valB": "Constrained by flip-flop setup time, hold time, and clock period"
+        },
+        {
+          "property": "Representative GATE Circuits",
+          "valA": "Full Adders, Carry Lookahead, Multiplexers, Decoders, ALUs",
+          "valB": "Shift Registers, Synchronous Counters, RAM Cells, FSM Controllers"
+        }
+      ]
+    }
   },
   "computer-organization": {
     "formulaName": "Cache Memory EAT & Pipeline Speedup",
@@ -899,7 +1358,98 @@ const SUBJECT_EXTRAS = {
         "theorem": "Amdahl\u2019s Law for Speedup: S_{overall} = 1 / [(1 - f) + (f / s)], where f is the fraction of execution time enhanced by a speedup factor of s.",
         "examTrap": "Load-Use Data Hazard Trap: Operand forwarding CANNOT eliminate the stall between a Load Word (LW) instruction and an immediately following instruction that uses the loaded register. It requires at least 1 stall cycle!"
       }
-    ]
+    ],
+    "definitions": [
+      {
+        "term": "Effective Access Time (EAT)",
+        "category": "Memory Subsystems",
+        "definition": "Average latency experienced by CPU when requesting memory, weighted by hierarchical hit rates: EAT = H * T_cache + (1 - H) * T_miss.",
+        "note": "In multi-level caches, miss penalty involves successive level latencies."
+      },
+      {
+        "term": "Operand Forwarding (Bypassing)",
+        "category": "Pipelining",
+        "definition": "Hardware optimization in pipelined processors routing ALU computation outputs directly back to earlier pipeline register inputs without waiting for register file writeback.",
+        "note": "Resolves ALU-to-ALU data hazards; cannot eliminate Load-to-Use 1-cycle stall."
+      },
+      {
+        "term": "Direct Memory Access (DMA)",
+        "category": "I/O Organization",
+        "definition": "Hardware controller transferring data blocks directly between high-speed peripheral I/O devices and main RAM without continuous CPU intervention.",
+        "note": "Cycle stealing mode steals isolated bus cycles; burst mode transfers entire blocks."
+      },
+      {
+        "term": "Spatial & Temporal Locality",
+        "category": "Cache Principles",
+        "definition": "Temporal locality: recently accessed memory locations are likely to be accessed again soon. Spatial locality: memory locations nearby recently accessed addresses are likely to be referenced.",
+        "note": "Cache line block size exploits spatial locality; cache size exploits temporal locality."
+      },
+      {
+        "term": "Amdahl\u2019s Law",
+        "category": "Performance Bounds",
+        "definition": "Mathematical law stating the speedup of a system enhanced by factor s on fraction f is S = 1 / [(1 - f) + (f / s)].",
+        "note": "Maximum theoretical speedup is strictly bounded by 1 / (1 - f) as s -> inf."
+      }
+    ],
+    "taxonomies": [
+      {
+        "name": "Cache Mapping Architectures",
+        "badge": "Cache Taxonomy",
+        "items": [
+          "Direct Mapped (Index = Address mod Lines; 1 comparator, high conflict miss)",
+          "Fully Associative (Block placed in any line; N comparators, zero conflict miss)",
+          "Set Associative (k lines per set; balanced hit time and miss rate)",
+          "Write-Through vs Write-Back (Immediate memory update vs Dirty bit delayed update)"
+        ]
+      },
+      {
+        "name": "Pipeline Hazard Taxonomies",
+        "badge": "Hazard Taxonomy",
+        "items": [
+          "Structural Hazard (Hardware resource collision, e.g., single memory port)",
+          "Data Hazard: RAW (True dependency, Read-After-Write)",
+          "Data Hazard: WAR / WAW (Anti/Output dependencies in out-of-order CPUs)",
+          "Control Hazard (Branch instructions stalling instruction fetch stage)"
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "Direct-Mapped Cache vs Set-Associative Cache",
+      "entityA": "Direct-Mapped Cache",
+      "entityB": "k-Way Set-Associative Cache",
+      "rows": [
+        {
+          "property": "Block Placement Rule",
+          "valA": "Block can map to exactly ONE specific cache line (Line = Block mod N)",
+          "valB": "Block can map to ANY of the k lines within its assigned set"
+        },
+        {
+          "property": "Tag Comparator Hardware",
+          "valA": "Requires only 1 single tag comparator; low cost and fast",
+          "valB": "Requires k parallel tag comparators per lookup; higher hardware cost"
+        },
+        {
+          "property": "Conflict Miss Rate",
+          "valA": "High conflict misses when multiple active addresses share index",
+          "valB": "Significantly reduced conflict misses due to associative line flexibility"
+        },
+        {
+          "property": "Replacement Policy",
+          "valA": "No replacement algorithm needed; existing block is simply overwritten",
+          "valB": "Requires replacement algorithm (LRU, FIFO, or Random) when set is full"
+        },
+        {
+          "property": "Address Bit Splitting",
+          "valA": "Tag Bits | Line Index Bits (log2 N) | Word Offset Bits",
+          "valB": "Tag Bits | Set Index Bits (log2 Sets) | Word Offset Bits"
+        },
+        {
+          "property": "Hit Latency vs Capacity",
+          "valA": "Fastest hit detection time; optimal for L1 instruction caches",
+          "valB": "Slightly higher hit multiplexing delay; optimal for L2/L3 caches"
+        }
+      ]
+    }
   },
   "programming-data-structures": {
     "formulaName": "Binary Heap Invariant & AVL Balancing",
@@ -981,7 +1531,98 @@ const SUBJECT_EXTRAS = {
         "theorem": "Binary Tree Degree Identity: In every binary tree, the number of leaf nodes n_0 is strictly equal to the number of nodes having two children n_2 plus one (n_0 = n_2 + 1).",
         "examTrap": "Tree Construction Ambiguity: You CANNOT reconstruct a unique binary tree from Preorder and Postorder traversals alone, unless you are explicitly given that every non-leaf node has exactly two children."
       }
-    ]
+    ],
+    "definitions": [
+      {
+        "term": "Binary Search Tree (BST) Property",
+        "category": "Trees",
+        "definition": "For every node x: all keys in left subtree are strictly smaller than key(x), and all keys in right subtree are strictly larger than key(x).",
+        "note": "Inorder traversal of any valid BST produces strictly ascending sorted keys."
+      },
+      {
+        "term": "AVL Balance Factor",
+        "category": "Self-Balancing Trees",
+        "definition": "Height(LeftSubtree) - Height(RightSubtree). An AVL tree maintains BF in {-1, 0, +1} for every node through single (LL, RR) or double (LR, RL) rotations.",
+        "note": "Guarantees worst-case search, insertion, and deletion in O(log n) time."
+      },
+      {
+        "term": "Complete Binary Tree",
+        "category": "Tree Structures",
+        "definition": "A binary tree in which all levels are completely filled except possibly the last level, where nodes are positioned as far left as possible.",
+        "note": "Can be stored contiguously in an array without pointers: Parent(i) = floor((i-1)/2)."
+      },
+      {
+        "term": "Activation Record (Stack Frame)",
+        "category": "Runtime Environments",
+        "definition": "A block of memory pushed onto the runtime call stack for each function invocation, storing parameters, local variables, return address, and saved registers.",
+        "note": "Recursion depth is limited by available call stack memory (stack overflow)."
+      },
+      {
+        "term": "Catalan Number C_n",
+        "category": "Combinatorial Structures",
+        "definition": "Sequence defined by C_n = (1 / (n + 1)) * C(2n, n). Enumerates distinct binary search trees with n keys, valid parenthesis sequences, and stack permutations.",
+        "note": "C_3 = 5, C_4 = 14, C_5 = 42."
+      }
+    ],
+    "taxonomies": [
+      {
+        "name": "Binary Tree Variants",
+        "badge": "Tree Taxonomy",
+        "items": [
+          "Full Binary Tree (Every node has either 0 or 2 children; n_0 = n_2 + 1)",
+          "Complete Binary Tree (Filled left-to-right; base structure for binary heaps)",
+          "Perfect Binary Tree (All interior nodes have 2 children, all leaves at same depth)",
+          "Degenerate Tree (Each node has 1 child; degenerates into linear linked list)"
+        ]
+      },
+      {
+        "name": "Linear Data Structures",
+        "badge": "Linear Structures",
+        "items": [
+          "Contiguous Array (O(1) random access, fixed contiguous allocation)",
+          "Singly Linked List (O(1) insertion at head, O(n) sequential access)",
+          "Circular Queue (Modulo indexing, eliminates false full condition)",
+          "Monotonic Stack (Maintains elements in monotonic order for next-greater element)"
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "Binary Search Tree (BST) vs Binary Min-Heap",
+      "entityA": "Binary Search Tree (BST)",
+      "entityB": "Binary Min-Heap",
+      "rows": [
+        {
+          "property": "Core Ordering Invariant",
+          "valA": "Left Child < Parent < Right Child (Horizontal ordering)",
+          "valB": "Parent <= Both Children (Vertical partial ordering only)"
+        },
+        {
+          "property": "Structural Completeness Rule",
+          "valA": "No structural shape constraint; can degenerate into linked list O(n)",
+          "valB": "MUST be a Complete Binary Tree; always balanced with height floor(log2 n)"
+        },
+        {
+          "property": "Inorder Traversal Output",
+          "valA": "Guaranteed strictly sorted ascending order",
+          "valB": "Does NOT produce sorted order (only parent-child relationship held)"
+        },
+        {
+          "property": "Search Time Complexity",
+          "valA": "O(log n) average, O(n) worst-case (or O(log n) in balanced AVL/RBT)",
+          "valB": "O(n) linear search; heaps do not support efficient search for arbitrary keys"
+        },
+        {
+          "property": "Min / Max Element Access",
+          "valA": "O(h) by traversing left-most (min) or right-most (max) branch",
+          "valB": "O(1) constant time to inspect root min element"
+        },
+        {
+          "property": "Memory Storage Representation",
+          "valA": "Node structures linked via left and right child pointers",
+          "valB": "Contiguous 1D array without pointer overhead (0-indexed arithmetic)"
+        }
+      ]
+    }
   },
   "algorithms": {
     "formulaName": "Master Theorem for Divide & Conquer",
@@ -1063,7 +1704,98 @@ const SUBJECT_EXTRAS = {
         "theorem": "Cut Property for MST: For any cut in graph G, the lightest edge crossing the cut belongs to every Minimum Spanning Tree of G.",
         "examTrap": "Dijkstra on Negative Edges Trap: Dijkstra\u2019s algorithm can produce incorrect results or loop infinitely when negative edge weights are present. Always use Bellman-Ford if edge weights can be negative."
       }
-    ]
+    ],
+    "definitions": [
+      {
+        "term": "Asymptotic Equivalence (Theta Notation)",
+        "category": "Complexity",
+        "definition": "f(n) = Theta(g(n)) iff there exist positive constants c_1, c_2, n_0 such that c_1 g(n) <= f(n) <= c_2 g(n) for all n >= n_0.",
+        "note": "Represents an asymptotically tight bound from both above and below."
+      },
+      {
+        "term": "Optimal Substructure",
+        "category": "Paradigms",
+        "definition": "A problem exhibits optimal substructure if an optimal solution to the overall problem instance contains optimal solutions to its subproblem instances.",
+        "note": "Prerequisite for both Dynamic Programming and Greedy algorithms."
+      },
+      {
+        "term": "Greedy Choice Property",
+        "category": "Paradigms",
+        "definition": "A globally optimal solution can be reached by greedily making locally optimal choices at each decision stage without backtracking.",
+        "note": "Distinguishes greedy methods from DP; requires proof of correctness (exchange argument)."
+      },
+      {
+        "term": "Master Theorem",
+        "category": "Recurrences",
+        "definition": "Cookbook formula solving divide-and-conquer recurrences T(n) = a T(n/b) + f(n) by comparing f(n) against the critical exponent n^{log_b a}.",
+        "note": "Requires polynomial gap; does not apply to non-polynomial differences like n/log(n)."
+      },
+      {
+        "term": "Cut Property for MST",
+        "category": "Graph Theory",
+        "definition": "For any cut in a connected edge-weighted graph, the edge crossing the cut with the minimum weight belongs to every Minimum Spanning Tree of the graph.",
+        "note": "Underpins correctness of Kruskal\u2019s and Prim\u2019s greedy algorithms."
+      }
+    ],
+    "taxonomies": [
+      {
+        "name": "Algorithmic Design Paradigms",
+        "badge": "Design Paradigms",
+        "items": [
+          "Divide and Conquer (Merge Sort, Quick Sort median pivot, Binary Search)",
+          "Greedy Strategy (Huffman Coding, Kruskal MST, Fractional Knapsack)",
+          "Dynamic Programming (Matrix Chain, 0/1 Knapsack, Bellman-Ford, Floyd-Warshall)",
+          "Backtracking & Branch-and-Bound (N-Queens, Graph Coloring, TSP pruning)"
+        ]
+      },
+      {
+        "name": "Sorting Algorithm Classifications",
+        "badge": "Sorting Taxonomy",
+        "items": [
+          "Stable Sorts (Merge Sort, Counting Sort, TimSort - preserve relative order)",
+          "Unstable Sorts (Quick Sort, Heap Sort, Selection Sort)",
+          "In-Place Sorts (Heap Sort, Quick Sort - O(1) auxiliary memory)",
+          "Linear Time Sorts (Counting Sort O(n+k), Radix Sort O(d(n+k)))"
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "Greedy Strategy vs Dynamic Programming",
+      "entityA": "Greedy Algorithmic Paradigm",
+      "entityB": "Dynamic Programming (DP)",
+      "rows": [
+        {
+          "property": "Decision Commitment Timing",
+          "valA": "Irrevocably commits to the local optimal choice; never reconsiders",
+          "valB": "Exhaustively evaluates all overlapping subproblems and tabulates results"
+        },
+        {
+          "property": "Subproblem Structure",
+          "valA": "Reduces problem to a single subproblem at each step",
+          "valB": "Strictly requires overlapping subproblems reused across decision paths"
+        },
+        {
+          "property": "Optimal Substructure Rule",
+          "valA": "Required (must prove greedy choice belongs to global optimum)",
+          "valB": "Required (optimal solution composed of optimal sub-solutions)"
+        },
+        {
+          "property": "Backtracking Capability",
+          "valA": "No backtracking; choices are top-down and instantaneous",
+          "valB": "Retains table/memo memoizing all paths; can reconstruct full decision sequence"
+        },
+        {
+          "property": "Classic Knapsack Comparison",
+          "valA": "Solves Fractional Knapsack in O(n log n) sorting by value/weight",
+          "valB": "Required for discrete 0/1 Knapsack in O(nW) pseudo-polynomial time"
+        },
+        {
+          "property": "Typical Execution Time",
+          "valA": "Usually faster: O(n) or O(n log n)",
+          "valB": "Higher polynomial complexity: O(n^2), O(n^3), or O(nW)"
+        }
+      ]
+    }
   },
   "theory-of-computation": {
     "formulaName": "Pumping Lemma for Regular Languages",
@@ -1145,7 +1877,98 @@ const SUBJECT_EXTRAS = {
         "theorem": "Rice\u2019s Theorem: Any non-trivial semantic property of the language recognized by a Turing Machine is undecidable.",
         "examTrap": "Syntactic vs Semantic Property Trap: Rice\u2019s theorem applies ONLY to semantic properties of the language recognized by a TM (e.g., \"is L(M) empty?\"). It does NOT apply to syntactic properties of the TM itself (e.g., \"does M have 10 states?\"), which are trivially decidable."
       }
-    ]
+    ],
+    "definitions": [
+      {
+        "term": "Regular Language",
+        "category": "Automata Theory",
+        "definition": "A formal language recognized by a Deterministic Finite Automaton (DFA), or equivalently generated by a Regular Expression or Regular Grammar.",
+        "note": "Closed under union, intersection, complement, concatenation, and Kleene star."
+      },
+      {
+        "term": "Pumping Lemma for Regular Languages",
+        "category": "Non-Regularity",
+        "definition": "For any regular language L with pumping length p, any string w in L with |w| >= p can be split into w = xyz with |y| >= 1, |xy| <= p such that x (y^i) z in L for all i >= 0.",
+        "note": "Used via contrapositive to prove a language is NOT regular."
+      },
+      {
+        "term": "Deterministic Pushdown Automaton (DPDA)",
+        "category": "CFLs",
+        "definition": "A Pushdown Automaton with deterministic transition relations. Accepts Deterministic Context-Free Languages (DCFLs).",
+        "note": "DPDAs are strictly less expressive than Non-deterministic PDAs (NPDAs)."
+      },
+      {
+        "term": "Turing Decidable (Recursive) Language",
+        "category": "Computability",
+        "definition": "A language for which there exists a Turing Machine that halts on ALL inputs: accepts if w in L, and rejects if w not in L.",
+        "note": "Closed under complement. Recursively Enumerable languages may loop forever on non-members."
+      },
+      {
+        "term": "Rice\u2019s Theorem",
+        "category": "Undecidability",
+        "definition": "Any non-trivial semantic property of the language recognized by a Turing Machine is undecidable.",
+        "note": "Applies strictly to properties of L(M), not syntactic properties of machine M itself."
+      }
+    ],
+    "taxonomies": [
+      {
+        "name": "Chomsky Hierarchy of Languages",
+        "badge": "Formal Hierarchy",
+        "items": [
+          "Type 3: Regular Languages (Finite State Automata, no memory)",
+          "Type 2: Context-Free Languages (Pushdown Automata, single LIFO stack)",
+          "Type 1: Context-Sensitive Languages (Linear Bounded Automata)",
+          "Type 0: Recursively Enumerable Languages (Unrestricted Turing Machines)"
+        ]
+      },
+      {
+        "name": "Decision Problem Classes",
+        "badge": "Decidability Taxonomy",
+        "items": [
+          "Decidable on Regular (Emptiness, Finiteness, Membership, Equivalence)",
+          "Decidable on CFL (Emptiness, Finiteness, Membership via CYK)",
+          "Undecidable on CFL (Ambiguity, Equivalence, Universality L = Sigma*)",
+          "Undecidable on TM (Halting Problem, Emptiness, Equivalence, Regularity)"
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "Deterministic Finite Automata (DFA) vs Non-Deterministic Finite Automata (NFA)",
+      "entityA": "Deterministic Finite Automata (DFA)",
+      "entityB": "Non-Deterministic Finite Automata (NFA)",
+      "rows": [
+        {
+          "property": "Transition Uniqueness",
+          "valA": "Exactly one transition for every input symbol: delta: Q x Sigma -> Q",
+          "valB": "Zero, one, or multiple transitions per symbol: delta: Q x Sigma -> 2^Q"
+        },
+        {
+          "property": "Epsilon (Null) Transitions",
+          "valA": "Strictly forbidden; cannot change state without reading input",
+          "valB": "Permitted (epsilon-NFA can change state without consuming input)"
+        },
+        {
+          "property": "Language Expressive Power",
+          "valA": "Recognizes Regular Languages (Type 3 in Chomsky Hierarchy)",
+          "valB": "Recognizes Regular Languages (Type 3): EXACTLY identical expressive power!"
+        },
+        {
+          "property": "Powerset Subset Construction",
+          "valA": "Minimal state count achieved through Myhill-Nerode minimization",
+          "valB": "Converting an n-state NFA to a DFA can yield up to 2^n states in worst case"
+        },
+        {
+          "property": "String Acceptance Criterion",
+          "valA": "Input string is accepted iff the unique path terminates in a final state",
+          "valB": "Accepted iff AT LEAST ONE computational path ends in an accepting state"
+        },
+        {
+          "property": "Hardware Implementation",
+          "valA": "Directly synthesized into sequential flip-flop circuits",
+          "valB": "Requires state-set tracking or simulation in software"
+        }
+      ]
+    }
   },
   "compiler-design": {
     "formulaName": "FIRST and FOLLOW Sets for LL(1) Parsing",
@@ -1227,7 +2050,98 @@ const SUBJECT_EXTRAS = {
         "theorem": "S-Attributed Subset Invariant: Every S-attributed syntax-directed definition is strictly an L-attributed definition, enabling single-pass evaluation during bottom-up parsing.",
         "examTrap": "Inherited Right-Dependency Trap: In an L-attributed definition, an inherited attribute of a symbol can depend only on inherited attributes of the parent or attributes of symbols to its LEFT, never symbols to its right!"
       }
-    ]
+    ],
+    "definitions": [
+      {
+        "term": "Token & Lexeme",
+        "category": "Lexical Phase",
+        "definition": "A lexeme is a concrete sequence of source characters matching a pattern. A token is an abstract symbol (e.g., <id, 3>, <assign_op>) passed to the parser.",
+        "note": "Whitespace and comments are stripped during lexical tokenization."
+      },
+      {
+        "term": "LL(1) Grammar Condition",
+        "category": "Top-Down Parsing",
+        "definition": "A context-free grammar where parsing tables contain no multiple entries. For A -> alpha | beta: FIRST(alpha) cap FIRST(beta) = empty, and if eps in FIRST(alpha), FOLLOW(A) cap FIRST(beta) = empty.",
+        "note": "Left-recursive or ambiguous grammars can NEVER be LL(1)."
+      },
+      {
+        "term": "LR(0) Item & Core",
+        "category": "Bottom-Up Parsing",
+        "definition": "A grammar production equipped with a position marker dot: A -> alpha . beta. The core is the production itself without lookahead.",
+        "note": "LALR(1) merges CLR(1) states with identical LR(0) cores."
+      },
+      {
+        "term": "Syntax-Directed Definition (SDD)",
+        "category": "Semantics",
+        "definition": "A context-free grammar augmented with attributes and semantic evaluation rules. S-attributed: synthesized only. L-attributed: left-dependent inherited attributes.",
+        "note": "Every S-attributed definition is strictly an L-attributed definition."
+      },
+      {
+        "term": "Basic Block",
+        "category": "Optimization",
+        "definition": "A sequence of consecutive three-address statements where control enters strictly at the first statement and leaves strictly at the last without halting or branching in the middle.",
+        "note": "First statement is a leader; jump targets are leaders; statements following jumps are leaders."
+      }
+    ],
+    "taxonomies": [
+      {
+        "name": "Parsing Algorithm Power Spectrum",
+        "badge": "Parser Hierarchy",
+        "items": [
+          "LL(1) (Top-down, 1 lookahead, leftmost derivation, no left recursion)",
+          "SLR(1) (Simple LR, uses FOLLOW set for reductions, smallest table)",
+          "LALR(1) (Merged CLR cores, same state count as SLR, no new SR conflicts)",
+          "CLR(1) (Canonical LR, full lookahead items [A -> alpha.beta, a], most powerful)"
+        ]
+      },
+      {
+        "name": "Compiler Optimization Scopes",
+        "badge": "Optimization Taxonomy",
+        "items": [
+          "Local Optimization (Within a single basic block, DAG common subexpressions)",
+          "Loop Optimization (Loop invariant code motion, induction variable strength reduction)",
+          "Data Flow Analysis (Reaching definitions, liveness analysis, constant propagation)",
+          "Peephole Optimization (Redundant instruction elimination, algebraic simplifications)"
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "Top-Down Parsing (LL(1)) vs Bottom-Up Parsing (LR(1) / LALR(1))",
+      "entityA": "Top-Down Parsing (LL(1))",
+      "entityB": "Bottom-Up Parsing (LR(1) / LALR(1))",
+      "rows": [
+        {
+          "property": "Derivation Constructed",
+          "valA": "Constructs Leftmost derivation starting from Root non-terminal down to leaves",
+          "valB": "Constructs Rightmost derivation in reverse starting from leaves up to Root"
+        },
+        {
+          "property": "Handling Left Recursion",
+          "valA": "Cannot handle left recursion (causes infinite parser loop; must be eliminated)",
+          "valB": "Handles left recursion naturally without grammar modification"
+        },
+        {
+          "property": "Parser Action Set",
+          "valA": "Predict production from non-terminal and input token; Match terminals",
+          "valB": "Shift input terminal, Reduce handles by production, Accept, Error"
+        },
+        {
+          "property": "Parsing Table Organization",
+          "valA": "2D table indexed by [Non-Terminal, Lookahead Terminal]",
+          "valB": "Action table [State, Terminal] and Goto table [State, Non-Terminal]"
+        },
+        {
+          "property": "Grammar Class Expressive Power",
+          "valA": "Strictly weaker: LL(1) grammars are a proper subset of LR(1)",
+          "valB": "Substantially more powerful: parses virtually all programming language constructs"
+        },
+        {
+          "property": "Syntax Error Detection Point",
+          "valA": "Detects syntax error immediately before shifting invalid terminal",
+          "valB": "Detects syntax error as soon as an invalid reduction or shift is attempted"
+        }
+      ]
+    }
   },
   "operating-systems": {
     "formulaName": "Banker's Algorithm & Effective Paging Time",
@@ -1309,7 +2223,98 @@ const SUBJECT_EXTRAS = {
         "theorem": "Stack Algorithm Invariance: Any page replacement algorithm satisfying the inclusion property (the set of pages in memory for m frames is a subset of the pages for m+1 frames) can never exhibit Belady\u2019s anomaly.",
         "examTrap": "Multi-Level Page Table Size Trap: Multi-level paging reduces physical memory consumption because unallocated virtual memory ranges do NOT require second-level page tables to be created in RAM!"
       }
-    ]
+    ],
+    "definitions": [
+      {
+        "term": "Process Control Block (PCB)",
+        "category": "Process Management",
+        "definition": "Kernel data structure storing execution context of a process: PID, program counter, register values, memory limits, and open file lists.",
+        "note": "Context switching saves state to the current PCB and loads the next PCB."
+      },
+      {
+        "term": "Counting Semaphore",
+        "category": "Synchronization",
+        "definition": "Integer synchronization primitive initialized to S. wait(S) decrements S and blocks if S < 0; signal(S) increments S and unblocks a waiting process.",
+        "note": "Binary semaphore (mutex) takes values strictly in {0, 1}."
+      },
+      {
+        "term": "Deadlock & Banker\u2019s Safety",
+        "category": "Deadlocks",
+        "definition": "Deadlock occurs when processes in a set are waiting for events that only other processes in the set can trigger. Banker\u2019s algorithm grants resources only if a safe sequence exists.",
+        "note": "Four Coffman conditions: Mutual Exclusion, Hold & Wait, No Preemption, Circular Wait."
+      },
+      {
+        "term": "Translation Lookaside Buffer (TLB)",
+        "category": "Memory Paging",
+        "definition": "Fast associative hardware cache storing recently translated Virtual Page Number to Physical Frame Number mappings.",
+        "note": "TLB hit avoids memory lookup to page tables: EAT = t_TLB + t_mem + (1 - H)*2 t_mem."
+      },
+      {
+        "term": "Thrashing",
+        "category": "Virtual Memory",
+        "definition": "Pathological condition where the CPU spends more time swapping pages between RAM and disk than executing instructions.",
+        "note": "Remedied using the Working Set Model or Page Fault Frequency regulation."
+      }
+    ],
+    "taxonomies": [
+      {
+        "name": "CPU Scheduling Disciplines",
+        "badge": "Scheduling Taxonomy",
+        "items": [
+          "Preemptive (SRTF, Round Robin, Priority preemptive - higher responsiveness)",
+          "Non-Preemptive (FCFS, Non-preemptive SJF - zero context-switch overhead)",
+          "Round Robin (Time quantum slicing; small quantum = high overhead, large = FCFS)",
+          "Multi-Level Feedback Queue (Adaptive dynamic priorities based on CPU burst history)"
+        ]
+      },
+      {
+        "name": "Page Replacement Algorithms",
+        "badge": "Memory Taxonomy",
+        "items": [
+          "FIFO (Suffers from Belady\u2019s anomaly where more frames cause more faults)",
+          "Optimal (B\u00e9l\u00e1dy\u2019s optimal algorithm: replaces page needed farthest in future)",
+          "LRU (Least Recently Used: stack algorithm, immune to Belady\u2019s anomaly)",
+          "Clock / Second-Chance (Approximates LRU using hardware reference bits)"
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "Process vs Thread",
+      "entityA": "Operating System Process",
+      "entityB": "Thread (Lightweight Process)",
+      "rows": [
+        {
+          "property": "Virtual Address Space",
+          "valA": "Isolated, private virtual memory address space allocated per process",
+          "valB": "Shares the address space (code, data, heap) with other peer threads"
+        },
+        {
+          "property": "Creation & Context Switch Overhead",
+          "valA": "Heavyweight: allocates page tables, PCB, and flushes TLB on switch",
+          "valB": "Lightweight: shared memory context; saves/restores only registers and stack"
+        },
+        {
+          "property": "Inter-Entity Communication",
+          "valA": "Requires explicit IPC mechanisms: Pipes, Message Queues, Shared Memory",
+          "valB": "Direct communication via shared heap memory and global process variables"
+        },
+        {
+          "property": "Fault Isolation & Reliability",
+          "valA": "High isolation: a crash or segmentation fault in one process does not affect others",
+          "valB": "Low isolation: an unhandled memory fault in one thread crashes the entire process"
+        },
+        {
+          "property": "System Resource Ownership",
+          "valA": "Owns operating system resources: open file descriptors, sockets, memory mappings",
+          "valB": "Shares all allocated process resources; retains only private stack and program counter"
+        },
+        {
+          "property": "Parallel Execution on Multicores",
+          "valA": "Independent processes execute concurrently across CPU cores",
+          "valB": "Kernel-level threads execute concurrently within the same application process"
+        }
+      ]
+    }
   },
   "databases": {
     "formulaName": "Relational Normal Forms & Lossless Decomposition",
@@ -1391,7 +2396,98 @@ const SUBJECT_EXTRAS = {
         "theorem": "Conflict Serializability Invariant: A concurrent transaction schedule is conflict serializable if and only if its precedence graph contains no directed cycles.",
         "examTrap": "2PL and Deadlocks: Two-Phase Locking (2PL) guarantees conflict serializability, but it does NOT prevent deadlocks! Transactions under 2PL can still enter circular wait deadlocks."
       }
-    ]
+    ],
+    "definitions": [
+      {
+        "term": "Candidate Key & Superkey",
+        "category": "Relational Model",
+        "definition": "A superkey is any set of attributes that uniquely identifies a tuple. A candidate key is a minimal superkey containing no redundant attributes.",
+        "note": "A prime attribute belongs to at least one candidate key."
+      },
+      {
+        "term": "Lossless-Join Decomposition",
+        "category": "Normalization",
+        "definition": "Decomposition of relation R into R_1, R_2 is lossless iff joining the projections recreates exactly R without generating spurious tuples: (R_1 cap R_2) -> R_1 or (R_1 cap R_2) -> R_2 in F+.",
+        "note": "Common attribute must be a candidate key of at least one sub-relation."
+      },
+      {
+        "term": "Conflict Serializability",
+        "category": "Transactions",
+        "definition": "A concurrent schedule S is conflict serializable iff it is conflict equivalent to some serial schedule. Tested by checking for cycles in the precedence graph.",
+        "note": "Acyclic precedence graph strictly implies conflict serializability."
+      },
+      {
+        "term": "Two-Phase Locking (2PL)",
+        "category": "Concurrency Control",
+        "definition": "Concurrency protocol where transactions acquire locks during a Growing Phase and release locks during a Shrinking Phase without acquiring new locks.",
+        "note": "Guarantees conflict serializability; does NOT prevent deadlocks."
+      },
+      {
+        "term": "B+ Tree Index Invariant",
+        "category": "Indexing",
+        "definition": "Balanced search tree where all data records/pointers reside strictly in leaf nodes linked sequentially. Internal nodes store routing keys.",
+        "note": "Supports both fast random searches O(log_B N) and contiguous range queries."
+      }
+    ],
+    "taxonomies": [
+      {
+        "name": "Relational Normal Forms",
+        "badge": "Schema Taxonomy",
+        "items": [
+          "1NF (Atomic domain values, no multivalued or composite attributes)",
+          "2NF (1NF + No partial dependency: Non-prime -> part of candidate key)",
+          "3NF (2NF + Every X->A has X as superkey or A as prime attribute)",
+          "BCNF (Boyce-Codd: For every non-trivial X->A, X MUST be a superkey)"
+        ]
+      },
+      {
+        "name": "Transaction Schedule Properties",
+        "badge": "Transaction Taxonomy",
+        "items": [
+          "Conflict Serializable (Acyclic serialization precedence graph)",
+          "View Serializable (Includes blind-write schedules; NP-complete to test)",
+          "Recoverable Schedule (Commit of T_j reading from T_i occurs after commit of T_i)",
+          "Cascadeless Schedule (Reads only committed data; avoids cascading aborts)"
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "Third Normal Form (3NF) vs Boyce-Codd Normal Form (BCNF)",
+      "entityA": "Third Normal Form (3NF)",
+      "entityB": "Boyce-Codd Normal Form (BCNF)",
+      "rows": [
+        {
+          "property": "Functional Dependency Condition",
+          "valA": "For every X -> A: Either X is a Superkey OR A is a Prime Attribute",
+          "valB": "For every X -> A: X MUST strictly be a Superkey (no prime exception)"
+        },
+        {
+          "property": "Dependency Preservation Guarantee",
+          "valA": "ALWAYS guaranteed: any schema can be decomposed into 3NF preserving all FDs",
+          "valB": "NOT always guaranteed: some schemas lose functional dependencies under BCNF"
+        },
+        {
+          "property": "Lossless Join Guarantee",
+          "valA": "Can always be decomposed to 3NF with guaranteed lossless-join property",
+          "valB": "Can always be decomposed to BCNF with guaranteed lossless-join property"
+        },
+        {
+          "property": "Data Redundancy Elimination",
+          "valA": "Permits minor redundancy when candidate keys overlap and A is prime",
+          "valB": "Completely eliminates all redundancy resulting from functional dependencies"
+        },
+        {
+          "property": "Strict Inclusion Relationship",
+          "valA": "BCNF is a strict subset of 3NF (every BCNF relation is in 3NF)",
+          "valB": "Stronger than 3NF (relations in 3NF may fail BCNF)"
+        },
+        {
+          "property": "Classic GATE Counterexample",
+          "valA": "R(A, B, C) with AB -> C, C -> B: Relation is in 3NF (B is prime)",
+          "valB": "Relation fails BCNF because in C -> B, C is not a superkey"
+        }
+      ]
+    }
   },
   "computer-networks": {
     "formulaName": "TCP Congestion Control & IPv4 Subnetting",
@@ -1473,7 +2569,98 @@ const SUBJECT_EXTRAS = {
         "theorem": "TCP AIMD Convergence Principle: Additive-Increase Multiplicative-Decrease ensures distributed bandwidth sharing among competing TCP flows converges to both efficiency and fairness.",
         "examTrap": "Timeout vs 3-Dup-ACK Trap: A timeout indicates severe network congestion and drops cwnd all the way to 1 MSS. In contrast, 3 Duplicate ACKs indicate mild packet loss and drop cwnd to ssthresh without resetting to 1."
       }
-    ]
+    ],
+    "definitions": [
+      {
+        "term": "Bandwidth-Delay Product (BDP)",
+        "category": "Transport Metrics",
+        "definition": "Capacity of a network link measured as Bandwidth x Round-Trip Time (RTT). Represents maximum data in flight.",
+        "note": "TCP window must be at least BDP to fully saturate link capacity."
+      },
+      {
+        "term": "CSMA/CD Minimum Frame Size",
+        "category": "Medium Access",
+        "definition": "Frame transmission time must be at least twice the one-way propagation delay: T_t >= 2 T_p, giving L_{min} = 2 * T_p * Bandwidth.",
+        "note": "Ensures sender detects collisions before transmission completes."
+      },
+      {
+        "term": "Classless Inter-Domain Routing (CIDR)",
+        "category": "IP Addressing",
+        "definition": "Address allocation method using prefix notation /n. Number of host addresses = 2^{32-n} - 2.",
+        "note": "Routers forward packets using Longest Prefix Matching."
+      },
+      {
+        "term": "Count-to-Infinity Problem",
+        "category": "Routing",
+        "definition": "Routing anomaly in Distance Vector (Bellman-Ford) routing where link failure causes nodes to slowly increment distance metrics to infinity.",
+        "note": "Partially mitigated by Split Horizon and Poison Reverse."
+      },
+      {
+        "term": "TCP AIMD Dynamics",
+        "category": "Congestion Control",
+        "definition": "Additive-Increase Multiplicative-Decrease: cwnd increases linearly by +1 MSS per RTT in congestion avoidance, and halves on packet loss.",
+        "note": "Mathematically guarantees convergence to both efficiency and fairness."
+      }
+    ],
+    "taxonomies": [
+      {
+        "name": "Routing Protocol Categories",
+        "badge": "Routing Taxonomy",
+        "items": [
+          "Distance Vector (RIP: Bellman-Ford, metric = hop count, count-to-infinity)",
+          "Link State (OSPF: Dijkstra, complete topology flood, fast convergence)",
+          "Path Vector (BGP: Inter-AS policy routing, detects routing loops)",
+          "Interior vs Exterior (IGP inside autonomous systems, EGP between ASs)"
+        ]
+      },
+      {
+        "name": "Flow Control Sliding Window Protocols",
+        "badge": "Flow Protocols",
+        "items": [
+          "Stop-and-Wait (W_s = 1, W_r = 1, efficiency eta = 1/(1+2a))",
+          "Go-Back-N (W_s = 2^k - 1, W_r = 1, retransmits all unACKed frames on loss)",
+          "Selective Repeat (W_s = W_r = 2^{k-1}, individual retransmissions and buffering)",
+          "TCP Byte-Oriented Window (Dynamic advertised receiver window rwnd)"
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "Transmission Control Protocol (TCP) vs User Datagram Protocol (UDP)",
+      "entityA": "Transmission Control Protocol (TCP)",
+      "entityB": "User Datagram Protocol (UDP)",
+      "rows": [
+        {
+          "property": "Connection Paradigm",
+          "valA": "Connection-oriented (Requires 3-way handshake SYN, SYN-ACK, ACK)",
+          "valB": "Connectionless (Sends standalone datagrams with zero connection setup)"
+        },
+        {
+          "property": "Reliability & Delivery Guarantee",
+          "valA": "Guaranteed, in-order reliable byte stream via ACKs and retransmissions",
+          "valB": "Unreliable best-effort delivery; packets may be lost, duplicated, or reordered"
+        },
+        {
+          "property": "Congestion & Flow Control",
+          "valA": "Integrated sliding window flow control + AIMD congestion control",
+          "valB": "Zero flow control and zero congestion control; transmits at application speed"
+        },
+        {
+          "property": "Header Protocol Overhead",
+          "valA": "20 bytes minimum (up to 60 bytes with options)",
+          "valB": "8 bytes fixed header (Source Port, Dest Port, Length, Checksum)"
+        },
+        {
+          "property": "Transmission Framing",
+          "valA": "Continuous byte stream without packet boundaries",
+          "valB": "Preserves discrete application message datagram boundaries"
+        },
+        {
+          "property": "Standard Protocol Examples",
+          "valA": "HTTP, HTTPS, SSH, FTP, SMTP, BGP",
+          "valB": "DNS, DHCP, SNMP, RTP, TFTP, VoIP"
+        }
+      ]
+    }
   },
   "machine-learning": {
     "formulaName": "Bias-Variance Decomposition & L2 Regularization",
@@ -1555,7 +2742,98 @@ const SUBJECT_EXTRAS = {
         "theorem": "PCA Variance Maximization: The first principal component corresponds to the eigenvector of the sample covariance matrix associated with the largest eigenvalue lambda_1, capturing the maximum possible data variance.",
         "examTrap": "K-Means Local Minima Trap: K-Means is guaranteed to converge, but only to a local optimum of the inertia objective. Running multiple restarts (K-Means++) with distinct initial centroids is required for robust results."
       }
-    ]
+    ],
+    "definitions": [
+      {
+        "term": "Ordinary Least Squares (OLS)",
+        "category": "Regression",
+        "definition": "Linear model minimizing sum of squared residuals: w* = (X^T X)^{-1} X^T y. Under Gauss-Markov assumptions, OLS is the Best Linear Unbiased Estimator (BLUE).",
+        "note": "Requires X^T X to be non-singular and invertible."
+      },
+      {
+        "term": "Bias-Variance Decomposition",
+        "category": "Generalization",
+        "definition": "Expected test MSE decomposes into Bias^2 + Variance + Irreducible Noise. Complex models have low bias and high variance (overfitting); simple models have high bias and low variance.",
+        "note": "Regularization balances this tradeoff."
+      },
+      {
+        "term": "Support Vector Machine (SVM)",
+        "category": "Classification",
+        "definition": "Maximum-margin linear classifier maximizing geometric margin 2/||w|| between classes. Dual form depends only on dot products of support vectors.",
+        "note": "Kernel trick maps features implicitly into high-dimensional space via K(x, x\u2019)."
+      },
+      {
+        "term": "Information Gain",
+        "category": "Decision Trees",
+        "definition": "Reduction in Shannon Entropy achieved by partitioning data according to feature A: IG(S, A) = H(S) - sum (|S_v|/|S|) H(S_v).",
+        "note": "ID3 selects attribute maximizing IG; C4.5 uses Gain Ratio to penalize multivalued features."
+      },
+      {
+        "term": "Principal Component Analysis (PCA)",
+        "category": "Dimensionality Reduction",
+        "definition": "Unsupervised orthogonal linear projection maximizing data variance along principal axes given by eigenvectors of the sample covariance matrix.",
+        "note": "First component corresponds to largest eigenvalue lambda_1."
+      }
+    ],
+    "taxonomies": [
+      {
+        "name": "Learning Task Taxonomies",
+        "badge": "ML Taxonomy",
+        "items": [
+          "Supervised Regression (Linear, Ridge, Lasso, Polynomial, SVR)",
+          "Supervised Classification (Logistic, SVM, Decision Trees, Naive Bayes, k-NN)",
+          "Unsupervised Clustering (K-Means, Agglomerative Hierarchical, DBSCAN)",
+          "Dimensionality Reduction (PCA, SVD, t-SNE, Linear Discriminant Analysis)"
+        ]
+      },
+      {
+        "name": "Regularization Techniques",
+        "badge": "Optimization Taxonomy",
+        "items": [
+          "L2 Ridge Regularization (lambda ||w||_2^2, shrinks weights, handles multicollinearity)",
+          "L1 Lasso Regularization (lambda ||w||_1, sparse coefficients, automatic feature selection)",
+          "Elastic Net (Combines L1 and L2 penalties for correlated feature groupings)",
+          "Early Stopping (Halts iterative training when validation loss begins rising)"
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "Ridge Regression (L2) vs Lasso Regression (L1)",
+      "entityA": "Ridge Regression (L2 Penalty)",
+      "entityB": "Lasso Regression (L1 Penalty)",
+      "rows": [
+        {
+          "property": "Regularization Penalty Term",
+          "valA": "Quadratic norm penalty: lambda * sum(w_i^2) = lambda * ||w||_2^2",
+          "valB": "Absolute value norm penalty: lambda * sum(|w_i|) = lambda * ||w||_1"
+        },
+        {
+          "property": "Weight Sparsity Behavior",
+          "valA": "Shrinks weights asymptotically toward zero, but never to exactly zero",
+          "valB": "Drives non-informative feature weights to EXACTLY zero (sparse weights)"
+        },
+        {
+          "property": "Automatic Feature Selection",
+          "valA": "Does NOT perform feature selection; retains all original input variables",
+          "valB": "Performs built-in feature selection by discarding zeroed-out features"
+        },
+        {
+          "property": "Analytical Closed-Form Solution",
+          "valA": "Has closed-form solution: w* = (X^T X + lambda I)^{-1} X^T y",
+          "valB": "No closed-form matrix solution (solved via coordinate descent)"
+        },
+        {
+          "property": "Multicollinearity Handling",
+          "valA": "Adds lambda I to diagonal, guaranteeing matrix invertibility even if X^T X is singular",
+          "valB": "Arbitrarily selects one feature from a correlated group and zeroes the others"
+        },
+        {
+          "property": "Geometry of Constraint Region",
+          "valA": "Spherical smooth circular constraint contour in weight space",
+          "valB": "Diamond / polytope contour with sharp corners touching coordinate axes"
+        }
+      ]
+    }
   },
   "artificial-intelligence": {
     "formulaName": "A* Search Admissibility & Alpha-Beta Pruning",
@@ -1637,7 +2915,98 @@ const SUBJECT_EXTRAS = {
         "theorem": "Bayesian Chain Rule Factorization: Any Bayesian Network represents a joint probability distribution over variables X_1, ..., X_n as P(X_1, ..., X_n) = prod_{i=1}^n P(X_i | Parents(X_i)).",
         "examTrap": "Collider (V-Structure) Conditional Dependence: In a collider structure A -> C <- B, variables A and B are marginally independent. However, conditioning on C (or any descendant of C) makes A and B CONDITIONALLY DEPENDENT!"
       }
-    ]
+    ],
+    "definitions": [
+      {
+        "term": "Heuristic Admissibility",
+        "category": "Search Theory",
+        "definition": "A heuristic h(n) is admissible iff it never overestimates the true cost to reach the goal: h(n) <= h*(n) for all nodes n.",
+        "note": "Guarantees A* tree search finds an optimal solution."
+      },
+      {
+        "term": "Heuristic Consistency (Monotonicity)",
+        "category": "Search Theory",
+        "definition": "For every node n and successor n\u2019 generated by action a: h(n) <= c(n, a, n\u2019) + h(n\u2019). Satisfies triangle inequality.",
+        "note": "Guarantees A* graph search finds optimal paths without reopening closed nodes."
+      },
+      {
+        "term": "Alpha-Beta Pruning",
+        "category": "Adversarial Games",
+        "definition": "Adversarial search optimization maintaining alpha (MAX\u2019s guaranteed lower bound) and beta (MIN\u2019s guaranteed upper bound). Prunes subtree whenever beta <= alpha.",
+        "note": "With optimal move ordering, reduces search complexity from O(b^m) to O(b^{m/2})."
+      },
+      {
+        "term": "Arc Consistency (AC-3)",
+        "category": "Constraint Satisfaction",
+        "definition": "Variable X is arc-consistent with Y iff for every value in domain(X), there exists a legal value in domain(Y) satisfying the binary constraint.",
+        "note": "AC-3 eliminates domain values that can never participate in any valid solution."
+      },
+      {
+        "term": "Bayesian Belief Network (BBN)",
+        "category": "Probabilistic Reasoning",
+        "definition": "Directed Acyclic Graph (DAG) representing conditional independence relationships among random variables. Factorizes joint distribution: P(X_1, ..., X_n) = prod P(X_i | Parents(X_i)).",
+        "note": "D-separation determines conditional independence graphically."
+      }
+    ],
+    "taxonomies": [
+      {
+        "name": "Heuristic Search Strategies",
+        "badge": "Search Taxonomy",
+        "items": [
+          "Uninformed Search (BFS, DFS, Uniform-Cost Search, Iterative Deepening IDDFS)",
+          "Informed Search (Greedy Best-First f(n)=h(n), A* Search f(n)=g(n)+h(n))",
+          "Local Search (Hill Climbing, Simulated Annealing, Genetic Algorithms)",
+          "Adversarial Game Search (Minimax, Alpha-Beta, Expectiminimax for chance games)"
+        ]
+      },
+      {
+        "name": "Knowledge Representation Forms",
+        "badge": "Logic Taxonomy",
+        "items": [
+          "Propositional Logic (Truth tables, CNF resolution, Horn clause chaining)",
+          "First-Order Logic (Quantifiers, Skolemization, Unification, Modus Ponens)",
+          "Constraint Satisfaction Problems (Backtracking, MRV heuristic, Forward Checking)",
+          "Probabilistic Graphical Models (Markov Random Fields, Bayesian Networks)"
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "Informed (A*) Search vs Uninformed (Uniform-Cost) Search",
+      "entityA": "Informed Search (A* Algorithm)",
+      "entityB": "Uninformed Search (Uniform-Cost / Dijkstra)",
+      "rows": [
+        {
+          "property": "Domain Heuristic Knowledge",
+          "valA": "Uses heuristic estimate h(n) estimating remaining distance to goal",
+          "valB": "Uses zero goal distance knowledge; evaluates only path cost g(n) from start"
+        },
+        {
+          "property": "Evaluation Function",
+          "valA": "f(n) = g(n) + h(n) [Balances path cost and estimated future cost]",
+          "valB": "f(n) = g(n) [Purely accumulated path cost from start node]"
+        },
+        {
+          "property": "Frontier Node Expansion",
+          "valA": "Directs search frontier targeted toward the goal location",
+          "valB": "Expands nodes blindly in expanding concentric circular contours of equal cost"
+        },
+        {
+          "property": "Search Space Traversed",
+          "valA": "Significantly pruned search space; visits dramatically fewer nodes",
+          "valB": "Visits all nodes closer than goal distance regardless of direction"
+        },
+        {
+          "property": "Optimality Condition",
+          "valA": "Guaranteed optimal iff heuristic h(n) is admissible (tree) or consistent (graph)",
+          "valB": "Guaranteed optimal on all graphs with non-negative edge costs"
+        },
+        {
+          "property": "Worst-Case Space Complexity",
+          "valA": "O(b^d) worst-case in memory (retains all generated nodes in open/closed list)",
+          "valB": "O(b^{1 + floor(C*/eps)}) where C* is optimal cost and eps is min step cost"
+        }
+      ]
+    }
   },
   "general-aptitude": {
     "formulaName": "Combinatorics & Time-Work Equivalence",
@@ -1719,7 +3088,98 @@ const SUBJECT_EXTRAS = {
         "theorem": "Cube Net Opposite Face Invariant: In any continuous straight row of 3 or 4 squares in a cube net, alternating squares (separated by exactly one intervening square) form opposite faces on the folded cube.",
         "examTrap": "Simultaneous Opposite Face Fallacy: On any folded 3D cube, two opposite faces can NEVER be visible simultaneously from any camera viewpoint."
       }
-    ]
+    ],
+    "definitions": [
+      {
+        "term": "Harmonic Mean Average Speed",
+        "category": "Quantitative Motion",
+        "definition": "When equal distances are traversed at speeds v_1 and v_2, Average Speed = 2 v_1 v_2 / (v_1 + v_2).",
+        "note": "Arithmetic mean applies ONLY when equal TIME is spent at each speed!"
+      },
+      {
+        "term": "Successive Percentage Change",
+        "category": "Arithmetic",
+        "definition": "When a value undergoes two successive percentage changes of +a% and +b%, the net percentage change is a + b + (ab / 100)%.",
+        "note": "For a discount of d%, use negative value -d."
+      },
+      {
+        "term": "Work-Rate Principle",
+        "category": "Rate Equivalence",
+        "definition": "If worker A finishes a job in T_A days and B in T_B days, their combined rate is 1/T_A + 1/T_B = 1/T_{total}. Total time = (T_A T_B) / (T_A + T_B).",
+        "note": "Pipes & cisterns follow identical rules with negative rates for emptying pipes."
+      },
+      {
+        "term": "Alligation Mixture Rule",
+        "category": "Ratios",
+        "definition": "Ratio of quantity of cheaper ingredient to dearer ingredient in a mixture = (Price of Dearer - Mean Price) / (Mean Price - Price of Cheaper).",
+        "note": "Provides fast visual cross-subtraction for weighted averages."
+      },
+      {
+        "term": "Cube Net Invariant",
+        "category": "Spatial Aptitude",
+        "definition": "In any standard 2D net of a 3D cube, alternating faces in a straight row or column form opposite faces and can NEVER be adjacent on the folded cube.",
+        "note": "Opposite faces can never be visible simultaneously from any camera perspective."
+      }
+    ],
+    "taxonomies": [
+      {
+        "name": "GATE Aptitude Core Domains",
+        "badge": "Aptitude Taxonomy",
+        "items": [
+          "Quantitative Aptitude (Percentages, Ratios, Speed-Distance, Work, Geometry)",
+          "Analytical Reasoning (Syllogisms, Blood Relations, Seating Arrangements)",
+          "Spatial Reasoning (Paper folding, 2D/3D Rotations, Mirror reflections, Cube nets)",
+          "Verbal Ability (Grammar, Sentence completion, Vocabulary in context, Comprehension)"
+        ]
+      },
+      {
+        "name": "Data Interpretation Types",
+        "badge": "Data Taxonomy",
+        "items": [
+          "Pie Charts (Degree to percentage conversion: 360 deg = 100%)",
+          "Bar Graphs (Comparative categorical trends, growth percentages)",
+          "Line Graphs (Continuous time-series rates of change and projections)",
+          "Multi-Column Tables (Cross-tabular computations and share estimations)"
+        ]
+      }
+    ],
+    "comparison": {
+      "title": "Permutations (nPr) vs Combinations (nCr)",
+      "entityA": "Permutations (nPr)",
+      "entityB": "Combinations (nCr)",
+      "rows": [
+        {
+          "property": "Fundamental Question",
+          "valA": "In how many ways can r items be ARRANGED in a specific order?",
+          "valB": "In how many ways can r items be SELECTED without regard to order?"
+        },
+        {
+          "property": "Order Sensitivity",
+          "valA": "Order matters strictly: arrangement (A, B) is distinct from (B, A)",
+          "valB": "Order does not matter: subset {A, B} is identical to {B, A}"
+        },
+        {
+          "property": "Mathematical Formula",
+          "valA": "nPr = n! / (n - r)!",
+          "valB": "nCr = n! / [ r! * (n - r)! ]"
+        },
+        {
+          "property": "Mathematical Relationship",
+          "valA": "nPr = r! * nCr (Greater than or equal to nCr for r >= 1)",
+          "valB": "nCr = nPr / r!"
+        },
+        {
+          "property": "Canonical GATE Scenarios",
+          "valA": "Seating arrangements, password codes, digit creation, schedule queues",
+          "valB": "Committee selection, handshakes, team drafting, card deals"
+        },
+        {
+          "property": "Symmetry Identity",
+          "valA": "No direct symmetry formula",
+          "valB": "Symmetric: nCr = nC(n - r)"
+        }
+      ]
+    }
   }
 };
 
@@ -3685,12 +5145,14 @@ fetch(root + 'data/subjects.json')
             <strong>DOCUMENT SECTIONS</strong>
             <a href="#overview" class="active">01. Overview</a>
             <a href="#scope">02. Syllabus Scope</a>
-            ${extra && extra.modules ? `<a href="#modules">03. Core Modules</a>` : ''}
-            ${extra ? `<a href="#derivation">04. Key Formulation</a>` : ''}
-            ${extra ? `<a href="#schematic">05. Visual Schematic</a>` : ''}
-            ${extra && extra.gfgSubcategories ? `<a href="#gfg-topics">06. GeeksforGeeks Guides</a>` : ''}
-            <a href="#handoffs">07. Deep-Dive Links</a>
-            <a href="#pyq">08. Examination Practice</a>
+            ${extra && extra.definitions ? `<a href="#definitions">03. Core Definitions</a>` : ''}
+            ${extra && extra.modules ? `<a href="#modules">04. Curriculum Modules</a>` : ''}
+            ${extra && extra.comparison ? `<a href="#comparison">05. Comparison Matrix</a>` : ''}
+            ${extra ? `<a href="#derivation">06. Key Formulation</a>` : ''}
+            ${extra ? `<a href="#schematic">07. Visual Schematic</a>` : ''}
+            ${extra && extra.gfgSubcategories ? `<a href="#gfg-topics">08. GeeksforGeeks Guides</a>` : ''}
+            <a href="#handoffs">09. Deep-Dive Links</a>
+            <a href="#pyq">10. Examination Practice</a>
             <div style="margin-top: 24px; border-top: 1px solid var(--border-line); padding-top: 16px; display: flex; flex-direction: column; gap: 8px;">
               <button class="button gold small" id="subject-docket-add-btn" style="width: 100%;">+ Queue in Docket</button>
               <button class="button outline small calc-trigger" style="text-align: center;">🧮 GATE Calculator</button>
@@ -3738,9 +5200,48 @@ fetch(root + 'data/subjects.json')
               ` : ''}
             </section>
 
+            ${extra && extra.definitions ? `
+              <section id="definitions">
+                <div class="eyebrow">03 / FOUNDATIONAL TERMINOLOGY & TAXONOMY</div>
+                <h2>Core Definitions & Classifications</h2>
+                <p>Standardized academic definitions and structural classifications essential for conceptual questions:</p>
+                
+                <div class="definitions-grid">
+                  ${extra.definitions.map(d => `
+                    <div class="definition-card">
+                      <div>
+                        <div class="def-top">
+                          <span class="def-term">${escapeText(d.term)}</span>
+                          <span class="def-pill">${escapeText(d.category)}</span>
+                        </div>
+                        <p class="def-body">${escapeText(d.definition)}</p>
+                      </div>
+                      ${d.note ? `<div class="def-note"><strong>Note:</strong> ${escapeText(d.note)}</div>` : ''}
+                    </div>
+                  `).join('')}
+                </div>
+
+                ${extra.taxonomies ? `
+                  <div class="taxonomy-container">
+                    ${extra.taxonomies.map(t => `
+                      <div class="taxonomy-card">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                          <strong>${escapeText(t.name)}</strong>
+                          <span class="pill gold" style="font-size: 0.65rem;">${escapeText(t.badge)}</span>
+                        </div>
+                        <ul>
+                          ${t.items.map(it => `<li>${escapeText(it)}</li>`).join('')}
+                        </ul>
+                      </div>
+                    `).join('')}
+                  </div>
+                ` : ''}
+              </section>
+            ` : ''}
+
             ${extra && extra.modules ? `
               <section id="modules">
-                <div class="eyebrow">03 / IN-DEPTH SYLLABUS MODULES</div>
+                <div class="eyebrow">04 / IN-DEPTH SYLLABUS MODULES</div>
                 <h2>Core Theoretical Modules</h2>
                 <p>Comprehensive subject breakdown containing foundational principles, key theorems, and common examination pitfalls.</p>
                 <div class="subject-modules-container">
@@ -3771,9 +5272,37 @@ fetch(root + 'data/subjects.json')
               </section>
             ` : ''}
 
+            ${extra && extra.comparison ? `
+              <section id="comparison">
+                <div class="eyebrow">05 / CANONICAL COMPARISON MATRIX</div>
+                <h2>${escapeText(extra.comparison.title)}</h2>
+                <p>Detailed architectural and mathematical comparison of fundamental contrasting concepts frequently tested in GATE:</p>
+                <div class="comparison-table-wrapper">
+                  <table class="comparison-table">
+                    <thead>
+                      <tr>
+                        <th>COMPARISON DIMENSION</th>
+                        <th>${escapeText(extra.comparison.entityA)}</th>
+                        <th>${escapeText(extra.comparison.entityB)}</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      ${extra.comparison.rows.map(r => `
+                        <tr>
+                          <td>${escapeText(r.property)}</td>
+                          <td>${escapeText(r.valA)}</td>
+                          <td>${escapeText(r.valB)}</td>
+                        </tr>
+                      `).join('')}
+                    </tbody>
+                  </table>
+                </div>
+              </section>
+            ` : ''}
+
             ${extra ? `
               <section id="derivation">
-                <div class="eyebrow">04 / MATHEMATICAL FORMULATION</div>
+                <div class="eyebrow">06 / MATHEMATICAL FORMULATION</div>
                 <h2>${extra.formulaName}</h2>
                 <div class="derivation-container">
                   <div class="derivation-titlebar">
@@ -3790,7 +5319,7 @@ fetch(root + 'data/subjects.json')
               </section>
 
               <section id="schematic">
-                <div class="eyebrow">05 / ARCHITECTURAL SCHEMATIC</div>
+                <div class="eyebrow">07 / ARCHITECTURAL SCHEMATIC</div>
                 <h2>Visual Concept Schematic</h2>
                 <div class="lookbook-grid" style="grid-template-columns: 1fr;">
                   <div class="lookbook-card" id="open-diagram-card">
@@ -3808,7 +5337,7 @@ fetch(root + 'data/subjects.json')
 
             ${extra && extra.gfgSubcategories ? `
               <section id="gfg-topics">
-                <div class="eyebrow">06 / GEEKSFORGEEKS CURATED GUIDES</div>
+                <div class="eyebrow">08 / GEEKSFORGEEKS CURATED GUIDES</div>
                 <h2>Syllabus Sub-Category Tutorials</h2>
                 <p>Direct granular tutorials and practice sets from GeeksforGeeks corresponding to each syllabus sub-domain:</p>
                 <div class="gfg-subcat-grid">
@@ -3828,7 +5357,7 @@ fetch(root + 'data/subjects.json')
 
             ${extra ? `
               <section id="handoffs">
-                <div class="eyebrow">07 / CURATED PLATFORM HANDOFFS</div>
+                <div class="eyebrow">09 / CURATED PLATFORM HANDOFFS</div>
                 <h2>Implementation & Deep Dives</h2>
                 <p>External verified learning portals for code implementations and official NPTEL lectures:</p>
                 <div class="deepdive-grid">
@@ -3845,7 +5374,7 @@ fetch(root + 'data/subjects.json')
             ` : ''}
 
             <section id="pyq">
-              <div class="eyebrow">08 / EXAMINATION PRACTICE</div>
+              <div class="eyebrow">10 / EXAMINATION PRACTICE</div>
               <h2>Previous-Year Questions</h2>
               <p>Explore official past papers and verification keys from the GATE archive.</p>
               <div style="display: flex; gap: 14px; flex-wrap: wrap; margin-top: 16px;">
@@ -3900,9 +5429,6 @@ fetch(root + 'data/subjects.json')
         });
       }, { passive: true });
     }
-
-        // PAGE: PRACTICE (MCQ, MSQ, and NAT QUESTION TYPES)
-    // -------------------------------------------------------------------------
     else if (page === 'practice') {
       let activeFilter = 'all';
       let userScores = {};
