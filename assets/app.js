@@ -409,277 +409,1317 @@ function initVirtualCalculator() {
 // 5. Complete Technical Formulations & Schematics for All 16 Subjects
 // -----------------------------------------------------------------------------
 const SUBJECT_EXTRAS = {
-  'discrete-mathematics': {
-    formulaName: 'Generating Function & Recurrence Relation',
-    lang: 'Discrete Mathematics',
-    gfgUrl: 'https://www.geeksforgeeks.org/discrete-mathematics-tutorials/',
-    nptelCode: 'noc20-cs82 (IIT Ropar - Discrete Mathematics)',
-    derivation: `Linear Homogeneous Recurrence: a_n = c_1 a_{n-1} + c_2 a_{n-2}
-Characteristic Equation: r^2 - c_1 r - c_2 = 0
-Roots r_1, r_2:
-  Case 1 (Distinct Real): a_n = A(r_1)^n + B(r_2)^n
-  Case 2 (Repeated Real): a_n = (A + Bn)(r_1)^n
-Generating Function Transformation:
-  G(x) = sum_{n=0}^{infinity} a_n x^n
-  x * G(x) = sum_{n=1}^{infinity} a_{n-1} x^n
-  => G(x)(1 - c_1 x - c_2 x^2) = a_0 + (a_1 - c_1 a_0)x`,
-    svgDiagram: `<svg viewBox="0 0 320 180" width="100%" height="100%"><rect width="320" height="180" fill="transparent"/><circle cx="80" cy="50" r="18" stroke="#c5a059" stroke-width="2" fill="rgba(197,160,89,0.15)"/><text x="80" y="55" fill="#c5a059" text-anchor="middle" font-size="12" font-family="monospace">V1</text><circle cx="240" cy="50" r="18" stroke="#c5a059" stroke-width="2" fill="rgba(197,160,89,0.15)"/><text x="240" y="55" fill="#c5a059" text-anchor="middle" font-size="12" font-family="monospace">V2</text><circle cx="160" cy="130" r="18" stroke="#059669" stroke-width="2" fill="rgba(5,150,105,0.15)"/><text x="160" y="135" fill="#059669" text-anchor="middle" font-size="12" font-family="monospace">V3</text><line x1="98" y1="50" x2="222" y2="50" stroke="#c5a059" stroke-width="2"/><line x1="93" y1="63" x2="147" y2="117" stroke="#059669" stroke-width="2"/><line x1="227" y1="63" x2="173" y2="117" stroke="#059669" stroke-width="2"/><text x="160" y="35" fill="#999" font-size="10" text-anchor="middle">Graph Coloring: Chromatic Number chi(G) = 3 (K_3)</text></svg>`,
-    caption: 'Graph Coloring & Chromatic Number Topology'
+  "discrete-mathematics": {
+    "formulaName": "Generating Function & Recurrence Relation",
+    "lang": "Discrete Mathematics",
+    "gfgUrl": "https://www.geeksforgeeks.org/discrete-mathematics-tutorials/",
+    "nptelCode": "noc20-cs82 (IIT Ropar - Discrete Mathematics)",
+    "derivation": "Linear Homogeneous Recurrence: a_n = c_1 a_{n-1} + c_2 a_{n-2}\nCharacteristic Equation: r^2 - c_1 r - c_2 = 0\nRoots r_1, r_2:\n  Case 1 (Distinct Real): a_n = A(r_1)^n + B(r_2)^n\n  Case 2 (Repeated Real): a_n = (A + Bn)(r_1)^n\nGenerating Function Transformation:\n  G(x) = sum_{n=0}^{infinity} a_n x^n\n  x * G(x) = sum_{n=1}^{infinity} a_{n-1} x^n\n  => G(x)(1 - c_1 x - c_2 x^2) = a_0 + (a_1 - c_1 a_0)x",
+    "svgDiagram": "<svg viewBox=\"0 0 320 180\" width=\"100%\" height=\"100%\"><rect width=\"320\" height=\"180\" fill=\"transparent\"/><circle cx=\"80\" cy=\"50\" r=\"18\" stroke=\"#c5a059\" stroke-width=\"2\" fill=\"rgba(197,160,89,0.15)\"/><text x=\"80\" y=\"55\" fill=\"#c5a059\" text-anchor=\"middle\" font-size=\"12\" font-family=\"monospace\">V1</text><circle cx=\"240\" cy=\"50\" r=\"18\" stroke=\"#c5a059\" stroke-width=\"2\" fill=\"rgba(197,160,89,0.15)\"/><text x=\"240\" y=\"55\" fill=\"#c5a059\" text-anchor=\"middle\" font-size=\"12\" font-family=\"monospace\">V2</text><circle cx=\"160\" cy=\"130\" r=\"18\" stroke=\"#059669\" stroke-width=\"2\" fill=\"rgba(5,150,105,0.15)\"/><text x=\"160\" y=\"135\" fill=\"#059669\" text-anchor=\"middle\" font-size=\"12\" font-family=\"monospace\">V3</text><line x1=\"98\" y1=\"50\" x2=\"222\" y2=\"50\" stroke=\"#c5a059\" stroke-width=\"2\"/><line x1=\"93\" y1=\"63\" x2=\"147\" y2=\"117\" stroke=\"#059669\" stroke-width=\"2\"/><line x1=\"227\" y1=\"63\" x2=\"173\" y2=\"117\" stroke=\"#059669\" stroke-width=\"2\"/><text x=\"160\" y=\"35\" fill=\"#999\" font-size=\"10\" text-anchor=\"middle\">Graph Coloring: Chromatic Number chi(G) = 3 (K_3)</text></svg>",
+    "caption": "Graph Coloring & Chromatic Number Topology",
+    "gfgSubcategories": [
+      {
+        "title": "Propositional & Predicate Logic",
+        "tag": "Mathematical Logic",
+        "url": "https://www.geeksforgeeks.org/proposition-logic/",
+        "desc": "Truth tables, logical equivalence, normal forms (CNF/DNF), inference rules, and first-order quantifiers."
+      },
+      {
+        "title": "Sets, Relations & Functions",
+        "tag": "Set Theory",
+        "url": "https://www.geeksforgeeks.org/sets-relations-and-functions/",
+        "desc": "Equivalence relations, equivalence classes, partitions, injective/surjective/bijective functions, and composition."
+      },
+      {
+        "title": "Partial Orders, Lattices & Hasse Diagrams",
+        "tag": "Order Theory",
+        "url": "https://www.geeksforgeeks.org/hasse-diagrams/",
+        "desc": "Posets, maximal/minimal elements, greatest lower bound (GLB), least upper bound (LUB), and complemented/distributive lattices."
+      },
+      {
+        "title": "Group Theory, Monoids & Subgroups",
+        "tag": "Algebraic Structures",
+        "url": "https://www.geeksforgeeks.org/groups-in-discrete-mathematics/",
+        "desc": "Semi-groups, monoids, groups, abelian groups, cyclic subgroups, and Lagrange\u2019s order theorem."
+      },
+      {
+        "title": "Combinatorics & Generating Functions",
+        "tag": "Counting Principles",
+        "url": "https://www.geeksforgeeks.org/pigeonhole-principle/",
+        "desc": "Pigeonhole principle, permutations, combinations, inclusion-exclusion, and recurrence relations."
+      },
+      {
+        "title": "Graph Theory, Connectivity & Coloring",
+        "tag": "Graph Theory",
+        "url": "https://www.geeksforgeeks.org/graph-theory/",
+        "desc": "Eulerian and Hamiltonian graphs, planar graphs (Euler\u2019s formula V-E+F=2), bipartite matchings, and vertex coloring."
+      }
+    ],
+    "modules": [
+      {
+        "title": "Propositional Logic & First-Order Predicate Calculus",
+        "keyPoints": [
+          "Propositional connectives: conjunction, disjunction, implication (p -> q = ~p v q), and biconditional equivalences.",
+          "Conjunctive Normal Form (CNF) and Disjunctive Normal Form (DNF) canonical transformations.",
+          "First-Order Logic: Universal (ALL x) and Existential (EXISTS x) quantifiers, scope, and variable binding.",
+          "Resolution refutation principle: Converting statements to clausal form and deriving empty clauses."
+        ],
+        "theorem": "Resolution Refutation: A propositional or predicate logic formula in CNF is unsatisfiable if and only if the empty clause can be derived via repeated resolution rule applications.",
+        "examTrap": "Quantifier Negation Trap: ~(ALL x P(x)) is logically equivalent to EXISTS x ~P(x), NOT ALL x ~P(x). Also remember that ALL x EXISTS y P(x,y) is NOT equivalent to EXISTS y ALL x P(x,y)."
+      },
+      {
+        "title": "Sets, Relations, Posets & Lattice Theory",
+        "keyPoints": [
+          "Binary relations on set A: reflexive, symmetric, antisymmetric, and transitive definitions.",
+          "Equivalence relations induce a disjoint partition of the underlying set into equivalence classes.",
+          "Partial orders (Reflexive + Antisymmetric + Transitive); strict partial orders (Irreflexive + Transitive).",
+          "Lattices: Posets where every pair of elements has a unique Least Upper Bound (LUB / join) and Greatest Lower Bound (GLB / meet)."
+        ],
+        "theorem": "Birkhoff\u2019s Lattice Distributivity Criterion: A lattice is distributive if and only if it does not contain either the pentagon lattice N_5 or the diamond lattice M_3 as a sublattice.",
+        "examTrap": "Complemented vs Distributive Trap: A complemented lattice does NOT guarantee unique complements unless the lattice is also distributive. In non-distributive lattices, elements can have multiple complements."
+      },
+      {
+        "title": "Combinatorics, Recurrences & Graph Theory",
+        "keyPoints": [
+          "Pigeonhole Principle: If n items are put into m containers, at least one container holds ceil(n/m) items.",
+          "Linear homogeneous recurrences: characteristic polynomial roots and particular solutions for non-homogeneous terms.",
+          "Planar Graphs: Euler\u2019s formula V - E + F = 2 for connected planar graphs; edge bound E <= 3V - 6 for V >= 3.",
+          "Graph Coloring: Chromatic number bounds, 4-Color theorem for planar graphs, and bipartite graphs (2-colorable iff no odd cycles)."
+        ],
+        "theorem": "Handshaking Lemma: In any undirected graph G = (V, E), the sum of vertex degrees equals twice the edge count (sum deg(v) = 2|E|); consequently, the number of odd-degree vertices is always even.",
+        "examTrap": "Planar Graph Face Count Trap: Remember that Euler\u2019s formula V - E + F = 2 includes the infinite exterior (outer) face. If a planar graph has k connected components, the formula becomes V - E + F = 1 + k."
+      }
+    ]
   },
-  'linear-algebra': {
-    formulaName: 'Eigenvalues & Singular Value Decomposition (SVD)',
-    lang: 'Linear Algebra',
-    gfgUrl: 'https://www.geeksforgeeks.org/matrix-operations-linear-algebra-for-gate-exam/',
-    nptelCode: 'noc21-ma54 (IIT Kharagpur - Linear Algebra)',
-    derivation: `Characteristic Equation: det(A - lambda * I) = 0
-Properties of Eigenvalues lambda_i:
-  1. sum(lambda_i) = Trace(A)
-  2. prod(lambda_i) = det(A)
-  3. A is invertible <=> lambda_i != 0 for all i
-Singular Value Decomposition (SVD):
-  A = U * Sigma * V^T
-  U: m x m orthogonal matrix (eigenvectors of A * A^T)
-  Sigma: m x n diagonal singular values sigma_i = sqrt(lambda_i(A^T A))
-  V: n x n orthogonal matrix (eigenvectors of A^T * A)`,
-    svgDiagram: `<svg viewBox="0 0 320 180" width="100%" height="100%"><rect width="320" height="180" fill="transparent"/><line x1="40" y1="140" x2="280" y2="140" stroke="#666" stroke-width="1.5"/><line x1="160" y1="20" x2="160" y2="160" stroke="#666" stroke-width="1.5"/><ellipse cx="160" cy="90" rx="90" ry="45" stroke="#c5a059" stroke-width="2" fill="rgba(197,160,89,0.1)" transform="rotate(-20 160 90)"/><line x1="160" y1="90" x2="240" y2="60" stroke="#e0443e" stroke-width="2.5"/><text x="250" y="60" fill="#e0443e" font-size="11" font-weight="700">sigma_1 u_1</text><line x1="160" y1="90" x2="145" y2="48" stroke="#059669" stroke-width="2.5"/><text x="140" y="40" fill="#059669" font-size="11" font-weight="700">sigma_2 u_2</text></svg>`,
-    caption: 'Geometric Transformation & Principal Hyperellipsoid in SVD'
+  "linear-algebra": {
+    "formulaName": "Eigenvalues & Singular Value Decomposition (SVD)",
+    "lang": "Linear Algebra",
+    "gfgUrl": "https://www.geeksforgeeks.org/matrix-operations-linear-algebra-for-gate-exam/",
+    "nptelCode": "noc21-ma54 (IIT Kharagpur - Linear Algebra)",
+    "derivation": "Characteristic Equation: det(A - lambda * I) = 0\nProperties of Eigenvalues lambda_i:\n  1. sum(lambda_i) = Trace(A)\n  2. prod(lambda_i) = det(A)\n  3. A is invertible <=> lambda_i != 0 for all i\nSingular Value Decomposition (SVD):\n  A = U * Sigma * V^T\n  U: m x m orthogonal matrix (eigenvectors of A * A^T)\n  Sigma: m x n diagonal singular values sigma_i = sqrt(lambda_i(A^T A))\n  V: n x n orthogonal matrix (eigenvectors of A^T * A)",
+    "svgDiagram": "<svg viewBox=\"0 0 320 180\" width=\"100%\" height=\"100%\"><rect width=\"320\" height=\"180\" fill=\"transparent\"/><line x1=\"40\" y1=\"140\" x2=\"280\" y2=\"140\" stroke=\"#666\" stroke-width=\"1.5\"/><line x1=\"160\" y1=\"20\" x2=\"160\" y2=\"160\" stroke=\"#666\" stroke-width=\"1.5\"/><ellipse cx=\"160\" cy=\"90\" rx=\"90\" ry=\"45\" stroke=\"#c5a059\" stroke-width=\"2\" fill=\"rgba(197,160,89,0.1)\" transform=\"rotate(-20 160 90)\"/><line x1=\"160\" y1=\"90\" x2=\"240\" y2=\"60\" stroke=\"#e0443e\" stroke-width=\"2.5\"/><text x=\"250\" y=\"60\" fill=\"#e0443e\" font-size=\"11\" font-weight=\"700\">sigma_1 u_1</text><line x1=\"160\" y1=\"90\" x2=\"145\" y2=\"48\" stroke=\"#059669\" stroke-width=\"2.5\"/><text x=\"140\" y=\"40\" fill=\"#059669\" font-size=\"11\" font-weight=\"700\">sigma_2 u_2</text></svg>",
+    "caption": "Geometric Transformation & Principal Hyperellipsoid in SVD",
+    "gfgSubcategories": [
+      {
+        "title": "Matrix Algebra & Operations",
+        "tag": "Matrix Algebra",
+        "url": "https://www.geeksforgeeks.org/matrix-operations-linear-algebra-for-gate-exam/",
+        "desc": "Transpose, symmetric, skew-symmetric, orthogonal, and idempotent matrix algebraic identities."
+      },
+      {
+        "title": "Linear Systems & Gaussian Elimination",
+        "tag": "Linear Systems",
+        "url": "https://www.geeksforgeeks.org/system-of-linear-equations-in-linear-algebra/",
+        "desc": "Augmented matrices, row-echelon reduction, pivots, consistency test rank(A) = rank([A|B])."
+      },
+      {
+        "title": "Rank-Nullity & Vector Spaces",
+        "tag": "Vector Spaces",
+        "url": "https://www.geeksforgeeks.org/rank-of-a-matrix/",
+        "desc": "Subspaces, linear span, basis, dimension, column space, nullspace, and rank-nullity theorem."
+      },
+      {
+        "title": "Eigenvalues & Cayley-Hamilton Theorem",
+        "tag": "Spectral Theory",
+        "url": "https://www.geeksforgeeks.org/eigenvalues-and-eigenvectors/",
+        "desc": "Characteristic roots, trace and determinant relationships, algebraic vs geometric multiplicity."
+      },
+      {
+        "title": "Gram-Schmidt & Orthogonal Projections",
+        "tag": "Orthogonality",
+        "url": "https://www.geeksforgeeks.org/gram-schmidt-orthogonalization-process/",
+        "desc": "Inner products, orthogonal complement, projection matrices P = A(A^T A)^{-1} A^T, and QR decomposition."
+      },
+      {
+        "title": "Singular Value Decomposition (SVD)",
+        "tag": "Matrix Decompositions",
+        "url": "https://www.geeksforgeeks.org/singular-value-decomposition-svd/",
+        "desc": "Singular values, low-rank approximation, pseudoinverse, and positive definite quadratic forms."
+      }
+    ],
+    "modules": [
+      {
+        "title": "Linear Systems, Vector Spaces & Rank-Nullity Theorem",
+        "keyPoints": [
+          "Linear system AX = B consistency: Consistent iff rank(A) = rank([A|B]). Unique solution iff rank = n; infinite solutions iff rank < n.",
+          "Homogeneous system AX = 0 always has trivial solution X = 0; non-trivial solutions exist iff det(A) = 0 (rank < n).",
+          "Vector spaces: Subspace test (closure under vector addition and scalar multiplication), linear independence, and spanning sets.",
+          "Basis and Dimension: A basis is a minimally spanning and maximally independent subset of vectors."
+        ],
+        "theorem": "Rank-Nullity Theorem: For any linear transformation represented by an m x n matrix A, the dimension of the column space plus the dimension of the null space equals the number of columns: rank(A) + nullity(A) = n.",
+        "examTrap": "Underdetermined System Trap: If an m x n system has more variables than equations (n > m), it can NEVER have a unique solution. It either has infinitely many solutions (if consistent) or zero solutions (if inconsistent)."
+      },
+      {
+        "title": "Eigenvalues, Eigenvectors & Cayley-Hamilton Identity",
+        "keyPoints": [
+          "Eigenvalue equation det(A - lambda I) = 0. Eigenvectors corresponding to distinct eigenvalues are linearly independent.",
+          "Trace(A) = sum(lambda_i) and det(A) = prod(lambda_i). Matrix is invertible iff zero is not an eigenvalue.",
+          "Eigenvalues of triangular and diagonal matrices are simply the entries along the main diagonal.",
+          "Diagonalizability: An n x n matrix is diagonalizable iff it possesses n linearly independent eigenvectors."
+        ],
+        "theorem": "Cayley-Hamilton Theorem: Every square matrix satisfies its own characteristic polynomial equation p(A) = 0, allowing efficient evaluation of matrix inverses A^{-1} and arbitrary high powers A^k.",
+        "examTrap": "Geometric Multiplicity Trap: Do not assume a matrix is non-diagonalizable just because it has repeated eigenvalues. It is diagonalizable as long as the geometric multiplicity (nullity of A - lambda I) equals algebraic multiplicity for every eigenvalue."
+      },
+      {
+        "title": "Orthogonal Projections, SVD & Quadratic Forms",
+        "keyPoints": [
+          "Orthogonal projection of vector b onto column space of A: p = A (A^T A)^{-1} A^T b.",
+          "Singular Value Decomposition: A = U Sigma V^T, where U and V are orthogonal matrices and Sigma contains singular values.",
+          "Singular values sigma_i = sqrt(lambda_i(A^T A)) are always non-negative real numbers.",
+          "Quadratic forms Q(x) = x^T A x: Positive definite iff all eigenvalues are strictly positive (or all leading principal minors > 0)."
+        ],
+        "theorem": "Spectral Theorem for Real Symmetric Matrices: Any real symmetric matrix A can be orthogonally diagonalized as A = Q Lambda Q^T, where all eigenvalues are real and eigenvectors are mutually orthogonal.",
+        "examTrap": "Singular Values vs Eigenvalues: Unlike eigenvalues which can be negative or complex, singular values sigma_i are strictly real and non-negative. For symmetric matrices, singular values equal the absolute values of the eigenvalues."
+      }
+    ]
   },
-  'calculus-optimization': {
-    formulaName: 'Taylor Series & Gradient Optimization',
-    lang: 'Multivariable Calculus',
-    gfgUrl: 'https://www.geeksforgeeks.org/calculus-and-optimization-for-gate-da/',
-    nptelCode: 'noc19-ma15 (IIT Madras - Calculus of One and Several Variables)',
-    derivation: `Multivariate Taylor Expansion around x_0:
-  f(x) approx f(x_0) + grad f(x_0)^T (x - x_0) + 1/2 (x - x_0)^T H(x_0) (x - x_0)
-where H is the Hessian Matrix: H_{ij} = d^2 f / (d x_i d x_j)
-Stationary Point Conditions:
-  grad f(x*) = 0
-  H(x*) Positive Definite (all lambda > 0) => Local Strict Minimum
-  H(x*) Negative Definite (all lambda < 0) => Local Strict Maximum
-  H(x*) Indefinite (mixed signs)         => Saddle Point`,
-    svgDiagram: `<svg viewBox="0 0 320 180" width="100%" height="100%"><path d="M40 140 Q 160 20 280 140" fill="none" stroke="#c5a059" stroke-width="2.5"/><circle cx="160" cy="80" r="5" fill="#059669"/><line x1="100" y1="80" x2="220" y2="80" stroke="#059669" stroke-dasharray="4" stroke-width="2"/><text x="160" y="65" fill="#059669" font-size="11" text-anchor="middle" font-weight="700">f'(x*) = 0 (Global Minimum)</text></svg>`,
-    caption: 'Stationary Extremum and Curvature'
+  "calculus-optimization": {
+    "formulaName": "Taylor Series & Gradient Optimization",
+    "lang": "Multivariable Calculus",
+    "gfgUrl": "https://www.geeksforgeeks.org/calculus-and-optimization-for-gate-da/",
+    "nptelCode": "noc19-ma15 (IIT Madras - Calculus of One and Several Variables)",
+    "derivation": "Multivariate Taylor Expansion around x_0:\n  f(x) approx f(x_0) + grad f(x_0)^T (x - x_0) + 1/2 (x - x_0)^T H(x_0) (x - x_0)\nwhere H is the Hessian Matrix: H_{ij} = d^2 f / (d x_i d x_j)\nStationary Point Conditions:\n  grad f(x*) = 0\n  H(x*) Positive Definite (all lambda > 0) => Local Strict Minimum\n  H(x*) Negative Definite (all lambda < 0) => Local Strict Maximum\n  H(x*) Indefinite (mixed signs)         => Saddle Point",
+    "svgDiagram": "<svg viewBox=\"0 0 320 180\" width=\"100%\" height=\"100%\"><path d=\"M40 140 Q 160 20 280 140\" fill=\"none\" stroke=\"#c5a059\" stroke-width=\"2.5\"/><circle cx=\"160\" cy=\"80\" r=\"5\" fill=\"#059669\"/><line x1=\"100\" y1=\"80\" x2=\"220\" y2=\"80\" stroke=\"#059669\" stroke-dasharray=\"4\" stroke-width=\"2\"/><text x=\"160\" y=\"65\" fill=\"#059669\" font-size=\"11\" text-anchor=\"middle\" font-weight=\"700\">f'(x*) = 0 (Global Minimum)</text></svg>",
+    "caption": "Stationary Extremum and Curvature",
+    "gfgSubcategories": [
+      {
+        "title": "Limits, Continuity & Differentiability",
+        "tag": "Foundations",
+        "url": "https://www.geeksforgeeks.org/limits-continuity-and-differentiability/",
+        "desc": "Indeterminate forms 0/0 and inf/inf, L\u2019H\u00f4pital\u2019s rule, one-sided limits, and differentiability conditions."
+      },
+      {
+        "title": "Mean Value Theorems",
+        "tag": "Differential Calculus",
+        "url": "https://www.geeksforgeeks.org/mean-value-theorem/",
+        "desc": "Rolle\u2019s theorem, Lagrange\u2019s Mean Value Theorem (MVT), and Cauchy\u2019s generalized mean value theorem."
+      },
+      {
+        "title": "Extrema & Multivariable Critical Points",
+        "tag": "Optimization Theory",
+        "url": "https://www.geeksforgeeks.org/maxima-and-minima-of-functions/",
+        "desc": "First and second derivative tests, Hessian matrix determinants, and saddle point classification."
+      },
+      {
+        "title": "Taylor & Maclaurin Series Expansions",
+        "tag": "Series Approximations",
+        "url": "https://www.geeksforgeeks.org/taylor-and-maclaurin-series/",
+        "desc": "Taylor series expansions around point a, power series convergence, and polynomial approximation orders."
+      },
+      {
+        "title": "Definite & Improper Integrals",
+        "tag": "Integral Calculus",
+        "url": "https://www.geeksforgeeks.org/definite-integrals/",
+        "desc": "Fundamental Theorem of Calculus, integration by parts, substitution, and improper integral convergence."
+      },
+      {
+        "title": "Gradient Descent & Convex Functions",
+        "tag": "Convex Optimization",
+        "url": "https://www.geeksforgeeks.org/gradient-descent-algorithm-and-its-variants/",
+        "desc": "Convex sets, epigraphs, gradient descent updates x_{t+1} = x_t - eta grad f(x_t), and learning rate bounds."
+      }
+    ],
+    "modules": [
+      {
+        "title": "Limits, Continuity & Mean Value Theorems",
+        "keyPoints": [
+          "L\u2019H\u00f4pital\u2019s Rule: Applies strictly to indeterminate forms 0/0 and inf/inf: lim f(x)/g(x) = lim f\u2019(x)/g\u2019(x).",
+          "Continuity: Function is continuous at c iff lim_{x -> c} f(x) exists and equals f(c).",
+          "Differentiability: Differentiability implies continuity, but continuity does NOT imply differentiability (e.g., |x| at x=0).",
+          "Lagrange\u2019s MVT: For f continuous on [a,b] and differentiable on (a,b), there exists c in (a,b) with f\u2019(c) = (f(b)-f(a))/(b-a)."
+        ],
+        "theorem": "Rolle\u2019s Theorem: If f is continuous on [a, b], differentiable on (a, b), and f(a) = f(b), then there exists at least one number c in (a, b) such that f\u2019(c) = 0.",
+        "examTrap": "L\u2019H\u00f4pital Misapplication Trap: Never apply L\u2019H\u00f4pital\u2019s rule when the denominator limit is non-zero. Doing so changes the value of the limit and produces incorrect answer options."
+      },
+      {
+        "title": "Maxima, Minima, Hessian Matrix & Taylor Series",
+        "keyPoints": [
+          "Stationary points occur where f\u2019(x) = 0 (or grad f(x) = 0 for multivariable functions).",
+          "Single variable second derivative test: f\u2019\u2019(x*) > 0 implies local minimum; f\u2019\u2019(x*) < 0 implies local maximum; f\u2019\u2019(x*) = 0 is inconclusive.",
+          "Hessian Matrix H(x) = [d^2 f / dx_i dx_j]: Positive definite implies strict local min; negative definite implies strict local max; indefinite implies saddle point.",
+          "Multivariate Taylor Series: f(x) = f(x_0) + grad f(x_0)^T (x - x_0) + 1/2 (x - x_0)^T H(x_0) (x - x_0) + ..."
+        ],
+        "theorem": "Second-Order Sufficiency Condition: A critical point x* where grad f(x*) = 0 is an isolated local minimum if the Hessian matrix H(f)(x*) is positive definite.",
+        "examTrap": "Boundary Extrema Trap: In optimization on closed bounded intervals or regions, absolute extrema often occur on the boundary where derivatives are not zero. Always evaluate boundary points separately!"
+      },
+      {
+        "title": "Convex Optimization & Gradient Descent",
+        "keyPoints": [
+          "Convex set: Line segment between any two points in the set lies entirely within the set.",
+          "Convex function: f(lambda x + (1-lambda) y) <= lambda f(x) + (1-lambda) f(y) for all lambda in [0, 1].",
+          "First-order convexity condition: f(y) >= f(x) + grad f(x)^T (y - x) for all x, y.",
+          "Gradient Descent algorithm: Iterative update step x_{k+1} = x_k - eta grad f(x_k) moving in direction of steepest descent."
+        ],
+        "theorem": "Global Optimality of Convex Functions: For a convex function defined on a convex set, every local minimum is guaranteed to be a global minimum.",
+        "examTrap": "Learning Rate Divergence Trap: If the learning rate eta > 2/L (where L is the Lipschitz constant of grad f), gradient descent can diverge and oscillate into infinity instead of converging."
+      }
+    ]
   },
-  'probability-statistics': {
-    formulaName: "Bayes' Law & Central Limit Theorem",
-    lang: 'Probability Theory',
-    gfgUrl: 'https://www.geeksforgeeks.org/probability-and-statistics-for-gate-exam/',
-    nptelCode: 'noc20-ma22 (IIT Kharagpur - Probability and Statistics)',
-    derivation: `Bayes' Rule:
-  P(A_i | B) = [ P(B | A_i) * P(A_i) ] / sum_{j=1}^k [ P(B | A_j) * P(A_j) ]
-
-Central Limit Theorem (CLT):
-  Given i.i.d random variables X_1, X_2, ..., X_n with mean mu and variance sigma^2:
-  Sample Mean X_bar = (1/n) * sum(X_i)
-  As n -> infinity:
-  Z = (X_bar - mu) / (sigma / sqrt(n))  ---> N(0, 1)`,
-    svgDiagram: `<svg viewBox="0 0 320 180" width="100%" height="100%"><path d="M 40 150 C 110 150, 130 30, 160 30 C 190 30, 210 150, 280 150" fill="rgba(197,160,89,0.15)" stroke="#c5a059" stroke-width="2.5"/><line x1="160" y1="30" x2="160" y2="150" stroke="#e0443e" stroke-dasharray="3" stroke-width="1.5"/><text x="160" y="165" fill="#666" font-size="10" text-anchor="middle">mu (Mean)</text><text x="210" y="110" fill="#c5a059" font-size="10">+1 sigma</text></svg>`,
-    caption: 'Gaussian Bell Curve Distribution (CLT Convergence)'
+  "probability-statistics": {
+    "formulaName": "Bayes' Law & Central Limit Theorem",
+    "lang": "Probability Theory",
+    "gfgUrl": "https://www.geeksforgeeks.org/probability-and-statistics-for-gate-exam/",
+    "nptelCode": "noc20-ma22 (IIT Kharagpur - Probability and Statistics)",
+    "derivation": "Bayes' Rule:\n  P(A_i | B) = [ P(B | A_i) * P(A_i) ] / sum_{j=1}^k [ P(B | A_j) * P(A_j) ]\n\nCentral Limit Theorem (CLT):\n  Given i.i.d random variables X_1, X_2, ..., X_n with mean mu and variance sigma^2:\n  Sample Mean X_bar = (1/n) * sum(X_i)\n  As n -> infinity:\n  Z = (X_bar - mu) / (sigma / sqrt(n))  ---> N(0, 1)",
+    "svgDiagram": "<svg viewBox=\"0 0 320 180\" width=\"100%\" height=\"100%\"><path d=\"M 40 150 C 110 150, 130 30, 160 30 C 190 30, 210 150, 280 150\" fill=\"rgba(197,160,89,0.15)\" stroke=\"#c5a059\" stroke-width=\"2.5\"/><line x1=\"160\" y1=\"30\" x2=\"160\" y2=\"150\" stroke=\"#e0443e\" stroke-dasharray=\"3\" stroke-width=\"1.5\"/><text x=\"160\" y=\"165\" fill=\"#666\" font-size=\"10\" text-anchor=\"middle\">mu (Mean)</text><text x=\"210\" y=\"110\" fill=\"#c5a059\" font-size=\"10\">+1 sigma</text></svg>",
+    "caption": "Gaussian Bell Curve Distribution (CLT Convergence)",
+    "gfgSubcategories": [
+      {
+        "title": "Axioms & Conditional Probability",
+        "tag": "Probability Basics",
+        "url": "https://www.geeksforgeeks.org/probability-in-engineering-mathematics/",
+        "desc": "Sample spaces, independent events, mutually exclusive events, and conditional probability P(A|B)."
+      },
+      {
+        "title": "Bayes\u2019 Theorem & Law of Total Probability",
+        "tag": "Bayesian Inference",
+        "url": "https://www.geeksforgeeks.org/bayes-theorem/",
+        "desc": "Prior vs posterior probabilities, likelihood, total probability partitions, and false-positive computations."
+      },
+      {
+        "title": "Discrete Probability Distributions",
+        "tag": "Discrete Variables",
+        "url": "https://www.geeksforgeeks.org/binomial-distribution-formula-and-examples/",
+        "desc": "Bernoulli, Binomial B(n, p), Poisson distribution, and Geometric memoryless property."
+      },
+      {
+        "title": "Continuous Distributions (Uniform & Normal)",
+        "tag": "Continuous Variables",
+        "url": "https://www.geeksforgeeks.org/normal-distribution/",
+        "desc": "Probability density functions (PDF), CDF, Uniform, Exponential, and standard normal Z-scores."
+      },
+      {
+        "title": "Expectation, Variance & Covariance",
+        "tag": "Moments & Covariance",
+        "url": "https://www.geeksforgeeks.org/covariance-and-correlation/",
+        "desc": "Linearity of expectation, variance properties Var(aX+b)=a^2 Var(X), covariance, and correlation coefficient."
+      },
+      {
+        "title": "Central Limit Theorem & Hypothesis Testing",
+        "tag": "Statistical Inference",
+        "url": "https://www.geeksforgeeks.org/hypothesis-testing/",
+        "desc": "Sample mean distribution, confidence intervals, null hypothesis H_0, p-values, Type I and Type II errors."
+      }
+    ],
+    "modules": [
+      {
+        "title": "Axiomatic Probability, Independence & Bayes\u2019 Theorem",
+        "keyPoints": [
+          "Axioms: P(S) = 1, P(A) >= 0, and P(A v B) = P(A) + P(B) for mutually exclusive events.",
+          "Conditional probability: P(A|B) = P(A cap B) / P(B), provided P(B) > 0.",
+          "Independence: Events A and B are independent iff P(A cap B) = P(A) P(B).",
+          "Law of Total Probability: P(B) = sum P(B|A_i) P(A_i) across a partition {A_i} of sample space S."
+        ],
+        "theorem": "Bayes\u2019 Inversion Rule: For a partition of the sample space into mutually exclusive events A_1, ..., A_k, P(A_i|B) = [P(B|A_i) P(A_i)] / sum_{j=1}^k [P(B|A_j) P(A_j)].",
+        "examTrap": "Independence vs Mutual Exclusivity: Mutually exclusive events with non-zero probability can NEVER be independent! If A and B cannot occur together, knowledge that B occurred guarantees A did not."
+      },
+      {
+        "title": "Random Variables, Distributions & Moments",
+        "keyPoints": [
+          "Binomial Distribution: P(X=k) = C(n,k) p^k (1-p)^{n-k}; Mean = np, Variance = np(1-p).",
+          "Poisson Distribution: P(X=k) = (lambda^k e^{-lambda}) / k!; Mean = lambda, Variance = lambda.",
+          "Exponential Distribution: f(x) = lambda e^{-lambda x}; Memoryless property: P(X > s+t | X > s) = P(X > t).",
+          "Normal Distribution: Bell-shaped curve symmetric around mu; standard normal Z = (X - mu)/sigma."
+        ],
+        "theorem": "Linearity of Expectation: For ANY random variables X and Y (whether independent or dependent), E[aX + bY] = a E[X] + b E[Y].",
+        "examTrap": "Variance Non-Linearity Trap: Var(X + Y) = Var(X) + Var(Y) + 2 Cov(X, Y). Do NOT drop the covariance term unless you are explicitly given that X and Y are uncorrelated or independent!"
+      },
+      {
+        "title": "Central Limit Theorem, Estimation & Hypothesis Testing",
+        "keyPoints": [
+          "Sample Mean X_bar = (1/n) sum X_i has expected value mu and standard error sigma / sqrt(n).",
+          "Central Limit Theorem: Regardless of the underlying population distribution, the sample mean approaches normal distribution as n -> inf.",
+          "Hypothesis testing: Null hypothesis H_0 vs Alternative hypothesis H_1.",
+          "Type I Error (alpha): Rejecting H_0 when H_0 is true (false alarm). Type II Error (beta): Failing to reject H_0 when H_0 is false."
+        ],
+        "theorem": "Central Limit Theorem (CLT): The normalized sum of n independent identically distributed random variables with finite variance converges in distribution to the standard normal distribution N(0,1).",
+        "examTrap": "P-Value Decision Boundary: Reject H_0 if and only if p-value <= alpha. If p-value > alpha, we \"fail to reject H_0\" (we NEVER say \"we accept H_0\")."
+      }
+    ]
   },
-  'digital-logic': {
-    formulaName: 'Sequential Timing & K-Map Boolean Optimization',
-    lang: 'Digital Systems',
-    gfgUrl: 'https://www.geeksforgeeks.org/digital-logic-gate-notes/',
-    nptelCode: 'noc21-cs47 (IIT Kharagpur - Digital Electronic Circuits)',
-    derivation: `Flip-Flop Setup and Hold Time Constraints:
-Clock Period Bound (Setup Time Condition):
-  T_clk >= T_cq(max) + T_comb(max) + T_setup - T_skew
-  f_max = 1 / T_clk(min)
-Hold Time Condition (Race Condition Avoidance):
-  T_cq(min) + T_comb(min) >= T_hold + T_skew
-(If violated, data corruption occurs regardless of clock slowing!)`,
-    svgDiagram: `<svg viewBox="0 0 320 180" width="100%" height="100%"><rect x="30" y="40" width="70" height="80" fill="#4a0e17" rx="6"/><text x="65" y="85" fill="#fff" font-size="11" text-anchor="middle">FF 1</text><rect x="135" y="55" width="55" height="50" fill="#c5a059" rx="4"/><text x="162" y="83" fill="#111" font-size="9" text-anchor="middle">Logic T_comb</text><rect x="220" y="40" width="70" height="80" fill="#2d0a0f" rx="6"/><text x="255" y="85" fill="#fff" font-size="11" text-anchor="middle">FF 2</text><line x1="100" y1="80" x2="135" y2="80" stroke="#999" stroke-width="2"/><line x1="190" y1="80" x2="220" y2="80" stroke="#999" stroke-width="2"/><text x="160" y="145" fill="#999" font-size="10" text-anchor="middle">Clock Period T_clk >= T_cq + T_comb + T_setup</text></svg>`,
-    caption: 'Sequential Logic Propagation & Setup Timing Constraint'
+  "digital-logic": {
+    "formulaName": "Sequential Timing & K-Map Boolean Optimization",
+    "lang": "Digital Systems",
+    "gfgUrl": "https://www.geeksforgeeks.org/digital-logic-gate-notes/",
+    "nptelCode": "noc21-cs47 (IIT Kharagpur - Digital Electronic Circuits)",
+    "derivation": "Flip-Flop Setup and Hold Time Constraints:\nClock Period Bound (Setup Time Condition):\n  T_clk >= T_cq(max) + T_comb(max) + T_setup - T_skew\n  f_max = 1 / T_clk(min)\nHold Time Condition (Race Condition Avoidance):\n  T_cq(min) + T_comb(min) >= T_hold + T_skew\n(If violated, data corruption occurs regardless of clock slowing!)",
+    "svgDiagram": "<svg viewBox=\"0 0 320 180\" width=\"100%\" height=\"100%\"><rect x=\"30\" y=\"40\" width=\"70\" height=\"80\" fill=\"#4a0e17\" rx=\"6\"/><text x=\"65\" y=\"85\" fill=\"#fff\" font-size=\"11\" text-anchor=\"middle\">FF 1</text><rect x=\"135\" y=\"55\" width=\"55\" height=\"50\" fill=\"#c5a059\" rx=\"4\"/><text x=\"162\" y=\"83\" fill=\"#111\" font-size=\"9\" text-anchor=\"middle\">Logic T_comb</text><rect x=\"220\" y=\"40\" width=\"70\" height=\"80\" fill=\"#2d0a0f\" rx=\"6\"/><text x=\"255\" y=\"85\" fill=\"#fff\" font-size=\"11\" text-anchor=\"middle\">FF 2</text><line x1=\"100\" y1=\"80\" x2=\"135\" y2=\"80\" stroke=\"#999\" stroke-width=\"2\"/><line x1=\"190\" y1=\"80\" x2=\"220\" y2=\"80\" stroke=\"#999\" stroke-width=\"2\"/><text x=\"160\" y=\"145\" fill=\"#999\" font-size=\"10\" text-anchor=\"middle\">Clock Period T_clk >= T_cq + T_comb + T_setup</text></svg>",
+    "caption": "Sequential Logic Propagation & Setup Timing Constraint",
+    "gfgSubcategories": [
+      {
+        "title": "Boolean Algebra & De Morgan\u2019s Laws",
+        "tag": "Boolean Logic",
+        "url": "https://www.geeksforgeeks.org/boolean-algebra-in-digital-logic/",
+        "desc": "Canonical SOP/POS forms, minterms, maxterms, duality principle, and universal logic gates (NAND/NOR)."
+      },
+      {
+        "title": "Karnaugh Maps (K-Maps) Minimization",
+        "tag": "Minimization",
+        "url": "https://www.geeksforgeeks.org/k-map-karnaugh-map/",
+        "desc": "Gray code adjacency, grouping powers of 2, prime implicants, essential prime implicants, and don\u2019t care conditions."
+      },
+      {
+        "title": "Combinational Logic: Adders & Multiplexers",
+        "tag": "Combinational Circuits",
+        "url": "https://www.geeksforgeeks.org/combinational-circuits/",
+        "desc": "Half/full adders, carry lookahead delay, 2^n:1 MUX logic implementation, decoders, and priority encoders."
+      },
+      {
+        "title": "Latches, Flip-Flops & Excitation Tables",
+        "tag": "Memory Elements",
+        "url": "https://www.geeksforgeeks.org/flip-flop-types-conversion-and-applications/",
+        "desc": "SR, JK race around condition, Master-Slave JK, D (delay), T (toggle) flip-flops, and excitation conversion."
+      },
+      {
+        "title": "Counters & Shift Registers",
+        "tag": "Sequential Systems",
+        "url": "https://www.geeksforgeeks.org/counters-in-digital-logic/",
+        "desc": "Ripple asynchronous counters, MOD-N synchronous counters, ring counters, and Johnson twisted counters."
+      },
+      {
+        "title": "Number Representations & 2\u2019s Complement",
+        "tag": "Computer Arithmetic",
+        "url": "https://www.geeksforgeeks.org/2s-complement-notation/",
+        "desc": "Signed magnitude, 1\u2019s complement, 2\u2019s complement range [-2^{n-1}, 2^{n-1}-1], overflow detection, and IEEE 754."
+      }
+    ],
+    "modules": [
+      {
+        "title": "Boolean Algebra, Canonical Forms & K-Map Minimization",
+        "keyPoints": [
+          "De Morgan\u2019s Theorems: (A + B)\u2019 = A\u2019 B\u2019 and (A B)\u2019 = A\u2019 + B\u2019.",
+          "Canonical SOP (sum of minterms) and canonical POS (product of maxterms).",
+          "K-Map grouping: Must group in powers of two (1, 2, 4, 8, 16); larger groups produce smaller product terms.",
+          "Prime Implicant (PI): Rectangular group that cannot be combined into a larger group. Essential Prime Implicant (EPI): Contains at least one minterm covered by no other PI."
+        ],
+        "theorem": "Consensus Theorem: AB + A\u2019C + BC = AB + A\u2019C, where the consensus term BC is entirely redundant and can be eliminated.",
+        "examTrap": "Don\u2019t Care Minimization Trap: Don\u2019t care conditions (d) do NOT have to be covered! Only group a don\u2019t care if doing so enlarges an existing group of 1s to simplify the Boolean expression."
+      },
+      {
+        "title": "Combinational MSI Circuits: Adders, MUX & Decoders",
+        "keyPoints": [
+          "Full Adder: Sum S = A xor B xor C_in; Carry C_out = AB + BC_in + AC_in.",
+          "Carry Lookahead Adder computes carries in parallel using Generate G_i = A_i B_i and Propagate P_i = A_i xor B_i.",
+          "Multiplexer 2^n to 1: Can implement any Boolean function of n variables directly, and n+1 variables using external inverters.",
+          "Decoders n to 2^n generate all 2^n minterms; can synthesize any logic function by OR-ing active-low/high minterm outputs."
+        ],
+        "theorem": "Universal Function Implementation via Multiplexers: Any Boolean function of n variables can be implemented using a single 2^{n-1}:1 MUX without any external logic gates.",
+        "examTrap": "Multiplexer Variable Assignment: When connecting inputs of a MUX, be extremely careful with variable indexing on select lines. Reversing the order of MSB and LSB flips the entire function."
+      },
+      {
+        "title": "Sequential Circuits, Flip-Flop Conversion & Timing Constraints",
+        "keyPoints": [
+          "Characteristic equations: JK: Q_{next} = J Q\u2019 + K\u2019 Q; D: Q_{next} = D; T: Q_{next} = T xor Q.",
+          "Race Around Condition in JK Flip-Flop occurs when J=1, K=1, level-triggered clock pulse width t_p > propagation delay t_{ff}. Remedied by edge triggering.",
+          "Setup Time t_{su}: Minimum time input data must remain stable BEFORE clock edge arrives.",
+          "Hold Time t_h: Minimum time input data must remain stable AFTER clock edge arrives."
+        ],
+        "theorem": "Maximum Clock Frequency Bound: The minimum clock period T_{clk} is bounded by T_{clk} >= t_{cq(max)} + t_{comb(max)} + t_{su} - t_{skew}, giving f_{max} = 1 / T_{clk(min)}.",
+        "examTrap": "Hold Time Independence from Clock: Hold time violations (t_{cq(min)} + t_{comb(min)} < t_h + t_{skew}) CANNOT be resolved by decreasing clock frequency! They depend purely on propagation delays."
+      }
+    ]
   },
-  'computer-organization': {
-    formulaName: 'Cache Memory EAT & Pipeline Speedup',
-    lang: 'Computer Architecture',
-    gfgUrl: 'https://www.geeksforgeeks.org/computer-organization-and-architecture-tutorials/',
-    nptelCode: 'noc20-cs64 (IIT Madras - Computer Organization and Architecture)',
-    derivation: `Effective Access Time (EAT) with Hierarchical Cache:
-  EAT = H_1 * T_1 + (1 - H_1) * [ H_2 * (T_1 + T_2) + (1 - H_2) * (T_1 + T_2 + T_mem) ]
-  where H_i = Hit Ratio at Level i, T_i = Access Latency.
-
-Pipeline Speedup:
-  Speedup S = Non-pipelined Time / Pipelined Time
-            = (n * k * tau) / [ (k + n - 1) * tau + Stalls ]
-  Ideal Limit (as n -> infinity, Stalls = 0): Speedup = k (number of stages)`,
-    svgDiagram: `<svg viewBox="0 0 320 180" width="100%" height="100%"><rect x="30" y="30" width="60" height="25" fill="#4a0e17" rx="4"/><text x="60" y="46" fill="#fff" font-size="9" text-anchor="middle">CPU Core</text><rect x="110" y="30" width="55" height="25" fill="#c5a059" rx="4"/><text x="137" y="46" fill="#111" font-size="9" text-anchor="middle">L1 Cache</text><rect x="185" y="30" width="55" height="25" fill="#a8853b" rx="4"/><text x="212" y="46" fill="#111" font-size="9" text-anchor="middle">L2 Cache</text><rect x="255" y="20" width="50" height="45" fill="#333" rx="4"/><text x="280" y="47" fill="#fff" font-size="9" text-anchor="middle">RAM</text><line x1="90" y1="42" x2="110" y2="42" stroke="#666" stroke-width="2"/><line x1="165" y1="42" x2="185" y2="42" stroke="#666" stroke-width="2"/><line x1="240" y1="42" x2="255" y2="42" stroke="#666" stroke-width="2"/><text x="160" y="120" fill="#999" font-size="10" text-anchor="middle">Hierarchy: Trade-off between capacity and latency</text></svg>`,
-    caption: 'Memory Hierarchy Latency vs Capacity Pyramid'
+  "computer-organization": {
+    "formulaName": "Cache Memory EAT & Pipeline Speedup",
+    "lang": "Computer Architecture",
+    "gfgUrl": "https://www.geeksforgeeks.org/computer-organization-and-architecture-tutorials/",
+    "nptelCode": "noc20-cs64 (IIT Madras - Computer Organization and Architecture)",
+    "derivation": "Effective Access Time (EAT) with Hierarchical Cache:\n  EAT = H_1 * T_1 + (1 - H_1) * [ H_2 * (T_1 + T_2) + (1 - H_2) * (T_1 + T_2 + T_mem) ]\n  where H_i = Hit Ratio at Level i, T_i = Access Latency.\n\nPipeline Speedup:\n  Speedup S = Non-pipelined Time / Pipelined Time\n            = (n * k * tau) / [ (k + n - 1) * tau + Stalls ]\n  Ideal Limit (as n -> infinity, Stalls = 0): Speedup = k (number of stages)",
+    "svgDiagram": "<svg viewBox=\"0 0 320 180\" width=\"100%\" height=\"100%\"><rect x=\"30\" y=\"30\" width=\"60\" height=\"25\" fill=\"#4a0e17\" rx=\"4\"/><text x=\"60\" y=\"46\" fill=\"#fff\" font-size=\"9\" text-anchor=\"middle\">CPU Core</text><rect x=\"110\" y=\"30\" width=\"55\" height=\"25\" fill=\"#c5a059\" rx=\"4\"/><text x=\"137\" y=\"46\" fill=\"#111\" font-size=\"9\" text-anchor=\"middle\">L1 Cache</text><rect x=\"185\" y=\"30\" width=\"55\" height=\"25\" fill=\"#a8853b\" rx=\"4\"/><text x=\"212\" y=\"46\" fill=\"#111\" font-size=\"9\" text-anchor=\"middle\">L2 Cache</text><rect x=\"255\" y=\"20\" width=\"50\" height=\"45\" fill=\"#333\" rx=\"4\"/><text x=\"280\" y=\"47\" fill=\"#fff\" font-size=\"9\" text-anchor=\"middle\">RAM</text><line x1=\"90\" y1=\"42\" x2=\"110\" y2=\"42\" stroke=\"#666\" stroke-width=\"2\"/><line x1=\"165\" y1=\"42\" x2=\"185\" y2=\"42\" stroke=\"#666\" stroke-width=\"2\"/><line x1=\"240\" y1=\"42\" x2=\"255\" y2=\"42\" stroke=\"#666\" stroke-width=\"2\"/><text x=\"160\" y=\"120\" fill=\"#999\" font-size=\"10\" text-anchor=\"middle\">Hierarchy: Trade-off between capacity and latency</text></svg>",
+    "caption": "Memory Hierarchy Latency vs Capacity Pyramid",
+    "gfgSubcategories": [
+      {
+        "title": "Machine Instructions & Addressing Modes",
+        "tag": "Instruction Sets",
+        "url": "https://www.geeksforgeeks.org/addressing-modes/",
+        "desc": "Immediate, direct, indirect, register indirect, index, base register, and PC-relative addressing calculation."
+      },
+      {
+        "title": "ALU Design & IEEE 754 Floating Point",
+        "tag": "Arithmetic",
+        "url": "https://www.geeksforgeeks.org/ieee-standard-754-floating-point-numbers/",
+        "desc": "Booth\u2019s multiplication algorithm, restoring/non-restoring division, sign bit, exponent bias 127/1023, mantissa."
+      },
+      {
+        "title": "Cache Memory Organization & Mapping",
+        "tag": "Memory Hierarchy",
+        "url": "https://www.geeksforgeeks.org/cache-memory/",
+        "desc": "Direct mapping, associative, set-associative cache tags/set indices/block offsets, write policies, and EAT."
+      },
+      {
+        "title": "Instruction Pipelining & Hazard Resolution",
+        "tag": "Pipelines",
+        "url": "https://www.geeksforgeeks.org/pipelining-in-computer-architecture/",
+        "desc": "Structural hazards, RAW/WAR/WAW data hazards, forwarding bypass paths, branch delay slots, and speedup."
+      },
+      {
+        "title": "Memory Interleaving & Secondary Storage",
+        "tag": "Storage Systems",
+        "url": "https://www.geeksforgeeks.org/memory-interleaving-in-computer-organization/",
+        "desc": "High-order vs low-order interleaving, disk rotational latency, seek time, transfer rates, and RAID arrays."
+      },
+      {
+        "title": "I/O Interfaces, Interrupts & DMA",
+        "tag": "I/O Organization",
+        "url": "https://www.geeksforgeeks.org/direct-memory-access-dma/",
+        "desc": "Programmed I/O, interrupt-driven I/O, daisy chain priority resolution, DMA cycle stealing, and burst mode."
+      }
+    ],
+    "modules": [
+      {
+        "title": "Instruction Set Architecture, Addressing Modes & Datapath",
+        "keyPoints": [
+          "Instruction cycle: Fetch, Decode, Operand Fetch, Execute, Writeback.",
+          "Addressing modes: Immediate (#val), Direct (address in instruction), Indirect (@addr), PC-relative (PC + offset).",
+          "Control Unit: Hardwired control (fast, fixed combinational circuits) vs Microprogrammed control (flexible microinstructions, slower).",
+          "Interrupt handling: Hardware vectored interrupts save return PC and processor status word onto the system stack."
+        ],
+        "theorem": "PC-Relative Addressing Calculation: In PC-relative branch instructions, the effective branch target address is EA = Updated PC + Offset, where Updated PC is already pointing to the next instruction.",
+        "examTrap": "Pre-Incremented PC Trap: When computing branch targets in PC-relative addressing questions, remember that the PC has ALREADY been incremented past the branch instruction before the offset is added!"
+      },
+      {
+        "title": "Memory Hierarchy, Cache Organization & Access Time",
+        "keyPoints": [
+          "Locality of Reference: Temporal (reused recently) and Spatial (nearby memory items accessed together).",
+          "Cache address division for k-way set associative: Tag bits | Set Index bits (log2(Sets)) | Word Offset bits.",
+          "Number of sets = Total Cache Lines / k. In direct-mapped cache, k = 1; in fully associative cache, Sets = 1.",
+          "Cache write policies: Write-Through with write buffer vs Write-Back with dirty bit."
+        ],
+        "theorem": "Effective Memory Access Time: In a hierarchical cache system, EAT = H_1 T_1 + (1 - H_1) [H_2 (T_1 + T_2) + (1 - H_2) (T_1 + T_2 + T_{mem})].",
+        "examTrap": "Simultaneous vs Hierarchical Access Trap: Check whether the problem specifies simultaneous cache-memory lookup or hierarchical lookup. In hierarchical lookup, the cache inspection time T_1 is added to the penalty."
+      },
+      {
+        "title": "Instruction Pipelining, Hazards & Speedup Analysis",
+        "keyPoints": [
+          "Classic 5-stage RISC pipeline: Instruction Fetch (IF), Instruction Decode (ID), Execute (EX), Memory (MEM), Writeback (WB).",
+          "Pipeline Hazards: Structural (resource conflicts), Data (RAW, WAR, WAW dependencies), Control (branch instructions).",
+          "Data Hazard Resolution: Operand forwarding (bypassing), software compiler scheduling, or hardware stalling (bubble insertion).",
+          "Pipeline Speedup: S = (n * k * clock) / [(k + n - 1 + Stalls) * clock]. As n -> inf with no stalls, S -> k."
+        ],
+        "theorem": "Amdahl\u2019s Law for Speedup: S_{overall} = 1 / [(1 - f) + (f / s)], where f is the fraction of execution time enhanced by a speedup factor of s.",
+        "examTrap": "Load-Use Data Hazard Trap: Operand forwarding CANNOT eliminate the stall between a Load Word (LW) instruction and an immediately following instruction that uses the loaded register. It requires at least 1 stall cycle!"
+      }
+    ]
   },
-  'programming-data-structures': {
-    formulaName: 'Binary Heap Invariant & AVL Balancing',
-    lang: 'Data Structures (C/C++)',
-    gfgUrl: 'https://www.geeksforgeeks.org/data-structures/',
-    nptelCode: 'noc20-cs70 (IIT Kharagpur - Programming and Data Structures)',
-    derivation: `AVL Tree Balance Factor:
-  BF(Node) = Height(LeftSubtree) - Height(RightSubtree)
-  Tree is AVL balanced <=> BF in {-1, 0, +1} for ALL nodes.
-  Rotations: LL (Single Right), RR (Single Left), LR (Left then Right), RL.
-
-Binary Min-Heap Indexing (0-indexed array):
-  Parent(i) = floor((i - 1) / 2)
-  LeftChild(i) = 2*i + 1,  RightChild(i) = 2*i + 2
-  Build-Heap Time: Sum_{h=0}^{log n} (n / 2^{h+1}) * O(h) = O(n)`,
-    svgDiagram: `<svg viewBox="0 0 320 180" width="100%" height="100%"><circle cx="160" cy="35" r="15" fill="#4a0e17"/><text x="160" y="39" fill="#fff" font-size="10" text-anchor="middle">10</text><circle cx="95" cy="85" r="14" fill="#c5a059"/><text x="95" y="89" fill="#111" font-size="9" text-anchor="middle">15</text><circle cx="225" cy="85" r="14" fill="#c5a059"/><text x="225" y="89" fill="#111" font-size="9" text-anchor="middle">20</text><line x1="150" y1="46" x2="105" y2="75" stroke="#999" stroke-width="2"/><line x1="170" y1="46" x2="215" y2="75" stroke="#999" stroke-width="2"/><text x="160" y="150" fill="#999" font-size="10" text-anchor="middle">Complete Binary Min-Heap Invariant: Parent <= Children</text></svg>`,
-    caption: 'Complete Binary Min-Heap Order Invariant'
+  "programming-data-structures": {
+    "formulaName": "Binary Heap Invariant & AVL Balancing",
+    "lang": "Data Structures (C/C++)",
+    "gfgUrl": "https://www.geeksforgeeks.org/data-structures/",
+    "nptelCode": "noc20-cs70 (IIT Kharagpur - Programming and Data Structures)",
+    "derivation": "AVL Tree Balance Factor:\n  BF(Node) = Height(LeftSubtree) - Height(RightSubtree)\n  Tree is AVL balanced <=> BF in {-1, 0, +1} for ALL nodes.\n  Rotations: LL (Single Right), RR (Single Left), LR (Left then Right), RL.\n\nBinary Min-Heap Indexing (0-indexed array):\n  Parent(i) = floor((i - 1) / 2)\n  LeftChild(i) = 2*i + 1,  RightChild(i) = 2*i + 2\n  Build-Heap Time: Sum_{h=0}^{log n} (n / 2^{h+1}) * O(h) = O(n)",
+    "svgDiagram": "<svg viewBox=\"0 0 320 180\" width=\"100%\" height=\"100%\"><circle cx=\"160\" cy=\"35\" r=\"15\" fill=\"#4a0e17\"/><text x=\"160\" y=\"39\" fill=\"#fff\" font-size=\"10\" text-anchor=\"middle\">10</text><circle cx=\"95\" cy=\"85\" r=\"14\" fill=\"#c5a059\"/><text x=\"95\" y=\"89\" fill=\"#111\" font-size=\"9\" text-anchor=\"middle\">15</text><circle cx=\"225\" cy=\"85\" r=\"14\" fill=\"#c5a059\"/><text x=\"225\" y=\"89\" fill=\"#111\" font-size=\"9\" text-anchor=\"middle\">20</text><line x1=\"150\" y1=\"46\" x2=\"105\" y2=\"75\" stroke=\"#999\" stroke-width=\"2\"/><line x1=\"170\" y1=\"46\" x2=\"215\" y2=\"75\" stroke=\"#999\" stroke-width=\"2\"/><text x=\"160\" y=\"150\" fill=\"#999\" font-size=\"10\" text-anchor=\"middle\">Complete Binary Min-Heap Invariant: Parent <= Children</text></svg>",
+    "caption": "Complete Binary Min-Heap Order Invariant",
+    "gfgSubcategories": [
+      {
+        "title": "Pointers, Arrays & Recursion in C",
+        "tag": "C Programming",
+        "url": "https://www.geeksforgeeks.org/c-programming-language/",
+        "desc": "Pointer arithmetic, dynamic memory allocation (malloc/free), function pointers, call stack activation records."
+      },
+      {
+        "title": "Stacks, Queues & Expression Evaluation",
+        "tag": "Linear Structures",
+        "url": "https://www.geeksforgeeks.org/stack-data-structure/",
+        "desc": "LIFO stacks, circular queue full/empty conditions, infix-to-postfix conversion, and postfix evaluation."
+      },
+      {
+        "title": "Linked Lists & Floyd\u2019s Cycle Detection",
+        "tag": "Linked Structures",
+        "url": "https://www.geeksforgeeks.org/data-structures/linked-list/",
+        "desc": "Singly, doubly, circular linked lists, in-place list reversal, and two-pointer cycle detection algorithm."
+      },
+      {
+        "title": "Binary Trees & Tree Traversals",
+        "tag": "Tree Hierarchies",
+        "url": "https://www.geeksforgeeks.org/binary-tree-data-structure/",
+        "desc": "Inorder, preorder, postorder, level order, constructing unique trees from traversal pairs, and height bounds."
+      },
+      {
+        "title": "Binary Search Trees & AVL Rotations",
+        "tag": "Search Trees",
+        "url": "https://www.geeksforgeeks.org/binary-search-tree-data-structure/",
+        "desc": "BST properties, deletion with in-order predecessor/successor, AVL tree balance factor, LL/RR/LR/RL rotations."
+      },
+      {
+        "title": "Binary Heaps & Priority Queues",
+        "tag": "Priority Structures",
+        "url": "https://www.geeksforgeeks.org/heap-data-structure/",
+        "desc": "Min/Max-heap complete binary tree array representation, heapify operation, and O(n) build-heap."
+      }
+    ],
+    "modules": [
+      {
+        "title": "C Language Semantics, Memory & Recursive Execution",
+        "keyPoints": [
+          "Memory Layout: Code (text), Initialized data, BSS, Heap (grows up), Stack (grows down).",
+          "Pointer arithmetic: `p + 1` increments address by `sizeof(*p)` bytes. `a[i]` is identical to `*(a + i)`.",
+          "Operator Precedence: `*p++` evaluates to `*(p++)`, returning `*p` then incrementing pointer `p`. `(*p)++` increments the value.",
+          "Recursion: Each recursive call allocates a stack frame storing local variables, parameters, and return address."
+        ],
+        "theorem": "Array Dereferencing Identity: For any array `a` and index `i`, `a[i] == *(a + i) == *(i + a) == i[a]`.",
+        "examTrap": "Dangling Pointer & Memory Leak: Freeing memory (`free(p)`) does not set `p` to NULL; dereferencing `p` afterward is undefined behavior. Failing to free dynamic memory causes memory leaks."
+      },
+      {
+        "title": "Stacks, Queues & Linked List Invariants",
+        "keyPoints": [
+          "Stack: LIFO structure used for function calls, expression evaluation, syntax matching, and DFS traversal.",
+          "Circular Queue: Array of size N implements modulo indexing. Full condition: `(rear + 1) % N == front`. Stores at most N - 1 items.",
+          "Linked List Reversal: Can reverse singly linked list in O(n) time and O(1) auxiliary space using 3 pointers (prev, curr, next).",
+          "Floyd\u2019s Cycle Finding Algorithm: Slow pointer (1 step) and fast pointer (2 steps) meet inside cycle if a loop exists."
+        ],
+        "theorem": "Stack Permutation Bound: The number of distinct permutations of 1..n that can be produced using a stack is given by the n-th Catalan number C_n = (1 / (n + 1)) * C(2n, n).",
+        "examTrap": "Infix to Postfix Associativity: When converting operators with equal precedence, left-associative operators (like +, -, *, /) cause operators on stack to pop; right-associative operators (like exponent ^) do not!"
+      },
+      {
+        "title": "Trees, Binary Search Trees & Self-Balancing AVL Trees",
+        "keyPoints": [
+          "Binary Tree properties: Maximum nodes at depth d is 2^d. In any non-empty binary tree, n_0 = n_2 + 1 (leaves = degree-2 nodes + 1).",
+          "Unique Tree Construction: Requires Inorder traversal PLUS either Preorder or Postorder traversal.",
+          "Binary Search Tree (BST): Inorder traversal of a BST produces keys in strictly increasing sorted order.",
+          "AVL Tree: Self-balancing BST where height difference between left and right subtrees is at most 1 for every node."
+        ],
+        "theorem": "Binary Tree Degree Identity: In every binary tree, the number of leaf nodes n_0 is strictly equal to the number of nodes having two children n_2 plus one (n_0 = n_2 + 1).",
+        "examTrap": "Tree Construction Ambiguity: You CANNOT reconstruct a unique binary tree from Preorder and Postorder traversals alone, unless you are explicitly given that every non-leaf node has exactly two children."
+      }
+    ]
   },
-  'algorithms': {
-    formulaName: "Master Theorem for Divide & Conquer",
-    lang: 'Algorithm Analysis',
-    gfgUrl: 'https://www.geeksforgeeks.org/fundamentals-of-algorithms/',
-    nptelCode: 'noc21-cs68 (IIT Delhi - Design and Analysis of Algorithms)',
-    derivation: `Recurrence: T(n) = a * T(n/b) + f(n), where a >= 1, b > 1
-Critical Value: c_crit = log_b(a)
-Case 1: f(n) = O(n^{c_crit - epsilon}) for epsilon > 0
-        => T(n) = Theta(n^{log_b(a)})
-Case 2: f(n) = Theta(n^{c_crit} * log^k(n)) for k >= 0
-        => T(n) = Theta(n^{log_b(a)} * log^{k+1}(n))
-Case 3: f(n) = Omega(n^{c_crit + epsilon}) and regularity holds
-        => T(n) = Theta(f(n))`,
-    svgDiagram: `<svg viewBox="0 0 320 180" width="100%" height="100%"><circle cx="160" cy="30" r="14" fill="#c5a059"/><text x="160" y="34" fill="#111" font-size="9" text-anchor="middle">T(n)</text><circle cx="90" cy="85" r="12" fill="#c5a059"/><text x="90" y="89" fill="#111" font-size="8" text-anchor="middle">T(n/2)</text><circle cx="230" cy="85" r="12" fill="#c5a059"/><text x="230" y="89" fill="#111" font-size="8" text-anchor="middle">T(n/2)</text><line x1="150" y1="42" x2="100" y2="75" stroke="#666" stroke-width="2"/><line x1="170" y1="42" x2="220" y2="75" stroke="#666" stroke-width="2"/><text x="160" y="150" fill="#999" font-size="10" text-anchor="middle">Recursion Tree: Total Work per Level = sum c*n</text></svg>`,
-    caption: 'Recursion Tree Level-Wise Cost Partitioning'
+  "algorithms": {
+    "formulaName": "Master Theorem for Divide & Conquer",
+    "lang": "Algorithm Analysis",
+    "gfgUrl": "https://www.geeksforgeeks.org/fundamentals-of-algorithms/",
+    "nptelCode": "noc21-cs68 (IIT Delhi - Design and Analysis of Algorithms)",
+    "derivation": "Recurrence: T(n) = a * T(n/b) + f(n), where a >= 1, b > 1\nCritical Value: c_crit = log_b(a)\nCase 1: f(n) = O(n^{c_crit - epsilon}) for epsilon > 0\n        => T(n) = Theta(n^{log_b(a)})\nCase 2: f(n) = Theta(n^{c_crit} * log^k(n)) for k >= 0\n        => T(n) = Theta(n^{log_b(a)} * log^{k+1}(n))\nCase 3: f(n) = Omega(n^{c_crit + epsilon}) and regularity holds\n        => T(n) = Theta(f(n))",
+    "svgDiagram": "<svg viewBox=\"0 0 320 180\" width=\"100%\" height=\"100%\"><circle cx=\"160\" cy=\"30\" r=\"14\" fill=\"#c5a059\"/><text x=\"160\" y=\"34\" fill=\"#111\" font-size=\"9\" text-anchor=\"middle\">T(n)</text><circle cx=\"90\" cy=\"85\" r=\"12\" fill=\"#c5a059\"/><text x=\"90\" y=\"89\" fill=\"#111\" font-size=\"8\" text-anchor=\"middle\">T(n/2)</text><circle cx=\"230\" cy=\"85\" r=\"12\" fill=\"#c5a059\"/><text x=\"230\" y=\"89\" fill=\"#111\" font-size=\"8\" text-anchor=\"middle\">T(n/2)</text><line x1=\"150\" y1=\"42\" x2=\"100\" y2=\"75\" stroke=\"#666\" stroke-width=\"2\"/><line x1=\"170\" y1=\"42\" x2=\"220\" y2=\"75\" stroke=\"#666\" stroke-width=\"2\"/><text x=\"160\" y=\"150\" fill=\"#999\" font-size=\"10\" text-anchor=\"middle\">Recursion Tree: Total Work per Level = sum c*n</text></svg>",
+    "caption": "Recursion Tree Level-Wise Cost Partitioning",
+    "gfgSubcategories": [
+      {
+        "title": "Asymptotic Analysis & Recurrences",
+        "tag": "Complexity Theory",
+        "url": "https://www.geeksforgeeks.org/analysis-of-algorithms-set-1-asymptotic-analysis/",
+        "desc": "Big-O, Omega, Theta asymptotic definitions, Master Theorem cases, recursion tree methods, and substitution."
+      },
+      {
+        "title": "Divide & Conquer and Sorting Algorithms",
+        "tag": "Sorting & Searching",
+        "url": "https://www.geeksforgeeks.org/divide-and-conquer-algorithm-introduction/",
+        "desc": "Merge sort, quick sort randomized pivot, heap sort, comparison sorting Omega(n log n) lower bound, and counting sort."
+      },
+      {
+        "title": "Greedy Algorithms & Matroids",
+        "tag": "Greedy Strategy",
+        "url": "https://www.geeksforgeeks.org/greedy-algorithms/",
+        "desc": "Greedy choice property, optimal substructure, fractional knapsack, Huffman coding prefix trees, and job sequencing."
+      },
+      {
+        "title": "Dynamic Programming Paradigms",
+        "tag": "Dynamic Programming",
+        "url": "https://www.geeksforgeeks.org/dynamic-programming/",
+        "desc": "Memoization vs tabulation, 0/1 knapsack, Matrix Chain Multiplication, Longest Common Subsequence (LCS)."
+      },
+      {
+        "title": "Graph Traversals & Topological Sort",
+        "tag": "Graph Algorithms",
+        "url": "https://www.geeksforgeeks.org/graph-data-structure-and-algorithms/",
+        "desc": "BFS queue traversal, DFS discovery/finish timestamps, DAG cycle detection, and Kahn\u2019s in-degree topological sort."
+      },
+      {
+        "title": "Shortest Paths & Minimum Spanning Trees",
+        "tag": "Network Optimization",
+        "url": "https://www.geeksforgeeks.org/prims-minimum-spanning-tree-mst-greedy-algo-5/",
+        "desc": "Kruskal\u2019s union-find MST, Prim\u2019s priority queue MST, Dijkstra\u2019s non-negative shortest path, and Bellman-Ford."
+      }
+    ],
+    "modules": [
+      {
+        "title": "Asymptotic Complexity, Divide & Conquer and Sorting Bounds",
+        "keyPoints": [
+          "Asymptotic bounds: O (upper bound), Omega (lower bound), Theta (tight bound), o (strict upper), omega (strict lower).",
+          "Master Theorem solves T(n) = a T(n/b) + f(n) comparing f(n) with critical exponent n^{log_b a}.",
+          "Comparison sorting lower bound: Omega(n log n) comparisons required in worst case, derived from decision tree depth ceil(log2(n!)).",
+          "Linear time sorting: Counting Sort O(n+k), Radix Sort O(d(n+k)), Bucket Sort O(n) average (requires non-comparison assumption)."
+        ],
+        "theorem": "Comparison Sorting Lower Bound: Any comparison-based sorting algorithm requires at least ceil(log_2(n!)) = Omega(n log n) comparisons in the worst case.",
+        "examTrap": "Master Theorem Gap Trap: Master theorem cannot solve recurrences where f(n) and n^{log_b a} differ by a non-polynomial factor (e.g., T(n) = 2T(n/2) + n / log n). Use substitution or Akra-Bazzi instead."
+      },
+      {
+        "title": "Greedy Choice Property & Dynamic Programming Paradigms",
+        "keyPoints": [
+          "Greedy Choice Property: A globally optimal solution can be arrived at by making locally optimal (greedy) choices.",
+          "Dynamic Programming: Solves problems with overlapping subproblems and optimal substructure via memoization or tabulation.",
+          "0/1 Knapsack (DP, O(nW) pseudo-polynomial time) vs Fractional Knapsack (Greedy, O(n log n) sorting by value/weight).",
+          "Matrix Chain Multiplication: Multiplies n matrices in O(n^3) using DP recurrence m[i,j] = min_{i<=k<j} (m[i,k] + m[k+1,j] + p_{i-1} p_k p_j)."
+        ],
+        "theorem": "Huffman Coding Optimality: Huffman prefix code generation produces an optimal prefix-free binary encoding that minimizes expected codeword length sum p_i l_i.",
+        "examTrap": "0/1 Knapsack Greedy Trap: Never pick items greedily by value or value-to-weight ratio in 0/1 Knapsack. Greedy choice is strictly sub-optimal for discrete items; DP is required."
+      },
+      {
+        "title": "Graph Algorithms: Traversals, MST & Shortest Paths",
+        "keyPoints": [
+          "BFS (queue, O(V+E)) finds shortest paths in unweighted graphs. DFS (stack, O(V+E)) classifies tree, back, forward, cross edges.",
+          "Topological Sort exists iff directed graph is a DAG (no back edges). Can be computed using DFS finish times or Kahn\u2019s algorithm.",
+          "Minimum Spanning Tree (MST): Kruskal\u2019s (O(E log V) with Disjoint Set Union) and Prim\u2019s (O((V+E) log V) with min-heap).",
+          "Shortest Paths: Dijkstra (O((V+E) log V), non-negative weights), Bellman-Ford (O(VE), detects negative cycles), Floyd-Warshall (O(V^3), all pairs)."
+        ],
+        "theorem": "Cut Property for MST: For any cut in graph G, the lightest edge crossing the cut belongs to every Minimum Spanning Tree of G.",
+        "examTrap": "Dijkstra on Negative Edges Trap: Dijkstra\u2019s algorithm can produce incorrect results or loop infinitely when negative edge weights are present. Always use Bellman-Ford if edge weights can be negative."
+      }
+    ]
   },
-  'theory-of-computation': {
-    formulaName: "Pumping Lemma for Regular Languages",
-    lang: 'Formal Languages',
-    gfgUrl: 'https://www.geeksforgeeks.org/theory-of-computation-automata-tutorials/',
-    nptelCode: 'noc20-cs78 (IIT Kanpur - Theory of Computation)',
-    derivation: `Let L be a regular language with pumping length p.
-Any string w in L with |w| >= p can be split into w = x y z such that:
-  1. |y| >= 1  (non-empty pumpable segment)
-  2. |x y| <= p (pump occurs in the prefix)
-  3. For all i >= 0, x (y^i) z in L
-Contrapositive Method:
-  Choose string w in L of length >= p.
-  Show that for EVERY partition w = xyz meeting (1) & (2),
-  there exists some i such that x (y^i) z NOT in L => L is NOT regular.`,
-    svgDiagram: `<svg viewBox="0 0 320 180" width="100%" height="100%"><ellipse cx="160" cy="90" rx="145" ry="75" fill="none" stroke="#666" stroke-width="1.5"/><text x="160" y="32" fill="#777" font-size="9" text-anchor="middle">Type 0: Recursively Enumerable (Turing Machine)</text><ellipse cx="160" cy="98" rx="115" ry="58" fill="none" stroke="#c5a059" stroke-width="1.5"/><text x="160" y="58" fill="#c5a059" font-size="9" text-anchor="middle">Type 1: Context-Sensitive</text><ellipse cx="160" cy="105" rx="85" ry="42" fill="none" stroke="#059669" stroke-width="1.5"/><text x="160" y="80" fill="#059669" font-size="9" text-anchor="middle">Type 2: Context-Free (PDA)</text><ellipse cx="160" cy="112" rx="55" ry="26" fill="rgba(197,160,89,0.2)" stroke="#e0443e" stroke-width="2"/><text x="160" y="117" fill="#e0443e" font-size="10" text-anchor="middle" font-weight="700">Type 3: Regular (DFA)</text></svg>`,
-    caption: 'Chomsky Hierarchy of Formal Languages & Automata'
+  "theory-of-computation": {
+    "formulaName": "Pumping Lemma for Regular Languages",
+    "lang": "Formal Languages",
+    "gfgUrl": "https://www.geeksforgeeks.org/theory-of-computation-automata-tutorials/",
+    "nptelCode": "noc20-cs78 (IIT Kanpur - Theory of Computation)",
+    "derivation": "Let L be a regular language with pumping length p.\nAny string w in L with |w| >= p can be split into w = x y z such that:\n  1. |y| >= 1  (non-empty pumpable segment)\n  2. |x y| <= p (pump occurs in the prefix)\n  3. For all i >= 0, x (y^i) z in L\nContrapositive Method:\n  Choose string w in L of length >= p.\n  Show that for EVERY partition w = xyz meeting (1) & (2),\n  there exists some i such that x (y^i) z NOT in L => L is NOT regular.",
+    "svgDiagram": "<svg viewBox=\"0 0 320 180\" width=\"100%\" height=\"100%\"><ellipse cx=\"160\" cy=\"90\" rx=\"145\" ry=\"75\" fill=\"none\" stroke=\"#666\" stroke-width=\"1.5\"/><text x=\"160\" y=\"32\" fill=\"#777\" font-size=\"9\" text-anchor=\"middle\">Type 0: Recursively Enumerable (Turing Machine)</text><ellipse cx=\"160\" cy=\"98\" rx=\"115\" ry=\"58\" fill=\"none\" stroke=\"#c5a059\" stroke-width=\"1.5\"/><text x=\"160\" y=\"58\" fill=\"#c5a059\" font-size=\"9\" text-anchor=\"middle\">Type 1: Context-Sensitive</text><ellipse cx=\"160\" cy=\"105\" rx=\"85\" ry=\"42\" fill=\"none\" stroke=\"#059669\" stroke-width=\"1.5\"/><text x=\"160\" y=\"80\" fill=\"#059669\" font-size=\"9\" text-anchor=\"middle\">Type 2: Context-Free (PDA)</text><ellipse cx=\"160\" cy=\"112\" rx=\"55\" ry=\"26\" fill=\"rgba(197,160,89,0.2)\" stroke=\"#e0443e\" stroke-width=\"2\"/><text x=\"160\" y=\"117\" fill=\"#e0443e\" font-size=\"10\" text-anchor=\"middle\" font-weight=\"700\">Type 3: Regular (DFA)</text></svg>",
+    "caption": "Chomsky Hierarchy of Formal Languages & Automata",
+    "gfgSubcategories": [
+      {
+        "title": "Finite Automata: DFA, NFA & Conversions",
+        "tag": "Automata Theory",
+        "url": "https://www.geeksforgeeks.org/introduction-of-finite-automata/",
+        "desc": "DFA 5-tuple, NFA with epsilon transitions, subset construction 2^Q bound, and DFA state minimization."
+      },
+      {
+        "title": "Regular Expressions & Pumping Lemma",
+        "tag": "Regular Languages",
+        "url": "https://www.geeksforgeeks.org/pumping-lemma-in-theory-of-computation/",
+        "desc": "Arden\u2019s theorem, regular expressions, closure properties, and proving non-regularity via Pumping Lemma."
+      },
+      {
+        "title": "Context-Free Grammars & Pushdown Automata",
+        "tag": "Context-Free Languages",
+        "url": "https://www.geeksforgeeks.org/pushdown-automata-in-theory-of-computation/",
+        "desc": "CFG productions, derivation ambiguity, Chomsky Normal Form (CNF), Deterministic PDA vs NPDA."
+      },
+      {
+        "title": "Pumping Lemma for CFLs & Closure Properties",
+        "tag": "CFL Properties",
+        "url": "https://www.geeksforgeeks.org/pumping-lemma-for-cfl/",
+        "desc": "Pumping lemma uvwxy split for CFLs, proving languages like a^n b^n c^n non-CFL, and closure operations."
+      },
+      {
+        "title": "Turing Machines & Chomsky Hierarchy",
+        "tag": "Computability",
+        "url": "https://www.geeksforgeeks.org/turing-machine-in-toc/",
+        "desc": "Turing Machine 7-tuple, tape head transitions, Type 0 to Type 3 languages, multi-tape equivalence."
+      },
+      {
+        "title": "Decidability, Halting Problem & Rice\u2019s Theorem",
+        "tag": "Undecidability",
+        "url": "https://www.geeksforgeeks.org/undecidability-and-reducibility-in-toc/",
+        "desc": "Halting problem undecidability, Post Correspondence Problem (PCP), reduction proofs, and Rice\u2019s theorem."
+      }
+    ],
+    "modules": [
+      {
+        "title": "Finite Automata, Regular Expressions & Minimization",
+        "keyPoints": [
+          "DFA: Transition function delta: Q x Sigma -> Q. Exactly one transition per input symbol.",
+          "NFA equivalence: Every NFA can be converted into an equivalent DFA with at most 2^{|Q|} states via powerset construction.",
+          "DFA Minimization: Myhill-Nerode theorem equivalence classes and table-filling algorithm partition reachable states.",
+          "Regular Closure: Closed under union, intersection, complement, concatenation, Kleene star, reverse, and homomorphism."
+        ],
+        "theorem": "Myhill-Nerode Theorem: A language L is regular if and only if the number of equivalence classes of its indistinguishability relation R_L is finite; this number is the minimum state count of any DFA accepting L.",
+        "examTrap": "Regular Subset Fallacy: Do not assume a subset of a regular language is regular! For instance, {a^n b^n | n >= 0} is a non-regular subset of the regular language a* b*."
+      },
+      {
+        "title": "Context-Free Grammars, Pushdown Automata & Ambiguity",
+        "keyPoints": [
+          "CFG: V -> (V v Sigma)*. Ambiguity exists if a string has two distinct parse trees or leftmost derivations.",
+          "Pushdown Automata (PDA): Finite automaton equipped with a single LIFO stack storage.",
+          "DPDA vs NPDA: NPDAs are strictly more powerful than DPDAs. DPDAs accept Deterministic CFLs (DCFLs).",
+          "CFL Closure: Closed under union, concatenation, Kleene star; NOT closed under intersection or complement!"
+        ],
+        "theorem": "DPDA vs NPDA Inexpressibility: The language of even palindromes L = {w w^R | w in {a, b}*} is context-free and accepted by an NPDA, but cannot be accepted by any Deterministic PDA.",
+        "examTrap": "CFL Intersection Trap: The intersection of two context-free languages is NOT necessarily context-free! For example, L_1 = {a^n b^n c^m} and L_2 = {a^m b^n c^n} are CFLs, but L_1 cap L_2 = {a^n b^n c^n} is not context-free."
+      },
+      {
+        "title": "Turing Machines, Computability & Rice\u2019s Theorem",
+        "keyPoints": [
+          "Turing Machine: Tape head can read, write, and move Left/Right. Halts in accept or reject state, or loops forever.",
+          "Recursive Languages (Decidable): TM halts on ALL inputs (accepts or rejects). Closed under complement.",
+          "Recursively Enumerable (Turing Recognizable): TM halts and accepts valid strings, but may loop endlessly on invalid strings.",
+          "Halting Problem: Determining whether an arbitrary TM halts on an arbitrary input is undecidable."
+        ],
+        "theorem": "Rice\u2019s Theorem: Any non-trivial semantic property of the language recognized by a Turing Machine is undecidable.",
+        "examTrap": "Syntactic vs Semantic Property Trap: Rice\u2019s theorem applies ONLY to semantic properties of the language recognized by a TM (e.g., \"is L(M) empty?\"). It does NOT apply to syntactic properties of the TM itself (e.g., \"does M have 10 states?\"), which are trivially decidable."
+      }
+    ]
   },
-  'compiler-design': {
-    formulaName: "FIRST and FOLLOW Sets for LL(1) Parsing",
-    lang: 'Syntax Analysis',
-    gfgUrl: 'https://www.geeksforgeeks.org/compiler-design-tutorials/',
-    nptelCode: 'noc21-cs63 (IIT Kharagpur - Compiler Design)',
-    derivation: `Rules for FIRST(X):
-  1. If X is terminal, FIRST(X) = { X }.
-  2. If X -> epsilon, add epsilon to FIRST(X).
-  3. If X -> Y_1 Y_2 ... Y_k:
-     Add FIRST(Y_1) - {epsilon}. If epsilon in FIRST(Y_1), add FIRST(Y_2)...
-Rules for FOLLOW(A):
-  1. Add $ to FOLLOW(S) where S is start symbol.
-  2. If A -> alpha B beta, add FIRST(beta) - {epsilon} to FOLLOW(B).
-  3. If A -> alpha B or A -> alpha B beta where epsilon in FIRST(beta):
-     Add FOLLOW(A) to FOLLOW(B).`,
-    svgDiagram: `<svg viewBox="0 0 320 180" width="100%" height="100%"><rect x="20" y="50" width="55" height="30" fill="#4a0e17" rx="4"/><text x="47" y="69" fill="#fff" font-size="9" text-anchor="middle">Lexer</text><rect x="95" y="50" width="55" height="30" fill="#c5a059" rx="4"/><text x="122" y="69" fill="#111" font-size="9" text-anchor="middle">Parser</text><rect x="170" y="50" width="55" height="30" fill="#059669" rx="4"/><text x="197" y="69" fill="#fff" font-size="9" text-anchor="middle">Semantics</text><rect x="245" y="50" width="55" height="30" fill="#2d0a0f" rx="4"/><text x="272" y="69" fill="#fff" font-size="9" text-anchor="middle">CodeGen</text><line x1="75" y1="65" x2="95" y2="65" stroke="#999" stroke-width="2"/><line x1="150" y1="65" x2="170" y2="65" stroke="#999" stroke-width="2"/><line x1="225" y1="65" x2="245" y2="65" stroke="#999" stroke-width="2"/><text x="160" y="130" fill="#999" font-size="10" text-anchor="middle">Compiler Frontend Pipeline: Tokens -> AST -> IR</text></svg>`,
-    caption: 'Compiler Analysis and Synthesis Pipeline Stages'
+  "compiler-design": {
+    "formulaName": "FIRST and FOLLOW Sets for LL(1) Parsing",
+    "lang": "Syntax Analysis",
+    "gfgUrl": "https://www.geeksforgeeks.org/compiler-design-tutorials/",
+    "nptelCode": "noc21-cs63 (IIT Kharagpur - Compiler Design)",
+    "derivation": "Rules for FIRST(X):\n  1. If X is terminal, FIRST(X) = { X }.\n  2. If X -> epsilon, add epsilon to FIRST(X).\n  3. If X -> Y_1 Y_2 ... Y_k:\n     Add FIRST(Y_1) - {epsilon}. If epsilon in FIRST(Y_1), add FIRST(Y_2)...\nRules for FOLLOW(A):\n  1. Add $ to FOLLOW(S) where S is start symbol.\n  2. If A -> alpha B beta, add FIRST(beta) - {epsilon} to FOLLOW(B).\n  3. If A -> alpha B or A -> alpha B beta where epsilon in FIRST(beta):\n     Add FOLLOW(A) to FOLLOW(B).",
+    "svgDiagram": "<svg viewBox=\"0 0 320 180\" width=\"100%\" height=\"100%\"><rect x=\"20\" y=\"50\" width=\"55\" height=\"30\" fill=\"#4a0e17\" rx=\"4\"/><text x=\"47\" y=\"69\" fill=\"#fff\" font-size=\"9\" text-anchor=\"middle\">Lexer</text><rect x=\"95\" y=\"50\" width=\"55\" height=\"30\" fill=\"#c5a059\" rx=\"4\"/><text x=\"122\" y=\"69\" fill=\"#111\" font-size=\"9\" text-anchor=\"middle\">Parser</text><rect x=\"170\" y=\"50\" width=\"55\" height=\"30\" fill=\"#059669\" rx=\"4\"/><text x=\"197\" y=\"69\" fill=\"#fff\" font-size=\"9\" text-anchor=\"middle\">Semantics</text><rect x=\"245\" y=\"50\" width=\"55\" height=\"30\" fill=\"#2d0a0f\" rx=\"4\"/><text x=\"272\" y=\"69\" fill=\"#fff\" font-size=\"9\" text-anchor=\"middle\">CodeGen</text><line x1=\"75\" y1=\"65\" x2=\"95\" y2=\"65\" stroke=\"#999\" stroke-width=\"2\"/><line x1=\"150\" y1=\"65\" x2=\"170\" y2=\"65\" stroke=\"#999\" stroke-width=\"2\"/><line x1=\"225\" y1=\"65\" x2=\"245\" y2=\"65\" stroke=\"#999\" stroke-width=\"2\"/><text x=\"160\" y=\"130\" fill=\"#999\" font-size=\"10\" text-anchor=\"middle\">Compiler Frontend Pipeline: Tokens -> AST -> IR</text></svg>",
+    "caption": "Compiler Analysis and Synthesis Pipeline Stages",
+    "gfgSubcategories": [
+      {
+        "title": "Lexical Analysis & Tokenization",
+        "tag": "Lexical Phase",
+        "url": "https://www.geeksforgeeks.org/introduction-to-lexical-analysis/",
+        "desc": "Regular definitions, lexemes, token patterns, longest match principle, and input buffering."
+      },
+      {
+        "title": "Top-Down LL(1) Parsing & Tables",
+        "tag": "Top-Down Parsing",
+        "url": "https://www.geeksforgeeks.org/construction-of-ll-1-parsing-table/",
+        "desc": "Left recursion elimination, left factoring, FIRST & FOLLOW sets, and LL(1) parse table construction."
+      },
+      {
+        "title": "Bottom-Up LR Parsing (SLR, CLR, LALR)",
+        "tag": "Bottom-Up Parsing",
+        "url": "https://www.geeksforgeeks.org/bottom-up-parser-or-shift-reduce-parser/",
+        "desc": "LR(0) items, shift-reduce conflicts, SLR(1) FOLLOW lookahead, CLR(1) item states, and LALR(1) state merging."
+      },
+      {
+        "title": "Syntax-Directed Translation (SDT / SDD)",
+        "tag": "Semantic Analysis",
+        "url": "https://www.geeksforgeeks.org/syntax-directed-translation/",
+        "desc": "Synthesized vs inherited attributes, S-attributed definitions, L-attributed definitions, and annotated parse trees."
+      },
+      {
+        "title": "Intermediate Code & Three-Address Code",
+        "tag": "IR Generation",
+        "url": "https://www.geeksforgeeks.org/intermediate-code-generation-in-compiler-design/",
+        "desc": "Abstract syntax trees, quadruples, triples, indirect triples, and backpatching boolean control flow."
+      },
+      {
+        "title": "Code Optimization & Basic Blocks",
+        "tag": "Optimization",
+        "url": "https://www.geeksforgeeks.org/introduction-of-compiler-design-optimization/",
+        "desc": "Leader statement identification, basic blocks, control flow graphs (CFG), DAG common subexpression elimination, loop unrolling."
+      }
+    ],
+    "modules": [
+      {
+        "title": "Lexical Analysis, Grammar Transformations & LL(1) Parsing",
+        "keyPoints": [
+          "Lexical analyzer generates tokens; resolves ambiguity using longest match (maximal munch) rule.",
+          "Eliminating immediate left recursion: A -> A alpha | beta converts to A -> beta A\u2019, A\u2019 -> alpha A\u2019 | epsilon.",
+          "Left factoring: A -> alpha beta_1 | alpha beta_2 converts to A -> alpha A\u2019, A\u2019 -> beta_1 | beta_2.",
+          "LL(1) parsing table entry M[A, a] contains A -> alpha if a is in FIRST(alpha), or if epsilon in FIRST(alpha) and a is in FOLLOW(A)."
+        ],
+        "theorem": "LL(1) Non-Ambiguity Invariant: An ambiguous grammar can NEVER be parsed by an LL(1) parser; eliminating left recursion and left factoring are necessary, but may not be sufficient.",
+        "examTrap": "Left-Recursive LL(1) Trap: If a grammar contains any left recursion (direct or indirect), it can NEVER be LL(1) because it will inevitably produce multiple entries in the parsing table!"
+      },
+      {
+        "title": "Bottom-Up LR Parsers & Shift-Reduce Conflicts",
+        "keyPoints": [
+          "LR parsers read input from Left to right and construct a Rightmost derivation in reverse (Shift-Reduce).",
+          "LR(0) items: Productions with dot markers indicating parser progress (e.g., A -> alpha . beta).",
+          "SLR(1) parser places reductions [A -> alpha .] strictly in columns belonging to FOLLOW(A).",
+          "CLR(1) uses items with explicit lookahead [A -> alpha . beta, a]. LALR(1) merges CLR(1) states with identical cores."
+        ],
+        "theorem": "Parser Hierarchy: LL(1) < SLR(1) < LALR(1) < CLR(1). LALR(1) has the exact same number of states as SLR(1) and never introduces new shift-reduce conflicts when merging CLR(1) states.",
+        "examTrap": "LALR Conflict Merging Trap: Merging states with identical cores in CLR(1) to form LALR(1) can NEVER create a Shift-Reduce conflict, but it CAN introduce a Reduce-Reduce conflict!"
+      },
+      {
+        "title": "Syntax Directed Translation, Storage & Code Optimization",
+        "keyPoints": [
+          "Synthesized attributes: Evaluated from children attributes (bottom-up). S-attributed definitions use only synthesized attributes.",
+          "Inherited attributes: Evaluated from parent or left-sibling attributes. L-attributed definitions permit synthesized and left-dependent inherited attributes.",
+          "Basic Block partition: Leaders are: (1) First statement, (2) Target of any branch, (3) Statement immediately following any branch.",
+          "Optimization techniques: Common subexpression elimination (DAG), dead code elimination, copy propagation, loop invariant code motion."
+        ],
+        "theorem": "S-Attributed Subset Invariant: Every S-attributed syntax-directed definition is strictly an L-attributed definition, enabling single-pass evaluation during bottom-up parsing.",
+        "examTrap": "Inherited Right-Dependency Trap: In an L-attributed definition, an inherited attribute of a symbol can depend only on inherited attributes of the parent or attributes of symbols to its LEFT, never symbols to its right!"
+      }
+    ]
   },
-  'operating-systems': {
-    formulaName: "Banker's Algorithm & Effective Paging Time",
-    lang: 'Systems & OS',
-    gfgUrl: 'https://www.geeksforgeeks.org/operating-systems/',
-    nptelCode: 'noc20-cs59 (IIT Kharagpur - Operating Systems)',
-    derivation: `Banker's Safety Algorithm Check:
-  Need[i][j] = Max[i][j] - Allocation[i][j]
-  If Need_i <= Work:
-     Work = Work + Allocation_i
-     Finish[i] = true
-  Safe Sequence exists <=> all Finish[i] == true
-
-Two-Level Paging with TLB:
-  EAT = Hit_TLB * (t_TLB + t_mem) + (1 - Hit_TLB) * (t_TLB + 2 * t_mem + t_mem)
-      = t_TLB + t_mem + (1 - Hit_TLB) * 2 * t_mem`,
-    svgDiagram: `<svg viewBox="0 0 320 180" width="100%" height="100%"><rect x="30" y="40" width="80" height="40" fill="#4a0e17" rx="6"/><text x="70" y="65" fill="#fff" font-size="10" text-anchor="middle">CPU (VA)</text><rect x="140" y="30" width="60" height="60" fill="#c5a059" rx="6"/><text x="170" y="65" fill="#111" font-size="10" text-anchor="middle">TLB</text><rect x="230" y="30" width="70" height="80" fill="#2d0a0f" rx="6"/><text x="265" y="75" fill="#fff" font-size="10" text-anchor="middle">Page Table</text><line x1="110" y1="60" x2="140" y2="60" stroke="#c5a059" stroke-width="2"/><line x1="200" y1="60" x2="230" y2="60" stroke="#059669" stroke-width="2"/><text x="160" y="150" fill="#999" font-size="10" text-anchor="middle">Virtual Address -> TLB Hit -> Physical Frame</text></svg>`,
-    caption: 'TLB Translation Lookaside Buffer Acceleration'
+  "operating-systems": {
+    "formulaName": "Banker's Algorithm & Effective Paging Time",
+    "lang": "Systems & OS",
+    "gfgUrl": "https://www.geeksforgeeks.org/operating-systems/",
+    "nptelCode": "noc20-cs59 (IIT Kharagpur - Operating Systems)",
+    "derivation": "Banker's Safety Algorithm Check:\n  Need[i][j] = Max[i][j] - Allocation[i][j]\n  If Need_i <= Work:\n     Work = Work + Allocation_i\n     Finish[i] = true\n  Safe Sequence exists <=> all Finish[i] == true\n\nTwo-Level Paging with TLB:\n  EAT = Hit_TLB * (t_TLB + t_mem) + (1 - Hit_TLB) * (t_TLB + 2 * t_mem + t_mem)\n      = t_TLB + t_mem + (1 - Hit_TLB) * 2 * t_mem",
+    "svgDiagram": "<svg viewBox=\"0 0 320 180\" width=\"100%\" height=\"100%\"><rect x=\"30\" y=\"40\" width=\"80\" height=\"40\" fill=\"#4a0e17\" rx=\"6\"/><text x=\"70\" y=\"65\" fill=\"#fff\" font-size=\"10\" text-anchor=\"middle\">CPU (VA)</text><rect x=\"140\" y=\"30\" width=\"60\" height=\"60\" fill=\"#c5a059\" rx=\"6\"/><text x=\"170\" y=\"65\" fill=\"#111\" font-size=\"10\" text-anchor=\"middle\">TLB</text><rect x=\"230\" y=\"30\" width=\"70\" height=\"80\" fill=\"#2d0a0f\" rx=\"6\"/><text x=\"265\" y=\"75\" fill=\"#fff\" font-size=\"10\" text-anchor=\"middle\">Page Table</text><line x1=\"110\" y1=\"60\" x2=\"140\" y2=\"60\" stroke=\"#c5a059\" stroke-width=\"2\"/><line x1=\"200\" y1=\"60\" x2=\"230\" y2=\"60\" stroke=\"#059669\" stroke-width=\"2\"/><text x=\"160\" y=\"150\" fill=\"#999\" font-size=\"10\" text-anchor=\"middle\">Virtual Address -> TLB Hit -> Physical Frame</text></svg>",
+    "caption": "TLB Translation Lookaside Buffer Acceleration",
+    "gfgSubcategories": [
+      {
+        "title": "Process Management, States & Fork()",
+        "tag": "Processes & Threads",
+        "url": "https://www.geeksforgeeks.org/introduction-of-process-management/",
+        "desc": "Process Control Block (PCB), context switching, user vs kernel threads, and fork() process tree execution."
+      },
+      {
+        "title": "CPU Scheduling Algorithms",
+        "tag": "CPU Scheduling",
+        "url": "https://www.geeksforgeeks.org/cpu-scheduling-in-operating-systems/",
+        "desc": "FCFS, SJF, SRTF preemptive scheduling, Round Robin quantum selection, priority scheduling, and Gantt charts."
+      },
+      {
+        "title": "Synchronization, Semaphores & Classical IPC",
+        "tag": "Concurrency & IPC",
+        "url": "https://www.geeksforgeeks.org/process-synchronization-in-operating-system/",
+        "desc": "Critical section criteria (Mutual Exclusion, Progress, Bounded Waiting), Peterson\u2019s algorithm, and counting semaphores."
+      },
+      {
+        "title": "Deadlock Avoidance & Banker\u2019s Algorithm",
+        "tag": "Deadlocks",
+        "url": "https://www.geeksforgeeks.org/introduction-of-deadlock-in-operating-system/",
+        "desc": "Coffman conditions, Resource Allocation Graphs (RAG), Banker\u2019s safety algorithm, and deadlock detection."
+      },
+      {
+        "title": "Virtual Memory, Multi-Level Paging & TLB",
+        "tag": "Memory Management",
+        "url": "https://www.geeksforgeeks.org/virtual-memory-in-operating-system/",
+        "desc": "Page tables, page size, frame size, TLB hit ratio, effective memory access time, and inverted page tables."
+      },
+      {
+        "title": "Page Replacement & Disk Scheduling",
+        "tag": "Storage & Replacement",
+        "url": "https://www.geeksforgeeks.org/page-replacement-algorithms-in-operating-systems/",
+        "desc": "FIFO Belady\u2019s anomaly, LRU, Optimal page replacement, thrashing working set model, and SCAN/C-SCAN disk scheduling."
+      }
+    ],
+    "modules": [
+      {
+        "title": "Process Control, Threading Models & CPU Scheduling",
+        "keyPoints": [
+          "Process vs Thread: Threads share code, data, and open files of the parent process, but retain private program counter and stack.",
+          "System call `fork()` duplicates calling process. Returns 0 to child, positive PID to parent, -1 on failure.",
+          "Scheduling metrics: Turnaround Time = Completion - Arrival. Waiting Time = Turnaround - Burst Time.",
+          "Shortest Remaining Time First (SRTF) is optimal for minimizing average waiting time among all scheduling algorithms."
+        ],
+        "theorem": "SRTF Turnaround Optimality: Shortest Remaining Time First scheduling produces the provably minimum average waiting time across any set of processes with known burst times.",
+        "examTrap": "Fork() Power of Two Trap: A sequence of n successive `fork()` calls without conditionals creates exactly 2^n - 1 child processes, resulting in 2^n total concurrent processes."
+      },
+      {
+        "title": "Concurrency, Classical Synchronization & Deadlocks",
+        "keyPoints": [
+          "Critical Section 3 criteria: (1) Mutual Exclusion, (2) Progress, (3) Bounded Waiting.",
+          "Counting Semaphore S: wait(S) decrements S and blocks if S < 0; signal(S) increments S and wakes a blocked process.",
+          "Deadlock Coffman conditions: Mutual Exclusion, Hold and Wait, No Preemption, Circular Wait.",
+          "Banker\u2019s Algorithm: Avoids deadlock by granting requests only if the resulting system state remains safe."
+        ],
+        "theorem": "Single-Instance RAG Deadlock Equivalence: In a Resource Allocation Graph where every resource type has exactly one instance, a directed cycle is necessary AND sufficient for deadlock.",
+        "examTrap": "Multi-Instance Deadlock Fallacy: If resources have multiple instances, a cycle in the Resource Allocation Graph does NOT imply deadlock! It is a necessary condition, but not a sufficient condition."
+      },
+      {
+        "title": "Memory Paging, TLB Translation & Page Replacement",
+        "keyPoints": [
+          "Paging: Virtual Address = Page Number (p) | Page Offset (d). Physical Address = Frame Number (f) | Page Offset (d).",
+          "Page Table Size = Number of Pages * Page Table Entry (PTE) size.",
+          "Translation Lookaside Buffer (TLB): Associative hardware cache for fast virtual-to-physical address mapping.",
+          "Page Replacement: Belady\u2019s Anomaly occurs in FIFO where increasing frames increases page faults. LRU and Optimal are stack algorithms immune to Belady\u2019s anomaly."
+        ],
+        "theorem": "Stack Algorithm Invariance: Any page replacement algorithm satisfying the inclusion property (the set of pages in memory for m frames is a subset of the pages for m+1 frames) can never exhibit Belady\u2019s anomaly.",
+        "examTrap": "Multi-Level Page Table Size Trap: Multi-level paging reduces physical memory consumption because unallocated virtual memory ranges do NOT require second-level page tables to be created in RAM!"
+      }
+    ]
   },
-  'databases': {
-    formulaName: "Relational Normal Forms & Lossless Decomposition",
-    lang: 'Database Normalization',
-    gfgUrl: 'https://www.geeksforgeeks.org/dbms/',
-    nptelCode: 'noc21-cs57 (IIT Kharagpur - Database Management System)',
-    derivation: `Decomposition R into (R1, R2) is Lossless-Join if and only if:
-  (R1 cap R2) -> R1 in F+  OR  (R1 cap R2) -> R2 in F+
-(i.e., common attribute must be a Super Key of at least one relation)
-
-Normal Form Hierarchy:
-  1NF: Atomic attribute domain values.
-  2NF: 1NF + No partial dependency (Non-prime attribute -> part of candidate key).
-  3NF: 2NF + For every X -> A, either X is a Super Key OR A is a prime attribute.
-  BCNF: For every X -> A, X MUST be a Super Key.`,
-    svgDiagram: `<svg viewBox="0 0 320 180" width="100%" height="100%"><ellipse cx="160" cy="90" rx="140" ry="75" fill="none" stroke="#666" stroke-width="1.5"/><text x="160" y="35" fill="#777" font-size="9" text-anchor="middle">1NF</text><ellipse cx="160" cy="95" rx="110" ry="60" fill="none" stroke="#c5a059" stroke-width="1.5"/><text x="160" y="55" fill="#c5a059" font-size="9" text-anchor="middle">2NF</text><ellipse cx="160" cy="100" rx="80" ry="45" fill="none" stroke="#059669" stroke-width="1.5"/><text x="160" y="75" fill="#059669" font-size="9" text-anchor="middle">3NF</text><ellipse cx="160" cy="105" rx="50" ry="30" fill="rgba(74,14,23,0.3)" stroke="#e0443e" stroke-width="2"/><text x="160" y="110" fill="#e0443e" font-size="10" text-anchor="middle" font-weight="700">BCNF</text></svg>`,
-    caption: 'Strict Inclusion Hierarchy of Relational Normal Forms'
+  "databases": {
+    "formulaName": "Relational Normal Forms & Lossless Decomposition",
+    "lang": "Database Normalization",
+    "gfgUrl": "https://www.geeksforgeeks.org/dbms/",
+    "nptelCode": "noc21-cs57 (IIT Kharagpur - Database Management System)",
+    "derivation": "Decomposition R into (R1, R2) is Lossless-Join if and only if:\n  (R1 cap R2) -> R1 in F+  OR  (R1 cap R2) -> R2 in F+\n(i.e., common attribute must be a Super Key of at least one relation)\n\nNormal Form Hierarchy:\n  1NF: Atomic attribute domain values.\n  2NF: 1NF + No partial dependency (Non-prime attribute -> part of candidate key).\n  3NF: 2NF + For every X -> A, either X is a Super Key OR A is a prime attribute.\n  BCNF: For every X -> A, X MUST be a Super Key.",
+    "svgDiagram": "<svg viewBox=\"0 0 320 180\" width=\"100%\" height=\"100%\"><ellipse cx=\"160\" cy=\"90\" rx=\"140\" ry=\"75\" fill=\"none\" stroke=\"#666\" stroke-width=\"1.5\"/><text x=\"160\" y=\"35\" fill=\"#777\" font-size=\"9\" text-anchor=\"middle\">1NF</text><ellipse cx=\"160\" cy=\"95\" rx=\"110\" ry=\"60\" fill=\"none\" stroke=\"#c5a059\" stroke-width=\"1.5\"/><text x=\"160\" y=\"55\" fill=\"#c5a059\" font-size=\"9\" text-anchor=\"middle\">2NF</text><ellipse cx=\"160\" cy=\"100\" rx=\"80\" ry=\"45\" fill=\"none\" stroke=\"#059669\" stroke-width=\"1.5\"/><text x=\"160\" y=\"75\" fill=\"#059669\" font-size=\"9\" text-anchor=\"middle\">3NF</text><ellipse cx=\"160\" cy=\"105\" rx=\"50\" ry=\"30\" fill=\"rgba(74,14,23,0.3)\" stroke=\"#e0443e\" stroke-width=\"2\"/><text x=\"160\" y=\"110\" fill=\"#e0443e\" font-size=\"10\" text-anchor=\"middle\" font-weight=\"700\">BCNF</text></svg>",
+    "caption": "Strict Inclusion Hierarchy of Relational Normal Forms",
+    "gfgSubcategories": [
+      {
+        "title": "ER Modeling & Relational Schema Mapping",
+        "tag": "Conceptual Modeling",
+        "url": "https://www.geeksforgeeks.org/introduction-of-er-model/",
+        "desc": "Entities, weak entity sets, relationships (1:1, 1:N, M:N), participation constraints, and converting ER to minimal tables."
+      },
+      {
+        "title": "Relational Algebra & Tuple Calculus",
+        "tag": "Query Languages",
+        "url": "https://www.geeksforgeeks.org/introduction-of-relational-algebra-in-dbms/",
+        "desc": "Select, project, Cartesian product, natural join, conditional joins, division operator, TRC and DRC equivalences."
+      },
+      {
+        "title": "Advanced SQL Queries, Subqueries & Joins",
+        "tag": "SQL Engineering",
+        "url": "https://www.geeksforgeeks.org/sql-tutorial/",
+        "desc": "Correlated subqueries, GROUP BY, HAVING, outer joins (LEFT, RIGHT, FULL), and three-valued boolean logic with NULL."
+      },
+      {
+        "title": "Functional Dependencies & Normalization",
+        "tag": "Schema Design",
+        "url": "https://www.geeksforgeeks.org/normal-forms-in-dbms/",
+        "desc": "Armstrong\u2019s axioms, attribute closure X+, candidate keys, canonical cover, 1NF to BCNF, and dependency preservation."
+      },
+      {
+        "title": "Transactions & Concurrency Control",
+        "tag": "Transaction Processing",
+        "url": "https://www.geeksforgeeks.org/concurrency-control-techniques/",
+        "desc": "ACID properties, conflict serializability precedence graphs, view serializability, strict 2PL, and deadlocks."
+      },
+      {
+        "title": "Indexing Structures: B-Trees & B+ Trees",
+        "tag": "File Organization",
+        "url": "https://www.geeksforgeeks.org/indexing-in-databases-set-1/",
+        "desc": "Primary, secondary, clustered indexes, B-tree search order, B+ tree leaf linked list, fan-out, and disk I/O costs."
+      }
+    ],
+    "modules": [
+      {
+        "title": "ER Modeling, Relational Algebra & SQL Foundations",
+        "keyPoints": [
+          "ER to Schema conversion: 1:N relationship is mapped by adding the 1-side primary key as a foreign key on the N-side table.",
+          "M:N relationship requires a separate junction table containing primary keys of both participating entity sets.",
+          "Relational Algebra operators: Selection (sigma), Projection (pi), Cartesian Product (x), Natural Join (|><|), Division (/ for \"for all\" queries).",
+          "SQL NULL handling: Any comparison with NULL (`x = NULL` or `x <> NULL`) evaluates to UNKNOWN. Use `IS NULL` or `IS NOT NULL`."
+        ],
+        "theorem": "Codd\u2019s Relational Equivalence Theorem: Relational Algebra and Domain-Independent Relational Calculus are equivalent in expressive query power.",
+        "examTrap": "COUNT(*) vs COUNT(col) Trap: `COUNT(*)` counts all rows including those with NULL values; `COUNT(column)` ignores NULL values and counts only rows where that specific column is non-null."
+      },
+      {
+        "title": "Functional Dependencies, Normalization & Decomposition",
+        "keyPoints": [
+          "Attribute Closure X+: Set of all attributes functionally determined by X under given dependency set F.",
+          "Candidate Key: Minimal super key whose attribute closure encompasses all schema attributes.",
+          "Prime attribute: Attribute that belongs to AT LEAST ONE candidate key. Non-prime: belongs to no candidate key.",
+          "Normal Forms: 1NF (atomic domains); 2NF (no partial dependencies); 3NF (every X->A has X as superkey or A prime); BCNF (every X->A has X as superkey)."
+        ],
+        "theorem": "Lossless Join Condition: A decomposition of relation R into (R_1, R_2) is lossless-join if and only if (R_1 cap R_2) -> R_1 or (R_1 cap R_2) -> R_2 in F+.",
+        "examTrap": "3NF vs BCNF Dependency Preservation: Any relational schema can always be decomposed into 3NF such that it is simultaneously lossless-join AND dependency-preserving. Decomposition into BCNF is always lossless-join, but may NOT preserve dependencies!"
+      },
+      {
+        "title": "Transactions, Serializability & B+ Tree Indexing",
+        "keyPoints": [
+          "ACID properties: Atomicity (all-or-nothing), Consistency (integrity constraints), Isolation (serializability), Durability (WAL logging).",
+          "Conflict Serializability: Tested by constructing a directed precedence graph. Schedule is conflict serializable iff graph has NO directed cycles.",
+          "Two-Phase Locking (2PL): Growing phase (locks acquired) and shrinking phase (locks released). Strict 2PL holds exclusive locks until commit/abort.",
+          "B+ Tree: All keys reside in leaves connected by sequential pointers; internal nodes store routing keys and child pointers."
+        ],
+        "theorem": "Conflict Serializability Invariant: A concurrent transaction schedule is conflict serializable if and only if its precedence graph contains no directed cycles.",
+        "examTrap": "2PL and Deadlocks: Two-Phase Locking (2PL) guarantees conflict serializability, but it does NOT prevent deadlocks! Transactions under 2PL can still enter circular wait deadlocks."
+      }
+    ]
   },
-  'computer-networks': {
-    formulaName: 'TCP Congestion Control & IPv4 Subnetting',
-    lang: 'Computer Networks',
-    gfgUrl: 'https://www.geeksforgeeks.org/computer-network-tutorials/',
-    nptelCode: 'noc20-cs77 (IIT Kharagpur - Computer Networks)',
-    derivation: `TCP Congestion Window Dynamics (AIMD):
-  Slow Start: cwnd = cwnd + 1 MSS per ACK (Exponential Growth until ssthresh)
-  Congestion Avoidance: cwnd = cwnd + (1 / cwnd) per ACK (Linear Increase +1 MSS per RTT)
-  On 3 Duplicate ACKs (Fast Retransmit/Fast Recovery):
-    ssthresh = max(2, cwnd / 2), cwnd = ssthresh + 3
-  On Timeout:
-    ssthresh = max(2, cwnd / 2), cwnd = 1 MSS
-
-CIDR Host Calculation:
-  Usable Hosts in /n Subnet = 2^(32 - n) - 2 (subtract Network ID and Broadcast)`,
-    svgDiagram: `<svg viewBox="0 0 320 180" width="100%" height="100%"><path d="M 40 140 Q 90 120 120 40 L 120 80 L 200 40 L 200 80 L 280 40" fill="none" stroke="#c5a059" stroke-width="2.5"/><line x1="40" y1="140" x2="280" y2="140" stroke="#666" stroke-width="1.5"/><text x="120" y="30" fill="#e0443e" font-size="10" text-anchor="middle">ssthresh (Timeout)</text><text x="160" y="160" fill="#999" font-size="10" text-anchor="middle">Sawtooth Curve: AIMD Additive Increase Multiplicative Decrease</text></svg>`,
-    caption: 'TCP Congestion Window Sawtooth Dynamics'
+  "computer-networks": {
+    "formulaName": "TCP Congestion Control & IPv4 Subnetting",
+    "lang": "Computer Networks",
+    "gfgUrl": "https://www.geeksforgeeks.org/computer-network-tutorials/",
+    "nptelCode": "noc20-cs77 (IIT Kharagpur - Computer Networks)",
+    "derivation": "TCP Congestion Window Dynamics (AIMD):\n  Slow Start: cwnd = cwnd + 1 MSS per ACK (Exponential Growth until ssthresh)\n  Congestion Avoidance: cwnd = cwnd + (1 / cwnd) per ACK (Linear Increase +1 MSS per RTT)\n  On 3 Duplicate ACKs (Fast Retransmit/Fast Recovery):\n    ssthresh = max(2, cwnd / 2), cwnd = ssthresh + 3\n  On Timeout:\n    ssthresh = max(2, cwnd / 2), cwnd = 1 MSS\n\nCIDR Host Calculation:\n  Usable Hosts in /n Subnet = 2^(32 - n) - 2 (subtract Network ID and Broadcast)",
+    "svgDiagram": "<svg viewBox=\"0 0 320 180\" width=\"100%\" height=\"100%\"><path d=\"M 40 140 Q 90 120 120 40 L 120 80 L 200 40 L 200 80 L 280 40\" fill=\"none\" stroke=\"#c5a059\" stroke-width=\"2.5\"/><line x1=\"40\" y1=\"140\" x2=\"280\" y2=\"140\" stroke=\"#666\" stroke-width=\"1.5\"/><text x=\"120\" y=\"30\" fill=\"#e0443e\" font-size=\"10\" text-anchor=\"middle\">ssthresh (Timeout)</text><text x=\"160\" y=\"160\" fill=\"#999\" font-size=\"10\" text-anchor=\"middle\">Sawtooth Curve: AIMD Additive Increase Multiplicative Decrease</text></svg>",
+    "caption": "TCP Congestion Window Sawtooth Dynamics",
+    "gfgSubcategories": [
+      {
+        "title": "OSI & TCP/IP Protocol Architecture",
+        "tag": "Protocol Stack",
+        "url": "https://www.geeksforgeeks.org/layers-of-osi-model/",
+        "desc": "Layering principles, encapsulation, transmission delay L/B, propagation delay d/v, and bandwidth-delay product."
+      },
+      {
+        "title": "Data Link Layer & Sliding Window Protocols",
+        "tag": "Data Link Layer",
+        "url": "https://www.geeksforgeeks.org/error-detection-in-computer-networks/",
+        "desc": "CRC polynomial check, Stop-and-Wait efficiency eta = 1/(1+2a), Go-Back-N window size, and Selective Repeat."
+      },
+      {
+        "title": "Medium Access Control & CSMA/CD",
+        "tag": "MAC Sublayer",
+        "url": "https://www.geeksforgeeks.org/multiple-access-protocols/",
+        "desc": "Pure ALOHA, slotted ALOHA throughput, CSMA/CD minimum frame size L >= 2 * t_p * B, and exponential backoff."
+      },
+      {
+        "title": "IPv4 Addressing, Subnetting & CIDR",
+        "tag": "Network Layer",
+        "url": "https://www.geeksforgeeks.org/ip-addressing-and-subnetting/",
+        "desc": "IPv4 header fields, fragmentation offsets (8-byte units), CIDR longest prefix matching, and NAT translation."
+      },
+      {
+        "title": "Routing Algorithms (Distance Vector & Link State)",
+        "tag": "Routing Protocols",
+        "url": "https://www.geeksforgeeks.org/routing-v-s-routed-protocols/",
+        "desc": "Bellman-Ford Distance Vector count-to-infinity problem, split horizon, and Dijkstra Link State routing."
+      },
+      {
+        "title": "Transport Layer: TCP Flow & Congestion Control",
+        "tag": "Transport Protocols",
+        "url": "https://www.geeksforgeeks.org/tcp-congestion-control/",
+        "desc": "TCP 3-way handshake, sequence numbers, advertised window, slow start exponential phase, AIMD, and fast recovery."
+      }
+    ],
+    "modules": [
+      {
+        "title": "Network Architecture, Delays & Sliding Window Protocols",
+        "keyPoints": [
+          "Packet Delays: Transmission delay T_t = L / Bandwidth; Propagation delay T_p = Distance / Speed.",
+          "Efficiency parameter a = T_p / T_t. Stop-and-Wait efficiency eta = 1 / (1 + 2a).",
+          "Go-Back-N: Sender window W_s = 2^k - 1, receiver window W_r = 1. Retransmits all unacknowledged frames on packet loss.",
+          "Selective Repeat: W_s = W_r = 2^{k-1}. Individual retransmission and ACK buffering at receiver."
+        ],
+        "theorem": "CSMA/CD Minimum Frame Size: In CSMA/CD Ethernet networks, frame transmission time must be at least twice the one-way propagation delay: T_t >= 2 T_p, which gives L_{min} >= 2 * T_p * Bandwidth.",
+        "examTrap": "Sequence Number Bit Width Trap: In Go-Back-N with k-bit sequence numbers, max sender window is 2^k - 1, NOT 2^k. In Selective Repeat, max window is 2^{k-1} to avoid stale packet confusion."
+      },
+      {
+        "title": "Network Layer, IPv4 Subnetting & Routing Algorithms",
+        "keyPoints": [
+          "IPv4 header size: 20 bytes minimum up to 60 bytes with options (IHL field in 4-byte words).",
+          "Fragmentation: Fragment Offset field is measured in units of 8-byte blocks.",
+          "CIDR Subnetting: /n prefix has 2^{32-n} total addresses and 2^{32-n} - 2 usable host addresses.",
+          "Distance Vector routing uses distributed Bellman-Ford; susceptible to Count-to-Infinity. Link State uses Dijkstra."
+        ],
+        "theorem": "Longest Prefix Match Invariant: When an IP packet matches multiple forwarding table entries of different netmasks, the router MUST route the packet using the entry with the longest prefix length.",
+        "examTrap": "IPv4 Fragment Offset Scaling: The Fragment Offset field in the IPv4 header does NOT count single bytes! It counts 8-byte blocks. Always divide byte offset by 8 when calculating the offset field value."
+      },
+      {
+        "title": "Transport Layer, TCP Dynamics & Congestion Avoidance",
+        "keyPoints": [
+          "TCP flow control: Receiver advertises rwnd in header. Sender window is min(cwnd, rwnd).",
+          "Slow Start: cwnd starts at 1 MSS and doubles every RTT (cwnd = cwnd + 1 MSS per received ACK).",
+          "Congestion Avoidance: When cwnd >= ssthresh, grows linearly by +1 MSS per RTT.",
+          "Loss Events: Timeout resets cwnd = 1 MSS and restarts Slow Start. 3 Duplicate ACKs halving cwnd (Fast Recovery)."
+        ],
+        "theorem": "TCP AIMD Convergence Principle: Additive-Increase Multiplicative-Decrease ensures distributed bandwidth sharing among competing TCP flows converges to both efficiency and fairness.",
+        "examTrap": "Timeout vs 3-Dup-ACK Trap: A timeout indicates severe network congestion and drops cwnd all the way to 1 MSS. In contrast, 3 Duplicate ACKs indicate mild packet loss and drop cwnd to ssthresh without resetting to 1."
+      }
+    ]
   },
-  'machine-learning': {
-    formulaName: "Bias-Variance Decomposition & L2 Regularization",
-    lang: 'Statistical Machine Learning',
-    gfgUrl: 'https://www.geeksforgeeks.org/machine-learning/',
-    nptelCode: 'noc20-cs73 (IIT Kharagpur - Machine Learning)',
-    derivation: `Mean Squared Error Decomposition for test point x:
-  E[(y - f_hat(x))^2] = Bias[f_hat(x)]^2 + Var[f_hat(x)] + sigma_epsilon^2
-where:
-  Bias[f_hat(x)] = E[f_hat(x)] - f(x)
-  Var[f_hat(x)]  = E[(f_hat(x) - E[f_hat(x)])^2]
-  sigma_epsilon^2 = Irreducible environmental noise
-
-Ridge Regression (L2 Penalty):
-  w* = argmin_w ||X w - y||^2 + lambda * ||w||_2^2
-  Closed-Form Solution: w* = (X^T X + lambda * I)^{-1} X^T y
-  Adding lambda * I guarantees invertibility even when X^T X is singular!`,
-    svgDiagram: `<svg viewBox="0 0 320 180" width="100%" height="100%"><path d="M 40 40 Q 120 130 280 140" fill="none" stroke="#e0443e" stroke-width="2"/><text x="80" y="130" fill="#e0443e" font-size="10">Bias^2</text><path d="M 40 140 Q 200 130 280 40" fill="none" stroke="#059669" stroke-width="2"/><text x="240" y="130" fill="#059669" font-size="10">Variance</text><path d="M 40 120 Q 160 50 280 120" fill="none" stroke="#c5a059" stroke-width="2.5"/><text x="160" y="45" fill="#c5a059" font-size="10" text-anchor="middle" font-weight="700">Total Error (Sweet Spot)</text></svg>`,
-    caption: 'Bias-Variance Tradeoff Curve vs Model Complexity'
+  "machine-learning": {
+    "formulaName": "Bias-Variance Decomposition & L2 Regularization",
+    "lang": "Statistical Machine Learning",
+    "gfgUrl": "https://www.geeksforgeeks.org/machine-learning/",
+    "nptelCode": "noc20-cs73 (IIT Kharagpur - Machine Learning)",
+    "derivation": "Mean Squared Error Decomposition for test point x:\n  E[(y - f_hat(x))^2] = Bias[f_hat(x)]^2 + Var[f_hat(x)] + sigma_epsilon^2\nwhere:\n  Bias[f_hat(x)] = E[f_hat(x)] - f(x)\n  Var[f_hat(x)]  = E[(f_hat(x) - E[f_hat(x)])^2]\n  sigma_epsilon^2 = Irreducible environmental noise\n\nRidge Regression (L2 Penalty):\n  w* = argmin_w ||X w - y||^2 + lambda * ||w||_2^2\n  Closed-Form Solution: w* = (X^T X + lambda * I)^{-1} X^T y\n  Adding lambda * I guarantees invertibility even when X^T X is singular!",
+    "svgDiagram": "<svg viewBox=\"0 0 320 180\" width=\"100%\" height=\"100%\"><path d=\"M 40 40 Q 120 130 280 140\" fill=\"none\" stroke=\"#e0443e\" stroke-width=\"2\"/><text x=\"80\" y=\"130\" fill=\"#e0443e\" font-size=\"10\">Bias^2</text><path d=\"M 40 140 Q 200 130 280 40\" fill=\"none\" stroke=\"#059669\" stroke-width=\"2\"/><text x=\"240\" y=\"130\" fill=\"#059669\" font-size=\"10\">Variance</text><path d=\"M 40 120 Q 160 50 280 120\" fill=\"none\" stroke=\"#c5a059\" stroke-width=\"2.5\"/><text x=\"160\" y=\"45\" fill=\"#c5a059\" font-size=\"10\" text-anchor=\"middle\" font-weight=\"700\">Total Error (Sweet Spot)</text></svg>",
+    "caption": "Bias-Variance Tradeoff Curve vs Model Complexity",
+    "gfgSubcategories": [
+      {
+        "title": "Linear & Polynomial Regression (OLS)",
+        "tag": "Supervised Regression",
+        "url": "https://www.geeksforgeeks.org/linear-regression-python-implementation/",
+        "desc": "Ordinary Least Squares, closed-form normal equation (X^T X)^{-1} X^T y, gradient updates, and R^2 score."
+      },
+      {
+        "title": "Ridge (L2) & Lasso (L1) Regularization",
+        "tag": "Regularization",
+        "url": "https://www.geeksforgeeks.org/ridge-regression-in-python/",
+        "desc": "L2 weight shrinking vs L1 sparsity induction, bias-variance tradeoff, and hyperparameter cross-validation."
+      },
+      {
+        "title": "Logistic Regression & Classification Metrics",
+        "tag": "Classification",
+        "url": "https://www.geeksforgeeks.org/understanding-logistic-regression/",
+        "desc": "Sigmoid activation, log-loss cross-entropy, confusion matrix, precision, recall, F1-score, and ROC-AUC curve."
+      },
+      {
+        "title": "Support Vector Machines (SVM) & Kernels",
+        "tag": "Kernel Methods",
+        "url": "https://www.geeksforgeeks.org/support-vector-machine-algorithm/",
+        "desc": "Maximum margin hyperplane, support vectors, soft-margin slack variables C, dual form, and RBF kernels."
+      },
+      {
+        "title": "Decision Trees & Information Gain",
+        "tag": "Tree Ensembles",
+        "url": "https://www.geeksforgeeks.org/decision-tree/",
+        "desc": "Shannon Entropy, Information Gain, Gini impurity, ID3/C4.5/CART tree splits, and pruning strategies."
+      },
+      {
+        "title": "K-Means Clustering & PCA Reduction",
+        "tag": "Unsupervised Learning",
+        "url": "https://www.geeksforgeeks.org/k-means-clustering-introduction/",
+        "desc": "Lloyd\u2019s clustering algorithm, inertia elbow method, covariance matrix eigenvalues, and PCA variance preservation."
+      }
+    ],
+    "modules": [
+      {
+        "title": "Linear Regression, Regularization & Model Validation",
+        "keyPoints": [
+          "Ordinary Least Squares: Closed-form parameter solution w* = (X^T X)^{-1} X^T y.",
+          "Ridge Regression (L2): Adds lambda ||w||_2^2 penalty, solving w* = (X^T X + lambda I)^{-1} X^T y. Guarantees invertibility.",
+          "Lasso Regression (L1): Adds lambda ||w||_1 penalty, driving irrelevant feature weights to exactly zero (feature selection).",
+          "Bias-Variance Decomposition: Expected Test Error = Bias^2 + Variance + Irreducible Noise."
+        ],
+        "theorem": "Gauss-Markov Theorem: Under the conditions of zero error mean and homoscedasticity, the OLS estimator is the Best Linear Unbiased Estimator (BLUE), possessing the minimum variance among all linear unbiased estimators.",
+        "examTrap": "Unscaled Feature Regularization: Always standardize/scale feature columns before applying Ridge or Lasso penalties! If features are unscaled, variables with large numerical values will be penalized disproportionately."
+      },
+      {
+        "title": "Logistic Classification, Support Vector Machines & Kernels",
+        "keyPoints": [
+          "Logistic Regression models probability P(Y=1|X) = 1 / (1 + e^{-w^T X}) using binary cross-entropy loss.",
+          "Support Vector Machines (SVM): Maximizes the geometric margin 2 / ||w|| between classes.",
+          "Soft-margin parameter C: High C penalizes misclassifications heavily (low bias, high variance); low C tolerates margin violations (high bias).",
+          "Kernel Trick: Implicitly maps input features into high-dimensional Hilbert space via Mercer kernel function K(x, x\u2019)."
+        ],
+        "theorem": "SVM Support Vector Sparsity: The optimal separating hyperplane depends solely on the support vectors (data points where Lagrange multipliers alpha_i > 0); removing all non-support vectors leaves the decision boundary unchanged.",
+        "examTrap": "Accuracy on Imbalanced Datasets: High classification accuracy on severely imbalanced datasets (e.g., 99% negative class) is deceptive; always evaluate using Precision, Recall, and F1-Score."
+      },
+      {
+        "title": "Decision Trees, Unsupervised Clustering & PCA",
+        "keyPoints": [
+          "Entropy: H(S) = - sum p_i log_2 p_i. Information Gain IG(S, A) = H(S) - sum (|S_v|/|S|) H(S_v).",
+          "Gini Impurity: 1 - sum p_i^2 (used by CART). Faster to compute than entropy as it requires no logarithms.",
+          "K-Means Clustering: Iteratively assigns points to nearest centroid and recalculates centroid means. Sensitive to outliers and initialization.",
+          "Principal Component Analysis (PCA): Projects data onto orthogonal directions of maximum variance given by eigenvectors of the covariance matrix."
+        ],
+        "theorem": "PCA Variance Maximization: The first principal component corresponds to the eigenvector of the sample covariance matrix associated with the largest eigenvalue lambda_1, capturing the maximum possible data variance.",
+        "examTrap": "K-Means Local Minima Trap: K-Means is guaranteed to converge, but only to a local optimum of the inertia objective. Running multiple restarts (K-Means++) with distinct initial centroids is required for robust results."
+      }
+    ]
   },
-  'artificial-intelligence': {
-    formulaName: "A* Search Admissibility & Alpha-Beta Pruning",
-    lang: 'Heuristic Search & AI',
-    gfgUrl: 'https://www.geeksforgeeks.org/artificial-intelligence-tutorials/',
-    nptelCode: 'noc21-cs42 (IIT Madras - Artificial Intelligence: Search Methods for Problem Solving)',
-    derivation: `A* Evaluation Function:
-  f(n) = g(n) + h(n)
-  g(n): Exact cost from start node to current node n.
-  h(n): Estimated cost from node n to goal.
-Admissibility Condition:
-  h(n) <= h*(n) for all n (h never overestimates actual cost).
-  => Guarantees finding optimal path on tree search!
-Consistency (Monotonicity):
-  h(n) <= c(n, a, n') + h(n')
-  => Ensures f(n) is monotonically non-decreasing along any path.`,
-    svgDiagram: `<svg viewBox="0 0 320 180" width="100%" height="100%"><circle cx="160" cy="30" r="14" fill="#4a0e17"/><text x="160" y="34" fill="#fff" font-size="9" text-anchor="middle">MAX</text><circle cx="90" cy="85" r="12" fill="#c5a059"/><text x="90" y="89" fill="#111" font-size="8" text-anchor="middle">MIN</text><circle cx="230" cy="85" r="12" fill="#c5a059"/><text x="230" y="89" fill="#111" font-size="8" text-anchor="middle">MIN</text><line x1="150" y1="42" x2="100" y2="75" stroke="#666" stroke-width="2"/><line x1="170" y1="42" x2="220" y2="75" stroke="#666" stroke-width="2"/><line x1="220" y1="95" x2="200" y2="130" stroke="#e0443e" stroke-dasharray="3" stroke-width="2"/><text x="240" y="130" fill="#e0443e" font-size="9">Pruned (beta <= alpha)</text></svg>`,
-    caption: 'Adversarial Minimax Search Tree with Alpha-Beta Pruning'
+  "artificial-intelligence": {
+    "formulaName": "A* Search Admissibility & Alpha-Beta Pruning",
+    "lang": "Heuristic Search & AI",
+    "gfgUrl": "https://www.geeksforgeeks.org/artificial-intelligence-tutorials/",
+    "nptelCode": "noc21-cs42 (IIT Madras - Artificial Intelligence: Search Methods for Problem Solving)",
+    "derivation": "A* Evaluation Function:\n  f(n) = g(n) + h(n)\n  g(n): Exact cost from start node to current node n.\n  h(n): Estimated cost from node n to goal.\nAdmissibility Condition:\n  h(n) <= h*(n) for all n (h never overestimates actual cost).\n  => Guarantees finding optimal path on tree search!\nConsistency (Monotonicity):\n  h(n) <= c(n, a, n') + h(n')\n  => Ensures f(n) is monotonically non-decreasing along any path.",
+    "svgDiagram": "<svg viewBox=\"0 0 320 180\" width=\"100%\" height=\"100%\"><circle cx=\"160\" cy=\"30\" r=\"14\" fill=\"#4a0e17\"/><text x=\"160\" y=\"34\" fill=\"#fff\" font-size=\"9\" text-anchor=\"middle\">MAX</text><circle cx=\"90\" cy=\"85\" r=\"12\" fill=\"#c5a059\"/><text x=\"90\" y=\"89\" fill=\"#111\" font-size=\"8\" text-anchor=\"middle\">MIN</text><circle cx=\"230\" cy=\"85\" r=\"12\" fill=\"#c5a059\"/><text x=\"230\" y=\"89\" fill=\"#111\" font-size=\"8\" text-anchor=\"middle\">MIN</text><line x1=\"150\" y1=\"42\" x2=\"100\" y2=\"75\" stroke=\"#666\" stroke-width=\"2\"/><line x1=\"170\" y1=\"42\" x2=\"220\" y2=\"75\" stroke=\"#666\" stroke-width=\"2\"/><line x1=\"220\" y1=\"95\" x2=\"200\" y2=\"130\" stroke=\"#e0443e\" stroke-dasharray=\"3\" stroke-width=\"2\"/><text x=\"240\" y=\"130\" fill=\"#e0443e\" font-size=\"9\">Pruned (beta <= alpha)</text></svg>",
+    "caption": "Adversarial Minimax Search Tree with Alpha-Beta Pruning",
+    "gfgSubcategories": [
+      {
+        "title": "Uninformed Search: BFS, DFS & UCS",
+        "tag": "Classical Search",
+        "url": "https://www.geeksforgeeks.org/uniform-cost-search-dijkstra-for-large-graphs/",
+        "desc": "Breadth-First Search, Depth-First Search, Uniform-Cost Search g(n), and Iterative Deepening Search (IDDFS)."
+      },
+      {
+        "title": "Informed Heuristic Search: A* & IDA*",
+        "tag": "Heuristic Search",
+        "url": "https://www.geeksforgeeks.org/a-search-algorithm/",
+        "desc": "Evaluation f(n)=g(n)+h(n), heuristic admissibility h(n) <= h*(n), consistency, and optimal pathfinding."
+      },
+      {
+        "title": "Adversarial Search & Alpha-Beta Pruning",
+        "tag": "Game Theory",
+        "url": "https://www.geeksforgeeks.org/minimax-algorithm-in-game-theory-set-4-alpha-beta-pruning/",
+        "desc": "Minimax algorithm in two-player zero-sum games, alpha cutoff, beta cutoff, and move ordering."
+      },
+      {
+        "title": "Constraint Satisfaction Problems (CSP)",
+        "tag": "Constraint Satisfaction",
+        "url": "https://www.geeksforgeeks.org/constraint-satisfaction-problems-csp-in-artificial-intelligence/",
+        "desc": "Variables, domains, binary constraints, backtracking search, forward checking, and AC-3 arc consistency."
+      },
+      {
+        "title": "Knowledge Representation & First-Order Logic",
+        "tag": "Logic & Inference",
+        "url": "https://www.geeksforgeeks.org/first-order-logic-in-ai/",
+        "desc": "Propositional logic resolution, Horn clauses, unification, forward/backward chaining in First-Order Logic."
+      },
+      {
+        "title": "Bayesian Networks & Probabilistic Inference",
+        "tag": "Uncertainty Reasoning",
+        "url": "https://www.geeksforgeeks.org/bayesian-belief-network-in-artificial-intelligence/",
+        "desc": "Directed Acyclic Graphs, conditional independence, d-separation, and exact inference by Variable Elimination."
+      }
+    ],
+    "modules": [
+      {
+        "title": "State-Space Formulation & Informed Search (A*)",
+        "keyPoints": [
+          "State space 5-tuple: Initial state, action set, transition model, goal test, path cost function.",
+          "Uniform-Cost Search expands node with lowest path cost g(n). Equivalent to Dijkstra on graphs with arbitrary step costs.",
+          "A* Search expands node with lowest evaluation function f(n) = g(n) + h(n).",
+          "Heuristic Admissibility: h(n) never overestimates actual cost to goal: h(n) <= h*(n) for all n."
+        ],
+        "theorem": "A* Graph Search Optimality: If heuristic h(n) is consistent (monotonic), A* graph search using a closed list is guaranteed to find an optimal solution without ever needing to reopen closed nodes.",
+        "examTrap": "Admissibility vs Consistency: In A* GRAPH search, admissibility alone does NOT guarantee finding the optimal path if visited nodes are closed permanently. Monotonicity (consistency) is required!"
+      },
+      {
+        "title": "Adversarial Game Search & Alpha-Beta Pruning",
+        "keyPoints": [
+          "Minimax: Computes optimal game value recursively. MAX chooses child with highest value; MIN chooses lowest.",
+          "Alpha (alpha): Best value that MAX can guarantee along the path to the current state.",
+          "Beta (beta): Best value that MIN can guarantee along the path to the current state.",
+          "Pruning Condition: Prune child subtree whenever beta <= alpha."
+        ],
+        "theorem": "Alpha-Beta Invariant: Alpha-beta pruning visits strictly fewer game tree nodes than standard minimax while computing the EXACT same minimax value at the root.",
+        "examTrap": "Pruning Cutoff Threshold: Pruning occurs only when beta <= alpha, never when beta > alpha. If beta > alpha, the search must continue exploring siblings."
+      },
+      {
+        "title": "Constraint Satisfaction & Bayesian Belief Networks",
+        "keyPoints": [
+          "CSP: Solved by Backtracking Search augmented with Minimum Remaining Values (MRV) and Least Constraining Value heuristics.",
+          "AC-3 Arc Consistency: Enforces that for every value in domain of X, there exists a consistent value in domain of Y.",
+          "Bayesian Network: Directed Acyclic Graph where joint distribution is product of conditional probabilities P(X_i | Parents(X_i)).",
+          "D-separation: Formal graphical criterion for determining whether X is conditionally independent of Y given evidence Z."
+        ],
+        "theorem": "Bayesian Chain Rule Factorization: Any Bayesian Network represents a joint probability distribution over variables X_1, ..., X_n as P(X_1, ..., X_n) = prod_{i=1}^n P(X_i | Parents(X_i)).",
+        "examTrap": "Collider (V-Structure) Conditional Dependence: In a collider structure A -> C <- B, variables A and B are marginally independent. However, conditioning on C (or any descendant of C) makes A and B CONDITIONALLY DEPENDENT!"
+      }
+    ]
   },
-  'general-aptitude': {
-    formulaName: 'Combinatorics & Time-Work Equivalence',
-    lang: 'Quantitative Aptitude',
-    gfgUrl: 'https://www.geeksforgeeks.org/general-aptitude-for-gate/',
-    nptelCode: 'noc21-ge14 (IIT Roorkee - Quantitative Aptitude)',
-    derivation: `Permutations & Combinations:
-  nPr = n! / (n - r)!   (Ordered arrangement)
-  nCr = n! / [ r! * (n - r)! ]   (Unordered selection)
-
-Work-Rate Principle:
-  If worker A completes a task in T_A days and B in T_B days:
-  Combined Rate = (1 / T_A) + (1 / T_B)
-  Total Time T_total = (T_A * T_B) / (T_A + T_B)`,
-    svgDiagram: `<svg viewBox="0 0 320 180" width="100%" height="100%"><circle cx="120" cy="90" r="55" fill="rgba(74,14,23,0.2)" stroke="#4a0e17" stroke-width="2"/><circle cx="200" cy="90" r="55" fill="rgba(197,160,89,0.2)" stroke="#c5a059" stroke-width="2"/><text x="90" y="95" fill="#4a0e17" font-weight="700">Set A</text><text x="230" y="95" fill="#c5a059" font-weight="700">Set B</text><text x="160" y="95" fill="#059669" font-size="11" font-weight="700" text-anchor="middle">A cap B</text><text x="160" y="165" fill="#999" font-size="10" text-anchor="middle">Inclusion-Exclusion: |A cup B| = |A| + |B| - |A cap B|</text></svg>`,
-    caption: 'Inclusion-Exclusion Principle Venn Topology'
+  "general-aptitude": {
+    "formulaName": "Combinatorics & Time-Work Equivalence",
+    "lang": "Quantitative Aptitude",
+    "gfgUrl": "https://www.geeksforgeeks.org/general-aptitude-for-gate/",
+    "nptelCode": "noc21-ge14 (IIT Roorkee - Quantitative Aptitude)",
+    "derivation": "Permutations & Combinations:\n  nPr = n! / (n - r)!   (Ordered arrangement)\n  nCr = n! / [ r! * (n - r)! ]   (Unordered selection)\n\nWork-Rate Principle:\n  If worker A completes a task in T_A days and B in T_B days:\n  Combined Rate = (1 / T_A) + (1 / T_B)\n  Total Time T_total = (T_A * T_B) / (T_A + T_B)",
+    "svgDiagram": "<svg viewBox=\"0 0 320 180\" width=\"100%\" height=\"100%\"><circle cx=\"120\" cy=\"90\" r=\"55\" fill=\"rgba(74,14,23,0.2)\" stroke=\"#4a0e17\" stroke-width=\"2\"/><circle cx=\"200\" cy=\"90\" r=\"55\" fill=\"rgba(197,160,89,0.2)\" stroke=\"#c5a059\" stroke-width=\"2\"/><text x=\"90\" y=\"95\" fill=\"#4a0e17\" font-weight=\"700\">Set A</text><text x=\"230\" y=\"95\" fill=\"#c5a059\" font-weight=\"700\">Set B</text><text x=\"160\" y=\"95\" fill=\"#059669\" font-size=\"11\" font-weight=\"700\" text-anchor=\"middle\">A cap B</text><text x=\"160\" y=\"165\" fill=\"#999\" font-size=\"10\" text-anchor=\"middle\">Inclusion-Exclusion: |A cup B| = |A| + |B| - |A cap B|</text></svg>",
+    "caption": "Inclusion-Exclusion Principle Venn Topology",
+    "gfgSubcategories": [
+      {
+        "title": "Quantitative Aptitude: Percentages & Ratios",
+        "tag": "Arithmetic",
+        "url": "https://www.geeksforgeeks.org/quantitative-aptitude/",
+        "desc": "Ratios, proportions, successive percentage change a + b + ab/100, profit/loss margins, and alligation mixtures."
+      },
+      {
+        "title": "Time, Speed, Distance & Work Equivalence",
+        "tag": "Rate & Motion",
+        "url": "https://www.geeksforgeeks.org/time-speed-and-distance/",
+        "desc": "Relative speed for trains, boats and streams, harmonic average speed, and unit-work rate calculations."
+      },
+      {
+        "title": "Data Interpretation: Charts & Tables",
+        "tag": "Data Analysis",
+        "url": "https://www.geeksforgeeks.org/data-interpretation-for-gate/",
+        "desc": "Pie charts, bar graphs, line plots, cross-tabular analysis, and percentage share estimations."
+      },
+      {
+        "title": "Logical Reasoning & Syllogisms",
+        "tag": "Deductive Logic",
+        "url": "https://www.geeksforgeeks.org/logical-reasoning/",
+        "desc": "Venn diagram method for syllogisms, linear and circular seating arrangements, and blood relation trees."
+      },
+      {
+        "title": "Verbal Ability: Grammar & Comprehension",
+        "tag": "Verbal Ability",
+        "url": "https://www.geeksforgeeks.org/verbal-ability-for-gate/",
+        "desc": "Subject-verb agreement, tenses, prepositions, sentence rearrangement, and reading passage inference."
+      },
+      {
+        "title": "Spatial Aptitude: Paper Folding & Symmetry",
+        "tag": "Spatial Intelligence",
+        "url": "https://www.geeksforgeeks.org/spatial-aptitude-for-gate/",
+        "desc": "2D rotation, paper folding and punch holes, 3D block net unfolding, and mirror reflections."
+      }
+    ],
+    "modules": [
+      {
+        "title": "Arithmetic Aptitude, Motion & Work Equivalence",
+        "keyPoints": [
+          "Successive percentage change: Two successive changes of +x% and +y% yield net change x + y + (xy / 100)%.",
+          "Average Speed: For equal distances traveled at speeds v_1 and v_2, Average Speed = 2 v_1 v_2 / (v_1 + v_2) (Harmonic Mean).",
+          "Work-Rate: If A takes d_A days and B takes d_B days, combined work rate is 1/d_A + 1/d_B = 1/d_{total}.",
+          "Mixture Alligation: Ratio of Cheaper to Dearer quantity = (Price of Dearer - Mean) / (Mean - Price of Cheaper)."
+        ],
+        "theorem": "Harmonic Average Speed Law: When equal distances are covered at speeds v_1 and v_2, the average speed is given by their Harmonic Mean 2 v_1 v_2 / (v_1 + v_2), NOT their Arithmetic Mean.",
+        "examTrap": "Arithmetic Mean Speed Trap: Never average speeds using (v_1 + v_2)/2 unless the body traveled for equal intervals of TIME, not equal distances!"
+      },
+      {
+        "title": "Logical Deduction, Syllogisms & Seating Arrangements",
+        "keyPoints": [
+          "Categorical Syllogisms: Standard forms: All A are B, No A are B, Some A are B, Some A are not B.",
+          "Euler-Venn diagram method: A conclusion is logically valid iff it holds true across ALL valid Venn diagrams.",
+          "Blood relations: Always build a generational family tree with explicit gender annotations (+ for male, - for female).",
+          "Circular seating: Facing center (Right is counter-clockwise, Left is clockwise); facing outward reverses orientations."
+        ],
+        "theorem": "Syllogistic Deductive Rule: No valid definite conclusion can be drawn from two particular premises (e.g., statements starting with \"Some\"), nor from two purely negative premises.",
+        "examTrap": "\"Some\" Formal Meaning Trap: In logic, \"Some A are B\" means \"At least one A is B\". It does NOT imply that some A are not B; it is entirely compatible with \"All A are B\"."
+      },
+      {
+        "title": "Spatial Aptitude, Net Unfolding & Rotational Symmetry",
+        "keyPoints": [
+          "Cube Nets: A standard 2D net of a cube unfolds into 6 connected squares. Opposite faces can NEVER share an edge or vertex.",
+          "Paper Folding: Unfolding punched holes reverses the folds symmetrically across the crease lines.",
+          "2D rotations: Rotating a shape 90 degrees clockwise maps coordinate (x, y) to (y, -x).",
+          "Mirror Reflections: Reflection across vertical axis inverts left-to-right; reflection across horizontal axis inverts top-to-bottom."
+        ],
+        "theorem": "Cube Net Opposite Face Invariant: In any continuous straight row of 3 or 4 squares in a cube net, alternating squares (separated by exactly one intervening square) form opposite faces on the folded cube.",
+        "examTrap": "Simultaneous Opposite Face Fallacy: On any folded 3D cube, two opposite faces can NEVER be visible simultaneously from any camera viewpoint."
+      }
+    ]
   }
 };
 
@@ -1769,6 +2809,11 @@ fetch(root + 'data/subjects.json')
       const circumference = 2 * Math.PI * 40;
       const offset = circumference - (pct / 100) * circumference;
 
+      // Group courses into 3 distinguished academic tracks
+      const convergenceSubjects = subjects.filter(s => s.papers.includes('CS') && s.papers.includes('DA'));
+      const csSubjects = subjects.filter(s => s.papers.includes('CS') && !s.papers.includes('DA'));
+      const daSubjects = subjects.filter(s => s.papers.includes('DA') && !s.papers.includes('CS'));
+
       main.innerHTML = `
         <section class="hero">
           <div>
@@ -1898,13 +2943,43 @@ fetch(root + 'data/subjects.json')
         <section class="section" id="subjects">
           <div class="section-head">
             <div>
-              <div class="eyebrow">SUBJECT REPOSITORY</div>
-              <h2>Master the syllabus.</h2>
+              <div class="eyebrow">CURRICULUM ARCHITECTURE</div>
+              <h2>Structured Academic Tracks</h2>
             </div>
-            <p>Shared subjects display common foundations alongside paper-specific syllabi.</p>
+            <p>The 16-subject GATE curriculum categorized into foundational convergence, classical computing systems, and applied machine intelligence.</p>
           </div>
-          <div id="results" class="grid">${subjects.map(card).join('')}</div>
-          <p id="empty" hidden style="text-align: center; padding: 40px; color: var(--text-muted);">No matching subjects found.</p>
+
+          <!-- Section 1: Foundational Convergence (Dual-Track Core: CS & DA) -->
+          <div class="track-section" id="section-convergence">
+            <div style="margin-bottom: 20px;">
+              <span class="track-badge-pill track-badge-convergence">Dual-Track Core · 7 Subjects</span>
+              <h3 style="font-size: 1.5rem; margin: 4px 0 8px; font-family: var(--font-display);">Foundational Convergence · Dual-Track Core (CS & DA)</h3>
+              <p style="color: var(--text-secondary); font-size: 0.92rem; margin: 0; max-width: 760px;">Universal mathematical, algorithmic, and computational disciplines shared across both Computer Science (CS) and Data Science & AI (DA) syllabi.</p>
+            </div>
+            <div id="track-convergence-grid" class="grid">${convergenceSubjects.map(card).join('')}</div>
+          </div>
+
+          <!-- Section 2: Classical Systems Track (CS) -->
+          <div class="track-section" id="section-cs">
+            <div style="margin-bottom: 20px;">
+              <span class="track-badge-pill track-badge-cs">CS Systems Track · 7 Subjects</span>
+              <h3 style="font-size: 1.5rem; margin: 4px 0 8px; font-family: var(--font-display);">Classical Computing Systems & Theoretical Foundations Track (CS)</h3>
+              <p style="color: var(--text-secondary); font-size: 0.92rem; margin: 0; max-width: 760px;">Rigorous engineering disciplines focused on processor architecture, system software, networking, formal languages, compilers, and discrete mathematics.</p>
+            </div>
+            <div id="track-cs-grid" class="grid">${csSubjects.map(card).join('')}</div>
+          </div>
+
+          <!-- Section 3: Applied Intelligence Track (DA) -->
+          <div class="track-section" id="section-da">
+            <div style="margin-bottom: 20px;">
+              <span class="track-badge-pill track-badge-da">DA Intelligence Track · 2 Subjects</span>
+              <h3 style="font-size: 1.5rem; margin: 4px 0 8px; font-family: var(--font-display);">Applied Intelligence & Machine Learning Track (DA)</h3>
+              <p style="color: var(--text-secondary); font-size: 0.92rem; margin: 0; max-width: 760px;">Specialized modern intelligence domains spanning predictive machine learning algorithms, deep representations, heuristic state-space search, and probabilistic reasoning.</p>
+            </div>
+            <div id="track-da-grid" class="grid">${daSubjects.map(card).join('')}</div>
+          </div>
+
+          <p id="empty" hidden style="text-align: center; padding: 40px; color: var(--text-muted); font-size: 1rem;">No matching subjects found across the three tracks.</p>
         </section>
 
         <section class="section">
@@ -1933,19 +3008,38 @@ fetch(root + 'data/subjects.json')
           os: 'operating systems', cn: 'computer networks', ml: 'machine learning', ai: 'artificial intelligence'
         };
         const term = aliases[q] || q;
-        const filtered = subjects.filter(s =>
-          (s.title + ' ' + s.papers.join(' ') + ' ' + s.syllabus + ' ' + s.intro).toLowerCase().includes(term)
-        );
-        document.querySelector('#results').innerHTML = filtered.map(card).join('');
-        document.querySelector('#empty').hidden = !!filtered.length;
+        const matches = s => (s.title + ' ' + s.papers.join(' ') + ' ' + s.syllabus + ' ' + s.intro).toLowerCase().includes(term);
+
+        const filteredConv = convergenceSubjects.filter(matches);
+        const filteredCS = csSubjects.filter(matches);
+        const filteredDA = daSubjects.filter(matches);
+
+        const convGrid = document.querySelector('#track-convergence-grid');
+        const csGrid = document.querySelector('#track-cs-grid');
+        const daGrid = document.querySelector('#track-da-grid');
+        const secConv = document.querySelector('#section-convergence');
+        const secCS = document.querySelector('#section-cs');
+        const secDA = document.querySelector('#section-da');
+        const emptyEl = document.querySelector('#empty');
+
+        if (convGrid) convGrid.innerHTML = filteredConv.map(card).join('');
+        if (csGrid) csGrid.innerHTML = filteredCS.map(card).join('');
+        if (daGrid) daGrid.innerHTML = filteredDA.map(card).join('');
+
+        if (secConv) secConv.style.display = filteredConv.length ? '' : 'none';
+        if (secCS) secCS.style.display = filteredCS.length ? '' : 'none';
+        if (secDA) secDA.style.display = filteredDA.length ? '' : 'none';
+
+        const totalMatches = filteredConv.length + filteredCS.length + filteredDA.length;
+        if (emptyEl) emptyEl.hidden = totalMatches > 0;
+
         attachCardDocketListeners();
       });
 
       attachCardDocketListeners();
     }
 
-    // -------------------------------------------------------------------------
-    // PAGE: CS or DA DIRECTORY
+        // PAGE: CS or DA DIRECTORY
     // -------------------------------------------------------------------------
     else if (page === 'cs' || page === 'da') {
       const code = page.toUpperCase();
@@ -1997,10 +3091,12 @@ fetch(root + 'data/subjects.json')
             <strong>DOCUMENT SECTIONS</strong>
             <a href="#overview" class="active">01. Overview</a>
             <a href="#scope">02. Syllabus Scope</a>
-            ${extra ? `<a href="#derivation">03. Key Formulation</a>` : ''}
-            ${extra ? `<a href="#schematic">04. Visual Schematic</a>` : ''}
-            <a href="#handoffs">05. Deep-Dive Links</a>
-            <a href="#pyq">06. Previous Questions</a>
+            ${extra && extra.modules ? `<a href="#modules">03. Core Modules</a>` : ''}
+            ${extra ? `<a href="#derivation">04. Key Formulation</a>` : ''}
+            ${extra ? `<a href="#schematic">05. Visual Schematic</a>` : ''}
+            ${extra && extra.gfgSubcategories ? `<a href="#gfg-topics">06. GeeksforGeeks Guides</a>` : ''}
+            <a href="#handoffs">07. Deep-Dive Links</a>
+            <a href="#pyq">08. Examination Practice</a>
             <div style="margin-top: 24px; border-top: 1px solid var(--border-line); padding-top: 16px; display: flex; flex-direction: column; gap: 8px;">
               <button class="button gold small" id="subject-docket-add-btn" style="width: 100%;">+ Queue in Docket</button>
               <button class="button outline small calc-trigger" style="text-align: center;">🧮 GATE Calculator</button>
@@ -2048,9 +3144,42 @@ fetch(root + 'data/subjects.json')
               ` : ''}
             </section>
 
+            ${extra && extra.modules ? `
+              <section id="modules">
+                <div class="eyebrow">03 / IN-DEPTH SYLLABUS MODULES</div>
+                <h2>Core Theoretical Modules</h2>
+                <p>Comprehensive subject breakdown containing foundational principles, key theorems, and common examination pitfalls.</p>
+                <div class="subject-modules-container">
+                  ${extra.modules.map((m, idx) => `
+                    <div class="module-card">
+                      <div class="module-header">
+                        <span class="pill gold">MODULE ${String(idx + 1).padStart(2, '0')}</span>
+                        <h3 class="module-title">${escapeText(m.title)}</h3>
+                      </div>
+                      <ul class="module-keypoints">
+                        ${m.keyPoints.map(kp => `<li>${escapeText(kp)}</li>`).join('')}
+                      </ul>
+                      ${m.theorem ? `
+                        <div class="module-theorem-box">
+                          <strong>Essential Theorem & Principle</strong>
+                          <span>${escapeText(m.theorem)}</span>
+                        </div>
+                      ` : ''}
+                      ${m.examTrap ? `
+                        <div class="module-trap-box">
+                          <strong>⚠️ GATE Exam Trap & Common Mistake</strong>
+                          <span>${escapeText(m.examTrap)}</span>
+                        </div>
+                      ` : ''}
+                    </div>
+                  `).join('')}
+                </div>
+              </section>
+            ` : ''}
+
             ${extra ? `
               <section id="derivation">
-                <div class="eyebrow">03 / MATHEMATICAL FORMULATION</div>
+                <div class="eyebrow">04 / MATHEMATICAL FORMULATION</div>
                 <h2>${extra.formulaName}</h2>
                 <div class="derivation-container">
                   <div class="derivation-titlebar">
@@ -2067,7 +3196,7 @@ fetch(root + 'data/subjects.json')
               </section>
 
               <section id="schematic">
-                <div class="eyebrow">04 / ARCHITECTURAL SCHEMATIC</div>
+                <div class="eyebrow">05 / ARCHITECTURAL SCHEMATIC</div>
                 <h2>Visual Concept Schematic</h2>
                 <div class="lookbook-grid" style="grid-template-columns: 1fr;">
                   <div class="lookbook-card" id="open-diagram-card">
@@ -2081,9 +3210,31 @@ fetch(root + 'data/subjects.json')
                   </div>
                 </div>
               </section>
+            ` : ''}
 
+            ${extra && extra.gfgSubcategories ? `
+              <section id="gfg-topics">
+                <div class="eyebrow">06 / GEEKSFORGEEKS CURATED GUIDES</div>
+                <h2>Syllabus Sub-Category Tutorials</h2>
+                <p>Direct granular tutorials and practice sets from GeeksforGeeks corresponding to each syllabus sub-domain:</p>
+                <div class="gfg-subcat-grid">
+                  ${extra.gfgSubcategories.map(cat => `
+                    <a class="gfg-subcat-card" href="${cat.url}" target="_blank" rel="noopener">
+                      <div class="gfg-subcat-top">
+                        <span class="gfg-badge">${escapeText(cat.tag)}</span>
+                        <span class="gfg-arrow">↗</span>
+                      </div>
+                      <div class="gfg-subcat-title">${escapeText(cat.title)}</div>
+                      <div class="gfg-subcat-desc">${escapeText(cat.desc)}</div>
+                    </a>
+                  `).join('')}
+                </div>
+              </section>
+            ` : ''}
+
+            ${extra ? `
               <section id="handoffs">
-                <div class="eyebrow">05 / CURATED PLATFORM HANDOFFS</div>
+                <div class="eyebrow">07 / CURATED PLATFORM HANDOFFS</div>
                 <h2>Implementation & Deep Dives</h2>
                 <p>External verified learning portals for code implementations and official NPTEL lectures:</p>
                 <div class="deepdive-grid">
@@ -2100,7 +3251,7 @@ fetch(root + 'data/subjects.json')
             ` : ''}
 
             <section id="pyq">
-              <div class="eyebrow">06 / EXAMINATION PRACTICE</div>
+              <div class="eyebrow">08 / EXAMINATION PRACTICE</div>
               <h2>Previous-Year Questions</h2>
               <p>Explore official past papers and verification keys from the GATE archive.</p>
               <div style="display: flex; gap: 14px; flex-wrap: wrap; margin-top: 16px;">
@@ -2156,8 +3307,7 @@ fetch(root + 'data/subjects.json')
       }, { passive: true });
     }
 
-    // -------------------------------------------------------------------------
-    // PAGE: PRACTICE (MCQ, MSQ, and NAT QUESTION TYPES)
+        // PAGE: PRACTICE (MCQ, MSQ, and NAT QUESTION TYPES)
     // -------------------------------------------------------------------------
     else if (page === 'practice') {
       let activeFilter = 'all';
