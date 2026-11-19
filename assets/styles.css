@@ -1840,3 +1840,286 @@ footer a:hover {
     animation: none !important;
   }
 }
+
+
+/* ==========================================================================
+   ADVANCED REFINEMENTS & COMPONENT ENHANCEMENTS
+   ========================================================================== */
+
+/* Practice Filter Pills & Score Tracker */
+.practice-header-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-line);
+  padding: 18px 24px;
+  border-radius: 12px;
+  margin-bottom: 24px;
+  box-shadow: var(--shadow-sm);
+}
+
+.filter-pills {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.filter-pill {
+  background: var(--bg-page);
+  border: 1px solid var(--border-line);
+  border-radius: 20px;
+  padding: 6px 14px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.filter-pill:hover {
+  border-color: var(--accent-gold);
+  color: var(--text-primary);
+}
+
+.filter-pill.active {
+  background: var(--accent-gold);
+  border-color: var(--accent-gold);
+  color: #1a1615;
+}
+
+.score-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.score-badge-val {
+  background: var(--status-emerald-bg);
+  border: 1px solid var(--status-emerald-border);
+  color: var(--status-emerald);
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-family: var(--font-mono);
+}
+
+/* Category-Organized Planner Clusters */
+.planner-cluster {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-line);
+  border-radius: 14px;
+  padding: 24px;
+  margin-bottom: 24px;
+  box-shadow: var(--shadow-sm);
+}
+
+.planner-cluster-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border-line-subtle);
+}
+
+.planner-cluster-header h3 {
+  margin: 0;
+  font-size: 1.15rem;
+}
+
+.cluster-select-btn {
+  background: transparent;
+  border: 1px solid var(--border-line);
+  border-radius: 6px;
+  padding: 4px 10px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.cluster-select-btn:hover {
+  border-color: var(--accent-gold);
+  color: var(--primary-burgundy);
+}
+
+/* Curated Textbook & Academic Handoff Tiles */
+.textbook-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin: 20px 0;
+}
+
+.textbook-tile {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-line);
+  border-radius: 10px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--transition-fast), border-color var(--transition-fast);
+}
+
+.textbook-tile:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent-gold);
+  box-shadow: var(--shadow-gold);
+}
+
+.textbook-subject {
+  font-size: 0.68rem;
+  font-weight: 800;
+  color: var(--accent-gold);
+  letter-spacing: 0.08em;
+  margin-bottom: 6px;
+}
+
+.textbook-title {
+  font-weight: 700;
+  font-size: 0.95rem;
+  margin-bottom: 4px;
+  color: var(--text-primary);
+}
+
+.textbook-author {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.textbook-topic {
+  font-size: 0.75rem;
+  color: var(--text-subtle);
+  margin-top: auto;
+}
+
+/* Floating Open-Source Community Pill & Drawer */
+#community-pill {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 1400;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--bg-surface);
+  border: 1px solid var(--accent-gold-border);
+  padding: 8px 16px;
+  border-radius: 30px;
+  box-shadow: var(--shadow-md);
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+#community-pill:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-gold);
+  border-color: var(--accent-gold);
+}
+
+#community-modal {
+  position: fixed;
+  bottom: 74px;
+  right: 24px;
+  width: 320px;
+  background: var(--bg-surface);
+  border: 1px solid var(--accent-gold-border);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: var(--shadow-lg);
+  z-index: 1450;
+  display: none;
+  flex-direction: column;
+  gap: 12px;
+}
+
+#community-modal.open {
+  display: flex;
+}
+
+.community-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.community-header strong {
+  font-size: 0.92rem;
+}
+
+.community-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.community-link-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  background: var(--bg-page);
+  border: 1px solid var(--border-line);
+  border-radius: 6px;
+  text-decoration: none;
+  color: var(--text-primary);
+  font-size: 0.8rem;
+  font-weight: 600;
+  transition: all var(--transition-fast);
+}
+
+.community-link-btn:hover {
+  background: var(--accent-gold-soft);
+  border-color: var(--accent-gold);
+}
+
+/* Share Docket QR Modal */
+#qr-share-box {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-line);
+  border-radius: 10px;
+  padding: 16px;
+  text-align: center;
+  margin-top: 14px;
+}
+
+#qr-canvas-placeholder {
+  display: grid;
+  place-items: center;
+  margin: 10px auto;
+  padding: 8px;
+  background: #ffffff;
+  border-radius: 8px;
+  width: fit-content;
+}
+
+@media (max-width: 900px) {
+  .textbook-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .textbook-grid {
+    grid-template-columns: 1fr;
+  }
+  #community-modal {
+    right: 12px;
+    left: 12px;
+    width: auto;
+  }
+  #community-pill {
+    bottom: 16px;
+    right: 16px;
+  }
+}
