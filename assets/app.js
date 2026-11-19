@@ -1743,266 +1743,759 @@ const STANDARD_TEXTBOOKS = [
 // -----------------------------------------------------------------------------
 const FORMULA_LOOKBOOK = [
   {
-    domain: 'Linear Algebra',
-    title: 'Eigenvalues & Invertibility',
-    body: `Trace(A) = sum(lambda_i)\nDet(A) = prod(lambda_i)\nDet(A) != 0 <=> all lambda_i != 0\nCayley-Hamilton: Every square matrix satisfies its own characteristic equation p(A) = 0`
+    "domain": "Discrete Mathematics",
+    "title": "Planar Graphs, Recurrences & Handshaking",
+    "body": "Euler Planar Formula: V - E + F = 2 (Connected, V >= 3: E <= 3V - 6)\nHandshaking Lemma: sum_{v in V} deg(v) = 2|E| (Odd-degree vertices count is even)\nLinear Recurrence: a_n = c_1 a_{n-1} + c_2 a_{n-2} => r^2 - c_1 r - c_2 = 0\nCatalan Numbers: C_n = (1 / (n + 1)) * C(2n, n) [Binary trees, valid parentheses]"
   },
   {
-    domain: 'Calculus & Optimization',
-    title: 'Hessian Matrix Extremum Test',
-    body: `Stationary Point: grad f(x*) = 0\nH = [ d^2 f / dx_i dx_j ]\nH positive definite => Strict Local Minimum\nH negative definite => Strict Local Maximum\nH indefinite => Saddle point`
+    "domain": "Linear Algebra",
+    "title": "Eigenvalues, Rank-Nullity & SVD",
+    "body": "Trace(A) = sum(lambda_i),  Det(A) = prod(lambda_i)\nInvertibility: Det(A) != 0 <=> all lambda_i != 0\nRank-Nullity Theorem: rank(A) + nullity(A) = n (number of columns)\nSingular Value Decomposition: A = U Sigma V^T, sigma_i = sqrt(lambda_i(A^T A))"
   },
   {
-    domain: 'Algorithms',
-    title: 'Divide & Conquer Master Theorem',
-    body: `T(n) = a * T(n/b) + f(n)\nc_crit = log_b(a)\nCase 1: f(n) = O(n^{c_crit - eps}) => T(n) = Theta(n^{c_crit})\nCase 2: f(n) = Theta(n^{c_crit} * log^k(n)) => T(n) = Theta(n^{c_crit} * log^{k+1}(n))`
+    "domain": "Calculus & Optimization",
+    "title": "Hessian Extremum Test & Taylor Expansion",
+    "body": "Stationary Point: grad f(x*) = 0\nHessian Matrix: H_{ij} = d^2 f / (dx_i dx_j)\nH Positive Definite (all lambda > 0) => Strict Local Minimum\nH Negative Definite (all lambda < 0) => Strict Local Maximum\nH Indefinite (mixed signs)         => Saddle Point\nTaylor Series: f(x) = f(x_0) + grad f(x_0)^T (x - x_0) + 1/2 (x - x_0)^T H (x - x_0)"
   },
   {
-    domain: 'Operating Systems',
-    title: 'Two-Level Paging EAT & Banker Need',
-    body: `EAT = t_TLB + t_mem + (1 - Hit_TLB) * 2 * t_mem\nNeed[i][j] = Max[i][j] - Allocation[i][j]\nDisk Seek Times: FCFS, SSTF, SCAN (Elevator), C-SCAN, C-LOOK`
+    "domain": "Probability & Statistics",
+    "title": "Bayes' Law, Variance & Central Limit Theorem",
+    "body": "Bayes' Rule: P(A_i | B) = [ P(B | A_i) * P(A_i) ] / sum [ P(B | A_j) * P(A_j) ]\nVariance: Var(X) = E[X^2] - (E[X])^2\nSum Variance: Var(X + Y) = Var(X) + Var(Y) + 2*Cov(X, Y)\nCentral Limit Theorem: Z = (X_bar - mu) / (sigma / sqrt(n)) ---> N(0, 1) as n -> inf"
   },
   {
-    domain: 'Computer Architecture',
-    title: 'Cache Mapping & Pipeline Speedup',
-    body: `Cache Sets = (Cache Capacity) / (Associativity * Block Size)\nAddress Bits = Tag + Set Index + Word Offset\nPipeline Speedup S = (n * k) / (k + n - 1 + Stalls)`
+    "domain": "Digital Logic",
+    "title": "Sequential Timing Constraints & Consensus Law",
+    "body": "Setup Time Condition: T_clk >= t_cq(max) + t_comb(max) + t_setup - t_skew\nHold Time Condition:  t_cq(min) + t_comb(min) >= t_hold + t_skew (Clock independent!)\nConsensus Theorem: AB + A'C + BC = AB + A'C\n2^n:1 MUX Universal Implementation: Connect n-1 variables to select lines"
   },
   {
-    domain: 'Computer Networks',
-    title: 'Sliding Window & Congestion Control',
-    body: `Efficiency eta = W / (1 + 2a), where a = T_prop / T_trans\nBandwidth-Delay Product (BDP) = Bandwidth * RTT\nAIMD: +1 MSS per RTT in Avoidance, Halve ssthresh on Packet Loss`
+    "domain": "Computer Organization & Architecture",
+    "title": "Cache Memory Hierarchy & Pipeline Speedup",
+    "body": "Cache Sets = Capacity / (k * BlockSize)\nAddress Bits: Tag Bits | Set Index Bits | Word Offset Bits\nEffective Access Time: EAT = H_1*T_1 + (1 - H_1)*[H_2*(T_1 + T_2) + (1 - H_2)*(T_1 + T_2 + T_mem)]\nPipeline Speedup: S = (n * k) / (k + n - 1 + Stalls) [Ideal limit: S = k]\nAmdahl's Law: Speedup = 1 / [ (1 - f) + (f / s) ]"
   },
   {
-    domain: 'Databases (DBMS)',
-    title: 'Lossless Join & Dependency Preservation',
-    body: `Lossless Decomposition: (R1 cap R2) -> R1 OR (R1 cap R2) -> R2 in F+\nBCNF: For every X -> Y, X MUST be a Superkey\n3NF: For every X -> Y, either X is Superkey OR Y is Prime Attribute`
+    "domain": "Programming & Data Structures",
+    "title": "Binary Heaps, AVL Balance & Tree Invariants",
+    "body": "Binary Tree Degree Property: n_0 = n_2 + 1 (Leaves = degree-2 nodes + 1)\nAVL Balance Factor: BF = Height(Left) - Height(Right) in {-1, 0, +1}\nMin-Heap Array Indexing: Parent(i) = floor((i-1)/2), Left = 2i+1, Right = 2i+2\nLinear Build-Heap Time: Sum (n / 2^{h+1}) * O(h) = O(n)"
   },
   {
-    domain: 'Machine Learning & AI',
-    title: 'Ridge Closed Form & A* Admissibility',
-    body: `Ridge w* = (X^T X + lambda * I)^{-1} X^T y\nLogistic Loss: L(w) = - [ y*log(p) + (1-y)*log(1-p) ]\nA* Heuristic: h(n) <= h*(n) guarantees optimal tree search`
+    "domain": "Algorithms",
+    "title": "Master Theorem & Graph Shortest Paths",
+    "body": "Recurrence: T(n) = a * T(n/b) + f(n)\nc_crit = log_b(a)\nCase 1: f(n) = O(n^{c_crit - eps}) => T(n) = Theta(n^{c_crit})\nCase 2: f(n) = Theta(n^{c_crit} * log^k(n)) => T(n) = Theta(n^{c_crit} * log^{k+1}(n))\nCase 3: f(n) = Omega(n^{c_crit + eps}) => T(n) = Theta(f(n))\nComparison Sort Bound: ceil(log_2(n!)) = Omega(n * log(n))"
+  },
+  {
+    "domain": "Theory of Computation",
+    "title": "Pumping Lemma & Chomsky Hierarchy",
+    "body": "Regular Pumping Lemma: w = xyz, |y| >= 1, |xy| <= p, for all i >= 0: x (y^i) z in L\nCFL Pumping Lemma: w = uvwxy, |vx| >= 1, |vwx| <= p, for all i >= 0: u (v^i) w (x^i) y in L\nMyhill-Nerode Theorem: L is regular <=> R_L has finite index\nRice's Theorem: Any non-trivial semantic property of RE languages is undecidable"
+  },
+  {
+    "domain": "Compiler Design",
+    "title": "LL(1) Parser Condition & SDD Attributes",
+    "body": "LL(1) Grammar Condition: FIRST(alpha) cap FIRST(beta) = empty, and\n  if eps in FIRST(alpha), then FOLLOW(A) cap FIRST(beta) = empty\nParser Hierarchy: LL(1) < SLR(1) < LALR(1) < CLR(1)\nLALR(1) merges CLR(1) states with identical cores; never creates SR conflicts\nS-attributed: Synthesized only (bottom-up); L-attributed: Left-dependent inherited"
+  },
+  {
+    "domain": "Operating Systems",
+    "title": "Banker's Safety, Virtual Memory & Paging EAT",
+    "body": "Banker Safety: Need[i][j] = Max[i][j] - Alloc[i][j]; grant iff state remains safe\nTwo-Level Paging EAT = t_TLB + t_mem + (1 - Hit_TLB) * 2 * t_mem\nPage Table Size = (Virtual Address Space / Page Size) * PTE Size\nBelady's Anomaly: FIFO page faults can increase when frame count increases"
+  },
+  {
+    "domain": "Databases & Data Warehousing",
+    "title": "Relational Normal Forms & Lossless Decomposition",
+    "body": "Lossless Join: (R1 cap R2) -> R1 in F+  OR  (R1 cap R2) -> R2 in F+\nBCNF: For every non-trivial X -> Y, X MUST be a Superkey\n3NF: For every non-trivial X -> Y, either X is Superkey OR Y is Prime Attribute\nConflict Serializability: Precedence (serialization) graph contains NO directed cycles"
+  },
+  {
+    "domain": "Computer Networks",
+    "title": "Sliding Window Protocols, TCP AIMD & Subnetting",
+    "body": "Stop-and-Wait Efficiency: eta = 1 / (1 + 2a), where a = T_prop / T_trans\nCSMA/CD Minimum Frame: L >= 2 * T_prop * Bandwidth\nGo-Back-N Window: W_s = 2^k - 1, W_r = 1; Selective Repeat: W_s = W_r = 2^{k-1}\nTCP AIMD: +1 MSS per RTT in Congestion Avoidance, Halve ssthresh on loss\nCIDR Hosts: Usable IPs in /n prefix = 2^{32 - n} - 2"
+  },
+  {
+    "domain": "Machine Learning",
+    "title": "Ridge Regression, Loss & Bias-Variance Decomposition",
+    "body": "MSE Decomposition: E[(y - f_hat(x))^2] = Bias^2 + Variance + sigma_noise^2\nRidge Regression: w* = (X^T X + lambda * I)^{-1} X^T y\nLasso Regression: min ||X w - y||^2 + lambda * ||w||_1 (Sparse weights)\nLogistic Cross-Entropy: Loss = - [ y * log(p) + (1 - y) * log(1 - p) ]"
+  },
+  {
+    "domain": "Artificial Intelligence",
+    "title": "A* Search Admissibility & Alpha-Beta Pruning",
+    "body": "A* Evaluation: f(n) = g(n) + h(n)\nAdmissibility: h(n) <= h*(n) [Guarantees optimal tree search]\nConsistency (Monotonicity): h(n) <= c(n, a, n') + h(n') [Guarantees optimal graph search]\nAlpha-Beta Pruning: Prune child subtree whenever beta <= alpha\nBayes Network Chain Rule: P(X_1, ..., X_n) = prod P(X_i | Parents(X_i))"
+  },
+  {
+    "domain": "General Aptitude",
+    "title": "Average Speed, Work-Rate & Alligation Formula",
+    "body": "Harmonic Average Speed: v_avg = (2 * v_1 * v_2) / (v_1 + v_2) [For equal distances]\nWork-Rate Principle: 1 / T_total = 1 / T_A + 1 / T_B\nSuccessive Percentage Change: Net % = a + b + (a * b) / 100\nMixture Alligation Rule: Quantity(Cheaper) / Quantity(Dearer) = (Price_D - Mean) / (Mean - Price_C)"
   }
 ];
 
 // -----------------------------------------------------------------------------
-// 8. 16-Question Comprehensive Self-Assessment Question Bank
+// 8. 32-Question Comprehensive Self-Assessment Question Bank (2 per Subject)
 // -----------------------------------------------------------------------------
 const PRACTICE_QUESTIONS = [
   {
-    id: 'la-1',
-    subject: 'linear-algebra',
-    category: 'math',
-    paper: 'CS & DA',
-    type: 'mcq',
-    question: 'Let A be a 2x2 matrix with Trace(A) = 7 and Det(A) = 12. What are the eigenvalues of matrix A?',
-    options: [
-      { text: '3 and 4', correct: true },
-      { text: '2 and 6', correct: false },
-      { text: '1 and 12', correct: false },
-      { text: '-3 and -4', correct: false }
+    "id": "la-1",
+    "subject": "linear-algebra",
+    "category": "math",
+    "paper": "CS & DA",
+    "type": "mcq",
+    "question": "Let A be a 2x2 matrix with Trace(A) = 7 and Det(A) = 12. What are the eigenvalues of matrix A?",
+    "options": [
+      {
+        "text": "3 and 4",
+        "correct": true
+      },
+      {
+        "text": "2 and 6",
+        "correct": false
+      },
+      {
+        "text": "1 and 12",
+        "correct": false
+      },
+      {
+        "text": "-3 and -4",
+        "correct": false
+      }
     ],
-    explanation: 'Sum of eigenvalues equals Trace(A) = 7; product equals Det(A) = 12. Characteristic equation lambda^2 - 7*lambda + 12 = 0 factors into (lambda - 3)(lambda - 4) = 0, giving 3 and 4.'
+    "explanation": "Sum of eigenvalues equals Trace(A) = 7; product equals Det(A) = 12. Characteristic equation lambda^2 - 7*lambda + 12 = 0 factors into (lambda - 3)(lambda - 4) = 0, giving 3 and 4."
   },
   {
-    id: 'calc-1',
-    subject: 'calculus-optimization',
-    category: 'math',
-    paper: 'CS & DA',
-    type: 'nat',
-    question: 'Find the minimum value attained by the function f(x) = 2x^2 - 8x + 11 on the real line.',
-    correctVal: 3,
-    tolerance: [2.99, 3.01],
-    explanation: 'f\'(x) = 4x - 8 = 0 gives stationary point at x = 2. Second derivative f\'\'(2) = 4 > 0 confirms a minimum. Minimum value f(2) = 2(4) - 8(2) + 11 = 8 - 16 + 11 = 3.'
-  },
-  {
-    id: 'prob-1',
-    subject: 'probability-statistics',
-    category: 'math',
-    paper: 'CS & DA',
-    type: 'mcq',
-    question: 'Which of the following continuous probability distributions possesses the memoryless property P(X > s + t | X > s) = P(X > t)?',
-    options: [
-      { text: 'Exponential distribution', correct: true },
-      { text: 'Normal distribution', correct: false },
-      { text: 'Uniform distribution', correct: false },
-      { text: 'Gamma distribution with shape > 1', correct: false }
+    "id": "la-2",
+    "subject": "linear-algebra",
+    "category": "math",
+    "paper": "CS & DA",
+    "type": "nat",
+    "question": "Consider a 4x4 real matrix A with rank(A) = 2. What is the dimension of the nullspace of matrix A?",
+    "correctVal": 2,
+    "tolerance": [
+      2,
+      2
     ],
-    explanation: 'The Exponential distribution is the unique continuous distribution characterized by the memoryless property. (In discrete distributions, the Geometric distribution is memoryless).'
+    "explanation": "By the Rank-Nullity Theorem: rank(A) + nullity(A) = n. Here n = 4 columns and rank(A) = 2, so nullity(A) = 4 - 2 = 2."
   },
   {
-    id: 'dm-1',
-    subject: 'discrete-mathematics',
-    category: 'math',
-    paper: 'CS',
-    type: 'nat',
-    question: 'What is the chromatic number chi(G) of a complete bipartite graph K_{4, 6}?',
-    correctVal: 2,
-    tolerance: [2, 2],
-    explanation: 'Every non-empty bipartite graph can be 2-colored by assigning color 1 to the first partition and color 2 to the second partition. Hence, chi(K_{4,6}) = 2.'
-  },
-  {
-    id: 'algo-1',
-    subject: 'algorithms',
-    category: 'ds-algo',
-    paper: 'CS & DA',
-    type: 'mcq',
-    question: 'What is the asymptotic time complexity of the recurrence relation T(n) = 2T(n/2) + n*log(n)?',
-    options: [
-      { text: 'Theta(n * log^2(n))', correct: true },
-      { text: 'Theta(n * log(n))', correct: false },
-      { text: 'Theta(n^2)', correct: false },
-      { text: 'Theta(n^log_2(3))', correct: false }
+    "id": "calc-1",
+    "subject": "calculus-optimization",
+    "category": "math",
+    "paper": "CS & DA",
+    "type": "nat",
+    "question": "Find the minimum value attained by the function f(x) = 2x^2 - 8x + 11 on the real line.",
+    "correctVal": 3,
+    "tolerance": [
+      2.99,
+      3.01
     ],
-    explanation: 'By extended Master Theorem: a = 2, b = 2 => n^{log_b(a)} = n^1. Since f(n) = n*log(n) matches Case 2 with k = 1, T(n) = Theta(n * log^{k+1}(n)) = Theta(n * log^2(n)).'
+    "explanation": "f'(x) = 4x - 8 = 0 gives stationary point at x = 2. Second derivative f''(2) = 4 > 0 confirms a minimum. Minimum value f(2) = 2(4) - 8(2) + 11 = 8 - 16 + 11 = 3."
   },
   {
-    id: 'pds-1',
-    subject: 'programming-data-structures',
-    category: 'ds-algo',
-    paper: 'CS & DA',
-    type: 'mcq',
-    question: 'What is the in-order traversal of a valid Binary Search Tree (BST) guaranteed to produce?',
-    options: [
-      { text: 'Elements in strictly non-decreasing sorted order', correct: true },
-      { text: 'Level-by-level breadth-first sequence', correct: false },
-      { text: 'Elements sorted in descending order only', correct: false },
-      { text: 'Post-fix evaluation sequence', correct: false }
+    "id": "calc-2",
+    "subject": "calculus-optimization",
+    "category": "math",
+    "paper": "CS & DA",
+    "type": "nat",
+    "question": "Evaluate the limit: lim_{x -> 0} (sin(5x) / (2x)).",
+    "correctVal": 2.5,
+    "tolerance": [
+      2.49,
+      2.51
     ],
-    explanation: 'Because a BST enforces LeftChild <= Root <= RightChild for every node, recursive in-order traversal (Left, Root, Right) naturally visits all keys in sorted non-decreasing order.'
+    "explanation": "Using standard trigonometric limit lim_{u->0} sin(u)/u = 1: lim_{x->0} (sin(5x) / 5x) * (5/2) = 1 * (5/2) = 2.5."
   },
   {
-    id: 'dbms-1',
-    subject: 'databases',
-    category: 'ds-algo',
-    paper: 'CS & DA',
-    type: 'msq',
-    question: 'Consider relation R(A, B, C, D) with functional dependencies F = { A -> B, B -> C, C -> D, D -> A }. Which of the following statements is/are TRUE? (Select all that apply)',
-    options: [
-      { text: 'A is a candidate key of R', correct: true },
-      { text: 'B is a candidate key of R', correct: true },
-      { text: 'The relation R is in Boyce-Codd Normal Form (BCNF)', correct: true },
-      { text: 'The relation R violates 3NF due to transitive dependencies', correct: false }
+    "id": "prob-1",
+    "subject": "probability-statistics",
+    "category": "math",
+    "paper": "CS & DA",
+    "type": "mcq",
+    "question": "Which of the following continuous probability distributions possesses the memoryless property P(X > s + t | X > s) = P(X > t)?",
+    "options": [
+      {
+        "text": "Exponential distribution",
+        "correct": true
+      },
+      {
+        "text": "Normal distribution",
+        "correct": false
+      },
+      {
+        "text": "Uniform distribution",
+        "correct": false
+      },
+      {
+        "text": "Gamma distribution with shape > 1",
+        "correct": false
+      }
     ],
-    explanation: 'Because A -> B -> C -> D -> A forms a complete dependency cycle, every single attribute {A}, {B}, {C}, and {D} is a candidate key. Since the LHS of every dependency is a superkey, R satisfies BCNF (and therefore 3NF).'
+    "explanation": "The Exponential distribution is the unique continuous distribution characterized by the memoryless property. (In discrete distributions, the Geometric distribution is memoryless)."
   },
   {
-    id: 'os-1',
-    subject: 'operating-systems',
-    category: 'systems',
-    paper: 'CS',
-    type: 'nat',
-    question: 'A system uses 1-level paging. Memory access time is 100 ns and TLB access time is 20 ns. If TLB hit ratio is 90%, compute the effective memory access time (EAT) in nanoseconds.',
-    correctVal: 130,
-    tolerance: [129, 131],
-    explanation: 'EAT = Hit_TLB * (t_TLB + t_mem) + (1 - Hit_TLB) * (t_TLB + 2*t_mem) = 0.90 * (20 + 100) + 0.10 * (20 + 200) = 108 + 22 = 130 ns.'
-  },
-  {
-    id: 'coa-1',
-    subject: 'computer-organization',
-    category: 'systems',
-    paper: 'CS',
-    type: 'nat',
-    question: 'A 4-way set associative cache has 64 KB capacity with 32-byte block size. How many bits are used for the set Index in a 32-bit physical address?',
-    correctVal: 9,
-    tolerance: [9, 9],
-    explanation: 'Total lines = 64 KB / 32 B = 2048 lines. In 4-way set associative: sets = 2048 / 4 = 512 sets = 2^9 sets. Thus, exactly 9 bits are required for the set index.'
-  },
-  {
-    id: 'cn-1',
-    subject: 'computer-networks',
-    category: 'systems',
-    paper: 'CS',
-    type: 'nat',
-    question: 'An IPv4 subnet has address 192.168.10.0/27. What is the maximum number of usable host IP addresses in this subnet?',
-    correctVal: 30,
-    tolerance: [30, 30],
-    explanation: 'Subnet prefix /27 leaves 32 - 27 = 5 host bits. Usable addresses = 2^5 - 2 = 32 - 2 = 30 (excluding network address .0 and broadcast address .31).'
-  },
-  {
-    id: 'dl-1',
-    subject: 'digital-logic',
-    category: 'systems',
-    paper: 'CS',
-    type: 'mcq',
-    question: 'In a master-slave D flip-flop circuit, what condition must hold to avoid setup time violations on the clock input?',
-    options: [
-      { text: 'T_clk >= T_cq + T_comb + T_setup', correct: true },
-      { text: 'T_cq + T_comb <= T_hold', correct: false },
-      { text: 'T_setup >= T_hold + T_comb', correct: false },
-      { text: 'T_clk <= T_cq + T_setup', correct: false }
+    "id": "prob-2",
+    "subject": "probability-statistics",
+    "category": "math",
+    "paper": "CS & DA",
+    "type": "nat",
+    "question": "A random variable X follows a Poisson distribution with mean 4. What is the variance of X?",
+    "correctVal": 4,
+    "tolerance": [
+      4,
+      4
     ],
-    explanation: 'Setup time ensures data arrives before the clock edge by at least T_setup. Clock period T_clk must accommodate flip-flop propagation, combinational delay, and setup time.'
+    "explanation": "For any Poisson distribution Pois(lambda), the mean and variance are identical and equal to lambda. Here lambda = 4, so Var(X) = 4."
   },
   {
-    id: 'cd-1',
-    subject: 'compiler-design',
-    category: 'systems',
-    paper: 'CS',
-    type: 'mcq',
-    question: 'Can an ambiguous context-free grammar be parsed deterministically by an LR(k) or LL(k) parser?',
-    options: [
-      { text: 'No, ambiguous grammars can never be LR(k) or LL(k)', correct: true },
-      { text: 'Yes, if k >= 2 lookahead tokens are used', correct: false },
-      { text: 'Yes, using an operator precedence parser', correct: false },
-      { text: 'Only if left recursion is eliminated', correct: false }
+    "id": "dm-1",
+    "subject": "discrete-mathematics",
+    "category": "math",
+    "paper": "CS",
+    "type": "nat",
+    "question": "What is the chromatic number chi(G) of a complete bipartite graph K_{4, 6}?",
+    "correctVal": 2,
+    "tolerance": [
+      2,
+      2
     ],
-    explanation: 'Every LL(k) and LR(k) grammar is unambiguous by definition. An ambiguous grammar creates multiple derivation trees for the same input string, producing unavoidable parser conflicts.'
+    "explanation": "Every non-empty bipartite graph can be 2-colored by assigning color 1 to the first partition and color 2 to the second partition. Hence, chi(K_{4,6}) = 2."
   },
   {
-    id: 'toc-1',
-    subject: 'theory-of-computation',
-    category: 'systems',
-    paper: 'CS',
-    type: 'msq',
-    question: 'Which of the following decision problems is/are UNDECIDABLE for Turing Machines? (Select all that apply)',
-    options: [
-      { text: 'Halting Problem: Does TM M halt on input w?', correct: true },
-      { text: 'Emptiness Problem: Is language L(M) empty?', correct: true },
-      { text: 'Finiteness Problem: Is language L(M) finite?', correct: true },
-      { text: 'Membership Problem for Regular Grammar: Does DFA D accept w?', correct: false }
+    "id": "dm-2",
+    "subject": "discrete-mathematics",
+    "category": "math",
+    "paper": "CS",
+    "type": "mcq",
+    "question": "A connected planar graph has 10 vertices and 15 edges. How many faces (regions) does it divide the plane into, including the outer unbounded face?",
+    "options": [
+      {
+        "text": "7 faces",
+        "correct": true
+      },
+      {
+        "text": "6 faces",
+        "correct": false
+      },
+      {
+        "text": "8 faces",
+        "correct": false
+      },
+      {
+        "text": "5 faces",
+        "correct": false
+      }
     ],
-    explanation: 'By Rice\'s Theorem, any non-trivial semantic property of RE languages (including emptiness, finiteness, and halting) is undecidable. Regular grammar membership is decidable in linear time on a DFA.'
+    "explanation": "By Euler's planar formula: V - E + F = 2. Here V = 10, E = 15. Substituting: 10 - 15 + F = 2 => -5 + F = 2 => F = 7."
   },
   {
-    id: 'ml-1',
-    subject: 'machine-learning',
-    category: 'ai-data',
-    paper: 'DA',
-    type: 'mcq',
-    question: 'In Ridge Regression, as the regularization hyperparameter lambda increases from 0 toward infinity, what happens to model bias and variance?',
-    options: [
-      { text: 'Bias increases, Variance decreases', correct: true },
-      { text: 'Bias decreases, Variance increases', correct: false },
-      { text: 'Both Bias and Variance increase', correct: false },
-      { text: 'Both Bias and Variance decrease', correct: false }
+    "id": "algo-1",
+    "subject": "algorithms",
+    "category": "ds-algo",
+    "paper": "CS & DA",
+    "type": "mcq",
+    "question": "What is the asymptotic time complexity of the recurrence relation T(n) = 2T(n/2) + n*log(n)?",
+    "options": [
+      {
+        "text": "Theta(n * log^2(n))",
+        "correct": true
+      },
+      {
+        "text": "Theta(n * log(n))",
+        "correct": false
+      },
+      {
+        "text": "Theta(n^2)",
+        "correct": false
+      },
+      {
+        "text": "Theta(n^log_2(3))",
+        "correct": false
+      }
     ],
-    explanation: 'Increasing the L2 weight penalty lambda restricts model parameter freedom, dampening variance while systematically simplifying hypothesis space (increasing bias).'
+    "explanation": "By extended Master Theorem: a = 2, b = 2 => n^{log_b(a)} = n^1. Since f(n) = n*log(n) matches Case 2 with k = 1, T(n) = Theta(n * log^{k+1}(n)) = Theta(n * log^2(n))."
   },
   {
-    id: 'ai-1',
-    subject: 'artificial-intelligence',
-    category: 'ai-data',
-    paper: 'DA',
-    type: 'msq',
-    question: 'Which of the following conditions guarantee that the A* tree search algorithm returns an optimal solution path? (Select all that apply)',
-    options: [
-      { text: 'The heuristic function h(n) is admissible (h(n) <= h*(n))', correct: true },
-      { text: 'Step costs between all states are strictly positive (c(n, a, n\') >= eps > 0)', correct: true },
-      { text: 'The heuristic must equal 0 everywhere (breadth-first search)', correct: false },
-      { text: 'The search graph must have a finite branching factor', correct: true }
+    "id": "algo-2",
+    "subject": "algorithms",
+    "category": "ds-algo",
+    "paper": "CS & DA",
+    "type": "mcq",
+    "question": "Which of the following shortest path algorithms can correctly detect negative-weight cycles in a directed graph?",
+    "options": [
+      {
+        "text": "Bellman-Ford Algorithm",
+        "correct": true
+      },
+      {
+        "text": "Dijkstra's Algorithm",
+        "correct": false
+      },
+      {
+        "text": "Prim's Algorithm",
+        "correct": false
+      },
+      {
+        "text": "Kruskal's Algorithm",
+        "correct": false
+      }
     ],
-    explanation: 'A* tree search is optimal whenever h(n) is admissible and all edge costs exceed a positive lower bound. Graph search additionally requires monotonicity (consistency).'
+    "explanation": "Bellman-Ford algorithm relaxes all edges V-1 times and detects negative cycles on the V-th pass. Dijkstra assumes non-negative edge weights and fails in the presence of negative edges."
   },
   {
-    id: 'ga-1',
-    subject: 'general-aptitude',
-    category: 'math',
-    paper: 'CS & DA',
-    type: 'nat',
-    question: 'Worker A can complete a project in 12 days, and Worker B can complete the same project in 24 days. Working together, in how many days will they finish the project?',
-    correctVal: 8,
-    tolerance: [7.99, 8.01],
-    explanation: 'Combined work rate = 1/12 + 1/24 = (2 + 1)/24 = 3/24 = 1/8. Hence, combined completion time = 8 days.'
+    "id": "pds-1",
+    "subject": "programming-data-structures",
+    "category": "ds-algo",
+    "paper": "CS & DA",
+    "type": "nat",
+    "question": "In a non-empty binary tree with 14 nodes having two children each, how many leaf nodes are present?",
+    "correctVal": 15,
+    "tolerance": [
+      15,
+      15
+    ],
+    "explanation": "In any binary tree, the number of leaf nodes n_0 is strictly equal to the number of degree-2 nodes n_2 plus one: n_0 = n_2 + 1. Given n_2 = 14, n_0 = 14 + 1 = 15."
+  },
+  {
+    "id": "pds-2",
+    "subject": "programming-data-structures",
+    "category": "ds-algo",
+    "paper": "CS & DA",
+    "type": "nat",
+    "question": "In an array-based implementation of a circular queue of capacity 16, what is the maximum number of elements that can be stored simultaneously if one empty slot is reserved to differentiate full vs empty states?",
+    "correctVal": 15,
+    "tolerance": [
+      15,
+      15
+    ],
+    "explanation": "To differentiate between full and empty queue states without a separate counter variable, the condition (rear + 1) % N == front leaves one slot empty, allowing a maximum of N - 1 = 16 - 1 = 15 elements."
+  },
+  {
+    "id": "dbms-1",
+    "subject": "databases",
+    "category": "systems",
+    "paper": "CS & DA",
+    "type": "msq",
+    "question": "Which of the following statements regarding relational database normal forms are TRUE?",
+    "options": [
+      {
+        "text": "Every relation in BCNF is also in 3NF.",
+        "correct": true
+      },
+      {
+        "text": "Any relation schema can always be decomposed into 3NF such that the decomposition is simultaneously lossless-join and dependency-preserving.",
+        "correct": true
+      },
+      {
+        "text": "Any relation schema can always be decomposed into BCNF while guaranteeing dependency preservation.",
+        "correct": false
+      },
+      {
+        "text": "A prime attribute is an attribute that belongs to at least one candidate key.",
+        "correct": true
+      }
+    ],
+    "explanation": "BCNF is strictly stronger than 3NF. 3NF decomposition guarantees both lossless join and dependency preservation. However, BCNF decomposition cannot always preserve dependencies. A prime attribute is defined as belonging to ANY candidate key."
+  },
+  {
+    "id": "dbms-2",
+    "subject": "databases",
+    "category": "systems",
+    "paper": "CS & DA",
+    "type": "mcq",
+    "question": "In SQL, what is the result of evaluating the condition: (NULL = NULL)?",
+    "options": [
+      {
+        "text": "UNKNOWN (Three-valued logic)",
+        "correct": true
+      },
+      {
+        "text": "TRUE",
+        "correct": false
+      },
+      {
+        "text": "FALSE",
+        "correct": false
+      },
+      {
+        "text": "Syntax Error",
+        "correct": false
+      }
+    ],
+    "explanation": "In ANSI SQL three-valued logic, any equality comparison involving NULL evaluates to UNKNOWN, not TRUE or FALSE. The correct operator to check for NULL is 'IS NULL'."
+  },
+  {
+    "id": "os-1",
+    "subject": "operating-systems",
+    "category": "systems",
+    "paper": "CS",
+    "type": "mcq",
+    "question": "Which of the following CPU scheduling algorithms is mathematically provable to minimize average waiting time for a set of processes with known burst times?",
+    "options": [
+      {
+        "text": "Shortest Remaining Time First (Preemptive SJF)",
+        "correct": true
+      },
+      {
+        "text": "First-Come First-Served (FCFS)",
+        "correct": false
+      },
+      {
+        "text": "Round Robin with quantum = 2 ms",
+        "correct": false
+      },
+      {
+        "text": "Priority Scheduling without preemption",
+        "correct": false
+      }
+    ],
+    "explanation": "Shortest Remaining Time First (SRTF, the preemptive version of SJF) provably minimizes average waiting time across all scheduling algorithms by prioritizing the shortest remaining computation."
+  },
+  {
+    "id": "os-2",
+    "subject": "operating-systems",
+    "category": "systems",
+    "paper": "CS",
+    "type": "nat",
+    "question": "In a paging system, the TLB access time is 20 ns and main memory access time is 100 ns. If the TLB hit ratio is 90%, calculate the Effective Access Time (EAT) in nanoseconds assuming single-level paging.",
+    "correctVal": 130,
+    "tolerance": [
+      129.9,
+      130.1
+    ],
+    "explanation": "EAT = Hit_TLB * (t_TLB + t_mem) + (1 - Hit_TLB) * (t_TLB + 2 * t_mem) = 0.90 * (20 + 100) + 0.10 * (20 + 200) = 0.90 * 120 + 0.10 * 220 = 108 + 22 = 130 ns."
+  },
+  {
+    "id": "coa-1",
+    "subject": "computer-organization",
+    "category": "systems",
+    "paper": "CS",
+    "type": "nat",
+    "question": "A 4-way set-associative cache has a total capacity of 64 KB and a block (line) size of 64 bytes. How many sets are present in this cache?",
+    "correctVal": 256,
+    "tolerance": [
+      256,
+      256
+    ],
+    "explanation": "Total lines = Capacity / BlockSize = 64 KB / 64 B = 1024 lines. Since it is 4-way set associative, Number of Sets = 1024 / 4 = 256 sets (requiring 8 set index bits)."
+  },
+  {
+    "id": "coa-2",
+    "subject": "computer-organization",
+    "category": "systems",
+    "paper": "CS",
+    "type": "mcq",
+    "question": "In a pipelined processor with operand forwarding, which data hazard can NEVER be completely resolved without inserting a stall cycle?",
+    "options": [
+      {
+        "text": "Load-to-Use data dependency (LW followed immediately by ALU instruction)",
+        "correct": true
+      },
+      {
+        "text": "ALU-to-ALU data dependency (ADD followed by SUB)",
+        "correct": false
+      },
+      {
+        "text": "Write-After-Write (WAW) dependency in an in-order pipeline",
+        "correct": false
+      },
+      {
+        "text": "Write-After-Read (WAR) dependency in an in-order pipeline",
+        "correct": false
+      }
+    ],
+    "explanation": "In a Load-to-Use hazard, data loaded from memory is only available at the end of the MEM stage, which is after the EX stage of the immediately following instruction. Hence, at least 1 stall cycle is mandatory."
+  },
+  {
+    "id": "cn-1",
+    "subject": "computer-networks",
+    "category": "systems",
+    "paper": "CS",
+    "type": "nat",
+    "question": "An IPv4 subnet has the CIDR prefix 192.168.10.0/26. How many usable host addresses can be assigned in this subnet?",
+    "correctVal": 62,
+    "tolerance": [
+      62,
+      62
+    ],
+    "explanation": "A /26 subnet leaves 32 - 26 = 6 host bits. Total IP addresses = 2^6 = 64. Subtracting 2 (network ID and directed broadcast address) yields 64 - 2 = 62 usable host addresses."
+  },
+  {
+    "id": "cn-2",
+    "subject": "computer-networks",
+    "category": "systems",
+    "paper": "CS",
+    "type": "nat",
+    "question": "In a 10 Mbps CSMA/CD Ethernet network, the one-way propagation delay between the two farthest stations is 25 microseconds. What is the minimum frame size in bytes required for reliable collision detection?",
+    "correctVal": 62.5,
+    "tolerance": [
+      62,
+      63
+    ],
+    "explanation": "Collision detection requires transmission time T_t >= 2 * T_p. Round-trip propagation = 2 * 25 us = 50 us. Min frame bits = 50 * 10^-6 s * 10 * 10^6 bps = 500 bits. Min frame bytes = 500 / 8 = 62.5 bytes (64 bytes in standard Ethernet)."
+  },
+  {
+    "id": "dl-1",
+    "subject": "digital-logic",
+    "category": "systems",
+    "paper": "CS",
+    "type": "mcq",
+    "question": "Which of the following Boolean expressions represents the simplified result of the Consensus Theorem on AB + A'C + BC?",
+    "options": [
+      {
+        "text": "AB + A'C",
+        "correct": true
+      },
+      {
+        "text": "BC + A'C",
+        "correct": false
+      },
+      {
+        "text": "AB + BC",
+        "correct": false
+      },
+      {
+        "text": "A'B + AC",
+        "correct": false
+      }
+    ],
+    "explanation": "By the Consensus Theorem: AB + A'C + BC = AB + A'C. The term BC is the consensus term and is redundant."
+  },
+  {
+    "id": "dl-2",
+    "subject": "digital-logic",
+    "category": "systems",
+    "paper": "CS",
+    "type": "nat",
+    "question": "A digital sequential system has flip-flops with max propagation delay t_cq = 4 ns, combinational logic delay t_comb = 12 ns, setup time t_su = 3 ns, and clock skew t_skew = 1 ns. What is the minimum clock period T_clk in nanoseconds?",
+    "correctVal": 18,
+    "tolerance": [
+      18,
+      18
+    ],
+    "explanation": "Minimum clock period T_clk >= t_cq + t_comb + t_su - t_skew = 4 + 12 + 3 - 1 = 18 ns."
+  },
+  {
+    "id": "cd-1",
+    "subject": "compiler-design",
+    "category": "systems",
+    "paper": "CS",
+    "type": "mcq",
+    "question": "Consider the grammar production: S -> a S b | epsilon. What is the set FOLLOW(S)?",
+    "options": [
+      {
+        "text": "{ b, $ }",
+        "correct": true
+      },
+      {
+        "text": "{ a, b }",
+        "correct": false
+      },
+      {
+        "text": "{ $ }",
+        "correct": false
+      },
+      {
+        "text": "{ a, $ }",
+        "correct": false
+      }
+    ],
+    "explanation": "Since S is the start symbol, $ is in FOLLOW(S). In production S -> a S b, the terminal b follows S, so b is in FOLLOW(S). Hence, FOLLOW(S) = { b, $ }."
+  },
+  {
+    "id": "cd-2",
+    "subject": "compiler-design",
+    "category": "systems",
+    "paper": "CS",
+    "type": "msq",
+    "question": "Which of the following statements about bottom-up parsers are CORRECT?",
+    "options": [
+      {
+        "text": "The number of states in an LALR(1) parser is strictly equal to the number of states in an SLR(1) parser.",
+        "correct": true
+      },
+      {
+        "text": "Merging CLR(1) states to construct an LALR(1) parser can never introduce a Shift-Reduce conflict.",
+        "correct": true
+      },
+      {
+        "text": "Merging CLR(1) states to construct an LALR(1) parser can introduce a Reduce-Reduce conflict.",
+        "correct": true
+      },
+      {
+        "text": "Every SLR(1) grammar is an LL(1) grammar.",
+        "correct": false
+      }
+    ],
+    "explanation": "LALR(1) merges states with identical LR(0) cores, yielding the exact same state count as SLR(1). Core merging cannot produce new Shift-Reduce conflicts, but CAN introduce Reduce-Reduce conflicts. SLR(1) and LL(1) are distinct; neither is a subset of the other."
+  },
+  {
+    "id": "toc-1",
+    "subject": "theory-of-computation",
+    "category": "systems",
+    "paper": "CS",
+    "type": "mcq",
+    "question": "Which of the following problems is DECIDABLE for regular languages?",
+    "options": [
+      {
+        "text": "Emptiness problem (Is L = empty?)",
+        "correct": true
+      },
+      {
+        "text": "Halting problem of Turing machines",
+        "correct": false
+      },
+      {
+        "text": "Post Correspondence Problem (PCP)",
+        "correct": false
+      },
+      {
+        "text": "Equivalence problem of context-free languages",
+        "correct": false
+      }
+    ],
+    "explanation": "For regular languages, Emptiness, Finiteness, Membership, and Equivalence are all decidable by analyzing the minimal DFA graph."
+  },
+  {
+    "id": "toc-2",
+    "subject": "theory-of-computation",
+    "category": "systems",
+    "paper": "CS",
+    "type": "msq",
+    "question": "Which of the following language classes are CLOSED under intersection?",
+    "options": [
+      {
+        "text": "Regular Languages",
+        "correct": true
+      },
+      {
+        "text": "Deterministic Context-Free Languages (DCFL)",
+        "correct": false
+      },
+      {
+        "text": "Context-Free Languages (CFL)",
+        "correct": false
+      },
+      {
+        "text": "Recursive Languages (Decidable)",
+        "correct": true
+      }
+    ],
+    "explanation": "Regular and Recursive languages are closed under intersection. CFLs and DCFLs are NOT closed under intersection."
+  },
+  {
+    "id": "ml-1",
+    "subject": "machine-learning",
+    "category": "da-special",
+    "paper": "DA",
+    "type": "mcq",
+    "question": "In linear regression, what is the primary structural effect of adding an L1 regularization penalty (Lasso) compared to an L2 penalty (Ridge)?",
+    "options": [
+      {
+        "text": "Lasso induces sparsity by driving unimportant feature weights to exactly zero.",
+        "correct": true
+      },
+      {
+        "text": "Lasso guarantees a closed-form matrix inversion solution.",
+        "correct": false
+      },
+      {
+        "text": "Lasso always results in higher training variance than Ridge.",
+        "correct": false
+      },
+      {
+        "text": "Lasso has no effect on feature selection.",
+        "correct": false
+      }
+    ],
+    "explanation": "L1 regularization has non-differentiable corners at the axes in weight space, causing gradient updates to drive non-informative feature coefficients to exactly zero, enabling automatic feature selection."
+  },
+  {
+    "id": "ml-2",
+    "subject": "machine-learning",
+    "category": "da-special",
+    "paper": "DA",
+    "type": "nat",
+    "question": "A binary classifier on 100 test samples achieves 40 True Positives, 10 False Positives, 10 False Negatives, and 40 True Negatives. What is the Precision of this classifier as a decimal fraction?",
+    "correctVal": 0.8,
+    "tolerance": [
+      0.79,
+      0.81
+    ],
+    "explanation": "Precision = TP / (TP + FP) = 40 / (40 + 10) = 40 / 50 = 0.80."
+  },
+  {
+    "id": "ai-1",
+    "subject": "artificial-intelligence",
+    "category": "da-special",
+    "paper": "DA",
+    "type": "mcq",
+    "question": "In A* graph search, which condition on heuristic function h(n) guarantees finding an optimal path without reopening previously closed nodes?",
+    "options": [
+      {
+        "text": "Consistency (Monotonicity)",
+        "correct": true
+      },
+      {
+        "text": "Admissibility alone",
+        "correct": false
+      },
+      {
+        "text": "Linearity",
+        "correct": false
+      },
+      {
+        "text": "Convexity",
+        "correct": false
+      }
+    ],
+    "explanation": "While admissibility guarantees optimality on tree search, consistency (monotonicity: h(n) <= c(n,a,n') + h(n')) is strictly required for graph search with a closed list to avoid reopening closed nodes."
+  },
+  {
+    "id": "ai-2",
+    "subject": "artificial-intelligence",
+    "category": "da-special",
+    "paper": "DA",
+    "type": "mcq",
+    "question": "In a Bayesian belief network with collider structure A -> C <- B, what happens to the relationship between variables A and B upon observing node C?",
+    "options": [
+      {
+        "text": "A and B become conditionally DEPENDENT given C.",
+        "correct": true
+      },
+      {
+        "text": "A and B remain independent.",
+        "correct": false
+      },
+      {
+        "text": "A and B become mutually exclusive.",
+        "correct": false
+      },
+      {
+        "text": "The network violates the Markov property.",
+        "correct": false
+      }
+    ],
+    "explanation": "In an unobserved collider A -> C <- B, A and B are marginally independent. Conditioning on the common child C (or any descendant of C) opens the active trail (explaining away), making A and B conditionally dependent."
+  },
+  {
+    "id": "ga-1",
+    "subject": "general-aptitude",
+    "category": "general",
+    "paper": "CS & DA",
+    "type": "nat",
+    "question": "A vehicle travels from City A to City B at 60 km/h and returns along the exact same route at 40 km/h. What is the average speed of the round trip in km/h?",
+    "correctVal": 48,
+    "tolerance": [
+      47.9,
+      48.1
+    ],
+    "explanation": "For equal distances, the average speed is given by the Harmonic Mean: v_avg = (2 * v_1 * v_2) / (v_1 + v_2) = (2 * 60 * 40) / (60 + 40) = 4800 / 100 = 48 km/h."
+  },
+  {
+    "id": "ga-2",
+    "subject": "general-aptitude",
+    "category": "general",
+    "paper": "CS & DA",
+    "type": "nat",
+    "question": "Worker A can complete a project in 12 days, and worker B can complete the same project in 24 days. Working together, in how many days will they finish the project?",
+    "correctVal": 8,
+    "tolerance": [
+      8,
+      8
+    ],
+    "explanation": "Combined daily rate = 1/12 + 1/24 = 2/24 + 1/24 = 3/24 = 1/8 project per day. Hence, total time required = 8 days."
   }
 ];
 
@@ -3043,31 +3536,132 @@ fetch(root + 'data/subjects.json')
     // -------------------------------------------------------------------------
     else if (page === 'cs' || page === 'da') {
       const code = page.toUpperCase();
-      const name = code === 'CS' ? 'Computer Science & Information Technology' : 'Data Science & Artificial Intelligence';
+      const isCS = code === 'CS';
+      const name = isCS ? 'Computer Science & Information Technology' : 'Data Science & Artificial Intelligence';
+      const trackSubjects = subjects.filter(s => s.papers.includes(code));
+      const progress = getProgress();
+      const trackReviewed = trackSubjects.filter(s => progress[s.id] === true).length;
+      const trackPct = Math.round((trackReviewed / trackSubjects.length) * 100);
+      const trackCircumference = 2 * Math.PI * 32;
+      const trackOffset = trackCircumference - (trackPct / 100) * trackCircumference;
+
+      // Structured clusters for each track
+      let clusters = [];
+      if (isCS) {
+        clusters = [
+          {
+            title: 'Mathematical & Discrete Foundations',
+            desc: 'Discrete structures, propositional and predicate calculus, algebraic lattices, and graph theory.',
+            ids: ['discrete-mathematics', 'linear-algebra', 'calculus-optimization', 'probability-statistics']
+          },
+          {
+            title: 'Hardware Organization & Architecture',
+            desc: 'Digital Boolean logic, arithmetic execution units, memory hierarchy, and pipelined microarchitecture.',
+            ids: ['digital-logic', 'computer-organization']
+          },
+          {
+            title: 'Software Systems, Networking & Databases',
+            desc: 'Operating system concurrency, memory paging, database normalization, relational algebra, and protocol stacks.',
+            ids: ['programming-data-structures', 'algorithms', 'operating-systems', 'databases', 'computer-networks']
+          },
+          {
+            title: 'Formal Languages & Compiler Engineering',
+            desc: 'Automata theory, Chomsky hierarchy, decidability, lexical parsing, and intermediate code generation.',
+            ids: ['theory-of-computation', 'compiler-design']
+          },
+          {
+            title: 'General Aptitude Component',
+            desc: 'Verbal reasoning, quantitative comprehension, spatial orientation, and analytical ability.',
+            ids: ['general-aptitude']
+          }
+        ];
+      } else {
+        clusters = [
+          {
+            title: 'Mathematical & Statistical Foundations',
+            desc: 'Linear algebra, vector spaces, calculus, optimization gradients, and inferential statistics.',
+            ids: ['linear-algebra', 'calculus-optimization', 'probability-statistics']
+          },
+          {
+            title: 'Computational Systems & Data Warehousing',
+            desc: 'Data structures, algorithm complexity, relational SQL, and multi-dimensional data models.',
+            ids: ['programming-data-structures', 'algorithms', 'databases']
+          },
+          {
+            title: 'Machine Learning & Artificial Intelligence',
+            desc: 'Supervised regression, classification, SVM kernels, clustering, PCA, heuristic search, and Bayesian networks.',
+            ids: ['machine-learning', 'artificial-intelligence']
+          },
+          {
+            title: 'General Aptitude Component',
+            desc: 'Verbal reasoning, quantitative comprehension, spatial orientation, and analytical ability.',
+            ids: ['general-aptitude']
+          }
+        ];
+      }
+
       main.innerHTML = `
         ${crumb(code)}
         <section class="page-title">
-          <div class="eyebrow">GATE 2027 · PAPER ${code}</div>
+          <div class="eyebrow">GATE 2027 · OFFICIAL TRACK DOSSIER</div>
           <h1>${name}</h1>
-          <p>Official syllabus guide, topic matrix, and direct syllabus downloads verified against IIT Madras.</p>
+          <p>Authoritative IIT Madras syllabus alignment, structured section clusters, historical cutoffs, and direct PDF dossiers.</p>
         </section>
+
+        <!-- Track Readiness & Progress Metric -->
+        <div class="readiness-dashboard" style="margin-bottom: 30px;">
+          <div class="readiness-ring-box">
+            <svg width="80" height="80" class="donut-svg">
+              <circle cx="40" cy="40" r="32" class="donut-circle-bg"/>
+              <circle cx="40" cy="40" r="32" class="donut-circle-fill" stroke-dasharray="${trackCircumference}" stroke-dashoffset="${trackOffset}"/>
+            </svg>
+            <div>
+              <div class="eyebrow" style="margin: 0 0 2px;"><span class="dot"></span> TRACK READINESS</div>
+              <strong style="font-size: 1.25rem;">${trackPct}% Completed</strong>
+              <div style="font-size: 0.8rem; color: var(--text-muted);">${trackReviewed} of ${trackSubjects.length} Track Domains Reviewed</div>
+            </div>
+          </div>
+          <div class="readiness-stats">
+            <div class="readiness-stat-item">
+              <strong>100 Marks</strong>
+              <span>Total Examination Weight</span>
+            </div>
+            <div class="readiness-stat-item">
+              <strong>65 Questions</strong>
+              <span>3-Hour Timed Session</span>
+            </div>
+            <div class="readiness-stat-item">
+              <strong>15 Marks</strong>
+              <span>General Aptitude Component</span>
+            </div>
+          </div>
+          <div style="display: flex; gap: 8px;">
+            <a class="button gold small" href="${source[code]}" target="_blank" rel="noopener">Official Syllabus PDF ↗</a>
+            <a class="button outline small" href="${root}practice/">Practice Engine ↗</a>
+          </div>
+        </div>
 
         <section class="section" style="padding-top: 0;">
           ${note}
-          <div class="mac-window" style="margin-bottom: 30px; padding: 20px 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
-            <div>
-              <strong>Official IIT Madras ${code} Syllabus Document</strong>
-              <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 2px;">Official PDF publication with authoritative section codes</div>
-            </div>
-            <a class="button gold small" href="${source[code]}" target="_blank" rel="noopener">Download Official ${code} Syllabus PDF ↗</a>
-          </div>
 
-          <div class="grid">${subjects.filter(s => s.papers.includes(code)).map(card).join('')}</div>
+          ${clusters.map(cluster => {
+            const clusterSubjects = trackSubjects.filter(s => cluster.ids.includes(s.id));
+            if (!clusterSubjects.length) return '';
+            return `
+              <div class="track-section" style="margin-top: 36px;">
+                <div style="margin-bottom: 18px;">
+                  <span class="pill gold" style="font-size: 0.7rem;">${clusterSubjects.length} DOMAINS</span>
+                  <h3 style="font-size: 1.35rem; margin: 6px 0 4px; font-family: var(--font-display);">${cluster.title}</h3>
+                  <p style="font-size: 0.88rem; color: var(--text-secondary); margin: 0; max-width: 720px;">${cluster.desc}</p>
+                </div>
+                <div class="grid">${clusterSubjects.map(card).join('')}</div>
+              </div>
+            `;
+          }).join('')}
         </section>
       `;
       attachCardDocketListeners();
     }
-
     // -------------------------------------------------------------------------
     // PAGE: SUBJECT GUIDE
     // -------------------------------------------------------------------------
@@ -3755,6 +4349,87 @@ fetch(root + 'data/subjects.json')
             </div>
           </div>
 
+          <h2 style="margin-top: 50px;">3-Year Official Qualifying Cutoff Trends</h2>
+          <p style="color: var(--text-muted);">Historical qualifying marks (out of 100) across recent GATE administrations:</p>
+          <div class="weightage-table-container">
+            <table class="weightage-table">
+              <thead>
+                <tr>
+                  <th>PAPER & YEAR</th>
+                  <th>GENERAL / OPEN</th>
+                  <th>OBC-NCL / EWS</th>
+                  <th>SC / ST / PwD</th>
+                  <th>ORGANIZING INSTITUTE</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>GATE CS 2026</strong></td>
+                  <td style="color: var(--accent-gold); font-weight: 700;">27.6</td>
+                  <td>24.8</td>
+                  <td>18.4</td>
+                  <td>IIT Roorkee</td>
+                </tr>
+                <tr>
+                  <td><strong>GATE CS 2025</strong></td>
+                  <td style="color: var(--accent-gold); font-weight: 700;">28.5</td>
+                  <td>25.6</td>
+                  <td>19.0</td>
+                  <td>IIT Roorkee</td>
+                </tr>
+                <tr>
+                  <td><strong>GATE CS 2024</strong></td>
+                  <td style="color: var(--accent-gold); font-weight: 700;">27.6</td>
+                  <td>24.8</td>
+                  <td>18.4</td>
+                  <td>IISc Bangalore</td>
+                </tr>
+                <tr>
+                  <td><strong>GATE DA 2026</strong></td>
+                  <td style="color: #059669; font-weight: 700;">36.2</td>
+                  <td>32.5</td>
+                  <td>24.1</td>
+                  <td>IIT Roorkee</td>
+                </tr>
+                <tr>
+                  <td><strong>GATE DA 2025</strong></td>
+                  <td style="color: #059669; font-weight: 700;">37.1</td>
+                  <td>33.3</td>
+                  <td>24.7</td>
+                  <td>IIT Roorkee</td>
+                </tr>
+                <tr>
+                  <td><strong>GATE DA 2024</strong></td>
+                  <td style="color: #059669; font-weight: 700;">37.1</td>
+                  <td>33.3</td>
+                  <td>24.7</td>
+                  <td>IISc Bangalore</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="mac-window" style="padding: 24px; margin-top: 40px;">
+            <h3>Strategic Scoring & Mathematical Guessing Analysis</h3>
+            <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6;">
+              In GATE, understanding the mathematical expectation of guessing is critical for tactical decision making:
+            </p>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin-top: 16px;">
+              <div style="background: var(--bg-surface); padding: 16px; border-radius: 8px; border: 1px solid var(--border-line);">
+                <strong style="color: #e0443e;">MCQ Guessing Expectation (4 Options)</strong>
+                <p style="font-size: 0.8rem; color: var(--text-muted); margin: 6px 0 0;">
+                  Blind guess expectation is strictly 0: (1/4)*(+1) - (3/4)*(1/3) = 0. However, eliminating just ONE distractor yields positive expected value E[X] = +0.11; eliminating TWO options yields E[X] = +0.33!
+                </p>
+              </div>
+              <div style="background: var(--bg-surface); padding: 16px; border-radius: 8px; border: 1px solid var(--border-line);">
+                <strong style="color: #059669;">MSQ & NAT Tactical Advantage</strong>
+                <p style="font-size: 0.8rem; color: var(--text-muted); margin: 6px 0 0;">
+                  MSQ and NAT questions carry ZERO negative marking. Never leave a NAT or MSQ question blank if you have derived intermediate bounds or can eliminate impossible cases.
+                </p>
+              </div>
+            </div>
+          </div>
+
           <h2 style="margin-top: 50px;">5-Year Average Subject Weightage Matrix</h2>
           <div class="weightage-table-container">
             <table class="weightage-table">
@@ -3788,7 +4463,6 @@ fetch(root + 'data/subjects.json')
         </section>
       `;
     }
-
     // -------------------------------------------------------------------------
     // PAGE: RESOURCES (SYLLABUS, FORMULA LOOKBOOK & STANDARD TEXTBOOKS)
     // -------------------------------------------------------------------------
