@@ -1,18 +1,21 @@
 /**
- * Study GATE Exam with Arshad - Core Application Engine (Refined Edition)
+ * Study GATE Exam with Arshad - Core Application Engine (Ultra Refined Edition)
  * Aesthetics: Apple-Inspired Editorial Minimalism · Velvet Burgundy & Champagne Gold
  * Architecture:
  *  - Zero-Flash Dual Theme (Light & Dark)
  *  - Universal Command Palette (Spotlight / Cmd+K)
  *  - 3D Kinetic Topology Particle Canvas in Mac-Style Chrome
  *  - Interactive Career & Pathway Matchmaker Wizard (CS vs DA)
- *  - Persistent Study Docket Drawer with .ics Calendar & Google Calendar Direct Handoff
- *  - Docket Sharing via URL Hash & SVG QR Engine
- *  - 12-Question Practice Engine with Filters, Score Tracker & Derivations
+ *  - Persistent Study Docket with Integrated Pomodoro Revision Timer
+ *  - Calendar Integration (.ics Export & Google Calendar One-Click Handoff)
+ *  - Study Docket Sharing via URL Hash & Vector SVG QR Engine
+ *  - Comprehensive Practice Engine supporting MCQ, MSQ & NAT Question Types
  *  - Complete 16-Subject Technical Formulations & Vector Schematics
+ *  - Curated Platform Integration (GeeksforGeeks & NPTEL Course Codes)
+ *  - Standard Textbook Library & Topic Alignment
+ *  - GATE Exam Intelligence Dashboard & 5-Year Weightage Matrix on /pyqs/
  *  - Category-Clustered Multi-Topic Planner with Batch Controls
- *  - Curated Standard Textbook Library & NPTEL Handoffs
- *  - Reading Progress Indicator & Scroll-Spy Sidebar
+ *  - Reading Progress Indicator, Scroll-Spy Sidebar & One-Click PDF/Print Engine
  *  - Floating Open-Source Community Pill & Modal
  *  - PWA Offline Service Worker Engine
  */
@@ -159,7 +162,7 @@ function exportDocketICS(allSubjects) {
     start.setDate(now.getDate() + idx + 1);
     start.setHours(18, 0, 0, 0);
     const end = new Date(start);
-    end.setHours(20, 0, 0, 0); // 2 hour block
+    end.setHours(20, 0, 0, 0);
 
     const pad = n => String(n).padStart(2, '0');
     const toICSDate = d => `${d.getFullYear()}${pad(d.getMonth()+1)}${pad(d.getDate())}T${pad(d.getHours())}${pad(d.getMinutes())}00`;
@@ -208,6 +211,8 @@ const SUBJECT_EXTRAS = {
   'discrete-mathematics': {
     formulaName: 'Generating Function & Recurrence Relation',
     lang: 'Discrete Mathematics',
+    gfgUrl: 'https://www.geeksforgeeks.org/discrete-mathematics-tutorials/',
+    nptelCode: 'noc20-cs82 (IIT Ropar - Discrete Mathematics)',
     derivation: `Linear Homogeneous Recurrence: a_n = c_1 a_{n-1} + c_2 a_{n-2}
 Characteristic Equation: r^2 - c_1 r - c_2 = 0
 Roots r_1, r_2:
@@ -223,6 +228,8 @@ Generating Function Transformation:
   'linear-algebra': {
     formulaName: 'Eigenvalues & Singular Value Decomposition (SVD)',
     lang: 'Linear Algebra',
+    gfgUrl: 'https://www.geeksforgeeks.org/matrix-operations-linear-algebra-for-gate-exam/',
+    nptelCode: 'noc21-ma54 (IIT Kharagpur - Linear Algebra)',
     derivation: `Characteristic Equation: det(A - lambda * I) = 0
 Properties of Eigenvalues lambda_i:
   1. sum(lambda_i) = Trace(A)
@@ -239,6 +246,8 @@ Singular Value Decomposition (SVD):
   'calculus-optimization': {
     formulaName: 'Taylor Series & Gradient Optimization',
     lang: 'Multivariable Calculus',
+    gfgUrl: 'https://www.geeksforgeeks.org/calculus-and-optimization-for-gate-da/',
+    nptelCode: 'noc19-ma15 (IIT Madras - Calculus of One and Several Variables)',
     derivation: `Multivariate Taylor Expansion around x_0:
   f(x) approx f(x_0) + grad f(x_0)^T (x - x_0) + 1/2 (x - x_0)^T H(x_0) (x - x_0)
 where H is the Hessian Matrix: H_{ij} = d^2 f / (d x_i d x_j)
@@ -253,6 +262,8 @@ Stationary Point Conditions:
   'probability-statistics': {
     formulaName: "Bayes' Law & Central Limit Theorem",
     lang: 'Probability Theory',
+    gfgUrl: 'https://www.geeksforgeeks.org/probability-and-statistics-for-gate-exam/',
+    nptelCode: 'noc20-ma22 (IIT Kharagpur - Probability and Statistics)',
     derivation: `Bayes' Rule:
   P(A_i | B) = [ P(B | A_i) * P(A_i) ] / sum_{j=1}^k [ P(B | A_j) * P(A_j) ]
 
@@ -267,6 +278,8 @@ Central Limit Theorem (CLT):
   'digital-logic': {
     formulaName: 'Sequential Timing & K-Map Boolean Optimization',
     lang: 'Digital Systems',
+    gfgUrl: 'https://www.geeksforgeeks.org/digital-logic-gate-notes/',
+    nptelCode: 'noc21-cs47 (IIT Kharagpur - Digital Electronic Circuits)',
     derivation: `Flip-Flop Setup and Hold Time Constraints:
 Clock Period Bound (Setup Time Condition):
   T_clk >= T_cq(max) + T_comb(max) + T_setup - T_skew
@@ -280,6 +293,8 @@ Hold Time Condition (Race Condition Avoidance):
   'computer-organization': {
     formulaName: 'Cache Memory EAT & Pipeline Speedup',
     lang: 'Computer Architecture',
+    gfgUrl: 'https://www.geeksforgeeks.org/computer-organization-and-architecture-tutorials/',
+    nptelCode: 'noc20-cs64 (IIT Madras - Computer Organization and Architecture)',
     derivation: `Effective Access Time (EAT) with Hierarchical Cache:
   EAT = H_1 * T_1 + (1 - H_1) * [ H_2 * (T_1 + T_2) + (1 - H_2) * (T_1 + T_2 + T_mem) ]
   where H_i = Hit Ratio at Level i, T_i = Access Latency.
@@ -294,6 +309,8 @@ Pipeline Speedup:
   'programming-data-structures': {
     formulaName: 'Binary Heap Invariant & AVL Balancing',
     lang: 'Data Structures (C/C++)',
+    gfgUrl: 'https://www.geeksforgeeks.org/data-structures/',
+    nptelCode: 'noc20-cs70 (IIT Kharagpur - Programming and Data Structures)',
     derivation: `AVL Tree Balance Factor:
   BF(Node) = Height(LeftSubtree) - Height(RightSubtree)
   Tree is AVL balanced <=> BF in {-1, 0, +1} for ALL nodes.
@@ -309,6 +326,8 @@ Binary Min-Heap Indexing (0-indexed array):
   'algorithms': {
     formulaName: "Master Theorem for Divide & Conquer",
     lang: 'Algorithm Analysis',
+    gfgUrl: 'https://www.geeksforgeeks.org/fundamentals-of-algorithms/',
+    nptelCode: 'noc21-cs68 (IIT Delhi - Design and Analysis of Algorithms)',
     derivation: `Recurrence: T(n) = a * T(n/b) + f(n), where a >= 1, b > 1
 Critical Value: c_crit = log_b(a)
 Case 1: f(n) = O(n^{c_crit - epsilon}) for epsilon > 0
@@ -323,6 +342,8 @@ Case 3: f(n) = Omega(n^{c_crit + epsilon}) and regularity holds
   'theory-of-computation': {
     formulaName: "Pumping Lemma for Regular Languages",
     lang: 'Formal Languages',
+    gfgUrl: 'https://www.geeksforgeeks.org/theory-of-computation-automata-tutorials/',
+    nptelCode: 'noc20-cs78 (IIT Kanpur - Theory of Computation)',
     derivation: `Let L be a regular language with pumping length p.
 Any string w in L with |w| >= p can be split into w = x y z such that:
   1. |y| >= 1  (non-empty pumpable segment)
@@ -338,6 +359,8 @@ Contrapositive Method:
   'compiler-design': {
     formulaName: "FIRST and FOLLOW Sets for LL(1) Parsing",
     lang: 'Syntax Analysis',
+    gfgUrl: 'https://www.geeksforgeeks.org/compiler-design-tutorials/',
+    nptelCode: 'noc21-cs63 (IIT Kharagpur - Compiler Design)',
     derivation: `Rules for FIRST(X):
   1. If X is terminal, FIRST(X) = { X }.
   2. If X -> epsilon, add epsilon to FIRST(X).
@@ -354,6 +377,8 @@ Rules for FOLLOW(A):
   'operating-systems': {
     formulaName: "Banker's Algorithm & Effective Paging Time",
     lang: 'Systems & OS',
+    gfgUrl: 'https://www.geeksforgeeks.org/operating-systems/',
+    nptelCode: 'noc20-cs59 (IIT Kharagpur - Operating Systems)',
     derivation: `Banker's Safety Algorithm Check:
   Need[i][j] = Max[i][j] - Allocation[i][j]
   If Need_i <= Work:
@@ -370,6 +395,8 @@ Two-Level Paging with TLB:
   'databases': {
     formulaName: "Relational Normal Forms & Lossless Decomposition",
     lang: 'Database Normalization',
+    gfgUrl: 'https://www.geeksforgeeks.org/dbms/',
+    nptelCode: 'noc21-cs57 (IIT Kharagpur - Database Management System)',
     derivation: `Decomposition R into (R1, R2) is Lossless-Join if and only if:
   (R1 cap R2) -> R1 in F+  OR  (R1 cap R2) -> R2 in F+
 (i.e., common attribute must be a Super Key of at least one relation)
@@ -385,6 +412,8 @@ Normal Form Hierarchy:
   'computer-networks': {
     formulaName: 'TCP Congestion Control & IPv4 Subnetting',
     lang: 'Computer Networks',
+    gfgUrl: 'https://www.geeksforgeeks.org/computer-network-tutorials/',
+    nptelCode: 'noc20-cs77 (IIT Kharagpur - Computer Networks)',
     derivation: `TCP Congestion Window Dynamics (AIMD):
   Slow Start: cwnd = cwnd + 1 MSS per ACK (Exponential Growth until ssthresh)
   Congestion Avoidance: cwnd = cwnd + (1 / cwnd) per ACK (Linear Increase +1 MSS per RTT)
@@ -401,6 +430,8 @@ CIDR Host Calculation:
   'machine-learning': {
     formulaName: "Bias-Variance Decomposition & L2 Regularization",
     lang: 'Statistical Machine Learning',
+    gfgUrl: 'https://www.geeksforgeeks.org/machine-learning/',
+    nptelCode: 'noc20-cs73 (IIT Kharagpur - Machine Learning)',
     derivation: `Mean Squared Error Decomposition for test point x:
   E[(y - f_hat(x))^2] = Bias[f_hat(x)]^2 + Var[f_hat(x)] + sigma_epsilon^2
 where:
@@ -418,6 +449,8 @@ Ridge Regression (L2 Penalty):
   'artificial-intelligence': {
     formulaName: "A* Search Admissibility & Alpha-Beta Pruning",
     lang: 'Heuristic Search & AI',
+    gfgUrl: 'https://www.geeksforgeeks.org/artificial-intelligence-tutorials/',
+    nptelCode: 'noc21-cs42 (IIT Madras - Artificial Intelligence: Search Methods for Problem Solving)',
     derivation: `A* Evaluation Function:
   f(n) = g(n) + h(n)
   g(n): Exact cost from start node to current node n.
@@ -434,6 +467,8 @@ Consistency (Monotonicity):
   'general-aptitude': {
     formulaName: 'Combinatorics & Time-Work Equivalence',
     lang: 'Quantitative Aptitude',
+    gfgUrl: 'https://www.geeksforgeeks.org/general-aptitude-for-gate/',
+    nptelCode: 'noc21-ge14 (IIT Roorkee - Quantitative Aptitude)',
     derivation: `Permutations & Combinations:
   nPr = n! / (n - r)!   (Ordered arrangement)
   nCr = n! / [ r! * (n - r)! ]   (Unordered selection)
@@ -463,7 +498,7 @@ const STANDARD_TEXTBOOKS = [
 ];
 
 // -----------------------------------------------------------------------------
-// 6. 12-Question Self-Assessment Practice Question Bank
+// 6. Practice Engine (MCQ, MSQ, and NAT Authentic Question Types)
 // -----------------------------------------------------------------------------
 const PRACTICE_QUESTIONS = [
   {
@@ -471,6 +506,7 @@ const PRACTICE_QUESTIONS = [
     subject: 'linear-algebra',
     category: 'math',
     paper: 'CS & DA',
+    type: 'mcq',
     question: 'Let A be a 2x2 matrix with Trace(A) = 7 and Det(A) = 12. What are the eigenvalues of matrix A?',
     options: [
       { text: '3 and 4', correct: true },
@@ -485,6 +521,7 @@ const PRACTICE_QUESTIONS = [
     subject: 'algorithms',
     category: 'ds-algo',
     paper: 'CS & DA',
+    type: 'mcq',
     question: 'What is the asymptotic time complexity of the recurrence relation T(n) = 2T(n/2) + n*log(n)?',
     options: [
       { text: 'Theta(n * log^2(n))', correct: true },
@@ -499,13 +536,10 @@ const PRACTICE_QUESTIONS = [
     subject: 'operating-systems',
     category: 'systems',
     paper: 'CS',
-    question: 'A system uses 1-level paging. Memory access time is 100 ns and TLB access time is 20 ns. What is the effective memory access time (EAT) if TLB hit ratio is 90%?',
-    options: [
-      { text: '130 ns', correct: true },
-      { text: '120 ns', correct: false },
-      { text: '210 ns', correct: false },
-      { text: '110 ns', correct: false }
-    ],
+    type: 'nat',
+    question: 'A system uses 1-level paging. Memory access time is 100 ns and TLB access time is 20 ns. If TLB hit ratio is 90%, compute the effective memory access time (EAT) in nanoseconds.',
+    correctVal: 130,
+    tolerance: [129, 131],
     explanation: 'EAT = Hit_TLB * (t_TLB + t_mem) + (1 - Hit_TLB) * (t_TLB + 2*t_mem) = 0.90 * (20 + 100) + 0.10 * (20 + 200) = 108 + 22 = 130 ns.'
   },
   {
@@ -513,20 +547,22 @@ const PRACTICE_QUESTIONS = [
     subject: 'databases',
     category: 'ds-algo',
     paper: 'CS & DA',
-    question: 'Relation R(A, B, C, D) has functional dependencies F = { A -> B, B -> C, C -> D, D -> A }. In which highest normal form is relation R?',
+    type: 'msq',
+    question: 'Consider relation R(A, B, C, D) with functional dependencies F = { A -> B, B -> C, C -> D, D -> A }. Which of the following statements is/are TRUE? (Select all that apply)',
     options: [
-      { text: 'BCNF (Boyce-Codd Normal Form)', correct: true },
-      { text: '3NF, but not BCNF', correct: false },
-      { text: '2NF, but not 3NF', correct: false },
-      { text: '1NF only', correct: false }
+      { text: 'A is a candidate key of R', correct: true },
+      { text: 'B is a candidate key of R', correct: true },
+      { text: 'The relation R is in Boyce-Codd Normal Form (BCNF)', correct: true },
+      { text: 'The relation R violates 3NF due to transitive dependencies', correct: false }
     ],
-    explanation: 'Because A -> B -> C -> D -> A forms a complete cycle, {A}, {B}, {C}, and {D} are all candidate keys. Since the LHS of every FD is a super key, R is in BCNF.'
+    explanation: 'Because A -> B -> C -> D -> A forms a complete dependency cycle, every single attribute {A}, {B}, {C}, and {D} is a candidate key. Since the LHS of every dependency is a superkey, R satisfies BCNF (and therefore 3NF).'
   },
   {
     id: 'ml-1',
     subject: 'machine-learning',
     category: 'ai-data',
     paper: 'DA',
+    type: 'mcq',
     question: 'In Ridge Regression, as the regularization hyperparameter lambda increases from 0 toward infinity, what happens to model bias and variance?',
     options: [
       { text: 'Bias increases, Variance decreases', correct: true },
@@ -541,20 +577,22 @@ const PRACTICE_QUESTIONS = [
     subject: 'theory-of-computation',
     category: 'systems',
     paper: 'CS',
-    question: 'Is the language L = { a^n b^m | n != m and n, m >= 0 } regular or context-free?',
+    type: 'msq',
+    question: 'Which of the following decision problems is/are UNDECIDABLE for Turing Machines? (Select all that apply)',
     options: [
-      { text: 'Context-free but not regular', correct: true },
-      { text: 'Regular language', correct: false },
-      { text: 'Deterministic context-sensitive only', correct: false },
-      { text: 'Unrestricted / Non-computable', correct: false }
+      { text: 'Halting Problem: Does TM M halt on input w?', correct: true },
+      { text: 'Emptiness Problem: Is language L(M) empty?', correct: true },
+      { text: 'Finiteness Problem: Is language L(M) finite?', correct: true },
+      { text: 'Membership Problem for Regular Grammar: Does DFA D accept w?', correct: false }
     ],
-    explanation: 'Comparing counts requires memory, violating the pumping lemma for regular languages. A non-deterministic PDA can guess n > m or n < m, proving it is context-free.'
+    explanation: 'By Rice\'s Theorem, any non-trivial semantic property of RE languages (including emptiness, finiteness, and halting) is undecidable. Regular grammar membership is decidable in linear time on a DFA.'
   },
   {
     id: 'dl-1',
     subject: 'digital-logic',
     category: 'systems',
     paper: 'CS',
+    type: 'mcq',
     question: 'In a master-slave D flip-flop circuit, what condition must hold to avoid setup time violations on the clock input?',
     options: [
       { text: 'T_clk >= T_cq + T_comb + T_setup', correct: true },
@@ -569,27 +607,21 @@ const PRACTICE_QUESTIONS = [
     subject: 'computer-organization',
     category: 'systems',
     paper: 'CS',
-    question: 'A 4-way set associative cache has 64 KB capacity with 32-byte block size. For a 32-bit physical address, how many bits are used for the set Index?',
-    options: [
-      { text: '9 bits', correct: true },
-      { text: '11 bits', correct: false },
-      { text: '14 bits', correct: false },
-      { text: '5 bits', correct: false }
-    ],
-    explanation: 'Total lines = 64 KB / 32 B = 2048 lines. In 4-way set associative: sets = 2048 / 4 = 512 sets = 2^9 sets. Thus, 9 bits are required for the set index.'
+    type: 'nat',
+    question: 'A 4-way set associative cache has 64 KB capacity with 32-byte block size. How many bits are used for the set Index in a 32-bit physical address?',
+    correctVal: 9,
+    tolerance: [9, 9],
+    explanation: 'Total lines = 64 KB / 32 B = 2048 lines. In 4-way set associative: sets = 2048 / 4 = 512 sets = 2^9 sets. Thus, exactly 9 bits are required for the set index.'
   },
   {
     id: 'cn-1',
     subject: 'computer-networks',
     category: 'systems',
     paper: 'CS',
+    type: 'nat',
     question: 'An IPv4 subnet has address 192.168.10.0/27. What is the maximum number of usable host IP addresses in this subnet?',
-    options: [
-      { text: '30 hosts', correct: true },
-      { text: '32 hosts', correct: false },
-      { text: '62 hosts', correct: false },
-      { text: '14 hosts', correct: false }
-    ],
+    correctVal: 30,
+    tolerance: [30, 30],
     explanation: 'Subnet prefix /27 leaves 32 - 27 = 5 host bits. Usable addresses = 2^5 - 2 = 32 - 2 = 30 (excluding network address .0 and broadcast address .31).'
   },
   {
@@ -597,6 +629,7 @@ const PRACTICE_QUESTIONS = [
     subject: 'compiler-design',
     category: 'systems',
     paper: 'CS',
+    type: 'mcq',
     question: 'Can an ambiguous context-free grammar be parsed deterministically by an LR(k) or LL(k) parser?',
     options: [
       { text: 'No, ambiguous grammars can never be LR(k) or LL(k)', correct: true },
@@ -611,6 +644,7 @@ const PRACTICE_QUESTIONS = [
     subject: 'probability-statistics',
     category: 'math',
     paper: 'CS & DA',
+    type: 'mcq',
     question: 'Which of the following continuous probability distributions possesses the memoryless property P(X > s + t | X > s) = P(X > t)?',
     options: [
       { text: 'Exponential distribution', correct: true },
@@ -625,6 +659,7 @@ const PRACTICE_QUESTIONS = [
     subject: 'programming-data-structures',
     category: 'ds-algo',
     paper: 'CS & DA',
+    type: 'mcq',
     question: 'What is the in-order traversal of a valid Binary Search Tree (BST) guaranteed to produce?',
     options: [
       { text: 'Elements in strictly non-decreasing sorted order', correct: true },
@@ -693,12 +728,9 @@ function initKineticCanvas() {
     const rotX = mouse.isHover ? mouse.y : angleX;
     const rotY = mouse.isHover ? mouse.x : angleY;
 
-    // Project and rotate 3D nodes
     const projected = nodes.map(n => {
-      // Y-axis rotation
       let x1 = n.x * Math.cos(rotY) - n.z * Math.sin(rotY);
       let z1 = n.z * Math.cos(rotY) + n.x * Math.sin(rotY);
-      // X-axis rotation
       let y2 = n.y * Math.cos(rotX) - z1 * Math.sin(rotX);
       let z2 = z1 * Math.cos(rotX) + n.y * Math.sin(rotX);
 
@@ -715,7 +747,6 @@ function initKineticCanvas() {
       };
     });
 
-    // Draw connecting edges
     for (let i = 0; i < projected.length; i++) {
       for (let j = i + 1; j < projected.length; j++) {
         const dx = projected[i].x2d - projected[j].x2d;
@@ -733,7 +764,6 @@ function initKineticCanvas() {
       }
     }
 
-    // Draw particles with depth scaling
     projected.forEach(p => {
       const radius = Math.max(1.2, 3.2 * p.scale);
       ctx.beginPath();
@@ -913,7 +943,6 @@ function initCommandPalette(subjects) {
     const query = q.toLowerCase().trim();
     items = [];
 
-    // Action commands
     const actions = [
       { title: 'Export Revision Schedule (.ics)', action: () => exportDocketICS(subjects), badge: 'ACTION', type: 'action' },
       { title: 'Toggle Light/Dark Theme', action: toggleTheme, badge: 'ACTION', type: 'action' },
@@ -925,7 +954,6 @@ function initCommandPalette(subjects) {
       if (!query || a.title.toLowerCase().includes(query)) items.push(a);
     });
 
-    // Static Navigation
     const staticRoutes = [
       { title: 'Computer Science Directory (CS)', url: `${root}cs/`, badge: 'CS', type: 'page' },
       { title: 'Data Science & AI Directory (DA)', url: `${root}da/`, badge: 'DA', type: 'page' },
@@ -939,7 +967,6 @@ function initCommandPalette(subjects) {
       if (!query || r.title.toLowerCase().includes(query)) items.push(r);
     });
 
-    // Subject items
     subjects.forEach(s => {
       const match = !query || 
         s.title.toLowerCase().includes(query) || 
@@ -1034,14 +1061,16 @@ function initCommandPalette(subjects) {
 }
 
 // -----------------------------------------------------------------------------
-// 10. Persistent Study Docket Drawer & QR Share Engine
+// 10. Persistent Study Docket Drawer, Pomodoro Timer & QR Share Engine
 // -----------------------------------------------------------------------------
 let allLoadedSubjects = [];
+let timerInterval = null;
+let timerSeconds = 25 * 60;
+let isTimerRunning = false;
 
 function initDocketDrawer(subjects) {
   allLoadedSubjects = subjects;
 
-  // Check URL hash for shared docket payload
   if (window.location.hash.startsWith('#docket=')) {
     try {
       const raw = window.location.hash.replace('#docket=', '');
@@ -1065,12 +1094,31 @@ function initDocketDrawer(subjects) {
         </div>
         <button id="close-docket-btn" class="dialog-close-btn" aria-label="Close Docket">✕</button>
       </div>
+
+      <!-- Built-in Active Pomodoro Focus Timer -->
+      <div style="padding: 10px 24px 0;">
+        <div class="docket-timer-box">
+          <div class="timer-modes">
+            <button class="timer-mode-btn active" data-mins="25">25m Focus</button>
+            <button class="timer-mode-btn" data-mins="50">50m Deep</button>
+            <button class="timer-mode-btn" data-mins="5">5m Break</button>
+          </div>
+          <div class="timer-display" id="pomodoro-display">25:00</div>
+          <div class="timer-controls">
+            <button class="button gold small" id="timer-toggle-btn">Start Focus</button>
+            <button class="button outline small" id="timer-reset-btn">Reset</button>
+          </div>
+        </div>
+      </div>
+
       <div class="docket-body" id="docket-items-container"></div>
-      <div id="qr-share-box" style="display: none;">
+
+      <div id="qr-share-box" style="display: none; margin: 10px 24px;">
         <strong style="font-size: 0.85rem;">Shareable Docket Link & QR</strong>
         <div id="qr-canvas-placeholder"></div>
         <button id="copy-share-url-btn" class="button outline small" style="width: 100%; margin-top: 6px;">Copy Share Link</button>
       </div>
+
       <div class="docket-footer">
         <button id="export-ics-btn" class="button gold small">Export Revision Schedule (.ics)</button>
         <div style="display: flex; gap: 8px;">
@@ -1100,6 +1148,60 @@ function initDocketDrawer(subjects) {
 
     document.getElementById('clear-docket-btn').addEventListener('click', clearDocket);
 
+    // Pomodoro Timer Logic
+    const display = document.getElementById('pomodoro-display');
+    const toggleBtn = document.getElementById('timer-toggle-btn');
+    const resetBtn = document.getElementById('timer-reset-btn');
+
+    function updateTimerDisplay() {
+      const m = Math.floor(timerSeconds / 60);
+      const s = timerSeconds % 60;
+      display.textContent = `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
+    }
+
+    toggleBtn.addEventListener('click', () => {
+      if (isTimerRunning) {
+        clearInterval(timerInterval);
+        isTimerRunning = false;
+        toggleBtn.textContent = 'Resume';
+      } else {
+        isTimerRunning = true;
+        toggleBtn.textContent = 'Pause';
+        timerInterval = setInterval(() => {
+          if (timerSeconds > 0) {
+            timerSeconds--;
+            updateTimerDisplay();
+          } else {
+            clearInterval(timerInterval);
+            isTimerRunning = false;
+            toggleBtn.textContent = 'Start';
+            showToast('Focus session complete! Take a break.');
+          }
+        }, 1000);
+      }
+    });
+
+    resetBtn.addEventListener('click', () => {
+      clearInterval(timerInterval);
+      isTimerRunning = false;
+      toggleBtn.textContent = 'Start';
+      const activeMode = document.querySelector('.timer-mode-btn.active');
+      timerSeconds = Number(activeMode?.dataset.mins || 25) * 60;
+      updateTimerDisplay();
+    });
+
+    document.querySelectorAll('.timer-mode-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.timer-mode-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        clearInterval(timerInterval);
+        isTimerRunning = false;
+        toggleBtn.textContent = 'Start';
+        timerSeconds = Number(btn.dataset.mins) * 60;
+        updateTimerDisplay();
+      });
+    });
+
     // Share & SVG QR engine
     document.getElementById('share-docket-btn').addEventListener('click', () => {
       const ids = getDocket();
@@ -1110,7 +1212,6 @@ function initDocketDrawer(subjects) {
       const shareUrl = `${window.location.origin}${window.location.pathname}#docket=${ids.join(',')}`;
       const placeholder = document.getElementById('qr-canvas-placeholder');
       
-      // Render simple, crisp vector QR Code representation
       placeholder.innerHTML = `
         <svg viewBox="0 0 100 100" width="110" height="110">
           <rect width="100" height="100" fill="#fff" rx="4"/>
@@ -1550,10 +1651,12 @@ fetch(root + 'data/subjects.json')
             <a href="#scope">02. Syllabus Scope</a>
             ${extra ? `<a href="#derivation">03. Key Formulation</a>` : ''}
             ${extra ? `<a href="#schematic">04. Visual Schematic</a>` : ''}
-            <a href="#pyq">05. Previous Questions</a>
+            <a href="#handoffs">05. Deep-Dive Links</a>
+            <a href="#pyq">06. Previous Questions</a>
             <div style="margin-top: 24px; border-top: 1px solid var(--border-line); padding-top: 16px; display: flex; flex-direction: column; gap: 8px;">
               <button class="button gold small" id="subject-docket-add-btn" style="width: 100%;">+ Queue in Docket</button>
               <a class="button outline small" href="${getGoogleCalendarUrl(s)}" target="_blank" style="text-align: center;">Schedule Google Cal ↗</a>
+              <button class="button outline small" id="print-sheet-btn" style="text-align: center;">Print Study Sheet ⎙</button>
             </div>
           </aside>
 
@@ -1629,10 +1732,26 @@ fetch(root + 'data/subjects.json')
                   </div>
                 </div>
               </section>
+
+              <section id="handoffs">
+                <div class="eyebrow">05 / CURATED PLATFORM HANDOFFS</div>
+                <h2>Implementation & Deep Dives</h2>
+                <p>External verified learning portals for code implementations and official NPTEL lectures:</p>
+                <div class="deepdive-grid">
+                  <a class="deepdive-card" href="${extra.gfgUrl}" target="_blank" rel="noopener">
+                    <span>GeeksforGeeks · Subject Guide</span>
+                    <span>↗</span>
+                  </a>
+                  <div class="deepdive-card" style="cursor: default;">
+                    <span>NPTEL: ${extra.nptelCode}</span>
+                    <span style="font-size: 0.75rem; color: var(--accent-gold);">Official Series</span>
+                  </div>
+                </div>
+              </section>
             ` : ''}
 
             <section id="pyq">
-              <div class="eyebrow">05 / EXAMINATION PRACTICE</div>
+              <div class="eyebrow">06 / EXAMINATION PRACTICE</div>
               <h2>Previous-Year Questions</h2>
               <p>Explore official past papers and verification keys from the GATE archive.</p>
               <div style="display: flex; gap: 14px; flex-wrap: wrap; margin-top: 16px;">
@@ -1652,6 +1771,10 @@ fetch(root + 'data/subjects.json')
 
       document.querySelector('#subject-docket-add-btn').addEventListener('click', () => {
         addToDocket(s.id);
+      });
+
+      document.getElementById('print-sheet-btn').addEventListener('click', () => {
+        window.print();
       });
 
       if (extra) {
@@ -1685,11 +1808,12 @@ fetch(root + 'data/subjects.json')
     }
 
     // -------------------------------------------------------------------------
-    // PAGE: PRACTICE (SELF-ASSESSMENT QUIZZES WITH FILTERS & SCORE)
+    // PAGE: PRACTICE (MCQ, MSQ, and NAT QUESTION TYPES)
     // -------------------------------------------------------------------------
     else if (page === 'practice') {
       let activeFilter = 'all';
       let userScores = {};
+      let userMSQSelections = {};
 
       function renderPracticeView() {
         const filtered = PRACTICE_QUESTIONS.filter(q => {
@@ -1710,7 +1834,7 @@ fetch(root + 'data/subjects.json')
           <section class="page-title">
             <div class="eyebrow">GATE PRACTICE ENGINE</div>
             <h1>Self-Assessment Verification</h1>
-            <p>Test your conceptual depth on high-yield GATE CS & DA questions with immediate validation and derivations.</p>
+            <p>Experience true GATE fidelity with Multiple Choice (MCQ), Multiple Select (MSQ), and Numerical Answer Type (NAT) problems.</p>
           </section>
 
           <section class="section" style="padding-top: 0;">
@@ -1736,17 +1860,41 @@ fetch(root + 'data/subjects.json')
                 <div class="quiz-card ${userScores[q.id] === true ? 'answered-correct' : userScores[q.id] === false ? 'answered-wrong' : ''}" id="quiz-${q.id}" data-id="${q.id}">
                   <div class="quiz-meta">
                     <span class="quiz-tag">${q.paper}</span>
-                    <span style="font-size: 0.75rem; color: var(--text-muted); font-weight: 700;">QUESTION 0${idx + 1}</span>
+                    <span class="quiz-type-badge ${q.type}">${q.type.toUpperCase()}</span>
+                    <span style="font-size: 0.75rem; color: var(--text-muted); font-weight: 700; margin-left: auto;">QUESTION 0${idx + 1}</span>
                   </div>
                   <div class="quiz-question">${q.question}</div>
-                  <div class="quiz-options">
-                    ${q.options.map((opt, oIdx) => `
-                      <div class="quiz-option" data-correct="${opt.correct}">
-                        <span class="quiz-opt-letter">${String.fromCharCode(65 + oIdx)}</span>
-                        <span>${opt.text}</span>
-                      </div>
-                    `).join('')}
-                  </div>
+
+                  ${q.type === 'mcq' ? `
+                    <div class="quiz-options">
+                      ${q.options.map((opt, oIdx) => `
+                        <div class="quiz-option" data-correct="${opt.correct}">
+                          <span class="quiz-opt-letter">${String.fromCharCode(65 + oIdx)}</span>
+                          <span>${opt.text}</span>
+                        </div>
+                      `).join('')}
+                    </div>
+                  ` : ''}
+
+                  ${q.type === 'msq' ? `
+                    <div class="quiz-options">
+                      ${q.options.map((opt, oIdx) => `
+                        <div class="quiz-option msq-opt" data-idx="${oIdx}" data-correct="${opt.correct}">
+                          <div class="quiz-checkbox-icon">✓</div>
+                          <span>${opt.text}</span>
+                        </div>
+                      `).join('')}
+                    </div>
+                    <button class="button gold small submit-msq-btn" data-id="${q.id}" style="margin-top: 10px;">Check MSQ Answer</button>
+                  ` : ''}
+
+                  ${q.type === 'nat' ? `
+                    <div class="quiz-nat-container">
+                      <input type="number" step="any" class="quiz-nat-input" placeholder="Value..." id="nat-input-${q.id}">
+                      <button class="button gold small submit-nat-btn" data-id="${q.id}">Check NAT Answer</button>
+                    </div>
+                  ` : ''}
+
                   <div class="quiz-feedback" ${userScores[q.id] !== undefined ? '' : 'hidden'}>
                     ${userScores[q.id] !== undefined ? (userScores[q.id] ? `<strong>Correct!</strong> ${q.explanation}` : `<strong>Incorrect.</strong> ${q.explanation}`) : ''}
                   </div>
@@ -1764,21 +1912,23 @@ fetch(root + 'data/subjects.json')
           });
         });
 
-        // Reset scores
         const resetBtn = document.getElementById('reset-practice-btn');
         if (resetBtn) {
           resetBtn.addEventListener('click', () => {
             userScores = {};
+            userMSQSelections = {};
             renderPracticeView();
           });
         }
 
-        // Quiz option selection
+        // MCQ Selection Logic
         document.querySelectorAll('.quiz-card').forEach(cardEl => {
-          const options = cardEl.querySelectorAll('.quiz-option');
-          const feedback = cardEl.querySelector('.quiz-feedback');
           const qId = cardEl.dataset.id;
           const qData = PRACTICE_QUESTIONS.find(x => x.id === qId);
+          if (qData.type !== 'mcq') return;
+
+          const options = cardEl.querySelectorAll('.quiz-option');
+          const feedback = cardEl.querySelector('.quiz-feedback');
 
           options.forEach(opt => {
             opt.addEventListener('click', () => {
@@ -1803,16 +1953,98 @@ fetch(root + 'data/subjects.json')
                 feedback.innerHTML = `<strong>Correct!</strong> ${qData.explanation}`;
               }
               feedback.hidden = false;
-
-              // Update top score badge without full re-render
-              const aTot = Object.keys(userScores).length;
-              const cTot = Object.values(userScores).filter(v => v === true).length;
-              const acc = Math.round((cTot / aTot) * 100);
-              const badgeVal = document.querySelector('.score-badge-val');
-              if (badgeVal) badgeVal.textContent = `${cTot} / ${aTot} (${acc}%)`;
+              updateScoreBadge();
             });
           });
         });
+
+        // MSQ Selection Logic
+        document.querySelectorAll('.submit-msq-btn').forEach(btn => {
+          const qId = btn.dataset.id;
+          const cardEl = document.getElementById(`quiz-${qId}`);
+          const qData = PRACTICE_QUESTIONS.find(x => x.id === qId);
+          userMSQSelections[qId] = userMSQSelections[qId] || new Set();
+
+          cardEl.querySelectorAll('.msq-opt').forEach(opt => {
+            opt.addEventListener('click', () => {
+              const idx = Number(opt.dataset.idx);
+              if (userMSQSelections[qId].has(idx)) {
+                userMSQSelections[qId].delete(idx);
+                opt.classList.remove('selected');
+              } else {
+                userMSQSelections[qId].add(idx);
+                opt.classList.add('selected');
+              }
+            });
+          });
+
+          btn.addEventListener('click', () => {
+            const selected = Array.from(userMSQSelections[qId]);
+            const correctIndices = qData.options.map((o, i) => o.correct ? i : null).filter(i => i !== null);
+            const isCorrect = selected.length === correctIndices.length && selected.every(i => correctIndices.includes(i));
+
+            userScores[qId] = isCorrect;
+            const feedback = cardEl.querySelector('.quiz-feedback');
+
+            cardEl.querySelectorAll('.msq-opt').forEach(opt => {
+              if (opt.dataset.correct === 'true') opt.classList.add('correct');
+              else if (opt.classList.contains('selected')) opt.classList.add('wrong');
+            });
+
+            if (isCorrect) {
+              cardEl.classList.add('answered-correct');
+              cardEl.classList.remove('answered-wrong');
+              feedback.className = 'quiz-feedback success';
+              feedback.innerHTML = `<strong>Correct!</strong> All required options matched. ${qData.explanation}`;
+            } else {
+              cardEl.classList.add('answered-wrong');
+              cardEl.classList.remove('answered-correct');
+              feedback.className = 'quiz-feedback warning';
+              feedback.innerHTML = `<strong>Incorrect.</strong> In GATE MSQs, full marks require selecting all correct options without partial credit. ${qData.explanation}`;
+            }
+            feedback.hidden = false;
+            updateScoreBadge();
+          });
+        });
+
+        // NAT Submit Logic
+        document.querySelectorAll('.submit-nat-btn').forEach(btn => {
+          const qId = btn.dataset.id;
+          const cardEl = document.getElementById(`quiz-${qId}`);
+          const qData = PRACTICE_QUESTIONS.find(x => x.id === qId);
+          const input = cardEl.querySelector('.quiz-nat-input');
+          const feedback = cardEl.querySelector('.quiz-feedback');
+
+          btn.addEventListener('click', () => {
+            const val = parseFloat(input.value);
+            if (isNaN(val)) return showToast('Please enter a valid numerical value');
+
+            const isCorrect = val >= qData.tolerance[0] && val <= qData.tolerance[1];
+            userScores[qId] = isCorrect;
+
+            if (isCorrect) {
+              cardEl.classList.add('answered-correct');
+              cardEl.classList.remove('answered-wrong');
+              feedback.className = 'quiz-feedback success';
+              feedback.innerHTML = `<strong>Correct!</strong> Value ${val} falls within official tolerance. ${qData.explanation}`;
+            } else {
+              cardEl.classList.add('answered-wrong');
+              cardEl.classList.remove('answered-correct');
+              feedback.className = 'quiz-feedback warning';
+              feedback.innerHTML = `<strong>Incorrect.</strong> Expected value: ${qData.correctVal}. ${qData.explanation}`;
+            }
+            feedback.hidden = false;
+            updateScoreBadge();
+          });
+        });
+      }
+
+      function updateScoreBadge() {
+        const aTot = Object.keys(userScores).length;
+        const cTot = Object.values(userScores).filter(v => v === true).length;
+        const acc = aTot ? Math.round((cTot / aTot) * 100) : 0;
+        const badgeVal = document.querySelector('.score-badge-val');
+        if (badgeVal) badgeVal.textContent = `${cTot} / ${aTot} (${acc}%)`;
       }
 
       renderPracticeView();
@@ -1928,7 +2160,6 @@ fetch(root + 'data/subjects.json')
         renderPlanner();
       });
 
-      // Batch toggle cluster
       document.querySelectorAll('.cluster-select-btn').forEach(btn => {
         btn.addEventListener('click', () => {
           const cIdx = Number(btn.dataset.cluster);
@@ -1973,37 +2204,84 @@ fetch(root + 'data/subjects.json')
     }
 
     // -------------------------------------------------------------------------
-    // PAGE: PYQS
+    // PAGE: PYQS (EXAM INTELLIGENCE, QUESTION TYPES & WEIGHTAGE MATRIX)
     // -------------------------------------------------------------------------
     else if (page === 'pyqs') {
+      const weightageData = [
+        { subject: 'Algorithms & Data Structures', avgMarks: '14 - 16', trend: 'High Priority (Dynamic Prog, Graphs, Trees)' },
+        { subject: 'Operating Systems', avgMarks: '8 - 10', trend: 'Paging, Deadlocks, Semaphore Synchronization' },
+        { subject: 'Theory of Computation', avgMarks: '7 - 9', trend: 'Pumping Lemma, Undecidability, DFA/PDA' },
+        { subject: 'Databases (DBMS)', avgMarks: '7 - 8', trend: 'BCNF/3NF Normalization, SQL, Transactions' },
+        { subject: 'Computer Networks', avgMarks: '7 - 9', trend: 'TCP Congestion, Subnetting, Sliding Window' },
+        { subject: 'Computer Organization & Architecture', avgMarks: '8 - 10', trend: 'Cache Mapping, Pipeline Hazards, Addressing' },
+        { subject: 'Discrete Mathematics', avgMarks: '7 - 9', trend: 'Combinatorics, Relations, Generating Functions' },
+        { subject: 'Linear Algebra & Calculus', avgMarks: '6 - 8', trend: 'Eigenvalues, SVD, Maxima/Minima' },
+        { subject: 'Machine Learning & AI (DA)', avgMarks: '22 - 25', trend: 'Supervised Models, Loss Optimization, A* Search' },
+        { subject: 'General Aptitude', avgMarks: '15 Fixed', trend: 'Verbal, Quantitative, Spatial Reasoning' }
+      ];
+
       main.innerHTML = `
         ${crumb('PYQs')}
         <section class="page-title">
-          <div class="eyebrow">OFFICIAL EXAM REPOSITORY</div>
-          <h1>Previous-Year Question Papers</h1>
-          <p>Authoritative question papers and official answer keys from GATE organizing institutes.</p>
+          <div class="eyebrow">OFFICIAL EXAM INTELLIGENCE</div>
+          <h1>Paper Pattern & Previous Papers</h1>
+          <p>Authoritative marking schemes, question type taxonomies, historical topic weightages, and master keys from IIT Madras.</p>
         </section>
 
         <section class="section" style="padding-top: 0;">
           ${note}
-          <div class="mac-window" style="padding: 30px; margin-bottom: 30px;">
-            <h3>Official IIT Madras Download Portal</h3>
-            <p>Access year-wise question papers and verified master answer keys directly from the official portal.</p>
-            <div style="margin-top: 20px;">
-              <a class="button gold" href="${official}download" target="_blank" rel="noopener">Open Official GATE Download Archive ↗</a>
+
+          <h2>Official GATE 2027 Question Types</h2>
+          <p style="color: var(--text-muted);">The examination contains 65 questions totaling 100 marks (15 marks General Aptitude + 85 marks Subject Paper):</p>
+          <div class="pattern-grid">
+            <div class="pattern-card">
+              <div class="pattern-type">TYPE 01 · MCQ</div>
+              <div class="pattern-title">Multiple Choice Questions</div>
+              <p style="font-size: 0.85rem; color: var(--text-muted); margin: 0;">Objective 4-option questions with exactly one correct option.</p>
+              <span class="marking-rule marking-negative">Negative Marking: 1-mark (-0.33), 2-mark (-0.66)</span>
+            </div>
+            <div class="pattern-card">
+              <div class="pattern-type">TYPE 02 · MSQ</div>
+              <div class="pattern-title">Multiple Select Questions</div>
+              <p style="font-size: 0.85rem; color: var(--text-muted); margin: 0;">One or more options may be correct. Full marks require marking all correct options without partial credit.</p>
+              <span class="marking-rule marking-nonegative">Zero Negative Marking (0 Penalty)</span>
+            </div>
+            <div class="pattern-card">
+              <div class="pattern-type">TYPE 03 · NAT</div>
+              <div class="pattern-title">Numerical Answer Type</div>
+              <p style="font-size: 0.85rem; color: var(--text-muted); margin: 0;">Entered via on-screen virtual keypad with real-number tolerances.</p>
+              <span class="marking-rule marking-nonegative">Zero Negative Marking (0 Penalty)</span>
             </div>
           </div>
 
-          <div class="departments">
-            <div class="department">
-              <span class="pill">CS HISTORICAL TRENDS</span>
-              <h3>Computer Science Papers</h3>
-              <p>Practice standard question papers with full coverage of Theory of Computation, Compilers, Architecture, and Algorithms.</p>
-            </div>
-            <div class="department">
-              <span class="pill">DA HISTORICAL TRENDS</span>
-              <h3>Data Science & AI Papers</h3>
-              <p>Review the foundational 2024–2026 GATE DA papers covering Machine Learning, Probability, and Advanced DBMS.</p>
+          <h2 style="margin-top: 50px;">5-Year Average Subject Weightage Matrix</h2>
+          <div class="weightage-table-container">
+            <table class="weightage-table">
+              <thead>
+                <tr>
+                  <th>SUBJECT DOMAIN</th>
+                  <th>AVG MARKS (OUT OF 100)</th>
+                  <th>HIGH-YIELD CORE CONCEPTS</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${weightageData.map(row => `
+                  <tr>
+                    <td><strong>${row.subject}</strong></td>
+                    <td style="color: var(--accent-gold); font-weight: 700;">${row.avgMarks}</td>
+                    <td>${row.trend}</td>
+                  </tr>
+                `).join('')}
+              </tbody>
+            </table>
+          </div>
+
+          <div class="mac-window" style="padding: 30px; margin-top: 40px;">
+            <h3>Official Year-Wise Question Paper Repository</h3>
+            <p>Download original question papers and verified final master answer keys directly from the official organizing institute.</p>
+            <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-top: 20px;">
+              <a class="button gold" href="${official}download" target="_blank" rel="noopener">Open Official GATE Download Portal ↗</a>
+              <a class="button outline" href="${official}question_paper_pattern" target="_blank" rel="noopener">Official Exam Scheme ↗</a>
             </div>
           </div>
         </section>

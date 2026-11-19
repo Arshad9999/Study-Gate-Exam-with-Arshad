@@ -2123,3 +2123,262 @@ footer a:hover {
     right: 16px;
   }
 }
+
+
+/* ==========================================================================
+   EXAM INTELLIGENCE, POMODORO TIMER & MSQ/NAT INTERACTIVE STYLING
+   ========================================================================== */
+
+/* Active Revision Pomodoro Timer in Docket */
+.docket-timer-box {
+  background: var(--bg-surface);
+  border: 1px solid var(--accent-gold-border);
+  border-radius: 10px;
+  padding: 16px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.timer-display {
+  font-family: var(--font-mono);
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--primary-burgundy);
+  letter-spacing: 0.05em;
+  margin: 6px 0;
+}
+
+[data-theme="dark"] .timer-display {
+  color: var(--accent-gold);
+}
+
+.timer-modes {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.timer-mode-btn {
+  background: var(--bg-page);
+  border: 1px solid var(--border-line);
+  border-radius: 14px;
+  padding: 3px 10px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.timer-mode-btn.active {
+  background: var(--accent-gold);
+  border-color: var(--accent-gold);
+  color: #1a1615;
+}
+
+.timer-controls {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+/* Exam Intelligence & Paper Pattern Grid */
+.pattern-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin: 24px 0;
+}
+
+.pattern-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-line);
+  border-radius: 12px;
+  padding: 22px;
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-fast), border-color var(--transition-fast);
+}
+
+.pattern-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent-gold);
+}
+
+.pattern-type {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: var(--accent-gold);
+  letter-spacing: 0.08em;
+  margin-bottom: 8px;
+}
+
+.pattern-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: var(--text-primary);
+}
+
+.marking-rule {
+  font-size: 0.8rem;
+  padding: 4px 8px;
+  border-radius: 4px;
+  margin-top: 10px;
+  display: inline-block;
+  font-weight: 700;
+}
+
+.marking-negative {
+  background: var(--status-amber-bg);
+  color: var(--status-amber);
+  border: 1px solid var(--status-amber-border);
+}
+
+.marking-nonegative {
+  background: var(--status-emerald-bg);
+  color: var(--status-emerald);
+  border: 1px solid var(--status-emerald-border);
+}
+
+/* Subject Weightage Historical Analysis Table */
+.weightage-table-container {
+  overflow-x: auto;
+  margin: 24px 0;
+  border: 1px solid var(--border-line);
+  border-radius: 12px;
+  background: var(--bg-surface);
+}
+
+.weightage-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+  text-align: left;
+}
+
+.weightage-table th {
+  background: var(--bg-page);
+  padding: 14px 18px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--border-line);
+}
+
+.weightage-table td {
+  padding: 12px 18px;
+  border-bottom: 1px solid var(--border-line-subtle);
+  color: var(--text-primary);
+}
+
+.weightage-table tr:hover td {
+  background: var(--accent-gold-soft);
+}
+
+/* MSQ & NAT Practice Question Styles */
+.quiz-type-badge {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 800;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: var(--border-line);
+  color: var(--text-primary);
+}
+
+.quiz-type-badge.msq {
+  background: rgba(197, 160, 89, 0.25);
+  color: var(--accent-gold);
+}
+
+.quiz-type-badge.nat {
+  background: rgba(5, 150, 105, 0.2);
+  color: var(--status-emerald);
+}
+
+.quiz-nat-container {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin: 16px 0;
+}
+
+.quiz-nat-input {
+  background: var(--bg-page);
+  border: 1px solid var(--border-line);
+  border-radius: 8px;
+  padding: 10px 16px;
+  font-family: var(--font-mono);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  width: 180px;
+}
+
+.quiz-nat-input:focus {
+  outline: none;
+  border-color: var(--accent-gold);
+  box-shadow: var(--shadow-sm);
+}
+
+.quiz-checkbox-icon {
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--border-line);
+  border-radius: 4px;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  transition: all var(--transition-fast);
+}
+
+.quiz-option.selected .quiz-checkbox-icon {
+  background: var(--accent-gold);
+  border-color: var(--accent-gold);
+  color: #1a1615;
+}
+
+/* Deep-Dive Handoff Cards */
+.deepdive-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  margin: 16px 0;
+}
+
+.deepdive-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-line);
+  padding: 14px 18px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  transition: transform var(--transition-fast), border-color var(--transition-fast);
+}
+
+.deepdive-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent-gold);
+  color: var(--primary-burgundy);
+}
+
+[data-theme="dark"] .deepdive-card:hover {
+  color: var(--accent-gold);
+}
+
+@media (max-width: 900px) {
+  .pattern-grid {
+    grid-template-columns: 1fr;
+  }
+  .deepdive-grid {
+    grid-template-columns: 1fr;
+  }
+}
