@@ -2051,116 +2051,171 @@ const SUBJECT_EXTRAS = {
     }
   },
   "compiler-design": {
-    "formulaName": "FIRST and FOLLOW Sets for LL(1) Parsing",
-    "lang": "Syntax Analysis",
+    "formulaName": "FIRST/FOLLOW Computation & LR Item Conflict Invariants",
+    "lang": "Syntax Analysis & Parser Theory",
     "gfgUrl": "https://www.geeksforgeeks.org/compiler-design-tutorials/",
     "nptelCode": "noc21-cs63 (IIT Kharagpur - Compiler Design)",
-    "derivation": "Rules for FIRST(X):\n  1. If X is terminal, FIRST(X) = { X }.\n  2. If X -> epsilon, add epsilon to FIRST(X).\n  3. If X -> Y_1 Y_2 ... Y_k:\n     Add FIRST(Y_1) - {epsilon}. If epsilon in FIRST(Y_1), add FIRST(Y_2)...\nRules for FOLLOW(A):\n  1. Add $ to FOLLOW(S) where S is start symbol.\n  2. If A -> alpha B beta, add FIRST(beta) - {epsilon} to FOLLOW(B).\n  3. If A -> alpha B or A -> alpha B beta where epsilon in FIRST(beta):\n     Add FOLLOW(A) to FOLLOW(B).",
-    "svgDiagram": "<svg viewBox=\"0 0 320 180\" width=\"100%\" height=\"100%\"><rect x=\"20\" y=\"50\" width=\"55\" height=\"30\" fill=\"#4a0e17\" rx=\"4\"/><text x=\"47\" y=\"69\" fill=\"#fff\" font-size=\"9\" text-anchor=\"middle\">Lexer</text><rect x=\"95\" y=\"50\" width=\"55\" height=\"30\" fill=\"#c5a059\" rx=\"4\"/><text x=\"122\" y=\"69\" fill=\"#111\" font-size=\"9\" text-anchor=\"middle\">Parser</text><rect x=\"170\" y=\"50\" width=\"55\" height=\"30\" fill=\"#059669\" rx=\"4\"/><text x=\"197\" y=\"69\" fill=\"#fff\" font-size=\"9\" text-anchor=\"middle\">Semantics</text><rect x=\"245\" y=\"50\" width=\"55\" height=\"30\" fill=\"#2d0a0f\" rx=\"4\"/><text x=\"272\" y=\"69\" fill=\"#fff\" font-size=\"9\" text-anchor=\"middle\">CodeGen</text><line x1=\"75\" y1=\"65\" x2=\"95\" y2=\"65\" stroke=\"#999\" stroke-width=\"2\"/><line x1=\"150\" y1=\"65\" x2=\"170\" y2=\"65\" stroke=\"#999\" stroke-width=\"2\"/><line x1=\"225\" y1=\"65\" x2=\"245\" y2=\"65\" stroke=\"#999\" stroke-width=\"2\"/><text x=\"160\" y=\"130\" fill=\"#999\" font-size=\"10\" text-anchor=\"middle\">Compiler Frontend Pipeline: Tokens -> AST -> IR</text></svg>",
-    "caption": "Compiler Analysis and Synthesis Pipeline Stages",
+    "derivation": "// 1. FIRST and FOLLOW Equations for LL(1) Parsing\nFIRST(X):\n  - If X is terminal: FIRST(X) = {X}\n  - If X -> epsilon is a production: epsilon in FIRST(X)\n  - If X -> Y_1 Y_2 ... Y_k:\n      FIRST(X) contains FIRST(Y_1) - {epsilon}\n      If epsilon in FIRST(Y_i), add FIRST(Y_{i+1}) - {epsilon}\n      If all Y_1...Y_k contain epsilon, add epsilon to FIRST(X)\n\nFOLLOW(A):\n  - Place $ in FOLLOW(S) where S is start symbol\n  - For production A -> alpha B beta:\n      Add FIRST(beta) - {epsilon} to FOLLOW(B)\n      If beta => epsilon (or beta is absent):\n        Add FOLLOW(A) to FOLLOW(B)\n\n// 2. LL(1) Table Condition Without Table Construction\nFor every nonterminal A with productions A -> alpha_1 | alpha_2 | ... | alpha_n:\n  1. FIRST(alpha_i) n FIRST(alpha_j) = empty_set  for all i != j (ignoring epsilon)\n  2. If epsilon in FIRST(alpha_i):\n       FOLLOW(A) n FIRST(alpha_j) = empty_set  for all j != i\n\n// 3. LR Parser Reduction Placement Rules\n- LR(0):  Place reduce r_i on EVERY terminal column in state where A -> alpha . is completed\n- SLR(1): Place reduce r_i ONLY on columns a in FOLLOW(A)\n- CLR(1): Place reduce r_i ONLY on columns a in Lookahead([A -> alpha ., a])\n- LALR(1): Merge CLR states with identical LR(0) cores; unions lookaheads\n\n// 4. Basic Block Leader Rules\nInstruction i is a Leader iff:\n  1. i is the first instruction of the program (instruction 1)\n  2. i is the target of a conditional or unconditional jump/goto\n  3. i immediately follows a conditional or unconditional jump/goto",
+    "svgDiagram": "<svg viewBox=\"0 0 420 220\" width=\"100%\" height=\"100%\"><rect width=\"420\" height=\"220\" fill=\"transparent\"/><text x=\"210\" y=\"24\" fill=\"#c5a059\" font-family=\"'Cormorant Garamond', serif\" font-size=\"14\" font-weight=\"700\" text-anchor=\"middle\">SIX-PHASE COMPILER PIPELINE &amp; INTERMEDIATE FLOW</text><rect x=\"15\" y=\"45\" width=\"55\" height=\"34\" rx=\"4\" fill=\"rgba(197,160,89,0.15)\" stroke=\"#c5a059\" stroke-width=\"1.5\"/><text x=\"42\" y=\"66\" fill=\"#c5a059\" font-family=\"sans-serif\" font-size=\"9\" font-weight=\"700\" text-anchor=\"middle\">LEXICAL</text><line x1=\"70\" y1=\"62\" x2=\"80\" y2=\"62\" stroke=\"#c5a059\" stroke-width=\"1.5\"/><rect x=\"80\" y=\"45\" width=\"55\" height=\"34\" rx=\"4\" fill=\"rgba(197,160,89,0.15)\" stroke=\"#c5a059\" stroke-width=\"1.5\"/><text x=\"107\" y=\"66\" fill=\"#c5a059\" font-family=\"sans-serif\" font-size=\"9\" font-weight=\"700\" text-anchor=\"middle\">SYNTAX</text><line x1=\"135\" y1=\"62\" x2=\"145\" y2=\"62\" stroke=\"#c5a059\" stroke-width=\"1.5\"/><rect x=\"145\" y=\"45\" width=\"60\" height=\"34\" rx=\"4\" fill=\"rgba(197,160,89,0.15)\" stroke=\"#c5a059\" stroke-width=\"1.5\"/><text x=\"175\" y=\"66\" fill=\"#c5a059\" font-family=\"sans-serif\" font-size=\"9\" font-weight=\"700\" text-anchor=\"middle\">SEMANTIC</text><line x1=\"205\" y1=\"62\" x2=\"215\" y2=\"62\" stroke=\"#c5a059\" stroke-width=\"1.5\"/><rect x=\"215\" y=\"45\" width=\"55\" height=\"34\" rx=\"4\" fill=\"rgba(5,150,105,0.15)\" stroke=\"#059669\" stroke-width=\"1.5\"/><text x=\"242\" y=\"66\" fill=\"#059669\" font-family=\"sans-serif\" font-size=\"9\" font-weight=\"700\" text-anchor=\"middle\">IR GEN</text><line x1=\"270\" y1=\"62\" x2=\"280\" y2=\"62\" stroke=\"#059669\" stroke-width=\"1.5\"/><rect x=\"280\" y=\"45\" width=\"60\" height=\"34\" rx=\"4\" fill=\"rgba(5,150,105,0.15)\" stroke=\"#059669\" stroke-width=\"1.5\"/><text x=\"310\" y=\"66\" fill=\"#059669\" font-family=\"sans-serif\" font-size=\"9\" font-weight=\"700\" text-anchor=\"middle\">OPTIMIZE</text><line x1=\"340\" y1=\"62\" x2=\"350\" y2=\"62\" stroke=\"#059669\" stroke-width=\"1.5\"/><rect x=\"350\" y=\"45\" width=\"55\" height=\"34\" rx=\"4\" fill=\"rgba(5,150,105,0.15)\" stroke=\"#059669\" stroke-width=\"1.5\"/><text x=\"377\" y=\"66\" fill=\"#059669\" font-family=\"sans-serif\" font-size=\"9\" font-weight=\"700\" text-anchor=\"middle\">CODE GEN</text><rect x=\"15\" y=\"110\" width=\"185\" height=\"35\" rx=\"4\" fill=\"rgba(255,255,255,0.03)\" stroke=\"#555\" stroke-width=\"1\"/><text x=\"107\" y=\"132\" fill=\"#aaa\" font-family=\"sans-serif\" font-size=\"9\" text-anchor=\"middle\">FRONT END (Analysis · Machine Indep.)</text><rect x=\"215\" y=\"110\" width=\"190\" height=\"35\" rx=\"4\" fill=\"rgba(255,255,255,0.03)\" stroke=\"#555\" stroke-width=\"1\"/><text x=\"310\" y=\"132\" fill=\"#aaa\" font-family=\"sans-serif\" font-size=\"9\" text-anchor=\"middle\">BACK END (Synthesis · Machine Dep.)</text><rect x=\"120\" y=\"165\" width=\"180\" height=\"38\" rx=\"6\" fill=\"rgba(197,160,89,0.1)\" stroke=\"#c5a059\" stroke-dasharray=\"3,3\"/><text x=\"210\" y=\"184\" fill=\"#c5a059\" font-family=\"monospace\" font-size=\"10\" font-weight=\"700\" text-anchor=\"middle\">SYMBOL TABLE &amp; DIAGNOSTICS</text><text x=\"210\" y=\"196\" fill=\"#888\" font-size=\"8\" text-anchor=\"middle\">Shared across all 6 compiler phases</text></svg>",
+    "caption": "Six-Phase Compiler Pipeline Architecture & Intermediate Subsystems",
     "gfgSubcategories": [
       {
         "title": "Lexical Analysis & Tokenization",
         "tag": "Lexical Phase",
-        "url": "https://www.geeksforgeeks.org/introduction-to-lexical-analysis/",
-        "desc": "Regular definitions, lexemes, token patterns, longest match principle, and input buffering."
+        "url": "https://www.geeksforgeeks.org/introduction-of-lexical-analysis/",
+        "desc": "Tokens, lexemes, attributes, regular expressions to DFA, maximal munch principle, and token counting rules."
       },
       {
-        "title": "Top-Down LL(1) Parsing & Tables",
-        "tag": "Top-Down Parsing",
-        "url": "https://www.geeksforgeeks.org/construction-of-ll-1-parsing-table/",
-        "desc": "Left recursion elimination, left factoring, FIRST & FOLLOW sets, and LL(1) parse table construction."
+        "title": "Top-Down LL(1) Parsing & FIRST/FOLLOW",
+        "tag": "Syntax Phase",
+        "url": "https://www.geeksforgeeks.org/construction-of-ll1-parsing-table/",
+        "desc": "Left recursion elimination, left factoring, FIRST and FOLLOW set computation, and non-recursive predictive parsing tables."
       },
       {
-        "title": "Bottom-Up LR Parsing (SLR, CLR, LALR)",
-        "tag": "Bottom-Up Parsing",
-        "url": "https://www.geeksforgeeks.org/bottom-up-parser-or-shift-reduce-parser/",
-        "desc": "LR(0) items, shift-reduce conflicts, SLR(1) FOLLOW lookahead, CLR(1) item states, and LALR(1) state merging."
+        "title": "Bottom-Up LR Parsing & Conflict Resolution",
+        "tag": "Syntax Phase",
+        "url": "https://www.geeksforgeeks.org/bottom-up-parser-compiler-design/",
+        "desc": "LR(0), SLR(1), LALR(1), and CLR(1) parsing tables, LR items, shift/reduce conflicts, and reduce/reduce conflicts."
       },
       {
-        "title": "Syntax-Directed Translation (SDT / SDD)",
-        "tag": "Semantic Analysis",
-        "url": "https://www.geeksforgeeks.org/syntax-directed-translation/",
-        "desc": "Synthesized vs inherited attributes, S-attributed definitions, L-attributed definitions, and annotated parse trees."
+        "title": "Syntax-Directed Translation (SDT & SDD)",
+        "tag": "Semantic Phase",
+        "url": "https://www.geeksforgeeks.org/syntax-directed-translation-sdt-compiler-design/",
+        "desc": "S-attributed and L-attributed definitions, synthesized vs. inherited attributes, and dependency graph evaluations."
       },
       {
-        "title": "Intermediate Code & Three-Address Code",
-        "tag": "IR Generation",
+        "title": "Intermediate Code Generation (TAC & SSA)",
+        "tag": "Intermediate Phase",
         "url": "https://www.geeksforgeeks.org/intermediate-code-generation-in-compiler-design/",
-        "desc": "Abstract syntax trees, quadruples, triples, indirect triples, and backpatching boolean control flow."
+        "desc": "Three-Address Code (TAC), quadruples, triples, indirect triples, AST vs. DAG representations, and SSA phi-functions."
       },
       {
         "title": "Code Optimization & Basic Blocks",
-        "tag": "Optimization",
-        "url": "https://www.geeksforgeeks.org/introduction-of-compiler-design-optimization/",
-        "desc": "Leader statement identification, basic blocks, control flow graphs (CFG), DAG common subexpression elimination, loop unrolling."
+        "tag": "Optimization Phase",
+        "url": "https://www.geeksforgeeks.org/code-optimization-in-compiler-design/",
+        "desc": "Basic block leader partitioning, Control-Flow Graphs (CFG), loop optimizations, constant folding, and peephole passes."
       }
     ],
     "modules": [
       {
-        "title": "Lexical Analysis, Grammar Transformations & LL(1) Parsing",
+        "title": "Unit 01 · Compiler Foundations, Analysis-Synthesis & Phase Pipeline",
         "keyPoints": [
-          "Lexical analyzer generates tokens; resolves ambiguity using longest match (maximal munch) rule.",
-          "Eliminating immediate left recursion: A -> A alpha | beta converts to A -> beta A’, A’ -> alpha A’ | epsilon.",
-          "Left factoring: A -> alpha beta_1 | alpha beta_2 converts to A -> alpha A’, A’ -> beta_1 | beta_2.",
-          "LL(1) parsing table entry M[A, a] contains A -> alpha if a is in FIRST(alpha), or if epsilon in FIRST(alpha) and a is in FOLLOW(A)."
+          "Compiler Definition & Workflow: Translates a high-level source language program into a semantically equivalent lower-level machine or assembly representation (e.g. area = length * width + offset -> LOAD, MUL, ADD, STORE).",
+          "Analysis (Front End) vs. Synthesis (Back End): Analysis breaks source code into components, builds AST/IR, and verifies syntax/types; Synthesis optimizes IR and emits machine instructions.",
+          "The 6 Distinct Compiler Phases: (1) Lexical Analysis (scans characters into tokens), (2) Syntax Analysis (constructs parse tree / AST from grammar), (3) Semantic Analysis (checks types, declarations, and scope), (4) Intermediate Code Generation (emits machine-independent 3AC/TAC), (5) Code Optimization (removes redundancy, hoists invariants), (6) Code Generation (allocates registers and emits target machine assembly).",
+          "Supporting Subsystems: The Symbol Table records identifier metadata (name, kind, type, scope, storage offset, parameter lists) and is consulted by all phases; Error Handler records line/column diagnostics.",
+          "Static Checks vs. Runtime Behavior: Semantic analysis statically diagnoses type mismatches and undeclared identifiers; Stack overflow and out-of-memory errors are runtime failures outside purely static verification.",
+          "Worked Mini-Trace: result = a + b * c; -> Lexer emits id = id + id * id ; -> Parser establishes operator precedence (b * c first) -> Semantic verifies type compatibility -> IR generates t1 = b * c; result = a + t1; -> Optimizer reuses registers -> Code generator emits target load/multiply/add/store sequence."
         ],
-        "theorem": "LL(1) Non-Ambiguity Invariant: An ambiguous grammar can NEVER be parsed by an LL(1) parser; eliminating left recursion and left factoring are necessary, but may not be sufficient.",
-        "examTrap": "Left-Recursive LL(1) Trap: If a grammar contains any left recursion (direct or indirect), it can NEVER be LL(1) because it will inevitably produce multiple entries in the parsing table!"
+        "theorem": "Phase Independence & Portability: By decoupling machine-independent analysis (Front End) from machine-dependent synthesis (Back End) via an intermediate representation (IR), a compiler supporting M source languages and N hardware architectures requires only M front-ends and N back-ends (M + N modules) instead of M x N direct translators.",
+        "examTrap": "Static vs Runtime Classification Trap: A compiler can detect that a variable is used without declaration or with an incompatible type statically during semantic analysis. However, runtime exceptions like stack overflow or array index out-of-bounds with dynamic indices CANNOT be guaranteed to be caught at compile time."
       },
       {
-        "title": "Bottom-Up LR Parsers & Shift-Reduce Conflicts",
+        "title": "Unit 02 · Parsing, Grammars, LL(1) and LR Parser Construction",
         "keyPoints": [
-          "LR parsers read input from Left to right and construct a Rightmost derivation in reverse (Shift-Reduce).",
-          "LR(0) items: Productions with dot markers indicating parser progress (e.g., A -> alpha . beta).",
-          "SLR(1) parser places reductions [A -> alpha .] strictly in columns belonging to FOLLOW(A).",
-          "CLR(1) uses items with explicit lookahead [A -> alpha . beta, a]. LALR(1) merges CLR(1) states with identical cores."
+          "Grammar Types & Syntax Trees: Type 3 (Regular) describes lexical patterns; Type 2 (CFG) describes nested block structures and expressions. Parse trees preserve all grammar nonterminals and reductions; Abstract Syntax Trees (ASTs) strip syntactic scaffolding, keeping operators at interior nodes and operands at leaves.",
+          "Ambiguity & Disambiguation: A CFG is ambiguous if any string admits two or more distinct parse trees (or leftmost derivations). Ambiguous grammars like E -> E+E | E*E | id require explicit operator precedence and associativity rules.",
+          "Predictive LL(1) Parsing: Scans Left-to-right, constructs Leftmost derivation, using 1 lookahead token. Requires elimination of immediate left recursion (A -> A alpha | beta => A -> beta A'; A' -> alpha A' | epsilon) and Left Factoring (A -> alpha beta_1 | alpha beta_2 | gamma => A -> alpha A' | gamma; A' -> beta_1 | beta_2).",
+          "FIRST and FOLLOW Sets: FIRST(alpha) contains leading terminals; can include epsilon. FOLLOW(A) contains terminals that can appear immediately to the right of A; ALWAYS contains $ for start symbol; NEVER contains epsilon.",
+          "LL(1) Table Condition: A grammar is LL(1) iff for every A -> alpha | beta: (1) FIRST(alpha) n FIRST(beta) = empty_set, and (2) if alpha derives epsilon, then FOLLOW(A) n FIRST(beta) = empty_set.",
+          "LR Item Notation & Parsers: An LR item is a production with a dot tracking progress (A -> alpha . beta). An item is completed (A -> alpha .) when the dot reaches the right end. LR(0) reduces on ALL terminals; SLR(1) reduces ONLY on FOLLOW(LHS); CLR(1) reduces ONLY on item-specific lookahead tokens; LALR(1) merges CLR(1) states with identical LR(0) cores.",
+          "Conflicts & Parsing Power: Shift/Reduce (SR) and Reduce/Reduce (RR) conflicts make a state inadequate. Hierarchy: LR(0) subset SLR(1) subset LALR(1) subset CLR(1). Merging CLR(1) states into LALR(1) NEVER creates new SR conflicts, but MAY introduce new RR conflicts! Unambiguous odd palindromes S -> aSa | bSb | a | b are not deterministic CFG (no LR parser exists)."
         ],
-        "theorem": "Parser Hierarchy: LL(1) < SLR(1) < LALR(1) < CLR(1). LALR(1) has the exact same number of states as SLR(1) and never introduces new shift-reduce conflicts when merging CLR(1) states.",
-        "examTrap": "LALR Conflict Merging Trap: Merging states with identical cores in CLR(1) to form LALR(1) can NEVER create a Shift-Reduce conflict, but it CAN introduce a Reduce-Reduce conflict!"
+        "theorem": "LALR(1) Conflict Invariant Theorem: Merging states in a canonical LR(1) automaton that have identical LR(0) cores can NEVER introduce a new Shift/Reduce conflict that was not already present in the canonical machine; it can ONLY introduce new Reduce/Reduce conflicts by unioning distinct lookahead sets.",
+        "examTrap": "FOLLOW Epsilon & Assignment Grammar Trap: FOLLOW sets can NEVER contain epsilon! Also, eliminating apparent common prefixes does NOT guarantee an LL(1) grammar; the assignment grammar S -> L = R | R; L -> *R | id; R -> L has FIRST(L=R) n FIRST(R) = {*, id} != empty_set, making it non-LL(1) even after factoring."
       },
       {
-        "title": "Syntax Directed Translation, Storage & Code Optimization",
+        "title": "Unit 03 · Lexical Analysis, Tokenization Patterns & Lexer Design",
         "keyPoints": [
-          "Synthesized attributes: Evaluated from children attributes (bottom-up). S-attributed definitions use only synthesized attributes.",
-          "Inherited attributes: Evaluated from parent or left-sibling attributes. L-attributed definitions permit synthesized and left-dependent inherited attributes.",
-          "Basic Block partition: Leaders are: (1) First statement, (2) Target of any branch, (3) Statement immediately following any branch.",
-          "Optimization techniques: Common subexpression elimination (DAG), dead code elimination, copy propagation, loop invariant code motion."
+          "Lexeme vs. Token vs. Attribute: A lexeme is the concrete character sequence in source code (e.g. counter42); A token is the symbolic category returned to the parser (e.g. IDENTIFIER); An attribute carries auxiliary metadata (e.g. pointer to symbol table entry, literal value).",
+          "Token Categories: Identifiers (letter/underscore followed by alphanumeric), Keywords (reserved words), Operators (+, -, *, /, ==, !=, ++), Literals/Constants (10, 3.14, 'A', \"gate\"), Special Delimiters ((, ), {, }, ;, ,).",
+          "Maximal Munch (Longest Match) Principle: The lexer always consumes the longest prefix of source characters that matches any valid token pattern. Example: count++ != 10 is tokenized as [count] [++] [!=] [10], NOT splitting ++ into + and +.",
+          "Token Priority Rules: When two rules match an equally long lexeme (e.g. \"if\" matches both KEYWORD and IDENTIFIER), the higher-priority rule defined first in the lexer specification wins (KEYWORD wins on tie).",
+          "Lexer Implementation via Lex/Flex: Regular expressions are converted to non-deterministic finite automata (NFA) via Thompson's construction, then determinized to DFAs via subset construction, generating lex.yy.c.",
+          "Lexical Errors: Occur when no token pattern matches the current input. Examples include illegal characters, identifiers beginning with numbers (e.g. 1x23), unmatched quotes ('A), unterminated string literals (\"gate;), and unclosed block comments (/* ...).",
+          "The 9 Canonical Token-Counting Cases: (1) void main() { printf(\"gate\"); } = 11 tokens; (2) int x, *P; x=10; p=&x; x++; = 18 tokens; (3) int x; x=y; x==y; = 11 tokens; (4) int 1x23; = Lexical error; (5) char ch = 'A'; = 5 tokens; (6) char ch = 'A; = Lexical error; (7) char *p = \"gate\"; = 6 tokens; (8) char *p = \"gate; = Lexical error; (9) int x=10; /* comment ... = Lexical error (unterminated comment)."
         ],
-        "theorem": "S-Attributed Subset Invariant: Every S-attributed syntax-directed definition is strictly an L-attributed definition, enabling single-pass evaluation during bottom-up parsing.",
-        "examTrap": "Inherited Right-Dependency Trap: In an L-attributed definition, an inherited attribute of a symbol can depend only on inherited attributes of the parent or attributes of symbols to its LEFT, never symbols to its right!"
+        "theorem": "Maximal Munch Automaton Guarantee: A lexical analyzer using a DFA with prioritized accepting states uniquely partitions a valid input character stream into a sequence of maximal-length valid tokens with zero backtracking under lookahead buffering.",
+        "examTrap": "Token Counting Operator & Literal Trap: In token counting, a string literal like \"gate\" is ONE single token regardless of length; multi-character operators like == and ++ count as ONE single operator token; semicolons, braces, and commas are distinct punctuation tokens."
+      },
+      {
+        "title": "Unit 04 · Syntax-Directed Translation & Attribute Evaluation",
+        "keyPoints": [
+          "SDT vs. SDD: A Syntax-Directed Definition (SDD) is a context-free grammar augmented with attributes and mathematical semantic rules; A Syntax-Directed Translation Scheme (SDT) explicitly embeds program action fragments inside the right-hand sides of productions.",
+          "Synthesized Attributes: An attribute is synthesized if its value at a parse tree node is computed from the attribute values of its children (or token lexical values). Flows bottom-up from leaves to root. Example: E -> E_1 + T { E.val = E_1.val + T.val }.",
+          "Inherited Attributes: An attribute is inherited if its value at a node is computed from the attributes of its parent and/or its siblings. Flows top-down or sideways across the parse tree. Example: D -> T L { L.in = T.type }.",
+          "S-Attributed Definitions: An SDD is S-attributed if EVERY attribute in the grammar is synthesized. S-attributed SDDs can be evaluated naturally during bottom-up LR parsing on production reductions.",
+          "L-Attributed Definitions: An SDD is L-attributed if every inherited attribute of a grammar symbol X_i in production A -> X_1 X_2 ... X_n depends ONLY on: (1) inherited attributes of parent A, and (2) attributes of symbols X_1 ... X_{i-1} appearing to the LEFT of X_i (never on right siblings!).",
+          "Class Inclusion: Every S-attributed definition is strictly L-attributed (S-attributed subset of L-attributed). The converse is FALSE: an L-attributed definition can contain inherited attributes.",
+          "Dependency Graphs & Topological Ordering: A dependency graph has a directed edge from attribute u to attribute v if v depends on u. An SDD is semantically valid iff its dependency graph contains NO directed cycles; evaluation order is any valid topological sort."
+        ],
+        "theorem": "S-to-L Class Inclusion & LR Evaluation: Every S-attributed grammar is an L-attributed grammar. An S-attributed grammar can always be evaluated on an LR parser by executing semantic actions precisely upon handle reductions without building an explicit parse tree.",
+        "examTrap": "Right-Sibling Inheritance Trap: If an attribute of symbol X_i depends on an attribute of symbol X_{i+1} (a symbol to its RIGHT on the production RHS), the grammar is NOT L-attributed, even if it is completely cycle-free. L-attributed definitions strictly forbid right-to-left dependencies."
+      },
+      {
+        "title": "Unit 05 · Intermediate Representations, Basic Blocks & Code Optimization",
+        "keyPoints": [
+          "Intermediate Representation Taxonomy: Linear IRs (Postfix notation, Three-Address Code / TAC, Static Single Assignment / SSA) vs. Nonlinear / Graph IRs (Abstract Syntax Tree / AST, Directed Acyclic Graph / DAG, Control-Flow Graph / CFG).",
+          "AST vs. DAG for Expressions: For expression (y + z) * (y + z), an AST creates two separate nodes for the syntactic occurrences of y + z, whereas a DAG identifies common subexpressions and creates a single shared node with multiple incoming directed edges.",
+          "Three-Address Code (TAC) Representations: (1) Quadruples: 4 fields (op, arg1, arg2, result) with explicit temporary names; (2) Triples: 3 fields (op, arg1, arg2) referring to results by instruction index (0), (1); (3) Indirect Triples: Array of pointers to triples, allowing instruction reordering without rewriting operand index references.",
+          "Static Single Assignment (SSA) Form: Every variable is assigned EXACTLY ONCE. Reassignments create new versioned names (x_1 = a - b; x_2 = x_1 * c). At control-flow join points, phi (phi) functions select incoming version: x_3 = phi(x_1, x_2).",
+          "Basic Blocks & Leader Identification: A basic block is a maximal straight-line sequence of instructions entered only at the first statement and exited only at the last. Leaders are: (1) First instruction, (2) Target of any jump/goto, (3) Instruction immediately following any jump/goto.",
+          "Control-Flow Graph (CFG): Directed graph where nodes are basic blocks and edges represent branch/jump transfers; includes ENTRY and EXIT nodes; enables global data-flow analysis and loop detection.",
+          "The 7 Major Optimization Passes: (1) Constant Folding (compile-time constant arithmetic 2*3+y -> 6+y), (2) Copy & Constant Propagation (substitute known values x=3; z=x+a -> z=3+a), (3) Strength Reduction (replace expensive ops with cheaper: i*8 -> i<<3, x*2 -> x+x), (4) Dead-Code Elimination (remove unreachable blocks or unused computations), (5) Common-Subexpression Elimination / CSE (compute identical subexpression once via DAG), (6) Loop-Invariant Code Motion / LICM (hoist computations independent of loop iterations outside loop pre-header), (7) Induction-Variable Simplification (replace loop multiplications with additions).",
+          "Peephole Optimization: Sliding window over short instruction sequences: eliminates redundant instructions (MOV R1, R1), optimizes control flow (jump to jump -> direct jump), applies algebraic simplification (ADD R2, 0 -> deleted), and exploits machine idioms."
+        ],
+        "theorem": "Basic Block Partitioning Correctness: The three-rule leader identification algorithm partitions any straight-line intermediate code sequence into disjoint, maximal basic blocks such that execution entering the leader must execute every statement in the block sequentially without branching.",
+        "examTrap": "Signed Right Shift Strength Reduction Trap: Replacing integer division by 2^k with a right shift (x >> k) is NOT universally valid for signed numbers! In C/C++, integer division rounds toward zero (-7 / 2 = -3), whereas arithmetic right shift rounds toward negative infinity (-7 >> 1 = -4). Strength reduction is only valid when sign semantics match."
+      },
+      {
+        "title": "Unit 06 · The Compiler Design Revision Laboratory & Checkpoints",
+        "keyPoints": [
+          "Checkpoint 01-03: Phase Responsibilities: Semantic analysis statically detects type mismatches; Syntax analysis detects unmatched parentheses; Lexical analysis detects illegal characters or malformed identifier names like 1x23.",
+          "Checkpoint 04-06: FIRST/FOLLOW & Parsing: In grammar E -> E+T | T, immediate left recursion must be eliminated to obtain E -> TE' and E' -> +TE' | epsilon before LL(1) parsing. FOLLOW of start symbol always contains $. LR(0) reductions appear on ALL terminal columns.",
+          "Checkpoint 07-09: LR Conflicts & Attributes: Merging CLR(1) states into LALR(1) can introduce Reduce/Reduce (RR) conflicts by unioning lookahead sets, but NEVER creates new Shift/Reduce (SR) conflicts. An attribute carrying type information from parent to child is an Inherited attribute. All S-attributed SDDs are L-attributed.",
+          "Checkpoint 10-12: Intermediate Code & Tokens: A DAG shares identical subexpression nodes to save redundant computation, while an AST preserves separate syntactic occurrences. Quadruples explicitly store temporary result names; Triples refer to results implicitly by instruction position. In char* p = \"hello;, the lexer flags an unmatched string quote error.",
+          "Checkpoint 13-15: Optimization & Leaders: Loop-invariant code motion hoists loop-independent computations outside the loop. Right shift is not a drop-in replacement for division due to negative signed rounding. Basic block leaders are: instruction 1, branch targets, and instructions immediately following a branch."
+        ],
+        "theorem": "Universal Parser Inclusion Hierarchy: LR(0) strictly subset of SLR(1) strictly subset of LALR(1) strictly subset of CLR(1). Every LL(1) grammar is an unambiguous deterministic context-free grammar parseable by CLR(1).",
+        "examTrap": "Accept Item Trap: The completed augmented start item [S' -> S ., $] triggers the ACCEPT action when the lookahead is $, NOT an ordinary reduction! It halts parsing and signals successful syntax recognition."
       }
     ],
     "definitions": [
       {
-        "term": "Token & Lexeme",
-        "category": "Lexical Phase",
-        "definition": "A lexeme is a concrete sequence of source characters matching a pattern. A token is an abstract symbol (e.g., <id, 3>, <assign_op>) passed to the parser.",
-        "note": "Whitespace and comments are stripped during lexical tokenization."
+        "term": "Abstract Syntax Tree (AST)",
+        "category": "Syntax Analysis",
+        "definition": "A condensed, hierarchical representation of program syntax where interior nodes represent operators and leaf nodes represent operands, stripping punctuation and nonterminal scaffolding.",
+        "note": "Contrasts with a concrete parse tree by omitting redundant grammar nonterminals."
       },
       {
-        "term": "LL(1) Grammar Condition",
-        "category": "Top-Down Parsing",
-        "definition": "A context-free grammar where parsing tables contain no multiple entries. For A -> alpha | beta: FIRST(alpha) cap FIRST(beta) = empty, and if eps in FIRST(alpha), FOLLOW(A) cap FIRST(beta) = empty.",
-        "note": "Left-recursive or ambiguous grammars can NEVER be LL(1)."
+        "term": "Maximal Munch Rule",
+        "category": "Lexical Analysis",
+        "definition": "The scanning disambiguation rule stating that the lexical analyzer always selects the longest sequence of source characters that matches any valid token pattern.",
+        "note": "Prevents ++ from being incorrectly split into two separate + tokens."
       },
       {
-        "term": "LR(0) Item & Core",
-        "category": "Bottom-Up Parsing",
-        "definition": "A grammar production equipped with a position marker dot: A -> alpha . beta. The core is the production itself without lookahead.",
-        "note": "LALR(1) merges CLR(1) states with identical LR(0) cores."
+        "term": "S-Attributed & L-Attributed SDD",
+        "category": "Semantic Analysis",
+        "definition": "An S-attributed SDD uses exclusively synthesized attributes (evaluated bottom-up); An L-attributed SDD permits synthesized attributes and restricted inherited attributes that depend only on parent attributes and left-sibling attributes.",
+        "note": "Every S-attributed definition is strictly L-attributed (S-attributed subset of L-attributed)."
       },
       {
-        "term": "Syntax-Directed Definition (SDD)",
-        "category": "Semantics",
-        "definition": "A context-free grammar augmented with attributes and semantic evaluation rules. S-attributed: synthesized only. L-attributed: left-dependent inherited attributes.",
-        "note": "Every S-attributed definition is strictly an L-attributed definition."
+        "term": "Inadequate State (Parsing Conflict)",
+        "category": "Parsing Theory",
+        "definition": "A state in an LR parsing automaton whose ACTION table cannot be deterministically resolved due to a Shift/Reduce (SR) conflict or a Reduce/Reduce (RR) conflict.",
+        "note": "LALR state merging can introduce RR conflicts, but never creates new SR conflicts."
       },
       {
-        "term": "Basic Block",
-        "category": "Optimization",
-        "definition": "A sequence of consecutive three-address statements where control enters strictly at the first statement and leaves strictly at the last without halting or branching in the middle.",
-        "note": "First statement is a leader; jump targets are leaders; statements following jumps are leaders."
+        "term": "Basic Block & Leader",
+        "category": "Code Optimization",
+        "definition": "A basic block is a maximal sequence of consecutive instructions with single-entry and single-exit semantics. The first instruction of a basic block is called a Leader.",
+        "note": "Leaders are instruction 1, jump targets, and instructions immediately following jumps."
+      },
+      {
+        "term": "Static Single Assignment (SSA) Form",
+        "category": "Intermediate Representation",
+        "definition": "An intermediate representation wherein every variable is assigned exactly once. Multiple reaching definitions at control-flow merge points are reconciled using phi (phi) functions.",
+        "note": "Simplifies data-flow analysis, dead code elimination, and register allocation."
       }
     ],
     "taxonomies": [
@@ -2175,13 +2230,25 @@ const SUBJECT_EXTRAS = {
         ]
       },
       {
+        "name": "Intermediate Representation Taxonomy",
+        "badge": "IR Hierarchy",
+        "items": [
+          "Linear Sequential IR: Postfix (Reverse Polish notation), Three-Address Code (TAC), Static Single Assignment (SSA).",
+          "Nonlinear Tree IR: Parse Trees (full grammar expansion) and Abstract Syntax Trees (ASTs, stripped operator trees).",
+          "Graph-Based IR: Directed Acyclic Graphs (DAGs, shared common subexpressions) and Control-Flow Graphs (CFGs, basic blocks).",
+          "Machine-Level IR: Target-specific register transfer lists and assembly instructions."
+        ]
+      },
+      {
         "name": "Compiler Code Optimization Passes",
         "badge": "Optimization",
         "items": [
           "Constant Folding & Propagation: Evaluates compile-time constant expressions and replaces variables with known constants.",
           "Common Subexpression Elimination (CSE): Identifies identical expressions evaluated across basic blocks using DAGs.",
           "Loop Invariant Code Motion (Hoisting): Moves computations whose operands never change outside loop pre-headers.",
-          "Dead Code Elimination: Removes instructions whose output variables are never used or whose execution is unreachable."
+          "Induction Variable Elimination: Replaces multiplicative loop indexing with incremental additions.",
+          "Dead Code Elimination: Removes instructions whose output variables are never used or whose execution is unreachable.",
+          "Peephole Optimization: Local window replacing redundant instructions, jump-to-jumps, and algebraic identities."
         ]
       }
     ],
@@ -2219,6 +2286,41 @@ const SUBJECT_EXTRAS = {
           "property": "GATE Examination Pitfall",
           "valA": "Left recursion ALWAYS produces conflicts in LL(1) tables; must eliminate left recursion first.",
           "valB": "Ambiguous grammars can NEVER be parsed by either LL(1) or LR(1); ambiguity causes conflicts in both."
+        }
+      ]
+    },
+    "pdfGuide": {
+      "title": "COMPILER DESIGN: The Complete Visual Study Guide",
+      "subtitle": "Official 33-Page Visual Dossier & Comprehensive Handbook",
+      "fileUrl": "assets/docs/compiler-design-visual-study-guide.pdf",
+      "fileName": "compiler-design-visual-study-guide.pdf",
+      "size": "968 KB",
+      "pages": 33,
+      "summary": "Comprehensive 33-page visual study handbook covering the full compiler pipeline from source code to optimized machine instructions. Includes detailed treatments of the 6 compiler phases, analysis vs. synthesis, LL(1) predictive parsing tables, LR(0)/SLR(1)/LALR(1)/CLR(1) item automata and conflict resolution, lexical scanning and token counting rules, syntax-directed translation (S- & L-attributed SDDs), intermediate representations (TAC, Triples, Quadruples, SSA with phi functions, DAGs, Basic Blocks & CFG), and all 7 major code optimization techniques plus peephole transformations.",
+      "units": [
+        {
+          "name": "Unit 01: Compiler Foundations & Phase Architecture",
+          "scope": "Translation concepts, Analysis (Front-End) vs. Synthesis (Back-End), The 6 Compiler Phases (Lexical, Syntax, Semantic, Intermediate Code Gen, Optimization, Code Gen), Symbol Table structure, Error Handler diagnostics, Static vs. Runtime error boundaries, and Worked Mini-Trace."
+        },
+        {
+          "name": "Unit 02: Parsing, Grammars & Automata",
+          "scope": "Type 3 Regular vs. Type 2 Context-Free Grammars, Derivations (LMD/RMD), Parse Trees vs. ASTs, Ambiguity & Operator Precedence/Associativity, Parser Taxonomy, Nonrecursive LL(1) table construction, Elimination of Left Recursion & Left Factoring, FIRST & FOLLOW sets, Assignment Grammar counterexample, Operator-Precedence, Bottom-up LR item notation (LR(0), SLR, LALR, CLR), Inadequate states, Shift/Reduce & Reduce/Reduce conflicts, and CLR-to-LALR state merging invariants."
+        },
+        {
+          "name": "Unit 03: Lexical Analysis, Tokenization & DFA",
+          "scope": "Lexeme vs. Token vs. Attribute, Token categories (Identifiers, Keywords, Operators, Literals, Delimiters), Maximal Munch (longest match) rule, Token priority (Keyword over Identifier tie-breaking), Lex/Flex tool architecture, Lexical error taxonomy, and 9 Standard Token-Counting Worked Examples with step-by-step verification."
+        },
+        {
+          "name": "Unit 04: Syntax-Directed Translation (SDT / SDD)",
+          "scope": "Syntax-Directed Definitions (SDDs) vs. Translation Schemes (SDTs), Synthesized attributes (bottom-up child-to-parent flow) vs. Inherited attributes (top-down parent/left-sibling flow), S-attributed SDDs (bottom-up LR evaluation) vs. L-attributed SDDs (depth-first dependency-respecting evaluation), Action placement in RHS, and Dependency Graph topological sorting."
+        },
+        {
+          "name": "Unit 05: Intermediate Code Generation & Optimization",
+          "scope": "Linear IR (Postfix, TAC, SSA) vs. Nonlinear IR (AST, DAG, CFG), Shared subexpression DAGs vs. ASTs, Three-Address Code (TAC) representations: Quadruples, Triples, and Indirect Triples, Minimum-name temporary lifetime analysis, Static Single Assignment (SSA) with phi-functions, Basic Blocks & 3-rule Leader identification, Control-Flow Graphs (CFG), and the 7 Major Code Optimization passes (Constant Folding, Copy/Constant Propagation, Strength Reduction, Dead-Code Elimination, Common-Subexpression Elimination, Loop-Invariant Code Motion, Induction-Variable Simplification, Loop Fusion, Loop Unrolling, and Peephole Optimization)."
+        },
+        {
+          "name": "Unit 06: Exam Toolkit & Verification Laboratory",
+          "scope": "Fast Reference Matrix (Need to Structure/Trigger mapping), Comparative Parser Properties Matrix, Comprehensive List of Examination Traps, and 15 High-Yield Practice Verification Questions with Complete Step-by-Step Solutions directly from the official guide."
         }
       ]
     }

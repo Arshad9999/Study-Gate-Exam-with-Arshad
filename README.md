@@ -61,7 +61,9 @@ Two specialized domains dedicated to modern statistical learning, deep represent
 
 ## ✨ Key Features & Technical Capabilities
 
-* **Official 41-Page Visual Study Guide Dossier**: Features a complete, verified visual handbook for Algorithms (`assets/docs/AW+ALGO.pdf`) covering Asymptotic Analysis, Extended Master Theorem with poly-log factors, Divide & Conquer comparison bounds, Greedy proofs, and Dynamic Programming.
+* **Official Visual Study Guide Dossiers**: Features complete, verified visual handbooks with direct PDF downloads:
+  * **Algorithms (41 Pages · `assets/docs/AW+ALGO.pdf`)**: Asymptotic Analysis, Extended Master Theorem, Divide & Conquer bounds, Greedy proofs, and Dynamic Programming.
+  * **Compiler Design (33 Pages · `assets/docs/compiler-design-visual-study-guide.pdf`)**: 6-Phase Pipeline, LL(1) and LR/LALR Parsing, Lexical maximal munch, SDT/SDD attribute evaluation, TAC/SSA IR, Basic Blocks, and 7 Code Optimization passes.
 * **Apple-Inspired Editorial Design**: Styled in Velvet Burgundy (`#4a0e17`) and Champagne Gold (`#c5a059`), paired with Cormorant Garamond display typography, Plus Jakarta Sans, and JetBrains Mono.
 * **Zero-Flash Theme Persistence**: Inline theme initialization eliminates dark-mode flickering on page refresh.
 * **Mac-Style Glassmorphism Window Chrome & 3D Kinetic Canvas**: Real-time interactive particle physics simulating topological surfaces and search states.
