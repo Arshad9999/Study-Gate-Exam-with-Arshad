@@ -440,7 +440,7 @@ const SUBJECT_EXTRAS = {
         "title": "Group Theory, Monoids & Subgroups",
         "tag": "Algebraic Structures",
         "url": "https://www.geeksforgeeks.org/groups-in-discrete-mathematics/",
-        "desc": "Semi-groups, monoids, groups, abelian groups, cyclic subgroups, and Lagrange\u2019s order theorem."
+        "desc": "Semi-groups, monoids, groups, abelian groups, cyclic subgroups, and Lagrange’s order theorem."
       },
       {
         "title": "Combinatorics & Generating Functions",
@@ -452,7 +452,7 @@ const SUBJECT_EXTRAS = {
         "title": "Graph Theory, Connectivity & Coloring",
         "tag": "Graph Theory",
         "url": "https://www.geeksforgeeks.org/graph-theory/",
-        "desc": "Eulerian and Hamiltonian graphs, planar graphs (Euler\u2019s formula V-E+F=2), bipartite matchings, and vertex coloring."
+        "desc": "Eulerian and Hamiltonian graphs, planar graphs (Euler’s formula V-E+F=2), bipartite matchings, and vertex coloring."
       }
     ],
     "modules": [
@@ -475,7 +475,7 @@ const SUBJECT_EXTRAS = {
           "Partial orders (Reflexive + Antisymmetric + Transitive); strict partial orders (Irreflexive + Transitive).",
           "Lattices: Posets where every pair of elements has a unique Least Upper Bound (LUB / join) and Greatest Lower Bound (GLB / meet)."
         ],
-        "theorem": "Birkhoff\u2019s Lattice Distributivity Criterion: A lattice is distributive if and only if it does not contain either the pentagon lattice N_5 or the diamond lattice M_3 as a sublattice.",
+        "theorem": "Birkhoff’s Lattice Distributivity Criterion: A lattice is distributive if and only if it does not contain either the pentagon lattice N_5 or the diamond lattice M_3 as a sublattice.",
         "examTrap": "Complemented vs Distributive Trap: A complemented lattice does NOT guarantee unique complements unless the lattice is also distributive. In non-distributive lattices, elements can have multiple complements."
       },
       {
@@ -483,11 +483,11 @@ const SUBJECT_EXTRAS = {
         "keyPoints": [
           "Pigeonhole Principle: If n items are put into m containers, at least one container holds ceil(n/m) items.",
           "Linear homogeneous recurrences: characteristic polynomial roots and particular solutions for non-homogeneous terms.",
-          "Planar Graphs: Euler\u2019s formula V - E + F = 2 for connected planar graphs; edge bound E <= 3V - 6 for V >= 3.",
+          "Planar Graphs: Euler’s formula V - E + F = 2 for connected planar graphs; edge bound E <= 3V - 6 for V >= 3.",
           "Graph Coloring: Chromatic number bounds, 4-Color theorem for planar graphs, and bipartite graphs (2-colorable iff no odd cycles)."
         ],
         "theorem": "Handshaking Lemma: In any undirected graph G = (V, E), the sum of vertex degrees equals twice the edge count (sum deg(v) = 2|E|); consequently, the number of odd-degree vertices is always even.",
-        "examTrap": "Planar Graph Face Count Trap: Remember that Euler\u2019s formula V - E + F = 2 includes the infinite exterior (outer) face. If a planar graph has k connected components, the formula becomes V - E + F = 1 + k."
+        "examTrap": "Planar Graph Face Count Trap: Remember that Euler’s formula V - E + F = 2 includes the infinite exterior (outer) face. If a planar graph has k connected components, the formula becomes V - E + F = 1 + k."
       }
     ],
     "definitions": [
@@ -519,68 +519,66 @@ const SUBJECT_EXTRAS = {
         "term": "Monoid & Group",
         "category": "Abstract Algebra",
         "definition": "A monoid is an algebraic structure with an associative binary operation and an identity element. A group is a monoid in which every element has a unique inverse.",
-        "note": "Lagrange\u2019s Theorem: The order of any subgroup H divides the order of the finite group G."
+        "note": "Lagrange’s Theorem: The order of any subgroup H divides the order of the finite group G."
       }
     ],
     "taxonomies": [
       {
-        "name": "Binary Relation Classifications",
-        "badge": "Relational Structures",
+        "name": "Binary Relations Classification",
+        "badge": "Set & Order Theory",
         "items": [
-          "Reflexive (a R a for all a)",
-          "Symmetric (a R b => b R a)",
-          "Antisymmetric (a R b and b R a => a = b)",
-          "Transitive (a R b and b R c => a R c)",
-          "Equivalence (Reflexive + Symmetric + Transitive)",
-          "Partial Order (Reflexive + Antisymmetric + Transitive)"
+          "Reflexive: (a, a) in R for all a in S; Irreflexive: (a, a) not in R for any a.",
+          "Symmetric: (a, b) in R => (b, a) in R; Antisymmetric: (a, b) and (b, a) in R => a = b.",
+          "Transitive: (a, b) in R and (b, c) in R => (a, c) in R.",
+          "Equivalence Relation: Reflexive + Symmetric + Transitive (induces disjoint partition into equivalence classes).",
+          "Partial Order (Poset): Reflexive + Antisymmetric + Transitive (visualized via Hasse diagrams)."
         ]
       },
       {
-        "name": "Graph Topologies in GATE",
-        "badge": "Graph Taxonomy",
+        "name": "Graph Families & Structural Invariants",
+        "badge": "Graph Theory",
         "items": [
-          "Planar Graphs (V - E + F = 2, E <= 3V - 6)",
-          "Bipartite Graphs (No odd cycles, chi(G) = 2)",
-          "Trees & Forests (Acyclic connected, E = V - 1)",
-          "Complete Graphs K_n (Edges = n(n-1)/2, chi = n)",
-          "Regular Graphs (Every vertex has identical degree k)"
+          "Complete Graph K_n: Regular of degree n - 1 with n(n - 1)/2 total edges.",
+          "Bipartite Graph K_{m,n}: Vertex set partitioned into 2 disjoint independent sets; contains NO odd cycles.",
+          "Planar Graphs: Embeddable in plane without edge crossings; Euler's formula V - E + F = 1 + c.",
+          "Trees & Spanning Forests: Connected acyclic graphs with exactly V - 1 edges; every tree is 2-colorable (bipartite)."
         ]
       }
     ],
     "comparison": {
-      "title": "Partial Order (Poset) vs Equivalence Relation",
-      "entityA": "Partial Order (Poset)",
-      "entityB": "Equivalence Relation",
+      "title": "Eulerian Graphs vs. Hamiltonian Graphs",
+      "entityA": "Eulerian Graph (Euler Tour)",
+      "entityB": "Hamiltonian Graph (Hamiltonian Cycle)",
       "rows": [
         {
-          "property": "Symmetry Property",
-          "valA": "Antisymmetric: (a,b) and (b,a) in R implies a = b",
-          "valB": "Symmetric: (a,b) in R implies (b,a) in R"
+          "property": "Core Definition",
+          "valA": "A closed trail visiting every EDGE of the graph exactly once and returning to starting vertex.",
+          "valB": "A closed cycle visiting every VERTEX of the graph exactly once and returning to start."
         },
         {
-          "property": "Transitivity & Reflexivity",
-          "valA": "Both Reflexive and Transitive",
-          "valB": "Both Reflexive and Transitive"
+          "property": "Necessary & Sufficient Condition",
+          "valA": "Connected and EVERY vertex has an EVEN degree: deg(v) mod 2 = 0 for all v in V.",
+          "valB": "No known simple necessary & sufficient condition; NP-complete in general."
         },
         {
-          "property": "Partitioning Behavior",
-          "valA": "Does NOT partition the set; elements form chains and antichains",
-          "valB": "Partitions the underlying set into disjoint equivalence classes"
+          "property": "Sufficient Conditions",
+          "valA": "Connected graph with at most 2 odd vertices contains an Eulerian trail.",
+          "valB": "Dirac's Theorem (deg(v) >= n/2) or Ore's Theorem (deg(u)+deg(v) >= n for non-adjacent u,v)."
         },
         {
-          "property": "Canonical Visual Representation",
-          "valA": "Hasse Diagram with upward directed edges",
-          "valB": "Venn diagram partitions or cluster graphs with cliques"
+          "property": "Algorithmic Decision Complexity",
+          "valA": "Polynomial time O(V + E) using Hierholzer's or Fleury's algorithm.",
+          "valB": "NP-Complete decision problem; O(n^2 * 2^n) via Held-Karp dynamic programming."
         },
         {
-          "property": "Extremal Elements",
-          "valA": "Possesses maximal, minimal, greatest (top), least (bottom) elements",
-          "valB": "No hierarchy; all elements within a class are mutually equivalent"
+          "property": "Line Graph Relationship",
+          "valA": "G is Eulerian iff its line graph L(G) is Hamiltonian (for connected even degree graphs).",
+          "valB": "Hamiltonicity of G does not directly imply Hamiltonicity of line graph L(G)."
         },
         {
-          "property": "Prototypical Example",
-          "valA": "Divisibility relation on integers (a | b) or Subset inclusion (A subset B)",
-          "valB": "Modulo congruence: a equiv b (mod m) on integers"
+          "property": "GATE Examination Pitfall",
+          "valA": "Isolated vertices with degree 0 do not violate Eulerian properties if no edges are incident.",
+          "valB": "Graph MUST be 2-connected; any graph with a cut-vertex CANNOT be Hamiltonian."
         }
       ]
     }
@@ -695,66 +693,65 @@ const SUBJECT_EXTRAS = {
         "term": "Positive Definite Matrix",
         "category": "Quadratic Forms",
         "definition": "A symmetric matrix A is positive definite iff x^T A x > 0 for all non-zero vectors x, or equivalently, iff all eigenvalues are strictly positive.",
-        "note": "Sylvester\u2019s criterion: All leading principal minors must be strictly positive."
+        "note": "Sylvester’s criterion: All leading principal minors must be strictly positive."
       }
     ],
     "taxonomies": [
       {
-        "name": "Matrix Algebraic Classes",
-        "badge": "Matrix Taxonomy",
+        "name": "Matrix Canonical Classifications",
+        "badge": "Matrix Theory",
         "items": [
-          "Symmetric (A^T = A, all real eigenvalues)",
-          "Skew-Symmetric (A^T = -A, eigenvalues 0 or pure imaginary)",
-          "Orthogonal (A^T A = I, det = +/-1, preserves lengths)",
-          "Idempotent (A^2 = A, eigenvalues in {0, 1})",
-          "Nilpotent (A^k = 0 for some k, all eigenvalues are 0)"
+          "Symmetric Matrix (A = A^T): Real eigenvalues; orthogonal eigenvectors; orthogonally diagonalizable.",
+          "Orthogonal Matrix (Q^T Q = I): Orthonormal columns; preserves Euclidean length and dot products; det(Q) = ±1.",
+          "Idempotent Matrix (P^2 = P): Eigenvalues are strictly 0 or 1; represents oblique or orthogonal projections.",
+          "Nilpotent Matrix (A^k = 0 for some k): All eigenvalues are strictly 0; trace(A) = 0 and det(A) = 0."
         ]
       },
       {
-        "name": "Linear Systems Solvability",
-        "badge": "System Taxonomy",
+        "name": "The Four Fundamental Matrix Subspaces",
+        "badge": "Subspace Topology",
         "items": [
-          "Consistent: Unique Solution (rank(A) = rank([A|B]) = n)",
-          "Consistent: Infinitely Many Solutions (rank(A) = rank([A|B]) < n)",
-          "Inconsistent: No Solution (rank(A) != rank([A|B]))",
-          "Homogeneous: Always consistent (trivial solution X=0 always exists)"
+          "Column Space C(A) in R^m: Dimension = rank(r); spanned by pivot columns of A.",
+          "Null Space N(A) in R^n: Dimension = n - r (nullity); orthogonal complement to Row Space C(A^T).",
+          "Row Space C(A^T) in R^n: Dimension = rank(r); spanned by non-zero rows of RREF(A).",
+          "Left Null Space N(A^T) in R^m: Dimension = m - r; orthogonal complement to Column Space C(A)."
         ]
       }
     ],
     "comparison": {
-      "title": "Eigenvalues vs Singular Values",
-      "entityA": "Eigenvalues (lambda_i)",
-      "entityB": "Singular Values (sigma_i)",
+      "title": "Diagonalization (Eigendecomposition) vs. Singular Value Decomposition (SVD)",
+      "entityA": "Eigendecomposition (A = P D P^-1)",
+      "entityB": "Singular Value Decomposition (A = U Σ V^T)",
       "rows": [
         {
-          "property": "Applicable Matrix Geometry",
-          "valA": "Defined ONLY for square n x n matrices",
-          "valB": "Defined for ANY m x n rectangular matrix"
+          "property": "Matrix Dimension Scope",
+          "valA": "Strictly square matrices (n x n) only.",
+          "valB": "Any arbitrary rectangular matrix (m x n)."
         },
         {
-          "property": "Numerical Domain",
-          "valA": "Can be real, negative, zero, or complex conjugate pairs",
-          "valB": "Strictly real and non-negative (sigma_i >= 0)"
+          "property": "Basis Vector Geometry",
+          "valA": "Eigenvectors in P are not necessarily orthogonal (unless A is symmetric).",
+          "valB": "Left singular vectors U (m x m) and right singular vectors V (n x n) are strictly orthonormal."
         },
         {
-          "property": "Associated Basis Vectors",
-          "valA": "Same left and right direction: Av = lambda v",
-          "valB": "Two distinct orthonormal coordinate bases: Av = sigma u"
+          "property": "Existence Guarantee",
+          "valA": "Exists iff A has n linearly independent eigenvectors (defective matrices cannot be diagonalized).",
+          "valB": "Guaranteed to exist for EVERY real or complex matrix without exception."
         },
         {
-          "property": "Connection to Invertibility",
-          "valA": "A is invertible iff zero is NOT an eigenvalue",
-          "valB": "A has full rank iff all min(m,n) singular values are non-zero"
+          "property": "Coordinate Transformations",
+          "valA": "Applies a single coordinate basis change to both domain and codomain.",
+          "valB": "Decouples into two distinct orthonormal coordinate systems for domain (R^n) and codomain (R^m)."
         },
         {
-          "property": "Geometric Interpretation",
-          "valA": "Scaling along invariant directional eigenvectors",
-          "valB": "Lengths of the principal semi-axes of the transformed hyperellipsoid"
+          "property": "Values Characterization",
+          "valA": "Eigenvalues lambda_i can be complex, negative, or zero.",
+          "valB": "Singular values sigma_i = sqrt(lambda_i(A^T A)) are always non-negative real numbers sorted in descending order."
         },
         {
-          "property": "Mathematical Computation",
-          "valA": "Roots of characteristic polynomial det(A - lambda I) = 0",
-          "valB": "Square roots of eigenvalues of symmetric matrix A^T A"
+          "property": "GATE Examination Pitfall",
+          "valA": "Invertibility does NOT imply diagonalizability (e.g. [[1,1],[0,1]] is invertible but non-diagonalizable).",
+          "valB": "Rank of matrix equals the number of strictly non-zero singular values in Sigma."
         }
       ]
     }
@@ -772,13 +769,13 @@ const SUBJECT_EXTRAS = {
         "title": "Limits, Continuity & Differentiability",
         "tag": "Foundations",
         "url": "https://www.geeksforgeeks.org/limits-continuity-and-differentiability/",
-        "desc": "Indeterminate forms 0/0 and inf/inf, L\u2019H\u00f4pital\u2019s rule, one-sided limits, and differentiability conditions."
+        "desc": "Indeterminate forms 0/0 and inf/inf, L’Hôpital’s rule, one-sided limits, and differentiability conditions."
       },
       {
         "title": "Mean Value Theorems",
         "tag": "Differential Calculus",
         "url": "https://www.geeksforgeeks.org/mean-value-theorem/",
-        "desc": "Rolle\u2019s theorem, Lagrange\u2019s Mean Value Theorem (MVT), and Cauchy\u2019s generalized mean value theorem."
+        "desc": "Rolle’s theorem, Lagrange’s Mean Value Theorem (MVT), and Cauchy’s generalized mean value theorem."
       },
       {
         "title": "Extrema & Multivariable Critical Points",
@@ -809,19 +806,19 @@ const SUBJECT_EXTRAS = {
       {
         "title": "Limits, Continuity & Mean Value Theorems",
         "keyPoints": [
-          "L\u2019H\u00f4pital\u2019s Rule: Applies strictly to indeterminate forms 0/0 and inf/inf: lim f(x)/g(x) = lim f\u2019(x)/g\u2019(x).",
+          "L’Hôpital’s Rule: Applies strictly to indeterminate forms 0/0 and inf/inf: lim f(x)/g(x) = lim f’(x)/g’(x).",
           "Continuity: Function is continuous at c iff lim_{x -> c} f(x) exists and equals f(c).",
           "Differentiability: Differentiability implies continuity, but continuity does NOT imply differentiability (e.g., |x| at x=0).",
-          "Lagrange\u2019s MVT: For f continuous on [a,b] and differentiable on (a,b), there exists c in (a,b) with f\u2019(c) = (f(b)-f(a))/(b-a)."
+          "Lagrange’s MVT: For f continuous on [a,b] and differentiable on (a,b), there exists c in (a,b) with f’(c) = (f(b)-f(a))/(b-a)."
         ],
-        "theorem": "Rolle\u2019s Theorem: If f is continuous on [a, b], differentiable on (a, b), and f(a) = f(b), then there exists at least one number c in (a, b) such that f\u2019(c) = 0.",
-        "examTrap": "L\u2019H\u00f4pital Misapplication Trap: Never apply L\u2019H\u00f4pital\u2019s rule when the denominator limit is non-zero. Doing so changes the value of the limit and produces incorrect answer options."
+        "theorem": "Rolle’s Theorem: If f is continuous on [a, b], differentiable on (a, b), and f(a) = f(b), then there exists at least one number c in (a, b) such that f’(c) = 0.",
+        "examTrap": "L’Hôpital Misapplication Trap: Never apply L’Hôpital’s rule when the denominator limit is non-zero. Doing so changes the value of the limit and produces incorrect answer options."
       },
       {
         "title": "Maxima, Minima, Hessian Matrix & Taylor Series",
         "keyPoints": [
-          "Stationary points occur where f\u2019(x) = 0 (or grad f(x) = 0 for multivariable functions).",
-          "Single variable second derivative test: f\u2019\u2019(x*) > 0 implies local minimum; f\u2019\u2019(x*) < 0 implies local maximum; f\u2019\u2019(x*) = 0 is inconclusive.",
+          "Stationary points occur where f’(x) = 0 (or grad f(x) = 0 for multivariable functions).",
+          "Single variable second derivative test: f’’(x*) > 0 implies local minimum; f’’(x*) < 0 implies local maximum; f’’(x*) = 0 is inconclusive.",
           "Hessian Matrix H(x) = [d^2 f / dx_i dx_j]: Positive definite implies strict local min; negative definite implies strict local max; indefinite implies saddle point.",
           "Multivariate Taylor Series: f(x) = f(x_0) + grad f(x_0)^T (x - x_0) + 1/2 (x - x_0)^T H(x_0) (x - x_0) + ..."
         ],
@@ -848,10 +845,10 @@ const SUBJECT_EXTRAS = {
         "note": "Differentiability strictly implies continuity, but continuity does NOT imply differentiability."
       },
       {
-        "term": "Lagrange\u2019s Mean Value Theorem",
+        "term": "Lagrange’s Mean Value Theorem",
         "category": "Differential Calculus",
-        "definition": "If f is continuous on [a, b] and differentiable on (a, b), there exists at least one c in (a, b) such that f\u2019(c) = (f(b) - f(a)) / (b - a).",
-        "note": "Rolle\u2019s Theorem is the special case where f(a) = f(b), yielding f\u2019(c) = 0."
+        "definition": "If f is continuous on [a, b] and differentiable on (a, b), there exists at least one c in (a, b) such that f’(c) = (f(b) - f(a)) / (b - a).",
+        "note": "Rolle’s Theorem is the special case where f(a) = f(b), yielding f’(c) = 0."
       },
       {
         "term": "Hessian Matrix",
@@ -874,60 +871,60 @@ const SUBJECT_EXTRAS = {
     ],
     "taxonomies": [
       {
-        "name": "Critical Point Classifications",
-        "badge": "Calculus Taxonomy",
+        "name": "Multivariate Critical Point Taxonomy",
+        "badge": "Hessian Analysis",
         "items": [
-          "Local Minimum (f'(x*)=0 and f''(x*) > 0, or H is positive definite)",
-          "Local Maximum (f'(x*)=0 and f''(x*) < 0, or H is negative definite)",
-          "Saddle Point (grad f(x*)=0 and H has mixed positive and negative eigenvalues)",
-          "Inflection Point (f''(x) changes sign, curvature inverts)"
+          "Local Minimum: Gradient grad f(x*) = 0 and Hessian H(x*) is strictly Positive Definite (all eigenvalues lambda_i > 0).",
+          "Local Maximum: Gradient grad f(x*) = 0 and Hessian H(x*) is strictly Negative Definite (all eigenvalues lambda_i < 0).",
+          "Saddle Point: Gradient grad f(x*) = 0 and Hessian H(x*) is Indefinite (both positive and negative eigenvalues).",
+          "Degenerate / Inconclusive Test: det(H(x*)) = 0 (at least one zero eigenvalue lambda_i = 0); higher-order analysis required."
         ]
       },
       {
-        "name": "Optimization Methodologies",
-        "badge": "Optimization Taxonomy",
+        "name": "Numerical Optimization Archetypes",
+        "badge": "Algorithmic Schemes",
         "items": [
-          "First-Order Methods (Gradient Descent, Momentum, Adam)",
-          "Second-Order Methods (Newton-Raphson, BFGS, Quasi-Newton)",
-          "Constrained Optimization (Lagrange Multipliers, KKT Conditions)",
-          "Linear Programming (Simplex Method, Duality Theory)"
+          "First-Order Gradient Descent: x_{k+1} = x_k - alpha * grad f(x_k); linear convergence rate O(1/k).",
+          "Accelerated Momentum & Adam: Incorporates exponentially decaying velocity to dampen oscillations in narrow ravines.",
+          "Second-Order Newton-Raphson: Uses inverse Hessian H^-1; quadratic local convergence near minima.",
+          "Quasi-Newton (BFGS / L-BFGS): Approximates inverse Hessian using rank-2 gradient update vectors; O(d^2) cost."
         ]
       }
     ],
     "comparison": {
-      "title": "Local Extrema vs Global (Absolute) Extrema",
-      "entityA": "Local (Relative) Extrema",
-      "entityB": "Global (Absolute) Extrema",
+      "title": "Gradient Descent vs. Newton-Raphson Optimization",
+      "entityA": "Gradient Descent (First-Order)",
+      "entityB": "Newton-Raphson Method (Second-Order)",
       "rows": [
         {
-          "property": "Domain Scope",
-          "valA": "Defined over an open neighborhood (delta-ball) around x*",
-          "valB": "Defined over the entire allowable domain or closed set S"
+          "property": "Iteration Update Rule",
+          "valA": "x_{k+1} = x_k - alpha * grad f(x_k).",
+          "valB": "x_{k+1} = x_k - [Hessian f(x_k)]^-1 * grad f(x_k)."
         },
         {
-          "property": "Derivative Condition",
-          "valA": "Must satisfy grad f(x*) = 0 (or derivative undefined)",
-          "valB": "May occur at stationary points OR at domain boundaries where grad f != 0"
+          "property": "Theoretical Convergence Rate",
+          "valA": "First-order linear convergence rate O(1/k) for convex objectives.",
+          "valB": "Quadratic local convergence rate (error doubles in precision each step near minimum)."
         },
         {
-          "property": "Uniqueness",
-          "valA": "A function can have multiple distinct local minima and maxima",
-          "valB": "The extremum value is unique (though achieved at multiple points)"
+          "property": "Per-Iteration Computation",
+          "valA": "O(d) vector arithmetic per iteration.",
+          "valB": "O(d^3) cost to compute and invert the d x d Hessian matrix (or O(d^2) linear solve)."
         },
         {
-          "property": "Convex Function Behavior",
-          "valA": "Any local minimum is automatically a global minimum",
-          "valB": "Guaranteed to coincide with every local minimum in convex domains"
+          "property": "Step Size (Learning Rate)",
+          "valA": "Highly sensitive to alpha; poor choice causes divergence or slow zig-zagging.",
+          "valB": "Has natural step size (alpha = 1); adapts step length according to local curvature."
         },
         {
-          "property": "Verification Test",
-          "valA": "Second-derivative test f\u2019\u2019(x*) or Hessian matrix definiteness",
-          "valB": "Direct evaluation comparing all critical points and boundary limits"
+          "property": "Saddle Point Susceptibility",
+          "valA": "Slow convergence along ill-conditioned valleys, but naturally avoids local maxima.",
+          "valB": "Can diverge or jump toward local maxima/saddle points if Hessian is not strictly positive definite."
         },
         {
-          "property": "GATE Examination Trap",
-          "valA": "Finding x* with f\u2019(x*)=0 is sufficient to identify local candidate",
-          "valB": "Forgetting boundary points on intervals [a, b] causes incorrect global answers"
+          "property": "GATE Examination Pitfall",
+          "valA": "Requires feature scaling / normalization to prevent extreme oscillations in steep directions.",
+          "valB": "If det(Hessian) <= 0, the Newton direction is not guaranteed to be a descent direction."
         }
       ]
     }
@@ -948,7 +945,7 @@ const SUBJECT_EXTRAS = {
         "desc": "Sample spaces, independent events, mutually exclusive events, and conditional probability P(A|B)."
       },
       {
-        "title": "Bayes\u2019 Theorem & Law of Total Probability",
+        "title": "Bayes’ Theorem & Law of Total Probability",
         "tag": "Bayesian Inference",
         "url": "https://www.geeksforgeeks.org/bayes-theorem/",
         "desc": "Prior vs posterior probabilities, likelihood, total probability partitions, and false-positive computations."
@@ -980,14 +977,14 @@ const SUBJECT_EXTRAS = {
     ],
     "modules": [
       {
-        "title": "Axiomatic Probability, Independence & Bayes\u2019 Theorem",
+        "title": "Axiomatic Probability, Independence & Bayes’ Theorem",
         "keyPoints": [
           "Axioms: P(S) = 1, P(A) >= 0, and P(A v B) = P(A) + P(B) for mutually exclusive events.",
           "Conditional probability: P(A|B) = P(A cap B) / P(B), provided P(B) > 0.",
           "Independence: Events A and B are independent iff P(A cap B) = P(A) P(B).",
           "Law of Total Probability: P(B) = sum P(B|A_i) P(A_i) across a partition {A_i} of sample space S."
         ],
-        "theorem": "Bayes\u2019 Inversion Rule: For a partition of the sample space into mutually exclusive events A_1, ..., A_k, P(A_i|B) = [P(B|A_i) P(A_i)] / sum_{j=1}^k [P(B|A_j) P(A_j)].",
+        "theorem": "Bayes’ Inversion Rule: For a partition of the sample space into mutually exclusive events A_1, ..., A_k, P(A_i|B) = [P(B|A_i) P(A_i)] / sum_{j=1}^k [P(B|A_j) P(A_j)].",
         "examTrap": "Independence vs Mutual Exclusivity: Mutually exclusive events with non-zero probability can NEVER be independent! If A and B cannot occur together, knowledge that B occurred guarantees A did not."
       },
       {
@@ -1018,12 +1015,12 @@ const SUBJECT_EXTRAS = {
         "term": "Axiomatic Probability",
         "category": "Probability Foundations",
         "definition": "Probability measure P assigning values in [0, 1] to events, where P(S) = 1 and P(A v B) = P(A) + P(B) for mutually exclusive events.",
-        "note": "Complement rule: P(A\u2019) = 1 - P(A). General addition: P(A v B) = P(A) + P(B) - P(A cap B)."
+        "note": "Complement rule: P(A’) = 1 - P(A). General addition: P(A v B) = P(A) + P(B) - P(A cap B)."
       },
       {
-        "term": "Conditional Probability & Bayes\u2019 Rule",
+        "term": "Conditional Probability & Bayes’ Rule",
         "category": "Inference",
-        "definition": "P(A|B) = P(A cap B) / P(B) for P(B) > 0. Bayes\u2019 rule inverts conditional dependencies: P(A_i|B) = [P(B|A_i)P(A_i)] / sum P(B|A_j)P(A_j).",
+        "definition": "P(A|B) = P(A cap B) / P(B) for P(B) > 0. Bayes’ rule inverts conditional dependencies: P(A_i|B) = [P(B|A_i)P(A_i)] / sum P(B|A_j)P(A_j).",
         "note": "Critical for updating belief distributions upon receiving noisy evidence."
       },
       {
@@ -1050,57 +1047,57 @@ const SUBJECT_EXTRAS = {
         "name": "Discrete Probability Distributions",
         "badge": "Discrete Models",
         "items": [
-          "Bernoulli (Single trial, outcomes in {0, 1})",
-          "Binomial B(n, p) (Mean np, Variance np(1-p))",
-          "Poisson Pois(lambda) (Mean = Variance = lambda, rare events)",
-          "Geometric (Memoryless discrete trials until first success)"
+          "Bernoulli(p): Single trial with success probability p; Mean = p, Variance = p(1 - p).",
+          "Binomial(n, p): Number of successes in n independent Bernoulli trials; Mean = np, Var = np(1 - p).",
+          "Poisson(lambda): Rare event count in continuous interval; Mean = lambda, Var = lambda (equi-dispersed).",
+          "Geometric(p): Number of Bernoulli trials until first success; Mean = 1/p, memoryless property P(X > s + t | X > s) = P(X > t)."
         ]
       },
       {
-        "name": "Continuous Probability Distributions",
+        "name": "Continuous Distribution Archetypes",
         "badge": "Continuous Models",
         "items": [
-          "Uniform U(a, b) (Constant density 1/(b-a))",
-          "Normal N(mu, sigma^2) (Symmetric Gaussian bell curve)",
-          "Exponential Exp(lambda) (Memoryless continuous waiting times)",
-          "Student\u2019s t-distribution (Heavy-tailed, small sample inference)"
+          "Uniform(a, b): Flat density f(x) = 1/(b - a); Mean = (a + b)/2, Variance = (b - a)^2 / 12.",
+          "Exponential(lambda): Waiting time between Poisson arrivals; Memoryless continuous model; Mean = 1/lambda, Var = 1/lambda^2.",
+          "Gaussian Normal(mu, sigma^2): Bell-shaped density governed by Central Limit Theorem (CLT); 68-95-99.7 empirical rule.",
+          "Standard Normal Z ~ N(0, 1): Standardized variable Z = (X - mu)/sigma; symmetric around 0."
         ]
       }
     ],
     "comparison": {
-      "title": "Mutually Exclusive Events vs Independent Events",
-      "entityA": "Mutually Exclusive (Disjoint) Events",
-      "entityB": "Independent Events",
+      "title": "Binomial Distribution vs. Poisson Distribution",
+      "entityA": "Binomial Distribution Bin(n, p)",
+      "entityB": "Poisson Distribution Poisson(lambda)",
       "rows": [
         {
-          "property": "Mathematical Condition",
-          "valA": "P(A cap B) = 0 (Events cannot co-occur)",
-          "valB": "P(A cap B) = P(A) * P(B)"
+          "property": "Support & Domain",
+          "valA": "Finite discrete integers k in {0, 1, 2, ..., n}.",
+          "valB": "Countably infinite discrete integers k in {0, 1, 2, 3, ...}."
         },
         {
-          "property": "Conditional Probability",
-          "valA": "P(A | B) = 0 (Knowledge of B guarantees A did not happen)",
-          "valB": "P(A | B) = P(A) (Knowledge of B gives zero information on A)"
+          "property": "Distribution Parameters",
+          "valA": "Two parameters: trial count n and success probability p.",
+          "valB": "Single parameter: arrival rate lambda = n * p."
         },
         {
-          "property": "Set-Theoretic Venn Representation",
-          "valA": "Disjoint, non-overlapping circles with empty intersection",
-          "valB": "Overlapping circles where intersection area matches the product of probabilities"
+          "property": "Mean & Variance Relation",
+          "valA": "Mean = np; Variance = np(1 - p). Variance is strictly LESS than Mean.",
+          "valB": "Mean = lambda; Variance = lambda. Equi-dispersed: Mean equals Variance strictly."
         },
         {
-          "property": "Compatibility with Non-Zero Probabilities",
-          "valA": "If P(A) > 0 and P(B) > 0, they can NEVER be independent",
-          "valB": "If P(A) > 0 and P(B) > 0, they can NEVER be mutually exclusive"
+          "property": "Asymptotic Limiting Relation",
+          "valA": "Converges to Poisson as n -> infinity, p -> 0 such that np = lambda remains constant.",
+          "valB": "Arises as the continuous Poisson process count limit of independent rare Bernoulli trials."
         },
         {
-          "property": "Union Formula Simplification",
-          "valA": "P(A v B) = P(A) + P(B)",
-          "valB": "P(A v B) = P(A) + P(B) - P(A)*P(B)"
+          "property": "Additive Convolution Property",
+          "valA": "Sum of Bin(n1, p) + Bin(n2, p) is Bin(n1+n2, p) ONLY when p is identical.",
+          "valB": "Sum of Poisson(lambda1) + Poisson(lambda2) is ALWAYS Poisson(lambda1 + lambda2)."
         },
         {
-          "property": "Physical Interpretation",
-          "valA": "Rolling a die: getting a 2 and getting a 5 on the same roll",
-          "valB": "Flipping two separate independent coins: Heads on Coin 1 and Tails on Coin 2"
+          "property": "GATE Examination Pitfall",
+          "valA": "If variance exceeds mean (overdispersion), Binomial distribution cannot model the data.",
+          "valB": "Poisson distribution has no upper bound; P(X = k) decreases as lambda^k / k! for large k."
         }
       ]
     }
@@ -1115,7 +1112,7 @@ const SUBJECT_EXTRAS = {
     "caption": "Sequential Logic Propagation & Setup Timing Constraint",
     "gfgSubcategories": [
       {
-        "title": "Boolean Algebra & De Morgan\u2019s Laws",
+        "title": "Boolean Algebra & De Morgan’s Laws",
         "tag": "Boolean Logic",
         "url": "https://www.geeksforgeeks.org/boolean-algebra-in-digital-logic/",
         "desc": "Canonical SOP/POS forms, minterms, maxterms, duality principle, and universal logic gates (NAND/NOR)."
@@ -1124,7 +1121,7 @@ const SUBJECT_EXTRAS = {
         "title": "Karnaugh Maps (K-Maps) Minimization",
         "tag": "Minimization",
         "url": "https://www.geeksforgeeks.org/k-map-karnaugh-map/",
-        "desc": "Gray code adjacency, grouping powers of 2, prime implicants, essential prime implicants, and don\u2019t care conditions."
+        "desc": "Gray code adjacency, grouping powers of 2, prime implicants, essential prime implicants, and don’t care conditions."
       },
       {
         "title": "Combinational Logic: Adders & Multiplexers",
@@ -1145,23 +1142,23 @@ const SUBJECT_EXTRAS = {
         "desc": "Ripple asynchronous counters, MOD-N synchronous counters, ring counters, and Johnson twisted counters."
       },
       {
-        "title": "Number Representations & 2\u2019s Complement",
+        "title": "Number Representations & 2’s Complement",
         "tag": "Computer Arithmetic",
         "url": "https://www.geeksforgeeks.org/2s-complement-notation/",
-        "desc": "Signed magnitude, 1\u2019s complement, 2\u2019s complement range [-2^{n-1}, 2^{n-1}-1], overflow detection, and IEEE 754."
+        "desc": "Signed magnitude, 1’s complement, 2’s complement range [-2^{n-1}, 2^{n-1}-1], overflow detection, and IEEE 754."
       }
     ],
     "modules": [
       {
         "title": "Boolean Algebra, Canonical Forms & K-Map Minimization",
         "keyPoints": [
-          "De Morgan\u2019s Theorems: (A + B)\u2019 = A\u2019 B\u2019 and (A B)\u2019 = A\u2019 + B\u2019.",
+          "De Morgan’s Theorems: (A + B)’ = A’ B’ and (A B)’ = A’ + B’.",
           "Canonical SOP (sum of minterms) and canonical POS (product of maxterms).",
           "K-Map grouping: Must group in powers of two (1, 2, 4, 8, 16); larger groups produce smaller product terms.",
           "Prime Implicant (PI): Rectangular group that cannot be combined into a larger group. Essential Prime Implicant (EPI): Contains at least one minterm covered by no other PI."
         ],
-        "theorem": "Consensus Theorem: AB + A\u2019C + BC = AB + A\u2019C, where the consensus term BC is entirely redundant and can be eliminated.",
-        "examTrap": "Don\u2019t Care Minimization Trap: Don\u2019t care conditions (d) do NOT have to be covered! Only group a don\u2019t care if doing so enlarges an existing group of 1s to simplify the Boolean expression."
+        "theorem": "Consensus Theorem: AB + A’C + BC = AB + A’C, where the consensus term BC is entirely redundant and can be eliminated.",
+        "examTrap": "Don’t Care Minimization Trap: Don’t care conditions (d) do NOT have to be covered! Only group a don’t care if doing so enlarges an existing group of 1s to simplify the Boolean expression."
       },
       {
         "title": "Combinational MSI Circuits: Adders, MUX & Decoders",
@@ -1177,7 +1174,7 @@ const SUBJECT_EXTRAS = {
       {
         "title": "Sequential Circuits, Flip-Flop Conversion & Timing Constraints",
         "keyPoints": [
-          "Characteristic equations: JK: Q_{next} = J Q\u2019 + K\u2019 Q; D: Q_{next} = D; T: Q_{next} = T xor Q.",
+          "Characteristic equations: JK: Q_{next} = J Q’ + K’ Q; D: Q_{next} = D; T: Q_{next} = T xor Q.",
           "Race Around Condition in JK Flip-Flop occurs when J=1, K=1, level-triggered clock pulse width t_p > propagation delay t_{ff}. Remedied by edge triggering.",
           "Setup Time t_{su}: Minimum time input data must remain stable BEFORE clock edge arrives.",
           "Hold Time t_h: Minimum time input data must remain stable AFTER clock edge arrives."
@@ -1220,60 +1217,60 @@ const SUBJECT_EXTRAS = {
     ],
     "taxonomies": [
       {
-        "name": "Flip-Flop Architectures",
-        "badge": "Sequential Blocks",
+        "name": "Combinational Building Block Archetypes",
+        "badge": "Logic Families",
         "items": [
-          "SR Flip-Flop (Undefined state when S=1, R=1)",
-          "JK Flip-Flop (Toggles on J=1, K=1; solves SR ambiguity)",
-          "D Flip-Flop (Delay element: Q_{next} = D, avoids invalid states)",
-          "T Flip-Flop (Toggle element: Q_{next} = T xor Q, divides frequency by 2)"
+          "Multiplexer (MUX 2^n to 1): Selects 1 of 2^n inputs using n control lines; acts as universal Boolean function generator.",
+          "Demultiplexer / Decoder (n to 2^n): Converts n-bit binary code into 2^n minterm outputs; active-high or active-low enables.",
+          "Priority Encoder (2^n to n): Outputs binary code of highest-priority active input; includes valid output flag bit.",
+          "Ripple-Carry vs. Carry-Lookahead Adder: Ripple has O(n) delay propagation; CLA generates carries in parallel in O(1) delay."
         ]
       },
       {
-        "name": "Finite State Machine Models",
-        "badge": "FSM Taxonomy",
+        "name": "Bistable Sequential Elements & Triggers",
+        "badge": "State Elements",
         "items": [
-          "Mealy Machine (Outputs depend on current state AND inputs; fewer states)",
-          "Moore Machine (Outputs depend strictly on current state only; glitch-free)",
-          "Synchronous Counters (All flip-flops share identical clock pulse)",
-          "Ripple Counters (Clock of stage i+1 is driven by output of stage i)"
+          "SR Latch: Set-Reset bistable multivibrator; invalid state S = 1, R = 1 produces race hazard.",
+          "D Flip-Flop: Eliminates invalid states; copies D input on active clock edge; used for pipeline registers.",
+          "JK Flip-Flop: Universal flip-flop; J = 1, K = 1 toggles state (Q_{next} = Q'); Master-Slave configuration prevents race-around.",
+          "T Flip-Flop: Toggle flip-flop; T = 1 inverts output on clock edge; fundamental building block for asynchronous/synchronous counters."
         ]
       }
     ],
     "comparison": {
-      "title": "Combinational Circuits vs Sequential Circuits",
-      "entityA": "Combinational Logic Circuits",
-      "entityB": "Sequential Logic Circuits",
+      "title": "Mealy State Machine vs. Moore State Machine",
+      "entityA": "Mealy Sequential Machine",
+      "entityB": "Moore Sequential Machine",
       "rows": [
         {
-          "property": "Memory Storage",
-          "valA": "No memory elements; contains no latches or flip-flops",
-          "valB": "Memory elements present to store system state history"
+          "property": "Output Logic Dependency",
+          "valA": "Outputs depend on BOTH current state AND current primary inputs.",
+          "valB": "Outputs depend EXCLUSIVELY on the current state flip-flop values."
         },
         {
-          "property": "Output Dependency",
-          "valA": "Outputs depend strictly on present input values only",
-          "valB": "Outputs depend on present inputs AND past state history"
+          "property": "State Count Complexity",
+          "valA": "Generally requires FEWER states (often 1 less state for sequence detection).",
+          "valB": "Requires MORE states to distinguish differing output values across transitions."
         },
         {
-          "property": "Clock Signal Requirement",
-          "valA": "Operates asynchronously; does not require a clock pulse",
-          "valB": "Usually driven by periodic clock signals (synchronous systems)"
+          "property": "Timing & Response Speed",
+          "valA": "Outputs can change asynchronously within the clock cycle if inputs change.",
+          "valB": "Outputs are strictly synchronous; change only on the active clock edge."
         },
         {
-          "property": "Feedback Loops",
-          "valA": "Strictly feed-forward acyclic graph; no feedback paths",
-          "valB": "Feedback paths exist from memory outputs back to input logic"
+          "property": "Glitch / Hazard Susceptibility",
+          "valA": "Prone to combinational glitches/hazards propagating directly from input signals.",
+          "valB": "Glitch-free outputs because outputs are isolated by internal state flip-flops."
         },
         {
-          "property": "Timing Analysis",
-          "valA": "Governed purely by cumulative gate propagation delays",
-          "valB": "Constrained by flip-flop setup time, hold time, and clock period"
+          "property": "Output Timing Delay",
+          "valA": "Reacts 1 clock cycle earlier to input shifts than an equivalent Moore machine.",
+          "valB": "Delayed by 1 clock cycle because input must first cause state transition."
         },
         {
-          "property": "Representative GATE Circuits",
-          "valA": "Full Adders, Carry Lookahead, Multiplexers, Decoders, ALUs",
-          "valB": "Shift Registers, Synchronous Counters, RAM Cells, FSM Controllers"
+          "property": "GATE Examination Pitfall",
+          "valA": "An n-bit sequence detector requires n states in a Mealy machine.",
+          "valB": "An n-bit sequence detector requires n + 1 states in a Moore machine."
         }
       ]
     }
@@ -1297,7 +1294,7 @@ const SUBJECT_EXTRAS = {
         "title": "ALU Design & IEEE 754 Floating Point",
         "tag": "Arithmetic",
         "url": "https://www.geeksforgeeks.org/ieee-standard-754-floating-point-numbers/",
-        "desc": "Booth\u2019s multiplication algorithm, restoring/non-restoring division, sign bit, exponent bias 127/1023, mantissa."
+        "desc": "Booth’s multiplication algorithm, restoring/non-restoring division, sign bit, exponent bias 127/1023, mantissa."
       },
       {
         "title": "Cache Memory Organization & Mapping",
@@ -1355,7 +1352,7 @@ const SUBJECT_EXTRAS = {
           "Data Hazard Resolution: Operand forwarding (bypassing), software compiler scheduling, or hardware stalling (bubble insertion).",
           "Pipeline Speedup: S = (n * k * clock) / [(k + n - 1 + Stalls) * clock]. As n -> inf with no stalls, S -> k."
         ],
-        "theorem": "Amdahl\u2019s Law for Speedup: S_{overall} = 1 / [(1 - f) + (f / s)], where f is the fraction of execution time enhanced by a speedup factor of s.",
+        "theorem": "Amdahl’s Law for Speedup: S_{overall} = 1 / [(1 - f) + (f / s)], where f is the fraction of execution time enhanced by a speedup factor of s.",
         "examTrap": "Load-Use Data Hazard Trap: Operand forwarding CANNOT eliminate the stall between a Load Word (LW) instruction and an immediately following instruction that uses the loaded register. It requires at least 1 stall cycle!"
       }
     ],
@@ -1385,7 +1382,7 @@ const SUBJECT_EXTRAS = {
         "note": "Cache line block size exploits spatial locality; cache size exploits temporal locality."
       },
       {
-        "term": "Amdahl\u2019s Law",
+        "term": "Amdahl’s Law",
         "category": "Performance Bounds",
         "definition": "Mathematical law stating the speedup of a system enhanced by factor s on fraction f is S = 1 / [(1 - f) + (f / s)].",
         "note": "Maximum theoretical speedup is strictly bounded by 1 / (1 - f) as s -> inf."
@@ -1393,60 +1390,60 @@ const SUBJECT_EXTRAS = {
     ],
     "taxonomies": [
       {
-        "name": "Cache Mapping Architectures",
-        "badge": "Cache Taxonomy",
+        "name": "Instruction Pipeline Hazards",
+        "badge": "Pipelining Architecture",
         "items": [
-          "Direct Mapped (Index = Address mod Lines; 1 comparator, high conflict miss)",
-          "Fully Associative (Block placed in any line; N comparators, zero conflict miss)",
-          "Set Associative (k lines per set; balanced hit time and miss rate)",
-          "Write-Through vs Write-Back (Immediate memory update vs Dirty bit delayed update)"
+          "Structural Hazard: Resource contention when hardware cannot support multiple instructions simultaneously (e.g. unified memory).",
+          "Data Hazard (RAW - Read After Write): True data dependency where consumer instruction needs producer result before writeback; solved via operand forwarding.",
+          "Data Hazard (WAR & WAW): Name dependencies occurring only in out-of-order execution pipelines; solved via register renaming.",
+          "Control Hazard (Branch Penalty): Caused by branch/jump instructions altering PC; mitigated via dynamic branch predictors and delayed branch slots."
         ]
       },
       {
-        "name": "Pipeline Hazard Taxonomies",
-        "badge": "Hazard Taxonomy",
+        "name": "Cache Memory Placement Architectures",
+        "badge": "Memory Hierarchy",
         "items": [
-          "Structural Hazard (Hardware resource collision, e.g., single memory port)",
-          "Data Hazard: RAW (True dependency, Read-After-Write)",
-          "Data Hazard: WAR / WAW (Anti/Output dependencies in out-of-order CPUs)",
-          "Control Hazard (Branch instructions stalling instruction fetch stage)"
+          "Direct-Mapped Cache: Block maps to exactly (Block_Address mod Num_Lines); fast access but highest conflict misses.",
+          "Fully Associative Cache: Block can reside in ANY cache line; zero conflict misses but requires expensive parallel tag comparators.",
+          "K-Way Set Associative: Block maps to a specific set of K lines; balances lookup hardware complexity with low conflict miss rate.",
+          "Replacement Policies: LRU (Least Recently Used), FIFO (First-In First-Out), and Optimal (Belady's clairvoyant eviction)."
         ]
       }
     ],
     "comparison": {
-      "title": "Direct-Mapped Cache vs Set-Associative Cache",
-      "entityA": "Direct-Mapped Cache",
-      "entityB": "k-Way Set-Associative Cache",
+      "title": "Write-Through Cache vs. Write-Back Cache",
+      "entityA": "Write-Through Cache",
+      "entityB": "Write-Back Cache (Copy-Back)",
       "rows": [
         {
-          "property": "Block Placement Rule",
-          "valA": "Block can map to exactly ONE specific cache line (Line = Block mod N)",
-          "valB": "Block can map to ANY of the k lines within its assigned set"
+          "property": "Memory Update Strategy",
+          "valA": "Updates written simultaneously to both cache line and main memory on every write hit.",
+          "valB": "Updates written ONLY to cache block; main memory updated when block is evicted."
         },
         {
-          "property": "Tag Comparator Hardware",
-          "valA": "Requires only 1 single tag comparator; low cost and fast",
-          "valB": "Requires k parallel tag comparators per lookup; higher hardware cost"
+          "property": "Status Bit Overhead",
+          "valA": "No dirty bit required per cache line (only valid bit needed).",
+          "valB": "Requires 1 dirty (modified) status bit per cache block to track modifications."
         },
         {
-          "property": "Conflict Miss Rate",
-          "valA": "High conflict misses when multiple active addresses share index",
-          "valB": "Significantly reduced conflict misses due to associative line flexibility"
+          "property": "Memory Bus Write Traffic",
+          "valA": "High bus traffic; every processor store generates a memory write cycle.",
+          "valB": "Low bus traffic; memory write transactions occur only on eviction of dirty blocks."
         },
         {
-          "property": "Replacement Policy",
-          "valA": "No replacement algorithm needed; existing block is simply overwritten",
-          "valB": "Requires replacement algorithm (LRU, FIFO, or Random) when set is full"
+          "property": "Miss Allocation Strategy",
+          "valA": "Typically paired with No-Write-Allocate (writes directly around cache to memory).",
+          "valB": "Typically paired with Write-Allocate (fetches block into cache, then updates)."
         },
         {
-          "property": "Address Bit Splitting",
-          "valA": "Tag Bits | Line Index Bits (log2 N) | Word Offset Bits",
-          "valB": "Tag Bits | Set Index Bits (log2 Sets) | Word Offset Bits"
+          "property": "Fault Tolerance & Consistency",
+          "valA": "Main memory is always completely synchronized with cache; clean recovery.",
+          "valB": "Main memory contains stale data until eviction; requires write buffer on eviction."
         },
         {
-          "property": "Hit Latency vs Capacity",
-          "valA": "Fastest hit detection time; optimal for L1 instruction caches",
-          "valB": "Slightly higher hit multiplexing delay; optimal for L2/L3 caches"
+          "property": "GATE Examination Pitfall",
+          "valA": "Write buffer stalls can degrade write-through performance if write bursts occur.",
+          "valB": "A single read miss in write-back can cause TWO memory transactions if victim is dirty!"
         }
       ]
     }
@@ -1473,7 +1470,7 @@ const SUBJECT_EXTRAS = {
         "desc": "LIFO stacks, circular queue full/empty conditions, infix-to-postfix conversion, and postfix evaluation."
       },
       {
-        "title": "Linked Lists & Floyd\u2019s Cycle Detection",
+        "title": "Linked Lists & Floyd’s Cycle Detection",
         "tag": "Linked Structures",
         "url": "https://www.geeksforgeeks.org/data-structures/linked-list/",
         "desc": "Singly, doubly, circular linked lists, in-place list reversal, and two-pointer cycle detection algorithm."
@@ -1515,7 +1512,7 @@ const SUBJECT_EXTRAS = {
           "Stack: LIFO structure used for function calls, expression evaluation, syntax matching, and DFS traversal.",
           "Circular Queue: Array of size N implements modulo indexing. Full condition: `(rear + 1) % N == front`. Stores at most N - 1 items.",
           "Linked List Reversal: Can reverse singly linked list in O(n) time and O(1) auxiliary space using 3 pointers (prev, curr, next).",
-          "Floyd\u2019s Cycle Finding Algorithm: Slow pointer (1 step) and fast pointer (2 steps) meet inside cycle if a loop exists."
+          "Floyd’s Cycle Finding Algorithm: Slow pointer (1 step) and fast pointer (2 steps) meet inside cycle if a loop exists."
         ],
         "theorem": "Stack Permutation Bound: The number of distinct permutations of 1..n that can be produced using a stack is given by the n-th Catalan number C_n = (1 / (n + 1)) * C(2n, n).",
         "examTrap": "Infix to Postfix Associativity: When converting operators with equal precedence, left-associative operators (like +, -, *, /) cause operators on stack to pop; right-associative operators (like exponent ^) do not!"
@@ -1566,233 +1563,316 @@ const SUBJECT_EXTRAS = {
     ],
     "taxonomies": [
       {
-        "name": "Binary Tree Variants",
-        "badge": "Tree Taxonomy",
+        "name": "Self-Balancing Search Tree Taxonomy",
+        "badge": "Search Trees",
         "items": [
-          "Full Binary Tree (Every node has either 0 or 2 children; n_0 = n_2 + 1)",
-          "Complete Binary Tree (Filled left-to-right; base structure for binary heaps)",
-          "Perfect Binary Tree (All interior nodes have 2 children, all leaves at same depth)",
-          "Degenerate Tree (Each node has 1 child; degenerates into linear linked list)"
+          "AVL Tree: Strictly height-balanced; balance factor in {-1, 0, +1}; maximum height <= 1.44 log_2 n; optimal for lookup-heavy workloads.",
+          "Red-Black Tree: Color-balanced; no two consecutive red nodes; equal black-height; maximum height <= 2 log_2(n+1); optimal for write-heavy workloads.",
+          "Splay Tree: Self-adjusting BST; splays accessed node to root via Zig-Zig and Zig-Zag rotations; amortized O(log n) performance.",
+          "B-Tree / B+ Tree: Multi-way balanced search trees with high branching factor; keeps disk I/O operations minimal for external storage."
         ]
       },
       {
-        "name": "Linear Data Structures",
-        "badge": "Linear Structures",
+        "name": "Priority Queues & Heap Structures",
+        "badge": "Priority Elements",
         "items": [
-          "Contiguous Array (O(1) random access, fixed contiguous allocation)",
-          "Singly Linked List (O(1) insertion at head, O(n) sequential access)",
-          "Circular Queue (Modulo indexing, eliminates false full condition)",
-          "Monotonic Stack (Maintains elements in monotonic order for next-greater element)"
+          "Binary Min/Max Heap: Complete binary tree stored in contiguous array; Insert O(log n), Extract-Min O(log n), Build-Heap O(n).",
+          "Binomial Heap: Collection of binomial trees B_k with 2^k nodes; supports efficient Meld (Merge) in O(log n) time.",
+          "Fibonacci Heap: Relaxed tree forest; amortized O(1) Insert and Decrease-Key, O(log n) Extract-Min; optimal for Dijkstra/Prim.",
+          "Indexed Priority Queue: Maintains position mapping array enabling O(log n) Decrease-Key updates on arbitrary elements."
         ]
       }
     ],
     "comparison": {
-      "title": "Binary Search Tree (BST) vs Binary Min-Heap",
-      "entityA": "Binary Search Tree (BST)",
-      "entityB": "Binary Min-Heap",
+      "title": "AVL Tree vs. Red-Black Tree",
+      "entityA": "AVL Tree (Strict Height-Balanced)",
+      "entityB": "Red-Black Tree (Color-Balanced)",
       "rows": [
         {
-          "property": "Core Ordering Invariant",
-          "valA": "Left Child < Parent < Right Child (Horizontal ordering)",
-          "valB": "Parent <= Both Children (Vertical partial ordering only)"
+          "property": "Balance Invariant Condition",
+          "valA": "Balance factor |height(Left) - height(Right)| <= 1 for EVERY node.",
+          "valB": "No two red nodes adjacent; every path from root to null has equal black-height."
         },
         {
-          "property": "Structural Completeness Rule",
-          "valA": "No structural shape constraint; can degenerate into linked list O(n)",
-          "valB": "MUST be a Complete Binary Tree; always balanced with height floor(log2 n)"
+          "property": "Maximum Tree Height",
+          "valA": "Maximum height bounded strictly by 1.44 * log_2(n).",
+          "valB": "Maximum height bounded by 2 * log_2(n + 1)."
         },
         {
-          "property": "Inorder Traversal Output",
-          "valA": "Guaranteed strictly sorted ascending order",
-          "valB": "Does NOT produce sorted order (only parent-child relationship held)"
+          "property": "Lookup (Search) Performance",
+          "valA": "Faster lookup times because strict balancing guarantees smaller average depth.",
+          "valB": "Slightly slower lookup times due to larger allowable tree height."
         },
         {
-          "property": "Search Time Complexity",
-          "valA": "O(log n) average, O(n) worst-case (or O(log n) in balanced AVL/RBT)",
-          "valB": "O(n) linear search; heaps do not support efficient search for arbitrary keys"
+          "property": "Insertion Rebalancing Cost",
+          "valA": "At most 2 tree rotations (single or double rotation) per insertion.",
+          "valB": "At most 2 rotations per insertion; rest resolved via O(log n) recoloring."
         },
         {
-          "property": "Min / Max Element Access",
-          "valA": "O(h) by traversing left-most (min) or right-most (max) branch",
-          "valB": "O(1) constant time to inspect root min element"
+          "property": "Deletion Rebalancing Cost",
+          "valA": "Can require up to O(log n) rotations cascading up to the tree root.",
+          "valB": "At most 3 rotations per deletion; remaining rebalancing handled by recoloring."
         },
         {
-          "property": "Memory Storage Representation",
-          "valA": "Node structures linked via left and right child pointers",
-          "valB": "Contiguous 1D array without pointer overhead (0-indexed arithmetic)"
+          "property": "GATE Examination Pitfall",
+          "valA": "AVL trees are ideal for read-heavy / static dictionaries with infrequent insertions.",
+          "valB": "Red-Black trees are preferred for write-heavy systems (C++ std::map, Linux scheduler)."
         }
       ]
     }
   },
   "algorithms": {
-    "formulaName": "Master Theorem for Divide & Conquer",
-    "lang": "Algorithm Analysis",
+    "formulaName": "Extended Master Theorem & Recurrence Hierarchy",
+    "lang": "Algorithm Complexity & Recurrences",
     "gfgUrl": "https://www.geeksforgeeks.org/fundamentals-of-algorithms/",
     "nptelCode": "noc21-cs68 (IIT Delhi - Design and Analysis of Algorithms)",
-    "derivation": "Recurrence: T(n) = a * T(n/b) + f(n), where a >= 1, b > 1\nCritical Value: c_crit = log_b(a)\nCase 1: f(n) = O(n^{c_crit - epsilon}) for epsilon > 0\n        => T(n) = Theta(n^{log_b(a)})\nCase 2: f(n) = Theta(n^{c_crit} * log^k(n)) for k >= 0\n        => T(n) = Theta(n^{log_b(a)} * log^{k+1}(n))\nCase 3: f(n) = Omega(n^{c_crit + epsilon}) and regularity holds\n        => T(n) = Theta(f(n))",
-    "svgDiagram": "<svg viewBox=\"0 0 320 180\" width=\"100%\" height=\"100%\"><circle cx=\"160\" cy=\"30\" r=\"14\" fill=\"#c5a059\"/><text x=\"160\" y=\"34\" fill=\"#111\" font-size=\"9\" text-anchor=\"middle\">T(n)</text><circle cx=\"90\" cy=\"85\" r=\"12\" fill=\"#c5a059\"/><text x=\"90\" y=\"89\" fill=\"#111\" font-size=\"8\" text-anchor=\"middle\">T(n/2)</text><circle cx=\"230\" cy=\"85\" r=\"12\" fill=\"#c5a059\"/><text x=\"230\" y=\"89\" fill=\"#111\" font-size=\"8\" text-anchor=\"middle\">T(n/2)</text><line x1=\"150\" y1=\"42\" x2=\"100\" y2=\"75\" stroke=\"#666\" stroke-width=\"2\"/><line x1=\"170\" y1=\"42\" x2=\"220\" y2=\"75\" stroke=\"#666\" stroke-width=\"2\"/><text x=\"160\" y=\"150\" fill=\"#999\" font-size=\"10\" text-anchor=\"middle\">Recursion Tree: Total Work per Level = sum c*n</text></svg>",
-    "caption": "Recursion Tree Level-Wise Cost Partitioning",
+    "derivation": "// Extended Master Theorem with Poly-Logarithmic Factors\nRecurrence: T(n) = a * T(n / b) + Theta(n^k * log^p(n))\nCritical Exponent: c_crit = log_b(a)\n\nCase 1: a > b^k (i.e., log_b(a) > k)\n  => T(n) = Theta(n^{log_b(a)})\n\nCase 2: a = b^k (i.e., log_b(a) == k)\n  Subcase 2a: p > -1  => T(n) = Theta(n^k * log^{p+1}(n))\n  Subcase 2b: p == -1 => T(n) = Theta(n^k * log(log(n)))\n  Subcase 2c: p < -1  => T(n) = Theta(n^k)\n\nCase 3: a < b^k (i.e., log_b(a) < k)\n  Subcase 3a: p >= 0  => T(n) = Theta(n^k * log^p(n))\n  Subcase 3b: p < 0   => T(n) = Theta(n^k)\n\nStrassen's Matrix Multiplication:\n  T(n) = 7 * T(n/2) + Theta(n^2)\n  a = 7, b = 2, k = 2 => log_2(7) approx 2.807 > 2 => Case 1\n  => T(n) = Theta(n^{log_2 7}) = Theta(n^{2.807})\n\nMatrix-Chain Parenthesizations (Catalan Number):\n  C(n-1) = [1 / n] * Binomial(2n - 2, n - 1) = Omega(4^n / n^{1.5})\nDP Recurrence:\n  m[i, j] = min_{i <= k < j} { m[i, k] + m[k+1, j] + p_{i-1} * p_k * p_j } (Time: Theta(n^3), Space: Theta(n^2))",
+    "svgDiagram": "<svg viewBox=\"0 0 400 240\" width=\"100%\" height=\"100%\"><rect width=\"400\" height=\"240\" fill=\"transparent\"/><text x=\"200\" y=\"24\" fill=\"#c5a059\" font-family=\"'Cormorant Garamond', serif\" font-size=\"14\" font-weight=\"700\" text-anchor=\"middle\">RECURSION TREE LEVEL WORK SUMMATION</text><circle cx=\"200\" cy=\"55\" r=\"16\" fill=\"rgba(197,160,89,0.2)\" stroke=\"#c5a059\" stroke-width=\"2\"/><text x=\"200\" y=\"59\" fill=\"#c5a059\" font-family=\"monospace\" font-size=\"10\" font-weight=\"700\" text-anchor=\"middle\">c*n</text><text x=\"350\" y=\"59\" fill=\"#999\" font-family=\"monospace\" font-size=\"10\">Level 0: c*n</text><line x1=\"188\" y1=\"69\" x2=\"120\" y2=\"105\" stroke=\"#666\" stroke-width=\"1.5\"/><line x1=\"212\" y1=\"69\" x2=\"280\" y2=\"105\" stroke=\"#666\" stroke-width=\"1.5\"/><circle cx=\"120\" cy=\"115\" r=\"14\" fill=\"rgba(197,160,89,0.2)\" stroke=\"#c5a059\" stroke-width=\"2\"/><text x=\"120\" y=\"119\" fill=\"#c5a059\" font-family=\"monospace\" font-size=\"9\" text-anchor=\"middle\">c*n/2</text><circle cx=\"280\" cy=\"115\" r=\"14\" fill=\"rgba(197,160,89,0.2)\" stroke=\"#c5a059\" stroke-width=\"2\"/><text x=\"280\" y=\"119\" fill=\"#c5a059\" font-family=\"monospace\" font-size=\"9\" text-anchor=\"middle\">c*n/2</text><text x=\"350\" y=\"119\" fill=\"#999\" font-family=\"monospace\" font-size=\"10\">Level 1: c*n</text><line x1=\"110\" y1=\"127\" x2=\"70\" y2=\"160\" stroke=\"#666\" stroke-dasharray=\"2,2\"/><line x1=\"130\" y1=\"127\" x2=\"170\" y2=\"160\" stroke=\"#666\" stroke-dasharray=\"2,2\"/><line x1=\"270\" y1=\"127\" x2=\"230\" y2=\"160\" stroke=\"#666\" stroke-dasharray=\"2,2\"/><line x1=\"290\" y1=\"127\" x2=\"330\" y2=\"160\" stroke=\"#666\" stroke-dasharray=\"2,2\"/><circle cx=\"70\" cy=\"172\" r=\"12\" fill=\"rgba(5,150,105,0.2)\" stroke=\"#059669\" stroke-width=\"1.5\"/><circle cx=\"170\" cy=\"172\" r=\"12\" fill=\"rgba(5,150,105,0.2)\" stroke=\"#059669\" stroke-width=\"1.5\"/><circle cx=\"230\" cy=\"172\" r=\"12\" fill=\"rgba(5,150,105,0.2)\" stroke=\"#059669\" stroke-width=\"1.5\"/><circle cx=\"330\" cy=\"172\" r=\"12\" fill=\"rgba(5,150,105,0.2)\" stroke=\"#059669\" stroke-width=\"1.5\"/><text x=\"350\" y=\"176\" fill=\"#999\" font-family=\"monospace\" font-size=\"10\">Level 2: c*n</text><path d=\"M 50 195 L 350 195\" stroke=\"#c5a059\" stroke-width=\"1\" stroke-dasharray=\"4,4\"/><text x=\"200\" y=\"215\" fill=\"#c5a059\" font-family=\"monospace\" font-size=\"10\" text-anchor=\"middle\">Tree Depth = log_b(n)  |  Total Work = sum c*n = Theta(n log n)</text><text x=\"200\" y=\"232\" fill=\"#888\" font-size=\"9\" text-anchor=\"middle\">Standard D&C Balance: Merge Sort & Balanced Quicksort Tree Structure</text></svg>",
+    "caption": "Recursion Tree Level-Wise Cost Partitioning & Master Theorem Geometry",
     "gfgSubcategories": [
       {
         "title": "Asymptotic Analysis & Recurrences",
         "tag": "Complexity Theory",
         "url": "https://www.geeksforgeeks.org/analysis-of-algorithms-set-1-asymptotic-analysis/",
-        "desc": "Big-O, Omega, Theta asymptotic definitions, Master Theorem cases, recursion tree methods, and substitution."
+        "desc": "Big-O, Omega, Theta asymptotic definitions, Master Theorem extended cases, recursion tree methods, and substitution proofs."
       },
       {
         "title": "Divide & Conquer and Sorting Algorithms",
         "tag": "Sorting & Searching",
         "url": "https://www.geeksforgeeks.org/divide-and-conquer-algorithm-introduction/",
-        "desc": "Merge sort, quick sort randomized pivot, heap sort, comparison sorting Omega(n log n) lower bound, and counting sort."
+        "desc": "Tournament min/max (3n/2 - 2), merge sort stability, quicksort randomized pivot, median-of-medians, and Strassen's matrix multiply."
       },
       {
         "title": "Greedy Algorithms & Matroids",
         "tag": "Greedy Strategy",
         "url": "https://www.geeksforgeeks.org/greedy-algorithms/",
-        "desc": "Greedy choice property, optimal substructure, fractional knapsack, Huffman coding prefix trees, and job sequencing."
+        "desc": "Greedy choice property, exchange arguments, fractional knapsack, job sequencing with DSU, optimal merge, and Huffman coding."
       },
       {
         "title": "Dynamic Programming Paradigms",
         "tag": "Dynamic Programming",
         "url": "https://www.geeksforgeeks.org/dynamic-programming/",
-        "desc": "Memoization vs tabulation, 0/1 knapsack, Matrix Chain Multiplication, Longest Common Subsequence (LCS)."
+        "desc": "5-step framework, weighted interval scheduling, LCS 2D table, Matrix Chain Multiplication, 0/1 knapsack 1D loop, and subset sum."
       },
       {
         "title": "Graph Traversals & Topological Sort",
         "tag": "Graph Algorithms",
         "url": "https://www.geeksforgeeks.org/graph-data-structure-and-algorithms/",
-        "desc": "BFS queue traversal, DFS discovery/finish timestamps, DAG cycle detection, and Kahn\u2019s in-degree topological sort."
+        "desc": "BFS queue shortest path, DFS discovery/finish timestamps, DAG cycle detection, and Kahn's in-degree topological sort."
       },
       {
         "title": "Shortest Paths & Minimum Spanning Trees",
         "tag": "Network Optimization",
         "url": "https://www.geeksforgeeks.org/prims-minimum-spanning-tree-mst-greedy-algo-5/",
-        "desc": "Kruskal\u2019s union-find MST, Prim\u2019s priority queue MST, Dijkstra\u2019s non-negative shortest path, and Bellman-Ford."
+        "desc": "Kruskal's union-find MST, Prim's priority queue MST, Cut and Cycle properties, Dijkstra vs. Bellman-Ford shortest paths."
       }
     ],
     "modules": [
       {
-        "title": "Asymptotic Complexity, Divide & Conquer and Sorting Bounds",
+        "title": "Unit 01 · Asymptotic Analysis & Algorithmic Complexity Lifecycle",
         "keyPoints": [
-          "Asymptotic bounds: O (upper bound), Omega (lower bound), Theta (tight bound), o (strict upper), omega (strict lower).",
-          "Master Theorem solves T(n) = a T(n/b) + f(n) comparing f(n) with critical exponent n^{log_b a}.",
-          "Comparison sorting lower bound: Omega(n log n) comparisons required in worst case, derived from decision tree depth ceil(log2(n!)).",
-          "Linear time sorting: Counting Sort O(n+k), Radix Sort O(d(n+k)), Bucket Sort O(n) average (requires non-comparison assumption)."
+          "The 8-Stage Algorithm Life Cycle: (1) Formal Problem Specification, (2) Algorithmic Paradigm Selection, (3) Correctness Invariant Proof (Initialization, Maintenance, Termination), (4) Asymptotic Complexity Analysis, (5) Implementation & Profiling, (6) Empirical Benchmarking, (7) Hardware-Aware Optimisation (Cache locality & branch prediction), (8) Adversarial Verification & Red Teaming.",
+          "A Priori vs. A Posteriori: A priori determines machine-independent asymptotic bounds (O, Omega, Theta) as n -> infinity; A posteriori measures empirical wall-clock time, system calls, and hardware cache hit ratios.",
+          "Mathematical Limit Definitions: Big-O: lim_{n->inf} f(n)/g(n) < inf; Big-Omega: lim_{n->inf} f(n)/g(n) > 0; Big-Theta: 0 < lim_{n->inf} f(n)/g(n) < inf; Little-o: lim_{n->inf} f(n)/g(n) = 0; Little-omega: lim_{n->inf} f(n)/g(n) = inf.",
+          "Universal Growth-Order Hierarchy: 1 << log log n << log n << (log n)^k << sqrt(n) << n << n log n << n^c << c^n << n! << n^n. Note Stirling's approximation: n! approx sqrt(2*pi*n) * (n/e)^n => log(n!) = Theta(n log n).",
+          "Loop Analysis Counting Patterns: Linear nested loops sum_{i=1}^n sum_{j=1}^i 1 = n(n+1)/2 = Theta(n^2); Multiplicative index jumps (i *= 2) execute floor(log_2 n) + 1 times = Theta(log n); Harmonic nested loops sum_{i=1}^n n/i = n H_n = Theta(n log n).",
+          "Extended Master Theorem with Poly-Log Factors: For T(n) = a T(n/b) + Theta(n^k log^p n) where a = b^k: yields Theta(n^k log^{p+1} n) if p > -1; Theta(n^k log log n) if p = -1; and Theta(n^k) if p < -1.",
+          "Space Complexity Framework: Total Space S_{total}(n) = S_{input}(n) + S_{aux}(n). Call stack depth consumes O(d) frames; tail recursion elimination reduces auxiliary space to O(1)."
         ],
-        "theorem": "Comparison Sorting Lower Bound: Any comparison-based sorting algorithm requires at least ceil(log_2(n!)) = Omega(n log n) comparisons in the worst case.",
-        "examTrap": "Master Theorem Gap Trap: Master theorem cannot solve recurrences where f(n) and n^{log_b a} differ by a non-polynomial factor (e.g., T(n) = 2T(n/2) + n / log n). Use substitution or Akra-Bazzi instead."
+        "theorem": "Extended Master Theorem for Poly-Logarithmic Gaps: For recurrences of the form T(n) = a T(n/b) + Theta(n^{log_b a} * log^p n), when p = -1, the solution is T(n) = Theta(n^{log_b a} * log log n), solving recurrences that violate standard polynomial-gap Master theorem.",
+        "examTrap": "Non-Polynomial Gap Trap: Standard Master Theorem CANNOT solve recurrences where f(n) differs from n^{log_b a} by a non-polynomial margin (e.g. T(n) = 2T(n/2) + n / log n). In this case a = 2, b = 2, k = 1, p = -1, giving Theta(n log log n), NOT Theta(n) or Theta(n log n)."
       },
       {
-        "title": "Greedy Choice Property & Dynamic Programming Paradigms",
+        "title": "Unit 02 · Divide & Conquer, Recurrence Frameworks & Selection Bounds",
         "keyPoints": [
-          "Greedy Choice Property: A globally optimal solution can be arrived at by making locally optimal (greedy) choices.",
-          "Dynamic Programming: Solves problems with overlapping subproblems and optimal substructure via memoization or tabulation.",
-          "0/1 Knapsack (DP, O(nW) pseudo-polynomial time) vs Fractional Knapsack (Greedy, O(n log n) sorting by value/weight).",
-          "Matrix Chain Multiplication: Multiplies n matrices in O(n^3) using DP recurrence m[i,j] = min_{i<=k<j} (m[i,k] + m[k+1,j] + p_{i-1} p_k p_j)."
+          "Tournament Min/Max Comparison Bounds: Simultaneous discovery of minimum and maximum requires exactly ceil(3n/2) - 2 comparisons by comparing elements in adjacent pairs first, contrasting with naive 2n - 3 comparisons.",
+          "Exponentiation by Squaring: Computes a^k using Theta(log k) multiplications via recursive rule: (a^{k/2})^2 for even k and a * (a^{(k-1)/2})^2 for odd k.",
+          "Merge Sort Mechanics & Stability: Two-pointer merge requires Theta(n) auxiliary memory; retains stability (L[i] <= R[j] preserves original relative order of duplicate keys). T(n) = 2T(n/2) + Theta(n) => Theta(n log n) in all cases.",
+          "Quicksort Partition Recurrences: Worst case occurs with extreme pivot (sorted array, Lomuto partition): T(n) = T(n-1) + Theta(n) => Theta(n^2). Best case: T(n) = 2T(n/2) + Theta(n) => Theta(n log n). Randomized pivot guarantees expected running time of 2n ln n approx 1.386 n log_2 n = Theta(n log n).",
+          "Inversion Counting via Augmented Merge: Inversion count increases by (mid - i + 1) whenever an element from right subarray is placed into output before left subarray; runs in Theta(n log n).",
+          "Order Statistics & Selection: Quickselect achieves expected Theta(n) time. Median-of-Medians (BFPRT) with 5-element columns guarantees deterministic worst-case Theta(n) time via recurrence T(n) <= T(ceil(n/5)) + T(7n/10 + 6) + Theta(n).",
+          "Strassen's Sub-Cubic Matrix Multiplication: Multiplies two n x n matrices using 7 block multiplications instead of 8: T(n) = 7T(n/2) + Theta(n^2) => Theta(n^{log_2 7}) approx Theta(n^{2.807})."
         ],
-        "theorem": "Huffman Coding Optimality: Huffman prefix code generation produces an optimal prefix-free binary encoding that minimizes expected codeword length sum p_i l_i.",
-        "examTrap": "0/1 Knapsack Greedy Trap: Never pick items greedily by value or value-to-weight ratio in 0/1 Knapsack. Greedy choice is strictly sub-optimal for discrete items; DP is required."
+        "theorem": "Comparison-Based Sorting Lower Bound: Any comparison-based sorting algorithm requires at least ceil(log_2(n!)) = Omega(n log n) comparisons in the worst case, derived from a decision tree with n! leaves and minimum height log_2(n!).",
+        "examTrap": "Quicksort Call Stack Overhead: In the worst case, quicksort can consume O(n) auxiliary call stack frames. Guaranteeing O(log n) stack depth requires tail-call optimization: always recurse on the smaller partition first and loop on the larger partition."
       },
       {
-        "title": "Graph Algorithms: Traversals, MST & Shortest Paths",
+        "title": "Unit 03 · Greedy Paradigms, Matroid Optimization & Spanning Trees",
         "keyPoints": [
-          "BFS (queue, O(V+E)) finds shortest paths in unweighted graphs. DFS (stack, O(V+E)) classifies tree, back, forward, cross edges.",
-          "Topological Sort exists iff directed graph is a DAG (no back edges). Can be computed using DFS finish times or Kahn\u2019s algorithm.",
-          "Minimum Spanning Tree (MST): Kruskal\u2019s (O(E log V) with Disjoint Set Union) and Prim\u2019s (O((V+E) log V) with min-heap).",
-          "Shortest Paths: Dijkstra (O((V+E) log V), non-negative weights), Bellman-Ford (O(VE), detects negative cycles), Floyd-Warshall (O(V^3), all pairs)."
+          "Greedy Choice Property & Exchange Argument: Proves optimality by assuming an alternative optimal solution O* exists, finding the first decision where greedy choice g differs from O*, and exchanging the element without diminishing objective value.",
+          "Fractional Knapsack: Sorts items by ratio v_i / w_i in descending order. Total time O(n log n) (sorting) + O(n) (greedy loading); yields strictly optimal solution.",
+          "Job Sequencing with Deadlines & Disjoint Sets: Greedily assigns highest-profit jobs to their latest available time slot <= d_i. Naive array lookup takes O(n^2); Disjoint Set Union (DSU) path compression optimizes slot discovery to O(n alpha(m)).",
+          "Optimal Merge Pattern: Merging n sorted files with minimal record movements is equivalent to constructing an optimal 2-way merge tree using a min-heap in O(n log n).",
+          "Huffman Coding Trie: Greedy prefix-free encoding selects two lowest-frequency forest nodes, links under parent with summed weight, and reinserts into min-heap. Produces full binary tree with 2n - 1 total nodes (n leaves, n - 1 internal nodes).",
+          "Minimum Spanning Tree (MST) Cut & Cycle Properties: Cut Property guarantees the minimum-weight edge crossing any cut (S, V \\ S) belongs to an MST. Prim's algorithm runs in O((V+E) log V) using binary heap; Kruskal's runs in O(E log V) using DSU.",
+          "Single-Source Shortest Paths: Dijkstra's algorithm uses greedy non-negative edge relaxation in O((V+E) log V); fails completely with negative edge weights. Bellman-Ford relaxes all edges V - 1 times in O(VE) and detects negative weight cycles."
         ],
-        "theorem": "Cut Property for MST: For any cut in graph G, the lightest edge crossing the cut belongs to every Minimum Spanning Tree of G.",
-        "examTrap": "Dijkstra on Negative Edges Trap: Dijkstra\u2019s algorithm can produce incorrect results or loop infinitely when negative edge weights are present. Always use Bellman-Ford if edge weights can be negative."
+        "theorem": "MST Cut Property: For any partition (cut) of the vertices of a connected graph G = (V, E) into two non-empty disjoint sets S and V \\ S, if edge e = (u, v) is the strictly lightest edge crossing the cut, then e must belong to every MST of G.",
+        "examTrap": "Dijkstra Negative Edge Trap: Adding a positive constant C to all edge weights in a graph with negative edges does NOT fix Dijkstra's algorithm! Paths with more edges accumulate more added weight, altering the true shortest path."
+      },
+      {
+        "title": "Unit 04 · Dynamic Programming, Multi-Stage Decisions & Recurrences",
+        "keyPoints": [
+          "The 5-Step Dynamic Programming Framework: (1) Define Subproblem in clear English and index bounds, (2) Guess / Identify optimal local choice, (3) State Bellman recurrence relation, (4) Verify topological DAG dependency order & base cases, (5) Traceback solution and reconstruct choices.",
+          "Fibonacci Optimization Progression: Naive recursion O(2^n) time -> Memoized top-down O(n) time & O(n) space -> Bottom-up tabulation O(n) time & O(1) space -> Matrix exponentiation [[1, 1], [1, 0]]^n in O(log n) time.",
+          "Weighted Interval Scheduling: Sort intervals by finish time f_1 <= f_2 <= ... <= f_n. Compute p(j) = max {i < j | f_i <= s_j} using binary search in O(log n). Recurrence: OPT(j) = max(OPT(j-1), v_j + OPT(p(j))). Total time O(n log n).",
+          "Longest Common Subsequence (LCS): For sequences X_{1..m} and Y_{1..n}, c[i, j] = c[i-1, j-1] + 1 if x_i == y_j, else max(c[i-1, j], c[i, j-1]). Time O(mn), space reducible to O(min(m, n)) using two rows.",
+          "Matrix-Chain Multiplication: Parenthesizing n matrices involves Catalan number C(n-1) = [1/n] * Binomial(2n-2, n-1) = Omega(4^n / n^{1.5}) possibilities. DP recurrence: m[i, j] = min_{i <= k < j} {m[i, k] + m[k+1, j] + p_{i-1} * p_k * p_j} solved along diagonals in O(n^3) time and O(n^2) space.",
+          "0/1 Knapsack & 1D Space Optimization: Discrete items with weights w_i, values v_i. Recurrence K[i, w] = max(K[i-1, w], v_i + K[i-1, w - w_i]). Time O(nW) (pseudo-polynomial). Space optimized to 1D array of size W+1 by iterating weight w downward from W to w_i to prevent using the same item twice.",
+          "Subset Sum Problem: Boolean recurrence B[i, s] = B[i-1, s] or B[i-1, s - A[i]] with base case B[0, 0] = True. Runs in O(n * S) pseudo-polynomial time; NP-complete in general."
+        ],
+        "theorem": "Bellman's Principle of Optimality: An optimal policy has the property that whatever the initial state and initial decision are, the remaining decisions must constitute an optimal policy with regard to the state resulting from the first decision.",
+        "examTrap": "0/1 Knapsack 1D Direction Trap: When reducing 0/1 Knapsack table to a 1D array, the inner loop MUST iterate downward (w = W down to w_i). Iterating upward (w = w_i up to W) solves the Unbounded Knapsack problem (allowing items to be picked infinitely many times)."
+      },
+      {
+        "title": "Unit 05 · The Algorithms Revision Laboratory & Conceptual Checkpoints",
+        "keyPoints": [
+          "Checkpoint 01-04 (Asymptotics): f(n) = O(g(n)) does not imply g(n) = O(f(n)). For any constant c > 0, (log n)^c = o(n^epsilon) for any epsilon > 0. log(n!) = Theta(n log n) via Stirling's formula. Recurrence T(n) = 2T(n/2) + n/log n gives Theta(n log log n).",
+          "Checkpoint 05-08 (Divide & Conquer): Tournament min/max takes ceil(3n/2) - 2 comparisons. Quickselect expected time is Theta(n), worst-case Theta(n^2). Median-of-Medians with group size 5 gives worst-case Theta(n). Strassen's uses 7 multiplications giving Theta(n^2.807).",
+          "Checkpoint 09-12 (Greedy & Trees): Huffman tree with n symbols has exactly 2n - 1 total nodes. Job sequencing with deadlines can be solved in O(n alpha(n)) using DSU. Adding positive constant C to all edges changes shortest paths but preserves MSTs. Prim's with Fibonacci heap takes O(E + V log V).",
+          "Checkpoint 13-16 (Dynamic Programming): Number of ways to parenthesize n matrices is Catalan number C(n-1) = [1/n] * Binomial(2n-2, n-1). 0/1 Knapsack is weakly NP-complete because O(nW) is polynomial in value of W but exponential in input length log_2 W. LCS of two strings of length n takes O(n^2) time and O(n) space.",
+          "Checkpoint 17-18 (Graph & Bounds): Decision tree height >= log_2(n!) = Omega(n log n) establishes comparison sorting lower bound. Dijkstra's fails on negative edges; Bellman-Ford correctly identifies negative cycles reachable from source in V - 1 iterations."
+        ],
+        "theorem": "Catalog of Exact Boundary Solutions: Standard recurrence formulas: T(n) = T(sqrt(n)) + Theta(1) => Theta(log log n); T(n) = 2T(sqrt(n)) + log n => Theta(log n * log log n); T(n) = T(n-1) + 1/n => Theta(log n) (Harmonic Series H_n).",
+        "examTrap": "Pseudo-Polynomial vs Polynomial Trap: An algorithm running in O(nW) time where W is an integer parameter is pseudo-polynomial, NOT polynomial. If W is encoded in binary, input size is B = log_2 W bits, making running time O(n * 2^B), which is exponential in input size."
       }
     ],
     "definitions": [
       {
-        "term": "Asymptotic Equivalence (Theta Notation)",
-        "category": "Complexity",
-        "definition": "f(n) = Theta(g(n)) iff there exist positive constants c_1, c_2, n_0 such that c_1 g(n) <= f(n) <= c_2 g(n) for all n >= n_0.",
-        "note": "Represents an asymptotically tight bound from both above and below."
+        "term": "Asymptotic Dominance (Big-O)",
+        "category": "Complexity Theory",
+        "definition": "f(n) = O(g(n)) iff there exist positive constants c and n_0 such that 0 <= f(n) <= c * g(n) for all n >= n_0. Equivalently, lim_{n->inf} f(n)/g(n) < infinity.",
+        "note": "Represents an asymptotic upper bound on growth rate."
       },
       {
         "term": "Optimal Substructure",
         "category": "Paradigms",
         "definition": "A problem exhibits optimal substructure if an optimal solution to the overall problem instance contains optimal solutions to its subproblem instances.",
-        "note": "Prerequisite for both Dynamic Programming and Greedy algorithms."
+        "note": "A mandatory prerequisite for both Dynamic Programming and Greedy algorithms."
       },
       {
         "term": "Greedy Choice Property",
         "category": "Paradigms",
-        "definition": "A globally optimal solution can be reached by greedily making locally optimal choices at each decision stage without backtracking.",
-        "note": "Distinguishes greedy methods from DP; requires proof of correctness (exchange argument)."
+        "definition": "A globally optimal solution can be arrived at by making locally optimal (greedy) choices at each decision stage without backtracking.",
+        "note": "Must be proved using an exchange argument showing any optimal solution can be converted to the greedy solution."
       },
       {
-        "term": "Master Theorem",
+        "term": "Master Theorem Poly-Log Extension",
         "category": "Recurrences",
-        "definition": "Cookbook formula solving divide-and-conquer recurrences T(n) = a T(n/b) + f(n) by comparing f(n) against the critical exponent n^{log_b a}.",
-        "note": "Requires polynomial gap; does not apply to non-polynomial differences like n/log(n)."
+        "definition": "Extension solving recurrences T(n) = a T(n/b) + Theta(n^k log^p n) where critical exponent equals k, solving cases like p = -1 yielding Theta(n^k log log n).",
+        "note": "Handles logarithmic denominator gaps where standard polynomial Master Theorem fails."
       },
       {
-        "term": "Cut Property for MST",
-        "category": "Graph Theory",
-        "definition": "For any cut in a connected edge-weighted graph, the edge crossing the cut with the minimum weight belongs to every Minimum Spanning Tree of the graph.",
-        "note": "Underpins correctness of Kruskal\u2019s and Prim\u2019s greedy algorithms."
+        "term": "Adversary Argument",
+        "category": "Lower Bounds",
+        "definition": "A technique for establishing lower bounds by constructing an adversary who dynamically constructs worst-case inputs consistent with prior query answers.",
+        "note": "Proves the ceil(3n/2) - 2 bound for simultaneous min/max and Omega(n log n) sorting lower bounds."
+      },
+      {
+        "term": "Catalan Parenthesization Number",
+        "category": "Combinatorics",
+        "definition": "The number of distinct ways to parenthesize a sequence of n matrices: C(n-1) = [1/n] * Binomial(2n - 2, n - 1) = Omega(4^n / n^{1.5}).",
+        "note": "Demonstrates why brute-force evaluation of Matrix Chain Multiplication is infeasible."
       }
     ],
     "taxonomies": [
       {
-        "name": "Algorithmic Design Paradigms",
-        "badge": "Design Paradigms",
+        "name": "Algorithmic Paradigm Archetypes",
+        "badge": "Design Strategies",
         "items": [
-          "Divide and Conquer (Merge Sort, Quick Sort median pivot, Binary Search)",
-          "Greedy Strategy (Huffman Coding, Kruskal MST, Fractional Knapsack)",
-          "Dynamic Programming (Matrix Chain, 0/1 Knapsack, Bellman-Ford, Floyd-Warshall)",
-          "Backtracking & Branch-and-Bound (N-Queens, Graph Coloring, TSP pruning)"
+          "Divide & Conquer: Breaks instance into independent subproblems, recurses, and merges (e.g., Merge Sort, Quicksort, Strassen).",
+          "Greedy Paradigm: Commits to locally optimal choices without backtracking; requires optimal substructure and exchange proof.",
+          "Dynamic Programming: Evaluates overlapping subproblems via topological table memoization or bottom-up tabulation.",
+          "Branch & Bound / Backtracking: Explores state-space search trees with bounding functions to prune non-viable candidate subtrees.",
+          "Randomized Algorithms: Las Vegas (always correct output, randomized runtime) vs. Monte Carlo (deterministic runtime, probabilistic error)."
         ]
       },
       {
-        "name": "Sorting Algorithm Classifications",
+        "name": "Asymptotic Recurrence Solvers",
+        "badge": "Complexity Methods",
+        "items": [
+          "Extended Master Theorem: Solves T(n) = a T(n/b) + Theta(n^k log^p n) covering poly-log gaps (p > -1, p = -1, p < -1).",
+          "Akra-Bazzi Theorem: Solves non-uniform divide-and-conquer recurrences with arbitrary fractional partition splits.",
+          "Recursion Tree Method: Evaluates per-level work sums and aggregates geometric series across tree depth log_b n.",
+          "Substitution Method: Mathematical induction guessing upper and lower bounds and establishing base case induction invariants."
+        ]
+      },
+      {
+        "name": "Comparison-Based Sorting Hierarchy",
         "badge": "Sorting Taxonomy",
         "items": [
-          "Stable Sorts (Merge Sort, Counting Sort, TimSort - preserve relative order)",
-          "Unstable Sorts (Quick Sort, Heap Sort, Selection Sort)",
-          "In-Place Sorts (Heap Sort, Quick Sort - O(1) auxiliary memory)",
-          "Linear Time Sorts (Counting Sort O(n+k), Radix Sort O(d(n+k)))"
+          "Guaranteed O(n log n) Sorts: Merge Sort (stable, Theta(n) auxiliary space), Heap Sort (in-place, unstable).",
+          "Expected O(n log n) Sorts: Randomized Quicksort (in-place, Theta(n^2) worst-case, expected Theta(n log n)).",
+          "Quadratic O(n^2) Sorts: Insertion Sort (adaptive O(n) for nearly sorted), Selection Sort (strictly n(n-1)/2 comparisons), Bubble Sort.",
+          "Linear Non-Comparison Sorts: Counting Sort O(n + k), Radix Sort O(d(n + k)), Bucket Sort O(n) average (bypasses Omega(n log n) lower bound)."
         ]
       }
     ],
     "comparison": {
-      "title": "Greedy Strategy vs Dynamic Programming",
-      "entityA": "Greedy Algorithmic Paradigm",
-      "entityB": "Dynamic Programming (DP)",
+      "title": "Dynamic Programming vs. Greedy Method",
+      "entityA": "Dynamic Programming (DP)",
+      "entityB": "Greedy Strategy",
       "rows": [
         {
-          "property": "Decision Commitment Timing",
-          "valA": "Irrevocably commits to the local optimal choice; never reconsiders",
-          "valB": "Exhaustively evaluates all overlapping subproblems and tabulates results"
+          "property": "Core Decision Paradigm",
+          "valA": "Solves all overlapping subproblems; makes decisions based on optimal sub-solutions.",
+          "valB": "Makes locally optimal choice at each step without ever backtracking or revising."
         },
         {
-          "property": "Subproblem Structure",
-          "valA": "Reduces problem to a single subproblem at each step",
-          "valB": "Strictly requires overlapping subproblems reused across decision paths"
+          "property": "Optimality Pre-condition",
+          "valA": "Requires Optimal Substructure and Overlapping Subproblems.",
+          "valB": "Requires Optimal Substructure and Greedy Choice Property (proven via exchange proof)."
         },
         {
-          "property": "Optimal Substructure Rule",
-          "valA": "Required (must prove greedy choice belongs to global optimum)",
-          "valB": "Required (optimal solution composed of optimal sub-solutions)"
+          "property": "Subproblem Dependency",
+          "valA": "Subproblems heavily overlap; memoization or bottom-up tabulation saves exponential work.",
+          "valB": "Subproblems do not overlap; each greedy decision reduces instance to a single subproblem."
         },
         {
-          "property": "Backtracking Capability",
-          "valA": "No backtracking; choices are top-down and instantaneous",
-          "valB": "Retains table/memo memoizing all paths; can reconstruct full decision sequence"
+          "property": "Computational Time Complexity",
+          "valA": "Typically polynomial or pseudo-polynomial (e.g. O(nW) for Knapsack, O(n^3) for MCM).",
+          "valB": "Typically faster: O(n log n) sorting or O(n) greedy scans (e.g. O(n log n) for Fractional Knapsack)."
         },
         {
-          "property": "Classic Knapsack Comparison",
-          "valA": "Solves Fractional Knapsack in O(n log n) sorting by value/weight",
-          "valB": "Required for discrete 0/1 Knapsack in O(nW) pseudo-polynomial time"
+          "property": "Reversibility & Search Space",
+          "valA": "Evaluates candidate choices at each state (e.g. include vs. exclude item).",
+          "valB": "Commits irrevocably to local optimum; zero exploration of alternative branches."
         },
         {
-          "property": "Typical Execution Time",
-          "valA": "Usually faster: O(n) or O(n log n)",
-          "valB": "Higher polynomial complexity: O(n^2), O(n^3), or O(nW)"
+          "property": "GATE Examination Pitfall",
+          "valA": "0/1 Knapsack CANNOT be solved with greedy ratio sorting; DP is strictly required.",
+          "valB": "Greedy choice works for Fractional Knapsack, but fails for discrete 0/1 Knapsack."
+        }
+      ]
+    },
+    "pdfGuide": {
+      "title": "ALGORITHMS: The Complete Visual Study Guide",
+      "subtitle": "Official 41-Page Visual Dossier & Comprehensive Handbook",
+      "fileUrl": "assets/docs/AW+ALGO.pdf",
+      "fileName": "AW+ALGO.pdf",
+      "size": "883 KB",
+      "pages": 41,
+      "summary": "Complete 41-page visual dossier encompassing the 8-stage algorithm life cycle, asymptotic limits and poly-log Master theorem extensions, Divide & Conquer selection and comparison bounds, Greedy matroid proofs and MST cut properties, Dynamic Programming 5-step paradigms, and the 18-question conceptual verification laboratory.",
+      "units": [
+        {
+          "name": "Unit 01: Asymptotic Analysis",
+          "scope": "The 8-Stage Algorithm Life Cycle, A Priori vs. A Posteriori Analysis, Formal Mathematical Limits (O, Omega, Theta, o, omega), Growth-Order Hierarchy, Loop Counting & Harmonic Recurrences, Extended Master Theorem (p > -1, p = -1, p < -1), Recursion Tree Summations, Space Complexity Model (Total = Input + Aux) & Stack Depth."
+        },
+        {
+          "name": "Unit 02: Divide & Conquer",
+          "scope": "Tournament Min/Max Comparison Bounds (3n/2 - 2), Exponentiation by Squaring (Theta(log k)), Binary Search Trace & Boundary Invariants, Out-of-Place Merge Sort Mechanics & Stability, Quicksort Partition Recurrences (Worst, Best, Balanced, Expected 1.386 n log n), Inversion Counting via Augmented Merge, Quickselect & Median-of-Medians (BFPRT O(n)), Strassen's Matrix Multiplication (7 Multiplications, Theta(n^2.807)), Comparison-Based Sorting Lower Bound (Omega(n log n))."
+        },
+        {
+          "name": "Unit 03: Greedy Algorithms",
+          "scope": "Optimization Terminology & Matroid Foundations, Fractional Knapsack Exchange Proof, Job Sequencing with Deadlines & Disjoint Set Union (DSU), Optimal 2-Way Merge Patterns, Huffman Coding Prefix Trie & Full Binary Tree Invariants (2n-1 nodes), Cut Property, Prim's and Kruskal's MST, Single-Source Shortest Paths (Dijkstra Non-Negative vs. Bellman-Ford Negative Cycle Detection)."
+        },
+        {
+          "name": "Unit 04: Dynamic Programming",
+          "scope": "The 5-Step DP Formulation Framework, Memoization vs. Tabulation, Fibonacci Order Optimization (Recursion to Matrix Exponentiation), Weighted Interval Scheduling (OPT(j) = max(OPT(j-1), v_j + OPT(p(j)))), Longest Common Subsequence (LCS 2D Table & Traceback), Matrix-Chain Multiplication (Catalan Trees C(n-1) and O(n^3) DP), 0/1 Knapsack (1D Downward Array Loop), Subset Sum Boolean DP."
+        },
+        {
+          "name": "Revision Laboratory",
+          "scope": "18 High-Yield Conceptual Checkpoint Questions with Complete Verified Step-by-Step Mathematical Solutions and GATE Examination Traps."
         }
       ]
     }
@@ -1816,7 +1896,7 @@ const SUBJECT_EXTRAS = {
         "title": "Regular Expressions & Pumping Lemma",
         "tag": "Regular Languages",
         "url": "https://www.geeksforgeeks.org/pumping-lemma-in-theory-of-computation/",
-        "desc": "Arden\u2019s theorem, regular expressions, closure properties, and proving non-regularity via Pumping Lemma."
+        "desc": "Arden’s theorem, regular expressions, closure properties, and proving non-regularity via Pumping Lemma."
       },
       {
         "title": "Context-Free Grammars & Pushdown Automata",
@@ -1837,10 +1917,10 @@ const SUBJECT_EXTRAS = {
         "desc": "Turing Machine 7-tuple, tape head transitions, Type 0 to Type 3 languages, multi-tape equivalence."
       },
       {
-        "title": "Decidability, Halting Problem & Rice\u2019s Theorem",
+        "title": "Decidability, Halting Problem & Rice’s Theorem",
         "tag": "Undecidability",
         "url": "https://www.geeksforgeeks.org/undecidability-and-reducibility-in-toc/",
-        "desc": "Halting problem undecidability, Post Correspondence Problem (PCP), reduction proofs, and Rice\u2019s theorem."
+        "desc": "Halting problem undecidability, Post Correspondence Problem (PCP), reduction proofs, and Rice’s theorem."
       }
     ],
     "modules": [
@@ -1867,15 +1947,15 @@ const SUBJECT_EXTRAS = {
         "examTrap": "CFL Intersection Trap: The intersection of two context-free languages is NOT necessarily context-free! For example, L_1 = {a^n b^n c^m} and L_2 = {a^m b^n c^n} are CFLs, but L_1 cap L_2 = {a^n b^n c^n} is not context-free."
       },
       {
-        "title": "Turing Machines, Computability & Rice\u2019s Theorem",
+        "title": "Turing Machines, Computability & Rice’s Theorem",
         "keyPoints": [
           "Turing Machine: Tape head can read, write, and move Left/Right. Halts in accept or reject state, or loops forever.",
           "Recursive Languages (Decidable): TM halts on ALL inputs (accepts or rejects). Closed under complement.",
           "Recursively Enumerable (Turing Recognizable): TM halts and accepts valid strings, but may loop endlessly on invalid strings.",
           "Halting Problem: Determining whether an arbitrary TM halts on an arbitrary input is undecidable."
         ],
-        "theorem": "Rice\u2019s Theorem: Any non-trivial semantic property of the language recognized by a Turing Machine is undecidable.",
-        "examTrap": "Syntactic vs Semantic Property Trap: Rice\u2019s theorem applies ONLY to semantic properties of the language recognized by a TM (e.g., \"is L(M) empty?\"). It does NOT apply to syntactic properties of the TM itself (e.g., \"does M have 10 states?\"), which are trivially decidable."
+        "theorem": "Rice’s Theorem: Any non-trivial semantic property of the language recognized by a Turing Machine is undecidable.",
+        "examTrap": "Syntactic vs Semantic Property Trap: Rice’s theorem applies ONLY to semantic properties of the language recognized by a TM (e.g., \"is L(M) empty?\"). It does NOT apply to syntactic properties of the TM itself (e.g., \"does M have 10 states?\"), which are trivially decidable."
       }
     ],
     "definitions": [
@@ -1904,7 +1984,7 @@ const SUBJECT_EXTRAS = {
         "note": "Closed under complement. Recursively Enumerable languages may loop forever on non-members."
       },
       {
-        "term": "Rice\u2019s Theorem",
+        "term": "Rice’s Theorem",
         "category": "Undecidability",
         "definition": "Any non-trivial semantic property of the language recognized by a Turing Machine is undecidable.",
         "note": "Applies strictly to properties of L(M), not syntactic properties of machine M itself."
@@ -1912,60 +1992,60 @@ const SUBJECT_EXTRAS = {
     ],
     "taxonomies": [
       {
-        "name": "Chomsky Hierarchy of Languages",
-        "badge": "Formal Hierarchy",
+        "name": "The Chomsky Language Hierarchy",
+        "badge": "Formal Grammars",
         "items": [
-          "Type 3: Regular Languages (Finite State Automata, no memory)",
-          "Type 2: Context-Free Languages (Pushdown Automata, single LIFO stack)",
-          "Type 1: Context-Sensitive Languages (Linear Bounded Automata)",
-          "Type 0: Recursively Enumerable Languages (Unrestricted Turing Machines)"
+          "Type 3 (Regular Languages): Recognized by Finite Automata (DFA/NFA); generated by right-linear grammars A -> aB | a.",
+          "Type 2 (Context-Free Languages): Recognized by Pushdown Automata (PDA); generated by CFGs A -> alpha; pumping lemma for CFLs.",
+          "Type 1 (Context-Sensitive Languages): Recognized by Linear Bounded Automata (LBA); productions alpha -> beta with |alpha| <= |beta|.",
+          "Type 0 (Recursively Enumerable): Recognized by Turing Machines; unrestricted production rules alpha -> beta."
         ]
       },
       {
-        "name": "Decision Problem Classes",
-        "badge": "Decidability Taxonomy",
+        "name": "Decidability & Computability Boundary",
+        "badge": "Turing Classes",
         "items": [
-          "Decidable on Regular (Emptiness, Finiteness, Membership, Equivalence)",
-          "Decidable on CFL (Emptiness, Finiteness, Membership via CYK)",
-          "Undecidable on CFL (Ambiguity, Equivalence, Universality L = Sigma*)",
-          "Undecidable on TM (Halting Problem, Emptiness, Equivalence, Regularity)"
+          "Decidable / Recursive (R): Turing machine halts and decides membership on ALL input strings in finite steps.",
+          "Recognizable / Recursively Enumerable (RE): Turing machine accepts valid strings, but may loop infinitely on invalid strings.",
+          "Co-RE: Complement of language is RE; if a language is both RE and Co-RE, it is strictly Decidable (R).",
+          "Undecidable Problems: Halting Problem (H_TM), State-Entry Problem, Emptiness Problem for Turing Machines (Rice's Theorem)."
         ]
       }
     ],
     "comparison": {
-      "title": "Deterministic Finite Automata (DFA) vs Non-Deterministic Finite Automata (NFA)",
+      "title": "Deterministic Finite Automata (DFA) vs. Non-Deterministic Finite Automata (NFA)",
       "entityA": "Deterministic Finite Automata (DFA)",
       "entityB": "Non-Deterministic Finite Automata (NFA)",
       "rows": [
         {
-          "property": "Transition Uniqueness",
-          "valA": "Exactly one transition for every input symbol: delta: Q x Sigma -> Q",
-          "valB": "Zero, one, or multiple transitions per symbol: delta: Q x Sigma -> 2^Q"
+          "property": "Transition Function Domain",
+          "valA": "delta: Q x Sigma -> Q (exactly ONE deterministic next state per symbol).",
+          "valB": "delta: Q x (Sigma U {epsilon}) -> 2^Q (set of candidate states, includes epsilon-moves)."
         },
         {
-          "property": "Epsilon (Null) Transitions",
-          "valA": "Strictly forbidden; cannot change state without reading input",
-          "valB": "Permitted (epsilon-NFA can change state without consuming input)"
+          "property": "Expressive Language Power",
+          "valA": "Recognizes exactly the class of Regular Languages.",
+          "valB": "Recognizes exactly the class of Regular Languages: L(DFA) == L(NFA)."
         },
         {
-          "property": "Language Expressive Power",
-          "valA": "Recognizes Regular Languages (Type 3 in Chomsky Hierarchy)",
-          "valB": "Recognizes Regular Languages (Type 3): EXACTLY identical expressive power!"
+          "property": "State Conversion Bounds",
+          "valA": "An n-state DFA is already minimal or minimizable via Myhill-Nerode in O(n log n).",
+          "valB": "Subset construction can convert an n-state NFA to an equivalent DFA with up to 2^n states."
         },
         {
-          "property": "Powerset Subset Construction",
-          "valA": "Minimal state count achieved through Myhill-Nerode minimization",
-          "valB": "Converting an n-state NFA to a DFA can yield up to 2^n states in worst case"
+          "property": "String Simulation Runtime",
+          "valA": "O(|w|) deterministic time; strictly 1 state transition per input character.",
+          "valB": "O(|Q|^2 * |w|) simulation time if tracking candidate active states online."
         },
         {
-          "property": "String Acceptance Criterion",
-          "valA": "Input string is accepted iff the unique path terminates in a final state",
-          "valB": "Accepted iff AT LEAST ONE computational path ends in an accepting state"
+          "property": "Language Complement Operation",
+          "valA": "Trivial: swap accept and non-accept states (F' = Q \\ F) on complete DFA.",
+          "valB": "CANNOT simply invert accept states! Must first convert NFA to complete DFA, then swap."
         },
         {
-          "property": "Hardware Implementation",
-          "valA": "Directly synthesized into sequential flip-flop circuits",
-          "valB": "Requires state-set tracking or simulation in software"
+          "property": "GATE Examination Pitfall",
+          "valA": "DFA must be complete (dead/trap state must be explicitly included) before complementing.",
+          "valB": "An NFA can accept epsilon without reading any input symbol; DFA must explicitly transition."
         }
       ]
     }
@@ -2021,8 +2101,8 @@ const SUBJECT_EXTRAS = {
         "title": "Lexical Analysis, Grammar Transformations & LL(1) Parsing",
         "keyPoints": [
           "Lexical analyzer generates tokens; resolves ambiguity using longest match (maximal munch) rule.",
-          "Eliminating immediate left recursion: A -> A alpha | beta converts to A -> beta A\u2019, A\u2019 -> alpha A\u2019 | epsilon.",
-          "Left factoring: A -> alpha beta_1 | alpha beta_2 converts to A -> alpha A\u2019, A\u2019 -> beta_1 | beta_2.",
+          "Eliminating immediate left recursion: A -> A alpha | beta converts to A -> beta A’, A’ -> alpha A’ | epsilon.",
+          "Left factoring: A -> alpha beta_1 | alpha beta_2 converts to A -> alpha A’, A’ -> beta_1 | beta_2.",
           "LL(1) parsing table entry M[A, a] contains A -> alpha if a is in FIRST(alpha), or if epsilon in FIRST(alpha) and a is in FOLLOW(A)."
         ],
         "theorem": "LL(1) Non-Ambiguity Invariant: An ambiguous grammar can NEVER be parsed by an LL(1) parser; eliminating left recursion and left factoring are necessary, but may not be sufficient.",
@@ -2085,60 +2165,60 @@ const SUBJECT_EXTRAS = {
     ],
     "taxonomies": [
       {
-        "name": "Parsing Algorithm Power Spectrum",
-        "badge": "Parser Hierarchy",
+        "name": "Grammar Parsing Class Hierarchy",
+        "badge": "Syntax Analysis",
         "items": [
-          "LL(1) (Top-down, 1 lookahead, leftmost derivation, no left recursion)",
-          "SLR(1) (Simple LR, uses FOLLOW set for reductions, smallest table)",
-          "LALR(1) (Merged CLR cores, same state count as SLR, no new SR conflicts)",
-          "CLR(1) (Canonical LR, full lookahead items [A -> alpha.beta, a], most powerful)"
+          "LL(1) Predictive: Top-down parser scanning Left-to-right with Leftmost derivation; requires conflict-free FIRST/FOLLOW sets.",
+          "SLR(1) Simple LR: Bottom-up shift-reduce parser using LR(0) items and FOLLOW sets for reduce actions.",
+          "LALR(1) Lookahead LR: Merges LR(1) items with identical cores; reduces state count to SLR(1) while eliminating many reduce conflicts.",
+          "Canonical LR(1): Most powerful deterministic bottom-up parser; tracks exact lookahead terminals; largest parsing table size."
         ]
       },
       {
-        "name": "Compiler Optimization Scopes",
-        "badge": "Optimization Taxonomy",
+        "name": "Compiler Code Optimization Passes",
+        "badge": "Optimization",
         "items": [
-          "Local Optimization (Within a single basic block, DAG common subexpressions)",
-          "Loop Optimization (Loop invariant code motion, induction variable strength reduction)",
-          "Data Flow Analysis (Reaching definitions, liveness analysis, constant propagation)",
-          "Peephole Optimization (Redundant instruction elimination, algebraic simplifications)"
+          "Constant Folding & Propagation: Evaluates compile-time constant expressions and replaces variables with known constants.",
+          "Common Subexpression Elimination (CSE): Identifies identical expressions evaluated across basic blocks using DAGs.",
+          "Loop Invariant Code Motion (Hoisting): Moves computations whose operands never change outside loop pre-headers.",
+          "Dead Code Elimination: Removes instructions whose output variables are never used or whose execution is unreachable."
         ]
       }
     ],
     "comparison": {
-      "title": "Top-Down Parsing (LL(1)) vs Bottom-Up Parsing (LR(1) / LALR(1))",
-      "entityA": "Top-Down Parsing (LL(1))",
-      "entityB": "Bottom-Up Parsing (LR(1) / LALR(1))",
+      "title": "LL(1) Predictive Parsing vs. LR(1) Bottom-Up Parsing",
+      "entityA": "LL(1) Top-Down Parser",
+      "entityB": "LR(1) Bottom-Up Shift-Reduce Parser",
       "rows": [
         {
-          "property": "Derivation Constructed",
-          "valA": "Constructs Leftmost derivation starting from Root non-terminal down to leaves",
-          "valB": "Constructs Rightmost derivation in reverse starting from leaves up to Root"
+          "property": "Derivation Direction",
+          "valA": "Left-to-right scan; constructs Leftmost derivation in top-down fashion.",
+          "valB": "Left-to-right scan; constructs Rightmost derivation in reverse (bottom-up)."
         },
         {
-          "property": "Handling Left Recursion",
-          "valA": "Cannot handle left recursion (causes infinite parser loop; must be eliminated)",
-          "valB": "Handles left recursion naturally without grammar modification"
+          "property": "Grammar Handling Scope",
+          "valA": "Strictly smaller class of grammars; cannot parse left-recursive or non-left-factored CFGs.",
+          "valB": "Significantly larger class of grammars; naturally parses left-recursive grammars; LL(1) is a proper subset."
         },
         {
-          "property": "Parser Action Set",
-          "valA": "Predict production from non-terminal and input token; Match terminals",
-          "valB": "Shift input terminal, Reduce handles by production, Accept, Error"
+          "property": "Parser Table Conflicts",
+          "valA": "FIRST/FIRST conflicts or FIRST/FOLLOW conflicts in table entries.",
+          "valB": "Shift/Reduce (S/R) conflicts or Reduce/Reduce (R/R) conflicts in parse action table."
         },
         {
-          "property": "Parsing Table Organization",
-          "valA": "2D table indexed by [Non-Terminal, Lookahead Terminal]",
-          "valB": "Action table [State, Terminal] and Goto table [State, Non-Terminal]"
+          "property": "Table Memory Footprint",
+          "valA": "Small parsing table size: O(|Non-terminals| x |Terminals|).",
+          "valB": "Much larger table size: O(|States| x |Terminals|), where state count can reach thousands."
         },
         {
-          "property": "Grammar Class Expressive Power",
-          "valA": "Strictly weaker: LL(1) grammars are a proper subset of LR(1)",
-          "valB": "Substantially more powerful: parses virtually all programming language constructs"
+          "property": "Error Detection Timing",
+          "valA": "Detects syntax error on the first terminal where derivation cannot proceed.",
+          "valB": "Detects syntax error immediately on shift-reduce invalid lookup without performing unwanted reductions."
         },
         {
-          "property": "Syntax Error Detection Point",
-          "valA": "Detects syntax error immediately before shifting invalid terminal",
-          "valB": "Detects syntax error as soon as an invalid reduction or shift is attempted"
+          "property": "GATE Examination Pitfall",
+          "valA": "Left recursion ALWAYS produces conflicts in LL(1) tables; must eliminate left recursion first.",
+          "valB": "Ambiguous grammars can NEVER be parsed by either LL(1) or LR(1); ambiguity causes conflicts in both."
         }
       ]
     }
@@ -2168,13 +2248,13 @@ const SUBJECT_EXTRAS = {
         "title": "Synchronization, Semaphores & Classical IPC",
         "tag": "Concurrency & IPC",
         "url": "https://www.geeksforgeeks.org/process-synchronization-in-operating-system/",
-        "desc": "Critical section criteria (Mutual Exclusion, Progress, Bounded Waiting), Peterson\u2019s algorithm, and counting semaphores."
+        "desc": "Critical section criteria (Mutual Exclusion, Progress, Bounded Waiting), Peterson’s algorithm, and counting semaphores."
       },
       {
-        "title": "Deadlock Avoidance & Banker\u2019s Algorithm",
+        "title": "Deadlock Avoidance & Banker’s Algorithm",
         "tag": "Deadlocks",
         "url": "https://www.geeksforgeeks.org/introduction-of-deadlock-in-operating-system/",
-        "desc": "Coffman conditions, Resource Allocation Graphs (RAG), Banker\u2019s safety algorithm, and deadlock detection."
+        "desc": "Coffman conditions, Resource Allocation Graphs (RAG), Banker’s safety algorithm, and deadlock detection."
       },
       {
         "title": "Virtual Memory, Multi-Level Paging & TLB",
@@ -2186,7 +2266,7 @@ const SUBJECT_EXTRAS = {
         "title": "Page Replacement & Disk Scheduling",
         "tag": "Storage & Replacement",
         "url": "https://www.geeksforgeeks.org/page-replacement-algorithms-in-operating-systems/",
-        "desc": "FIFO Belady\u2019s anomaly, LRU, Optimal page replacement, thrashing working set model, and SCAN/C-SCAN disk scheduling."
+        "desc": "FIFO Belady’s anomaly, LRU, Optimal page replacement, thrashing working set model, and SCAN/C-SCAN disk scheduling."
       }
     ],
     "modules": [
@@ -2207,7 +2287,7 @@ const SUBJECT_EXTRAS = {
           "Critical Section 3 criteria: (1) Mutual Exclusion, (2) Progress, (3) Bounded Waiting.",
           "Counting Semaphore S: wait(S) decrements S and blocks if S < 0; signal(S) increments S and wakes a blocked process.",
           "Deadlock Coffman conditions: Mutual Exclusion, Hold and Wait, No Preemption, Circular Wait.",
-          "Banker\u2019s Algorithm: Avoids deadlock by granting requests only if the resulting system state remains safe."
+          "Banker’s Algorithm: Avoids deadlock by granting requests only if the resulting system state remains safe."
         ],
         "theorem": "Single-Instance RAG Deadlock Equivalence: In a Resource Allocation Graph where every resource type has exactly one instance, a directed cycle is necessary AND sufficient for deadlock.",
         "examTrap": "Multi-Instance Deadlock Fallacy: If resources have multiple instances, a cycle in the Resource Allocation Graph does NOT imply deadlock! It is a necessary condition, but not a sufficient condition."
@@ -2218,9 +2298,9 @@ const SUBJECT_EXTRAS = {
           "Paging: Virtual Address = Page Number (p) | Page Offset (d). Physical Address = Frame Number (f) | Page Offset (d).",
           "Page Table Size = Number of Pages * Page Table Entry (PTE) size.",
           "Translation Lookaside Buffer (TLB): Associative hardware cache for fast virtual-to-physical address mapping.",
-          "Page Replacement: Belady\u2019s Anomaly occurs in FIFO where increasing frames increases page faults. LRU and Optimal are stack algorithms immune to Belady\u2019s anomaly."
+          "Page Replacement: Belady’s Anomaly occurs in FIFO where increasing frames increases page faults. LRU and Optimal are stack algorithms immune to Belady’s anomaly."
         ],
-        "theorem": "Stack Algorithm Invariance: Any page replacement algorithm satisfying the inclusion property (the set of pages in memory for m frames is a subset of the pages for m+1 frames) can never exhibit Belady\u2019s anomaly.",
+        "theorem": "Stack Algorithm Invariance: Any page replacement algorithm satisfying the inclusion property (the set of pages in memory for m frames is a subset of the pages for m+1 frames) can never exhibit Belady’s anomaly.",
         "examTrap": "Multi-Level Page Table Size Trap: Multi-level paging reduces physical memory consumption because unallocated virtual memory ranges do NOT require second-level page tables to be created in RAM!"
       }
     ],
@@ -2238,9 +2318,9 @@ const SUBJECT_EXTRAS = {
         "note": "Binary semaphore (mutex) takes values strictly in {0, 1}."
       },
       {
-        "term": "Deadlock & Banker\u2019s Safety",
+        "term": "Deadlock & Banker’s Safety",
         "category": "Deadlocks",
-        "definition": "Deadlock occurs when processes in a set are waiting for events that only other processes in the set can trigger. Banker\u2019s algorithm grants resources only if a safe sequence exists.",
+        "definition": "Deadlock occurs when processes in a set are waiting for events that only other processes in the set can trigger. Banker’s algorithm grants resources only if a safe sequence exists.",
         "note": "Four Coffman conditions: Mutual Exclusion, Hold & Wait, No Preemption, Circular Wait."
       },
       {
@@ -2258,60 +2338,61 @@ const SUBJECT_EXTRAS = {
     ],
     "taxonomies": [
       {
-        "name": "CPU Scheduling Disciplines",
-        "badge": "Scheduling Taxonomy",
+        "name": "CPU Scheduling Policy Taxonomy",
+        "badge": "Process Scheduling",
         "items": [
-          "Preemptive (SRTF, Round Robin, Priority preemptive - higher responsiveness)",
-          "Non-Preemptive (FCFS, Non-preemptive SJF - zero context-switch overhead)",
-          "Round Robin (Time quantum slicing; small quantum = high overhead, large = FCFS)",
-          "Multi-Level Feedback Queue (Adaptive dynamic priorities based on CPU burst history)"
+          "First-Come First-Served (FCFS): Non-preemptive; simple FIFO queue; suffers from severe Convoy Effect for CPU-burst jobs.",
+          "Shortest Job First (SJF / SRTF): Minimizes average waiting time; SRTF is preemptive variant; prone to starvation for long bursts.",
+          "Priority Scheduling: Dispatches highest priority job; preemptive or non-preemptive; resolved starvation via Aging.",
+          "Round Robin (RR): Preemptive time-sliced scheduling; quantum q too large degenerates to FCFS; too small causes high context-switch overhead.",
+          "Multi-Level Feedback Queue (MLFQ): Dynamic priority queues adapting to process burst history (I/O-bound prioritized over CPU-bound)."
         ]
       },
       {
-        "name": "Page Replacement Algorithms",
-        "badge": "Memory Taxonomy",
+        "name": "Deadlock Mitigation Strategies",
+        "badge": "Resource Allocation",
         "items": [
-          "FIFO (Suffers from Belady\u2019s anomaly where more frames cause more faults)",
-          "Optimal (B\u00e9l\u00e1dy\u2019s optimal algorithm: replaces page needed farthest in future)",
-          "LRU (Least Recently Used: stack algorithm, immune to Belady\u2019s anomaly)",
-          "Clock / Second-Chance (Approximates LRU using hardware reference bits)"
+          "Deadlock Prevention: Disallows at least one of the 4 Coffman conditions (Mutual Exclusion, Hold & Wait, No Preemption, Circular Wait).",
+          "Deadlock Avoidance (Banker's Algorithm): Dynamically verifies whether granting a resource keeps system in a Safe State (exists safe sequence).",
+          "Deadlock Detection & Recovery: Periodically executes cycle detection on Resource Allocation Graph (RAG); terminates processes or preempts resources.",
+          "Ostrich Algorithm: Ignores the problem assuming deadlocks occur rarely; standard choice for general-purpose desktop operating systems."
         ]
       }
     ],
     "comparison": {
-      "title": "Process vs Thread",
-      "entityA": "Operating System Process",
-      "entityB": "Thread (Lightweight Process)",
+      "title": "Paging vs. Segmentation",
+      "entityA": "Paging (Fixed-Size Partitioning)",
+      "entityB": "Segmentation (Variable-Size Logical Blocks)",
       "rows": [
         {
-          "property": "Virtual Address Space",
-          "valA": "Isolated, private virtual memory address space allocated per process",
-          "valB": "Shares the address space (code, data, heap) with other peer threads"
+          "property": "Memory Block Allocation",
+          "valA": "Memory divided into fixed-size physical frames and virtual pages (e.g. 4 KB).",
+          "valB": "Memory divided into variable-size segments reflecting logical program structure."
         },
         {
-          "property": "Creation & Context Switch Overhead",
-          "valA": "Heavyweight: allocates page tables, PCB, and flushes TLB on switch",
-          "valB": "Lightweight: shared memory context; saves/restores only registers and stack"
+          "property": "Programmer Visibility",
+          "valA": "Completely transparent (invisible) to programmer; managed by hardware MMU.",
+          "valB": "Visible to programmer/compiler; addresses specified as (Segment Number, Offset)."
         },
         {
-          "property": "Inter-Entity Communication",
-          "valA": "Requires explicit IPC mechanisms: Pipes, Message Queues, Shared Memory",
-          "valB": "Direct communication via shared heap memory and global process variables"
+          "property": "Fragmentation Profile",
+          "valA": "Suffers from Internal Fragmentation (in final page); ZERO external fragmentation.",
+          "valB": "Suffers from External Fragmentation (scattered unusable memory holes); ZERO internal fragmentation."
         },
         {
-          "property": "Fault Isolation & Reliability",
-          "valA": "High isolation: a crash or segmentation fault in one process does not affect others",
-          "valB": "Low isolation: an unhandled memory fault in one thread crashes the entire process"
+          "property": "Address Translation Hardware",
+          "valA": "Page Table mapping Virtual Page Number (VPN) to Physical Frame Number (PFN).",
+          "valB": "Segment Table containing Segment Base Address and Segment Limit (length bound)."
         },
         {
-          "property": "System Resource Ownership",
-          "valA": "Owns operating system resources: open file descriptors, sockets, memory mappings",
-          "valB": "Shares all allocated process resources; retains only private stack and program counter"
+          "property": "Protection & Sharing",
+          "valA": "Uniform protection bits (Read/Write/Execute) applied per page frame.",
+          "valB": "Naturally aligns with modular program units (functions, symbol tables) for clean sharing."
         },
         {
-          "property": "Parallel Execution on Multicores",
-          "valA": "Independent processes execute concurrently across CPU cores",
-          "valB": "Kernel-level threads execute concurrently within the same application process"
+          "property": "GATE Examination Pitfall",
+          "valA": "Page offset bits are never checked for overflow (offset naturally wraps to next frame).",
+          "valB": "In segmentation, if Offset >= Limit, a CPU trap (Segmentation Fault) is immediately triggered!"
         }
       ]
     }
@@ -2347,7 +2428,7 @@ const SUBJECT_EXTRAS = {
         "title": "Functional Dependencies & Normalization",
         "tag": "Schema Design",
         "url": "https://www.geeksforgeeks.org/normal-forms-in-dbms/",
-        "desc": "Armstrong\u2019s axioms, attribute closure X+, candidate keys, canonical cover, 1NF to BCNF, and dependency preservation."
+        "desc": "Armstrong’s axioms, attribute closure X+, candidate keys, canonical cover, 1NF to BCNF, and dependency preservation."
       },
       {
         "title": "Transactions & Concurrency Control",
@@ -2371,7 +2452,7 @@ const SUBJECT_EXTRAS = {
           "Relational Algebra operators: Selection (sigma), Projection (pi), Cartesian Product (x), Natural Join (|><|), Division (/ for \"for all\" queries).",
           "SQL NULL handling: Any comparison with NULL (`x = NULL` or `x <> NULL`) evaluates to UNKNOWN. Use `IS NULL` or `IS NOT NULL`."
         ],
-        "theorem": "Codd\u2019s Relational Equivalence Theorem: Relational Algebra and Domain-Independent Relational Calculus are equivalent in expressive query power.",
+        "theorem": "Codd’s Relational Equivalence Theorem: Relational Algebra and Domain-Independent Relational Calculus are equivalent in expressive query power.",
         "examTrap": "COUNT(*) vs COUNT(col) Trap: `COUNT(*)` counts all rows including those with NULL values; `COUNT(column)` ignores NULL values and counts only rows where that specific column is non-null."
       },
       {
@@ -2431,60 +2512,60 @@ const SUBJECT_EXTRAS = {
     ],
     "taxonomies": [
       {
-        "name": "Relational Normal Forms",
-        "badge": "Schema Taxonomy",
+        "name": "Database Normalization Forms",
+        "badge": "Relational Design",
         "items": [
-          "1NF (Atomic domain values, no multivalued or composite attributes)",
-          "2NF (1NF + No partial dependency: Non-prime -> part of candidate key)",
-          "3NF (2NF + Every X->A has X as superkey or A as prime attribute)",
-          "BCNF (Boyce-Codd: For every non-trivial X->A, X MUST be a superkey)"
+          "1NF (First Normal Form): All column values are atomic; no repeating groups, arrays, or multi-valued attributes.",
+          "2NF (Second Normal Form): 1NF + No partial functional dependencies (every non-prime attribute is fully dependent on entire candidate key).",
+          "3NF (Third Normal Form): 2NF + No transitive dependencies (for every X -> A, either X is a superkey or A is a prime attribute).",
+          "BCNF (Boyce-Codd Normal Form): For every non-trivial functional dependency X -> A, X MUST be a superkey; eliminates all redundancy."
         ]
       },
       {
-        "name": "Transaction Schedule Properties",
-        "badge": "Transaction Taxonomy",
+        "name": "Transaction Concurrency & Isolation Levels",
+        "badge": "ACID Properties",
         "items": [
-          "Conflict Serializable (Acyclic serialization precedence graph)",
-          "View Serializable (Includes blind-write schedules; NP-complete to test)",
-          "Recoverable Schedule (Commit of T_j reading from T_i occurs after commit of T_i)",
-          "Cascadeless Schedule (Reads only committed data; avoids cascading aborts)"
+          "Read Uncommitted: Lowest isolation; allows Dirty Reads, Non-Repeatable Reads, and Phantom Reads.",
+          "Read Committed: Disallows Dirty Reads (reads only committed transactions); still allows Non-Repeatable Reads and Phantom Reads.",
+          "Repeatable Read: Disallows Dirty Reads and Non-Repeatable Reads; allows Phantom Reads (new rows inserted by concurrent transactions).",
+          "Serializable: Highest isolation; complete execution equivalent to serial schedule; disallows all anomalous read/write concurrency phenomena."
         ]
       }
     ],
     "comparison": {
-      "title": "Third Normal Form (3NF) vs Boyce-Codd Normal Form (BCNF)",
-      "entityA": "Third Normal Form (3NF)",
-      "entityB": "Boyce-Codd Normal Form (BCNF)",
+      "title": "Conflict Serializability vs. View Serializability",
+      "entityA": "Conflict Serializability",
+      "entityB": "View Serializability",
       "rows": [
         {
-          "property": "Functional Dependency Condition",
-          "valA": "For every X -> A: Either X is a Superkey OR A is a Prime Attribute",
-          "valB": "For every X -> A: X MUST strictly be a Superkey (no prime exception)"
+          "property": "Equivalence Invariant",
+          "valA": "Schedule S is conflict equivalent to serial S' if all conflicting pairs (R-W, W-R, W-W) have same order.",
+          "valB": "Schedule S is view equivalent to serial S' if initial reads, updated reads, and final writes match."
         },
         {
-          "property": "Dependency Preservation Guarantee",
-          "valA": "ALWAYS guaranteed: any schema can be decomposed into 3NF preserving all FDs",
-          "valB": "NOT always guaranteed: some schemas lose functional dependencies under BCNF"
+          "property": "Class Inclusion Hierarchy",
+          "valA": "Strict subset: Every Conflict Serializable schedule is View Serializable.",
+          "valB": "Superset: Contains all Conflict Serializable schedules plus non-conflict schedules with blind writes."
         },
         {
-          "property": "Lossless Join Guarantee",
-          "valA": "Can always be decomposed to 3NF with guaranteed lossless-join property",
-          "valB": "Can always be decomposed to BCNF with guaranteed lossless-join property"
+          "property": "Validation Complexity",
+          "valA": "Polynomial time O(V + E) by constructing Precedence Graph and checking for cycles.",
+          "valB": "NP-Complete problem in the general case (requires testing against all n! serial orders)."
         },
         {
-          "property": "Data Redundancy Elimination",
-          "valA": "Permits minor redundancy when candidate keys overlap and A is prime",
-          "valB": "Completely eliminates all redundancy resulting from functional dependencies"
+          "property": "Precedence Graph Test",
+          "valA": "A cycle-free precedence graph is an exact IF AND ONLY IF condition for conflict serializability.",
+          "valB": "A precedence graph cycle does NOT rule out view serializability if blind writes exist."
         },
         {
-          "property": "Strict Inclusion Relationship",
-          "valA": "BCNF is a strict subset of 3NF (every BCNF relation is in 3NF)",
-          "valB": "Stronger than 3NF (relations in 3NF may fail BCNF)"
+          "property": "DBMS Engine Adoption",
+          "valA": "Universally implemented in commercial engines via Two-Phase Locking (2PL) protocols.",
+          "valB": "Impractical for live transaction lock managers due to NP-complete validation overhead."
         },
         {
-          "property": "Classic GATE Counterexample",
-          "valA": "R(A, B, C) with AB -> C, C -> B: Relation is in 3NF (B is prime)",
-          "valB": "Relation fails BCNF because in C -> B, C is not a superkey"
+          "property": "GATE Examination Pitfall",
+          "valA": "Two operations conflict iff they belong to different transactions, access the SAME data item, and at least one is a WRITE.",
+          "valB": "If a schedule contains NO blind writes, View Serializability is IDENTICAL to Conflict Serializability."
         }
       ]
     }
@@ -2604,60 +2685,60 @@ const SUBJECT_EXTRAS = {
     ],
     "taxonomies": [
       {
-        "name": "Routing Protocol Categories",
-        "badge": "Routing Taxonomy",
+        "name": "Routing Protocol Architecture Taxonomy",
+        "badge": "Network Layer",
         "items": [
-          "Distance Vector (RIP: Bellman-Ford, metric = hop count, count-to-infinity)",
-          "Link State (OSPF: Dijkstra, complete topology flood, fast convergence)",
-          "Path Vector (BGP: Inter-AS policy routing, detects routing loops)",
-          "Interior vs Exterior (IGP inside autonomous systems, EGP between ASs)"
+          "Distance Vector (RIP - RFC 2453): Bellman-Ford algorithm; exchanges vectors with direct neighbors; suffers from Count-to-Infinity (split horizon fix).",
+          "Link State (OSPF - RFC 2328): Dijkstra's shortest-path tree; floods link-state advertisements (LSAs) across entire area; fast convergence.",
+          "Path Vector (BGP-4 - RFC 4271): Inter-domain routing across Autonomous Systems (AS); tracks complete AS-path attribute to prevent routing loops.",
+          "Static vs Dynamic Routing: Static configured manually by admin; dynamic adapts automatically to link failures and network topology shifts."
         ]
       },
       {
-        "name": "Flow Control Sliding Window Protocols",
-        "badge": "Flow Protocols",
+        "name": "Sliding Window Flow Control Archetypes",
+        "badge": "Transport Layer",
         "items": [
-          "Stop-and-Wait (W_s = 1, W_r = 1, efficiency eta = 1/(1+2a))",
-          "Go-Back-N (W_s = 2^k - 1, W_r = 1, retransmits all unACKed frames on loss)",
-          "Selective Repeat (W_s = W_r = 2^{k-1}, individual retransmissions and buffering)",
-          "TCP Byte-Oriented Window (Dynamic advertised receiver window rwnd)"
+          "Stop-and-Wait ARQ: Sender transmits 1 frame and waits for ACK; efficiency eta = 1 / (1 + 2a), where a = T_prop / T_trans.",
+          "Go-Back-N ARQ: Sender window size W_s = 2^k - 1, receiver window W_r = 1; cumulative ACKs; discards all out-of-order frames.",
+          "Selective Repeat ARQ: Sender window W_s = 2^{k-1}, receiver window W_r = 2^{k-1}; individual ACKs; retransmits ONLY corrupted frames.",
+          "TCP Flow Control: Dynamic sliding receiver window (rwnd) advertised in header; prevents fast sender from overflowing receiver socket buffer."
         ]
       }
     ],
     "comparison": {
-      "title": "Transmission Control Protocol (TCP) vs User Datagram Protocol (UDP)",
-      "entityA": "Transmission Control Protocol (TCP)",
-      "entityB": "User Datagram Protocol (UDP)",
+      "title": "TCP (Transmission Control Protocol) vs. UDP (User Datagram Protocol)",
+      "entityA": "TCP (RFC 793 / RFC 5681)",
+      "entityB": "UDP (RFC 768)",
       "rows": [
         {
-          "property": "Connection Paradigm",
-          "valA": "Connection-oriented (Requires 3-way handshake SYN, SYN-ACK, ACK)",
-          "valB": "Connectionless (Sends standalone datagrams with zero connection setup)"
+          "property": "Connection Establishment",
+          "valA": "Connection-oriented; requires 3-way handshake (SYN, SYN-ACK, ACK) before data transfer.",
+          "valB": "Connectionless; datagrams transmitted immediately with zero handshake delay."
         },
         {
-          "property": "Reliability & Delivery Guarantee",
-          "valA": "Guaranteed, in-order reliable byte stream via ACKs and retransmissions",
-          "valB": "Unreliable best-effort delivery; packets may be lost, duplicated, or reordered"
+          "property": "Reliability & Ordering",
+          "valA": "Guaranteed delivery, in-order byte stream, checksum, cumulative ACKs, retransmissions.",
+          "valB": "Best-effort unreliable datagram delivery; packets may be lost, duplicated, or reordered."
         },
         {
           "property": "Congestion & Flow Control",
-          "valA": "Integrated sliding window flow control + AIMD congestion control",
-          "valB": "Zero flow control and zero congestion control; transmits at application speed"
+          "valA": "Implements receiver window (rwnd) flow control and sender congestion window (cwnd).",
+          "valB": "Zero congestion control and zero flow control; transmits at application generation rate."
         },
         {
           "property": "Header Protocol Overhead",
-          "valA": "20 bytes minimum (up to 60 bytes with options)",
-          "valB": "8 bytes fixed header (Source Port, Dest Port, Length, Checksum)"
+          "valA": "20 bytes baseline header (up to 60 bytes with TCP options like MSS, Window Scale, SACK).",
+          "valB": "8 bytes fixed header (Source Port, Destination Port, Length, Checksum)."
         },
         {
-          "property": "Transmission Framing",
-          "valA": "Continuous byte stream without packet boundaries",
-          "valB": "Preserves discrete application message datagram boundaries"
+          "property": "Transmission Semantics",
+          "valA": "Continuous byte-stream; application message boundaries are not preserved.",
+          "valB": "Message-oriented; preserves application packet boundaries intact."
         },
         {
-          "property": "Standard Protocol Examples",
-          "valA": "HTTP, HTTPS, SSH, FTP, SMTP, BGP",
-          "valB": "DNS, DHCP, SNMP, RTP, TFTP, VoIP"
+          "property": "GATE Examination Pitfall",
+          "valA": "TCP sequence numbers count BYTES transmitted, NOT packets. SYN and FIN consume 1 sequence number each.",
+          "valB": "UDP checksum is optional in IPv4, but strictly mandatory in IPv6."
         }
       ]
     }
@@ -2705,7 +2786,7 @@ const SUBJECT_EXTRAS = {
         "title": "K-Means Clustering & PCA Reduction",
         "tag": "Unsupervised Learning",
         "url": "https://www.geeksforgeeks.org/k-means-clustering-introduction/",
-        "desc": "Lloyd\u2019s clustering algorithm, inertia elbow method, covariance matrix eigenvalues, and PCA variance preservation."
+        "desc": "Lloyd’s clustering algorithm, inertia elbow method, covariance matrix eigenvalues, and PCA variance preservation."
       }
     ],
     "modules": [
@@ -2726,7 +2807,7 @@ const SUBJECT_EXTRAS = {
           "Logistic Regression models probability P(Y=1|X) = 1 / (1 + e^{-w^T X}) using binary cross-entropy loss.",
           "Support Vector Machines (SVM): Maximizes the geometric margin 2 / ||w|| between classes.",
           "Soft-margin parameter C: High C penalizes misclassifications heavily (low bias, high variance); low C tolerates margin violations (high bias).",
-          "Kernel Trick: Implicitly maps input features into high-dimensional Hilbert space via Mercer kernel function K(x, x\u2019)."
+          "Kernel Trick: Implicitly maps input features into high-dimensional Hilbert space via Mercer kernel function K(x, x’)."
         ],
         "theorem": "SVM Support Vector Sparsity: The optimal separating hyperplane depends solely on the support vectors (data points where Lagrange multipliers alpha_i > 0); removing all non-support vectors leaves the decision boundary unchanged.",
         "examTrap": "Accuracy on Imbalanced Datasets: High classification accuracy on severely imbalanced datasets (e.g., 99% negative class) is deceptive; always evaluate using Precision, Recall, and F1-Score."
@@ -2760,7 +2841,7 @@ const SUBJECT_EXTRAS = {
         "term": "Support Vector Machine (SVM)",
         "category": "Classification",
         "definition": "Maximum-margin linear classifier maximizing geometric margin 2/||w|| between classes. Dual form depends only on dot products of support vectors.",
-        "note": "Kernel trick maps features implicitly into high-dimensional space via K(x, x\u2019)."
+        "note": "Kernel trick maps features implicitly into high-dimensional space via K(x, x’)."
       },
       {
         "term": "Information Gain",
@@ -2777,60 +2858,60 @@ const SUBJECT_EXTRAS = {
     ],
     "taxonomies": [
       {
-        "name": "Learning Task Taxonomies",
-        "badge": "ML Taxonomy",
+        "name": "Supervised Learning Model Taxonomy",
+        "badge": "Supervised Methods",
         "items": [
-          "Supervised Regression (Linear, Ridge, Lasso, Polynomial, SVR)",
-          "Supervised Classification (Logistic, SVM, Decision Trees, Naive Bayes, k-NN)",
-          "Unsupervised Clustering (K-Means, Agglomerative Hierarchical, DBSCAN)",
-          "Dimensionality Reduction (PCA, SVD, t-SNE, Linear Discriminant Analysis)"
+          "Linear & Logistic Models: Linear regression for continuous outcomes; Logistic regression with Sigmoid link for binary class probabilities.",
+          "Support Vector Machines (SVM): Finds maximum-margin hyperplane separating classes; kernel trick maps data into higher-dimensional feature space.",
+          "Decision Trees & Ensembles: Greedy CART splitting on Gini impurity or Entropy; Bagging (Random Forests) vs Boosting (GBDT, XGBoost).",
+          "Multi-Layer Perceptrons (MLP): Deep feedforward neural networks trained with backpropagation (chain rule) and gradient descent."
         ]
       },
       {
-        "name": "Regularization Techniques",
-        "badge": "Optimization Taxonomy",
+        "name": "Unsupervised Learning & Dimensionality Reduction",
+        "badge": "Unsupervised Methods",
         "items": [
-          "L2 Ridge Regularization (lambda ||w||_2^2, shrinks weights, handles multicollinearity)",
-          "L1 Lasso Regularization (lambda ||w||_1, sparse coefficients, automatic feature selection)",
-          "Elastic Net (Combines L1 and L2 penalties for correlated feature groupings)",
-          "Early Stopping (Halts iterative training when validation loss begins rising)"
+          "K-Means Clustering: Partitioning algorithm iteratively updating cluster centroids; minimizes within-cluster sum of squares (WCSS / Inertia).",
+          "Hierarchical Agglomerative Clustering: Bottom-up tree of clusters (dendrogram); linkage criteria: single, complete, average, or Ward.",
+          "DBSCAN Density-Based: Discovers arbitrarily shaped clusters based on core points, epsilon-neighborhoods, and minPts; robust to noise.",
+          "Principal Component Analysis (PCA): Orthogonal linear projection onto directions of maximal variance (eigenvectors of covariance matrix)."
         ]
       }
     ],
     "comparison": {
-      "title": "Ridge Regression (L2) vs Lasso Regression (L1)",
-      "entityA": "Ridge Regression (L2 Penalty)",
-      "entityB": "Lasso Regression (L1 Penalty)",
+      "title": "L1 Regularization (Lasso) vs. L2 Regularization (Ridge)",
+      "entityA": "L1 Regularization (Lasso)",
+      "entityB": "L2 Regularization (Ridge)",
       "rows": [
         {
-          "property": "Regularization Penalty Term",
-          "valA": "Quadratic norm penalty: lambda * sum(w_i^2) = lambda * ||w||_2^2",
-          "valB": "Absolute value norm penalty: lambda * sum(|w_i|) = lambda * ||w||_1"
+          "property": "Loss Penalty Formulation",
+          "valA": "Penalty = lambda * sum |w_i| (L1 norm of weight vector).",
+          "valB": "Penalty = (lambda / 2) * sum w_i^2 (squared L2 norm of weight vector)."
         },
         {
-          "property": "Weight Sparsity Behavior",
-          "valA": "Shrinks weights asymptotically toward zero, but never to exactly zero",
-          "valB": "Drives non-informative feature weights to EXACTLY zero (sparse weights)"
+          "property": "Constraint Geometry",
+          "valA": "Diamond-shaped (rhombus) polyhedral contour with sharp vertices on coordinate axes.",
+          "valB": "Smooth hyperspherical (circular) Euclidean contour without sharp corners."
         },
         {
-          "property": "Automatic Feature Selection",
-          "valA": "Does NOT perform feature selection; retains all original input variables",
-          "valB": "Performs built-in feature selection by discarding zeroed-out features"
+          "property": "Sparsity & Feature Selection",
+          "valA": "Drives non-essential weights to EXACTLY ZERO (acts as automatic feature selection).",
+          "valB": "Shrinks weights asymptotically toward zero, but NEVER sets weights strictly to zero."
         },
         {
-          "property": "Analytical Closed-Form Solution",
-          "valA": "Has closed-form solution: w* = (X^T X + lambda I)^{-1} X^T y",
-          "valB": "No closed-form matrix solution (solved via coordinate descent)"
+          "property": "Closed-Form Analytical Solution",
+          "valA": "No closed-form solution (non-differentiable at w_i = 0); solved via subgradient or coordinate descent.",
+          "valB": "Has closed-form analytical solution: w = (X^T X + lambda I)^-1 X^T y."
         },
         {
-          "property": "Multicollinearity Handling",
-          "valA": "Adds lambda I to diagonal, guaranteeing matrix invertibility even if X^T X is singular",
-          "valB": "Arbitrarily selects one feature from a correlated group and zeroes the others"
+          "property": "Collinear Features Behavior",
+          "valA": "Arbitrarily selects one feature from a group of correlated features and zeros the rest.",
+          "valB": "Retains all correlated features and shrinks their coefficients symmetrically."
         },
         {
-          "property": "Geometry of Constraint Region",
-          "valA": "Spherical smooth circular constraint contour in weight space",
-          "valB": "Diamond / polytope contour with sharp corners touching coordinate axes"
+          "property": "GATE Examination Pitfall",
+          "valA": "Lasso cannot select more features than the number of training samples n when n < d.",
+          "valB": "Ridge ensures (X^T X + lambda I) is strictly positive definite and invertible even when X^T X is singular."
         }
       ]
     }
@@ -2926,13 +3007,13 @@ const SUBJECT_EXTRAS = {
       {
         "term": "Heuristic Consistency (Monotonicity)",
         "category": "Search Theory",
-        "definition": "For every node n and successor n\u2019 generated by action a: h(n) <= c(n, a, n\u2019) + h(n\u2019). Satisfies triangle inequality.",
+        "definition": "For every node n and successor n’ generated by action a: h(n) <= c(n, a, n’) + h(n’). Satisfies triangle inequality.",
         "note": "Guarantees A* graph search finds optimal paths without reopening closed nodes."
       },
       {
         "term": "Alpha-Beta Pruning",
         "category": "Adversarial Games",
-        "definition": "Adversarial search optimization maintaining alpha (MAX\u2019s guaranteed lower bound) and beta (MIN\u2019s guaranteed upper bound). Prunes subtree whenever beta <= alpha.",
+        "definition": "Adversarial search optimization maintaining alpha (MAX’s guaranteed lower bound) and beta (MIN’s guaranteed upper bound). Prunes subtree whenever beta <= alpha.",
         "note": "With optimal move ordering, reduces search complexity from O(b^m) to O(b^{m/2})."
       },
       {
@@ -2950,60 +3031,60 @@ const SUBJECT_EXTRAS = {
     ],
     "taxonomies": [
       {
-        "name": "Heuristic Search Strategies",
-        "badge": "Search Taxonomy",
+        "name": "State-Space Search Strategy Taxonomy",
+        "badge": "Heuristic Search",
         "items": [
-          "Uninformed Search (BFS, DFS, Uniform-Cost Search, Iterative Deepening IDDFS)",
-          "Informed Search (Greedy Best-First f(n)=h(n), A* Search f(n)=g(n)+h(n))",
-          "Local Search (Hill Climbing, Simulated Annealing, Genetic Algorithms)",
-          "Adversarial Game Search (Minimax, Alpha-Beta, Expectiminimax for chance games)"
+          "Uninformed (Blind) Search: BFS (optimal for unit edge costs), DFS (low memory O(bm)), Uniform Cost Search (optimal for general positive costs).",
+          "Informed (Heuristic) Search: Greedy Best-First Search evaluates f(n) = h(n); A* Search evaluates f(n) = g(n) + h(n).",
+          "Iterative Deepening Search (IDS & IDA*): Combines completeness and optimality of BFS with linear space complexity O(bd) of DFS.",
+          "Local Search & Optimization: Hill Climbing (prone to local maxima and plateaus), Simulated Annealing (accepts worse moves probabilistically), Genetic Algorithms."
         ]
       },
       {
-        "name": "Knowledge Representation Forms",
-        "badge": "Logic Taxonomy",
+        "name": "Adversarial Multi-Agent Game Search",
+        "badge": "Game Theory",
         "items": [
-          "Propositional Logic (Truth tables, CNF resolution, Horn clause chaining)",
-          "First-Order Logic (Quantifiers, Skolemization, Unification, Modus Ponens)",
-          "Constraint Satisfaction Problems (Backtracking, MRV heuristic, Forward Checking)",
-          "Probabilistic Graphical Models (Markov Random Fields, Bayesian Networks)"
+          "Minimax Algorithm: Optimal decision policy for deterministic, zero-sum, perfect-information 2-player games; time complexity O(b^m).",
+          "Alpha-Beta Pruning: Prunes branches that cannot influence final decision; worst case O(b^m), optimal move ordering achieves O(b^{m/2}).",
+          "Expectiminimax: Incorporates chance nodes (dice rolls, probabilistic transitions) by calculating expected values across stochastic outcomes.",
+          "Monte Carlo Tree Search (MCTS): Balances exploration and exploitation via UCT (Upper Confidence bounds for Trees); selection, expansion, simulation, backpropagation."
         ]
       }
     ],
     "comparison": {
-      "title": "Informed (A*) Search vs Uninformed (Uniform-Cost) Search",
-      "entityA": "Informed Search (A* Algorithm)",
-      "entityB": "Uninformed Search (Uniform-Cost / Dijkstra)",
+      "title": "A* Graph Search vs. Greedy Best-First Search",
+      "entityA": "A* Search Algorithm",
+      "entityB": "Greedy Best-First Search",
       "rows": [
         {
-          "property": "Domain Heuristic Knowledge",
-          "valA": "Uses heuristic estimate h(n) estimating remaining distance to goal",
-          "valB": "Uses zero goal distance knowledge; evaluates only path cost g(n) from start"
+          "property": "Node Evaluation Function",
+          "valA": "f(n) = g(n) + h(n), where g(n) is exact cost from start, and h(n) is heuristic estimate to goal.",
+          "valB": "f(n) = h(n), evaluates node exclusively on estimated proximity to goal."
         },
         {
-          "property": "Evaluation Function",
-          "valA": "f(n) = g(n) + h(n) [Balances path cost and estimated future cost]",
-          "valB": "f(n) = g(n) [Purely accumulated path cost from start node]"
+          "property": "Optimality Guarantee",
+          "valA": "Guaranteed optimal if h(n) is admissible (tree search) or consistent / monotonic (graph search).",
+          "valB": "Not optimal; easily misled by false local heuristic gradients into costly sub-optimal paths."
         },
         {
-          "property": "Frontier Node Expansion",
-          "valA": "Directs search frontier targeted toward the goal location",
-          "valB": "Expands nodes blindly in expanding concentric circular contours of equal cost"
+          "property": "Completeness Property",
+          "valA": "Complete on finite graphs; complete on infinite graphs if edge costs >= epsilon > 0.",
+          "valB": "Incomplete in infinite state spaces or graphs with cycles (can enter infinite loops without cycle checking)."
         },
         {
-          "property": "Search Space Traversed",
-          "valA": "Significantly pruned search space; visits dramatically fewer nodes",
-          "valB": "Visits all nodes closer than goal distance regardless of direction"
+          "property": "Search Space Exploration",
+          "valA": "Expands all nodes in concentric equicost contours where f(n) < C*.",
+          "valB": "Plunges aggressively toward goal regardless of path cost accumulated; behaves like greedy DFS."
         },
         {
-          "property": "Optimality Condition",
-          "valA": "Guaranteed optimal iff heuristic h(n) is admissible (tree) or consistent (graph)",
-          "valB": "Guaranteed optimal on all graphs with non-negative edge costs"
+          "property": "Worst-Case Complexity",
+          "valA": "Time O(b^d) and Space O(b^d) where b is branching factor and d is solution depth.",
+          "valB": "Time O(b^m) and Space O(b^m) where m is maximum depth of the state space."
         },
         {
-          "property": "Worst-Case Space Complexity",
-          "valA": "O(b^d) worst-case in memory (retains all generated nodes in open/closed list)",
-          "valB": "O(b^{1 + floor(C*/eps)}) where C* is optimal cost and eps is min step cost"
+          "property": "GATE Examination Pitfall",
+          "valA": "Consistency (Monotonicity) requires h(n) <= c(n, a, n') + h(n'). Every consistent heuristic is admissible, but NOT vice versa.",
+          "valB": "Greedy Best-First search can expand fewer nodes than A* on simple mazes, but produces longer total paths."
         }
       ]
     }
@@ -3123,60 +3204,60 @@ const SUBJECT_EXTRAS = {
     ],
     "taxonomies": [
       {
-        "name": "GATE Aptitude Core Domains",
-        "badge": "Aptitude Taxonomy",
+        "name": "Quantitative Reasoning Archetypes",
+        "badge": "Quantitative Aptitude",
         "items": [
-          "Quantitative Aptitude (Percentages, Ratios, Speed-Distance, Work, Geometry)",
-          "Analytical Reasoning (Syllogisms, Blood Relations, Seating Arrangements)",
-          "Spatial Reasoning (Paper folding, 2D/3D Rotations, Mirror reflections, Cube nets)",
-          "Verbal Ability (Grammar, Sentence completion, Vocabulary in context, Comprehension)"
+          "Work, Rate & Time: Combined work rate 1/T = sum 1/t_i; Pipes and Cisterns treating outflow as negative work rate.",
+          "Speed, Distance & Relative Motion: Distance = Speed x Time; Relative speed for opposing directions S_1 + S_2, same direction |S_1 - S_2|.",
+          "Percentages, Profit & Loss: Profit% = (SP - CP)/CP x 100; successive percentage change formula a + b + (ab/100)%.",
+          "Combinatorics & Probability: Multiplicative counting rule, Permutations P(n, r), Combinations C(n, r), and classical probability P(E) = n(E)/n(S)."
         ]
       },
       {
-        "name": "Data Interpretation Types",
-        "badge": "Data Taxonomy",
+        "name": "Analytical & Verbal Reasoning Archetypes",
+        "badge": "Reasoning Ability",
         "items": [
-          "Pie Charts (Degree to percentage conversion: 360 deg = 100%)",
-          "Bar Graphs (Comparative categorical trends, growth percentages)",
-          "Line Graphs (Continuous time-series rates of change and projections)",
-          "Multi-Column Tables (Cross-tabular computations and share estimations)"
+          "Syllogistic Deductions: Categorical propositions (Universal Affirmative, Particular Negative); evaluated via Venn diagrams or distribution rules.",
+          "Logical Deduction & Seating Arrangements: Linear and circular sequencing under directional, parity, and neighbor constraints.",
+          "Blood Relations & Family Trees: Generation-based hierarchical tree representation resolving maternal and paternal linkages.",
+          "Critical Reasoning & Argument Analysis: Identifying core premise, underlying assumption, argument strengthening/weakening, and valid conclusion."
         ]
       }
     ],
     "comparison": {
-      "title": "Permutations (nPr) vs Combinations (nCr)",
-      "entityA": "Permutations (nPr)",
-      "entityB": "Combinations (nCr)",
+      "title": "Permutations vs. Combinations",
+      "entityA": "Permutations (Order Matters)",
+      "entityB": "Combinations (Order Irrelevant)",
       "rows": [
         {
-          "property": "Fundamental Question",
-          "valA": "In how many ways can r items be ARRANGED in a specific order?",
-          "valB": "In how many ways can r items be SELECTED without regard to order?"
-        },
-        {
-          "property": "Order Sensitivity",
-          "valA": "Order matters strictly: arrangement (A, B) is distinct from (B, A)",
-          "valB": "Order does not matter: subset {A, B} is identical to {B, A}"
+          "property": "Underlying Concept",
+          "valA": "Arrangement of distinct items where sequence or position is significant.",
+          "valB": "Selection or grouping of items where sequence or order does not matter."
         },
         {
           "property": "Mathematical Formula",
-          "valA": "nPr = n! / (n - r)!",
-          "valB": "nCr = n! / [ r! * (n - r)! ]"
+          "valA": "P(n, r) = n! / (n - r)!.",
+          "valB": "C(n, r) = n! / (r! * (n - r)!)."
         },
         {
-          "property": "Mathematical Relationship",
-          "valA": "nPr = r! * nCr (Greater than or equal to nCr for r >= 1)",
-          "valB": "nCr = nPr / r!"
+          "property": "Inter-Relationship",
+          "valA": "P(n, r) = r! * C(n, r); Permutations always >= Combinations for r > 1.",
+          "valB": "C(n, r) = P(n, r) / r!; partitions permutations into r! order-equivalent equivalence classes."
         },
         {
-          "property": "Canonical GATE Scenarios",
-          "valA": "Seating arrangements, password codes, digit creation, schedule queues",
-          "valB": "Committee selection, handshakes, team drafting, card deals"
+          "property": "Symmetry Invariant",
+          "valA": "P(n, r) != P(n, n - r) (generally distinct values).",
+          "valB": "Pascal Symmetry: C(n, r) == C(n, n - r)."
         },
         {
-          "property": "Symmetry Identity",
-          "valA": "No direct symmetry formula",
-          "valB": "Symmetric: nCr = nC(n - r)"
+          "property": "Repetition Variants",
+          "valA": "With repetition allowed: n^r ordered arrangements.",
+          "valB": "With repetition allowed (Stars & Bars): C(n + r - 1, r) unordered selections."
+        },
+        {
+          "property": "GATE Examination Pitfall",
+          "valA": "Gift exchange among n people where both give: P(n, 2) = n(n-1) directed exchanges.",
+          "valB": "Handshake problem among n people: C(n, 2) = n(n-1)/2 mutual handshakes."
         }
       ]
     }
@@ -5145,6 +5226,7 @@ fetch(root + 'data/subjects.json')
             <strong>DOCUMENT SECTIONS</strong>
             <a href="#overview" class="active">01. Overview</a>
             <a href="#scope">02. Syllabus Scope</a>
+            ${extra && extra.pdfGuide ? `<a href="#pdf-guide" style="color: var(--accent-gold); font-weight: 600;">📥 Visual Study Guide PDF (${extra.pdfGuide.pages}p)</a>` : ''}
             ${extra && extra.definitions ? `<a href="#definitions">03. Core Definitions</a>` : ''}
             ${extra && extra.modules ? `<a href="#modules">04. Curriculum Modules</a>` : ''}
             ${extra && extra.comparison ? `<a href="#comparison">05. Comparison Matrix</a>` : ''}
@@ -5154,6 +5236,9 @@ fetch(root + 'data/subjects.json')
             <a href="#handoffs">09. Deep-Dive Links</a>
             <a href="#pyq">10. Examination Practice</a>
             <div style="margin-top: 24px; border-top: 1px solid var(--border-line); padding-top: 16px; display: flex; flex-direction: column; gap: 8px;">
+              ${extra && extra.pdfGuide ? `
+                <a class="button gold small" href="${root}${extra.pdfGuide.fileUrl}" download="${extra.pdfGuide.fileName}" style="width: 100%; text-align: center; text-decoration: none;">📥 Download ${extra.pdfGuide.pages}p PDF</a>
+              ` : ''}
               <button class="button gold small" id="subject-docket-add-btn" style="width: 100%;">+ Queue in Docket</button>
               <button class="button outline small calc-trigger" style="text-align: center;">🧮 GATE Calculator</button>
               <a class="button outline small" href="${getGoogleCalendarUrl(s)}" target="_blank" style="text-align: center;">Schedule Google Cal ↗</a>
@@ -5199,6 +5284,44 @@ fetch(root + 'data/subjects.json')
                 </div>
               ` : ''}
             </section>
+
+            ${extra && extra.pdfGuide ? `
+              <section id="pdf-guide">
+                <div class="eyebrow">OFFICIAL VISUAL DOSSIER · COMPLETE SYLLABUS HANDBOOK</div>
+                <div class="pdf-dossier-card">
+                  <div class="pdf-dossier-header">
+                    <div>
+                      <span class="pill gold" style="font-size: 0.68rem; letter-spacing: 0.05em;">VERIFIED COMPREHENSIVE DOSSIER · ${extra.pdfGuide.pages} PAGES · ${extra.pdfGuide.size}</span>
+                      <h2 class="pdf-dossier-title">${escapeText(extra.pdfGuide.title)}</h2>
+                      <div class="pdf-dossier-meta">${escapeText(extra.pdfGuide.subtitle)}</div>
+                    </div>
+                    <a class="button gold" href="${root}${extra.pdfGuide.fileUrl}" download="${extra.pdfGuide.fileName}" style="white-space: nowrap; text-decoration: none; font-size: 0.86rem; padding: 10px 18px;">
+                      📥 Download Full PDF (${extra.pdfGuide.size})
+                    </a>
+                  </div>
+                  <p style="font-size: 0.86rem; color: var(--text-secondary); line-height: 1.5; margin: 0;">
+                    ${escapeText(extra.pdfGuide.summary)}
+                  </p>
+                  <div class="pdf-dossier-units">
+                    ${extra.pdfGuide.units.map(u => `
+                      <div class="pdf-unit-item">
+                        <strong>${escapeText(u.name)}</strong>
+                        <p>${escapeText(u.scope)}</p>
+                      </div>
+                    `).join('')}
+                  </div>
+                  <div class="pdf-dossier-actions">
+                    <a class="button gold small" href="${root}${extra.pdfGuide.fileUrl}" download="${extra.pdfGuide.fileName}" style="text-decoration: none;">
+                      Download PDF (${extra.pdfGuide.size}) ⬇
+                    </a>
+                    <a class="button outline small" href="${root}${extra.pdfGuide.fileUrl}" target="_blank" rel="noopener" style="text-decoration: none;">
+                      Open in Browser Tab ↗
+                    </a>
+                    <span style="font-size: 0.78rem; color: var(--text-secondary);">Direct download hosted on GitHub Pages repository asset pipeline.</span>
+                  </div>
+                </div>
+              </section>
+            ` : ''}
 
             ${extra && extra.definitions ? `
               <section id="definitions">
@@ -5428,6 +5551,48 @@ fetch(root + 'data/subjects.json')
           link.classList.toggle('active', link.getAttribute('href') === `#${currentId}`);
         });
       }, { passive: true });
+
+      // Star Repository Floating Popup on Subject Pages
+      const starDismissed = localStorage.getItem('study-gate-star-dismissed');
+      if (!starDismissed) {
+        setTimeout(() => {
+          let popup = document.querySelector('.star-repo-popup');
+          if (!popup) {
+            popup = document.createElement('div');
+            popup.className = 'star-repo-popup';
+            popup.innerHTML = `
+              <div class="star-repo-top">
+                <span class="star-repo-badge">⭐ Star This Repository</span>
+                <button class="star-repo-close" id="close-star-popup" aria-label="Close">✕</button>
+              </div>
+              <h4 class="star-repo-title">Star this repository if you like it!</h4>
+              <p class="star-repo-text">If you find this GATE syllabus dossier and visual study guides helpful, please star our open-source repository on GitHub to support free education!</p>
+              <div class="star-repo-actions">
+                <a class="star-repo-btn" href="https://github.com/Arshad9999/Study-Gate-Exam-with-Arshad" target="_blank" rel="noopener" id="star-repo-link">
+                  ★ Star on GitHub
+                </a>
+                <button class="star-repo-dismiss-btn" id="dismiss-star-popup">Dismiss</button>
+              </div>
+            `;
+            document.body.appendChild(popup);
+
+            const closePopup = () => {
+              popup.classList.remove('active');
+              localStorage.setItem('study-gate-star-dismissed', 'true');
+            };
+
+            document.getElementById('close-star-popup')?.addEventListener('click', closePopup);
+            document.getElementById('dismiss-star-popup')?.addEventListener('click', closePopup);
+            document.getElementById('star-repo-link')?.addEventListener('click', () => {
+              localStorage.setItem('study-gate-star-dismissed', 'true');
+              popup.classList.remove('active');
+            });
+          }
+          requestAnimationFrame(() => {
+            popup.classList.add('active');
+          });
+        }, 1500);
+      }
     }
     else if (page === 'practice') {
       let activeFilter = 'all';
@@ -6002,8 +6167,12 @@ fetch(root + 'data/subjects.json')
         </section>
 
         <section class="section" style="padding-top: 0;">
-          <h2>Official Syllabus Publications</h2>
+          <h2>Official Syllabus Publications & Visual Dossiers</h2>
           <div class="resource-list">
+            <a href="${root}assets/docs/AW+ALGO.pdf" download="AW+ALGO.pdf" style="border-left: 3px solid var(--accent-gold); background: rgba(197, 160, 89, 0.06);">
+              <span>⭐ Algorithms: Complete Visual Study Guide (41 Pages · Units 01–05)</span>
+              <span class="pill gold" style="font-size: 0.65rem;">Direct PDF (883 KB) ⬇</span>
+            </a>
             <a href="${source.CS}" target="_blank">GATE 2027 Computer Science (CS) Syllabus <span>Official PDF ↗</span></a>
             <a href="${source.DA}" target="_blank">GATE 2027 Data Science & AI (DA) Syllabus <span>Official PDF ↗</span></a>
             <a href="${source.GA}" target="_blank">GATE 2027 General Aptitude (GA) Syllabus <span>Official PDF ↗</span></a>
