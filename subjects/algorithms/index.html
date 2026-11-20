@@ -1,1 +1,646 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="An independent GATE CS and DA study directory with syllabus references and local progress tracking."><title>Algorithms | Study GATE Exam with Arshad</title><link rel="stylesheet" href="../../assets/styles.css"><script defer src="../../assets/app.js"></script></head><body data-root="../../" data-page="subject" data-id="algorithms"><a class="skip" href="#main">Skip to content</a><header class="site-header"><a class="brand" href="../../"><span class="logo">A<span>↗</span></span><span>STUDY GATE <small>WITH ARSHAD</small></span></a><button id="menu" class="menu" aria-expanded="false" aria-controls="nav">Menu</button><nav id="nav" aria-label="Main navigation"><a href="../../cs/">CS</a><a href="../../da/">DA</a><a href="../../#subjects">Subjects</a><a href="../../pyqs/">PYQs</a><a href="../../practice/">Practice</a><a href="../../planner/">Planner</a><a href="../../resources/">Resources</a></nav></header><main id="main"><p>Loading the study directory…</p></main><footer><div><strong>STUDY GATE <span>WITH ARSHAD</span></strong><p>Learning with clarity, one concept at a time.</p></div><div><a href="https://gate2027.iitm.ac.in/">Official GATE 2027 ↗</a> <a href="https://github.com/Arshad9999/Study-Gate-Exam-with-Arshad">GitHub ↗</a></div><p>Independent educational resource. Not affiliated with or endorsed by GATE or IIT Madras.</p></footer></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="An independent GATE CS and DA study directory with syllabus references and local progress tracking.">
+  <title>Algorithms | Study GATE Exam with Arshad</title>
+  <link rel="stylesheet" href="../../assets/styles.css?v=2.2">
+  <script defer src="../../assets/app.js?v=2.2"></script>
+</head>
+<body data-root="../../" data-page="subject" data-id="algorithms">
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header">
+    <a class="brand" href="../../">
+      <span class="logo">A<span>↗</span></span>
+      <span>STUDY GATE <small>WITH ARSHAD</small></span>
+    </a>
+    <button id="menu" class="menu" aria-expanded="false" aria-controls="nav">Menu</button>
+    <nav id="nav" aria-label="Main navigation">
+      <a href="../../cs/">CS</a>
+      <a href="../../da/">DA</a>
+      <a href="../../#subjects">Subjects</a>
+      <a href="../../pyqs/">PYQs</a>
+      <a href="../../practice/">Practice</a>
+      <a href="../../planner/">Planner</a>
+      <a href="../../resources/">Resources</a>
+    </nav>
+  </header>
+  <main id="main">
+
+        <div class="crumb"><a href="../../">Home</a> / Algorithms</div>
+        <section class="page-title">
+          <div class="eyebrow">SUBJECT DOSSIER · CS / DA</div>
+          <h1>Algorithms</h1>
+          <p>Structured syllabus scope, technical formulations, conceptual schematics, and previous-year question references.</p>
+        </section>
+
+        <div class="guide">
+          <aside class="sidebar">
+            <strong>DOCUMENT SECTIONS</strong>
+            <a href="#overview" class="active">01. Overview</a>
+            <a href="#scope">02. Syllabus Scope</a>
+            <a href="#pdf-guide" style="color: var(--accent-gold); font-weight: 600;">📥 Visual Study Guide PDF (41p)</a>
+            <a href="#definitions">03. Core Definitions</a>
+            <a href="#modules">04. Curriculum Modules</a>
+            <a href="#comparison">05. Comparison Matrix</a>
+            <a href="#derivation">06. Key Formulation</a>
+            <a href="#schematic">07. Visual Schematic</a>
+            <a href="#gfg-topics">08. GeeksforGeeks Guides</a>
+            <a href="#handoffs">09. Deep-Dive Links</a>
+            <a href="#pyq">10. Examination Practice</a>
+            <div style="margin-top: 24px; border-top: 1px solid var(--border-line); padding-top: 16px; display: flex; flex-direction: column; gap: 8px;">
+              
+                <a class="button gold small" href="../../assets/docs/AW+ALGO.pdf" download="AW+ALGO.pdf" style="width: 100%; text-align: center; text-decoration: none;">📥 Download 41p PDF</a>
+              
+              <button class="button gold small" id="subject-docket-add-btn" style="width: 100%;">+ Queue in Docket</button>
+              <button class="button outline small calc-trigger" style="text-align: center;">🧮 GATE Calculator</button>
+              <a class="button outline small" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=GATE%202027%20Study%3A%20Algorithms%20(CS%2FDA)&dates=20261122T123000Z/20261122T143000Z&details=Comprehensive%20revision%20session.%0ASyllabus%20outline%3A%20CS%3A%20searching%2C%20sorting%2C%20hashing%2C%20worst-case%20time%20and%20space%20complexity%2C%20greedy%20algorithms%2C%20dynamic%20programming%2C%20divide%20and%20conquer%2C%20graph%20traversal%2C%20minimum%20spanning%20trees%20and%20shortest%20paths.%20DA%3A%20linear%20and%20binary%20search%3B%20selection%2C%20bubble%2C%20insertion%2C%20merge%20and%20quicksort%3B%20graph%20traversals%20and%20shortest%20paths." target="_blank" style="text-align: center;">Schedule Google Cal ↗</a>
+              <button class="button outline small" id="print-sheet-btn" style="text-align: center;">Print Study Sheet ⎙</button>
+            </div>
+          </aside>
+
+          <article>
+            
+  <aside class="notice">
+    <strong>Official Curriculum Alignment · GATE 2027</strong>
+    <p>Verified against IIT Madras official notification. Outlines are aligned with official syllabus codes.</p>
+  </aside>
+
+
+            <section id="overview">
+              <div class="eyebrow">01 / CONCEPTUAL FOUNDATION</div>
+              <h2>Start with the fundamentals</h2>
+              <p>Binary search requires sorted data. Each comparison discards roughly half the remaining interval, so worst-case time is O(log n); direct indexing is needed for this bound.</p>
+              <div style="margin-top: 20px;">
+                <label class="check">
+                  <input type="checkbox" id="complete">
+                  Mark this subject introduction as reviewed
+                </label>
+              </div>
+            </section>
+
+            <section id="scope">
+              <div class="eyebrow">02 / OFFICIAL SCOPE</div>
+              <h2>Prescribed Curriculum</h2>
+              <p>CS: searching, sorting, hashing, worst-case time and space complexity, greedy algorithms, dynamic programming, divide and conquer, graph traversal, minimum spanning trees and shortest paths. DA: linear and binary search; selection, bubble, insertion, merge and quicksort; graph traversals and shortest paths.</p>
+              <div class="mac-window" style="padding: 16px 20px; margin-top: 20px; font-size: 0.85rem; background: var(--bg-page);">
+                <strong>Authoritative Source:</strong>
+                <a href="https://gate2027.iitm.ac.in/static/doc/GATE2027_Syllabus/CS_GATE2027_Syllabus.pdf" target="_blank" style="margin-right: 14px;">CS Official Syllabus PDF ↗</a><a href="https://gate2027.iitm.ac.in/static/doc/GATE2027_Syllabus/DA_GATE2027_Syllabus.pdf" target="_blank" style="margin-right: 14px;">DA Official Syllabus PDF ↗</a>
+              </div>
+
+              
+                <div style="margin-top: 24px;">
+                  <span class="pill">RECOMMENDED GATE TEXTBOOK</span>
+                  <div class="textbook-tile" style="margin-top: 10px;">
+                    <span class="textbook-title">Introduction to Algorithms (CLRS)</span>
+                    <span class="textbook-author">by Cormen, Leiserson, Rivest, Stein</span>
+                    <span class="textbook-topic">Recommended syllabus coverage: Dynamic Programming, Graph Algorithms</span>
+                  </div>
+                </div>
+              
+            </section>
+
+            
+              <section id="pdf-guide">
+                <div class="eyebrow">OFFICIAL VISUAL DOSSIER · COMPLETE SYLLABUS HANDBOOK</div>
+                <div class="pdf-dossier-card">
+                  <div class="pdf-dossier-header">
+                    <div>
+                      <span class="pill gold" style="font-size: 0.68rem; letter-spacing: 0.05em;">VERIFIED COMPREHENSIVE DOSSIER · 41 PAGES · 883 KB</span>
+                      <h2 class="pdf-dossier-title">ALGORITHMS: The Complete Visual Study Guide</h2>
+                      <div class="pdf-dossier-meta">Official 41-Page Visual Dossier &amp; Comprehensive Handbook</div>
+                    </div>
+                    <a class="button gold" href="../../assets/docs/AW+ALGO.pdf" download="AW+ALGO.pdf" style="white-space: nowrap; text-decoration: none; font-size: 0.86rem; padding: 10px 18px;">
+                      📥 Download Full PDF (883 KB)
+                    </a>
+                  </div>
+                  <p style="font-size: 0.86rem; color: var(--text-secondary); line-height: 1.5; margin: 0;">
+                    Complete 41-page visual dossier encompassing the 8-stage algorithm life cycle, asymptotic limits and poly-log Master theorem extensions, Divide &amp; Conquer selection and comparison bounds, Greedy matroid proofs and MST cut properties, Dynamic Programming 5-step paradigms, and the 18-question conceptual verification laboratory.
+                  </p>
+                  <div class="pdf-dossier-units">
+                    
+                      <div class="pdf-unit-item">
+                        <strong>Unit 01: Asymptotic Analysis</strong>
+                        <p>The 8-Stage Algorithm Life Cycle, A Priori vs. A Posteriori Analysis, Formal Mathematical Limits (O, Omega, Theta, o, omega), Growth-Order Hierarchy, Loop Counting &amp; Harmonic Recurrences, Extended Master Theorem (p &gt; -1, p = -1, p &lt; -1), Recursion Tree Summations, Space Complexity Model (Total = Input + Aux) &amp; Stack Depth.</p>
+                      </div>
+                    
+                      <div class="pdf-unit-item">
+                        <strong>Unit 02: Divide &amp; Conquer</strong>
+                        <p>Tournament Min/Max Comparison Bounds (3n/2 - 2), Exponentiation by Squaring (Theta(log k)), Binary Search Trace &amp; Boundary Invariants, Out-of-Place Merge Sort Mechanics &amp; Stability, Quicksort Partition Recurrences (Worst, Best, Balanced, Expected 1.386 n log n), Inversion Counting via Augmented Merge, Quickselect &amp; Median-of-Medians (BFPRT O(n)), Strassen&#39;s Matrix Multiplication (7 Multiplications, Theta(n^2.807)), Comparison-Based Sorting Lower Bound (Omega(n log n)).</p>
+                      </div>
+                    
+                      <div class="pdf-unit-item">
+                        <strong>Unit 03: Greedy Algorithms</strong>
+                        <p>Optimization Terminology &amp; Matroid Foundations, Fractional Knapsack Exchange Proof, Job Sequencing with Deadlines &amp; Disjoint Set Union (DSU), Optimal 2-Way Merge Patterns, Huffman Coding Prefix Trie &amp; Full Binary Tree Invariants (2n-1 nodes), Cut Property, Prim&#39;s and Kruskal&#39;s MST, Single-Source Shortest Paths (Dijkstra Non-Negative vs. Bellman-Ford Negative Cycle Detection).</p>
+                      </div>
+                    
+                      <div class="pdf-unit-item">
+                        <strong>Unit 04: Dynamic Programming</strong>
+                        <p>The 5-Step DP Formulation Framework, Memoization vs. Tabulation, Fibonacci Order Optimization (Recursion to Matrix Exponentiation), Weighted Interval Scheduling (OPT(j) = max(OPT(j-1), v_j + OPT(p(j)))), Longest Common Subsequence (LCS 2D Table &amp; Traceback), Matrix-Chain Multiplication (Catalan Trees C(n-1) and O(n^3) DP), 0/1 Knapsack (1D Downward Array Loop), Subset Sum Boolean DP.</p>
+                      </div>
+                    
+                      <div class="pdf-unit-item">
+                        <strong>Revision Laboratory</strong>
+                        <p>18 High-Yield Conceptual Checkpoint Questions with Complete Verified Step-by-Step Mathematical Solutions and GATE Examination Traps.</p>
+                      </div>
+                    
+                  </div>
+                  <div class="pdf-dossier-actions">
+                    <a class="button gold small" href="../../assets/docs/AW+ALGO.pdf" download="AW+ALGO.pdf" style="text-decoration: none;">
+                      Download PDF (883 KB) ⬇
+                    </a>
+                    <a class="button outline small" href="../../assets/docs/AW+ALGO.pdf" target="_blank" rel="noopener" style="text-decoration: none;">
+                      Open in Browser Tab ↗
+                    </a>
+                    <span style="font-size: 0.78rem; color: var(--text-secondary);">Direct download hosted on GitHub Pages repository asset pipeline.</span>
+                  </div>
+                </div>
+              </section>
+            
+
+            
+              <section id="definitions">
+                <div class="eyebrow">03 / FOUNDATIONAL TERMINOLOGY & TAXONOMY</div>
+                <h2>Core Definitions & Classifications</h2>
+                <p>Standardized academic definitions and structural classifications essential for conceptual questions:</p>
+                
+                <div class="definitions-grid">
+                  
+                    <div class="definition-card">
+                      <div>
+                        <div class="def-top">
+                          <span class="def-term">Asymptotic Dominance (Big-O)</span>
+                          <span class="def-pill">Complexity Theory</span>
+                        </div>
+                        <p class="def-body">f(n) = O(g(n)) iff there exist positive constants c and n_0 such that 0 &lt;= f(n) &lt;= c * g(n) for all n &gt;= n_0. Equivalently, lim_{n-&gt;inf} f(n)/g(n) &lt; infinity.</p>
+                      </div>
+                      <div class="def-note"><strong>Note:</strong> Represents an asymptotic upper bound on growth rate.</div>
+                    </div>
+                  
+                    <div class="definition-card">
+                      <div>
+                        <div class="def-top">
+                          <span class="def-term">Optimal Substructure</span>
+                          <span class="def-pill">Paradigms</span>
+                        </div>
+                        <p class="def-body">A problem exhibits optimal substructure if an optimal solution to the overall problem instance contains optimal solutions to its subproblem instances.</p>
+                      </div>
+                      <div class="def-note"><strong>Note:</strong> A mandatory prerequisite for both Dynamic Programming and Greedy algorithms.</div>
+                    </div>
+                  
+                    <div class="definition-card">
+                      <div>
+                        <div class="def-top">
+                          <span class="def-term">Greedy Choice Property</span>
+                          <span class="def-pill">Paradigms</span>
+                        </div>
+                        <p class="def-body">A globally optimal solution can be arrived at by making locally optimal (greedy) choices at each decision stage without backtracking.</p>
+                      </div>
+                      <div class="def-note"><strong>Note:</strong> Must be proved using an exchange argument showing any optimal solution can be converted to the greedy solution.</div>
+                    </div>
+                  
+                    <div class="definition-card">
+                      <div>
+                        <div class="def-top">
+                          <span class="def-term">Master Theorem Poly-Log Extension</span>
+                          <span class="def-pill">Recurrences</span>
+                        </div>
+                        <p class="def-body">Extension solving recurrences T(n) = a T(n/b) + Theta(n^k log^p n) where critical exponent equals k, solving cases like p = -1 yielding Theta(n^k log log n).</p>
+                      </div>
+                      <div class="def-note"><strong>Note:</strong> Handles logarithmic denominator gaps where standard polynomial Master Theorem fails.</div>
+                    </div>
+                  
+                    <div class="definition-card">
+                      <div>
+                        <div class="def-top">
+                          <span class="def-term">Adversary Argument</span>
+                          <span class="def-pill">Lower Bounds</span>
+                        </div>
+                        <p class="def-body">A technique for establishing lower bounds by constructing an adversary who dynamically constructs worst-case inputs consistent with prior query answers.</p>
+                      </div>
+                      <div class="def-note"><strong>Note:</strong> Proves the ceil(3n/2) - 2 bound for simultaneous min/max and Omega(n log n) sorting lower bounds.</div>
+                    </div>
+                  
+                    <div class="definition-card">
+                      <div>
+                        <div class="def-top">
+                          <span class="def-term">Catalan Parenthesization Number</span>
+                          <span class="def-pill">Combinatorics</span>
+                        </div>
+                        <p class="def-body">The number of distinct ways to parenthesize a sequence of n matrices: C(n-1) = [1/n] * Binomial(2n - 2, n - 1) = Omega(4^n / n^{1.5}).</p>
+                      </div>
+                      <div class="def-note"><strong>Note:</strong> Demonstrates why brute-force evaluation of Matrix Chain Multiplication is infeasible.</div>
+                    </div>
+                  
+                </div>
+
+                
+                  <div class="taxonomy-container">
+                    
+                      <div class="taxonomy-card">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                          <strong>Algorithmic Paradigm Archetypes</strong>
+                          <span class="pill gold" style="font-size: 0.65rem;">Design Strategies</span>
+                        </div>
+                        <ul>
+                          <li>Divide &amp; Conquer: Breaks instance into independent subproblems, recurses, and merges (e.g., Merge Sort, Quicksort, Strassen).</li><li>Greedy Paradigm: Commits to locally optimal choices without backtracking; requires optimal substructure and exchange proof.</li><li>Dynamic Programming: Evaluates overlapping subproblems via topological table memoization or bottom-up tabulation.</li><li>Branch &amp; Bound / Backtracking: Explores state-space search trees with bounding functions to prune non-viable candidate subtrees.</li><li>Randomized Algorithms: Las Vegas (always correct output, randomized runtime) vs. Monte Carlo (deterministic runtime, probabilistic error).</li>
+                        </ul>
+                      </div>
+                    
+                      <div class="taxonomy-card">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                          <strong>Asymptotic Recurrence Solvers</strong>
+                          <span class="pill gold" style="font-size: 0.65rem;">Complexity Methods</span>
+                        </div>
+                        <ul>
+                          <li>Extended Master Theorem: Solves T(n) = a T(n/b) + Theta(n^k log^p n) covering poly-log gaps (p &gt; -1, p = -1, p &lt; -1).</li><li>Akra-Bazzi Theorem: Solves non-uniform divide-and-conquer recurrences with arbitrary fractional partition splits.</li><li>Recursion Tree Method: Evaluates per-level work sums and aggregates geometric series across tree depth log_b n.</li><li>Substitution Method: Mathematical induction guessing upper and lower bounds and establishing base case induction invariants.</li>
+                        </ul>
+                      </div>
+                    
+                      <div class="taxonomy-card">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                          <strong>Comparison-Based Sorting Hierarchy</strong>
+                          <span class="pill gold" style="font-size: 0.65rem;">Sorting Taxonomy</span>
+                        </div>
+                        <ul>
+                          <li>Guaranteed O(n log n) Sorts: Merge Sort (stable, Theta(n) auxiliary space), Heap Sort (in-place, unstable).</li><li>Expected O(n log n) Sorts: Randomized Quicksort (in-place, Theta(n^2) worst-case, expected Theta(n log n)).</li><li>Quadratic O(n^2) Sorts: Insertion Sort (adaptive O(n) for nearly sorted), Selection Sort (strictly n(n-1)/2 comparisons), Bubble Sort.</li><li>Linear Non-Comparison Sorts: Counting Sort O(n + k), Radix Sort O(d(n + k)), Bucket Sort O(n) average (bypasses Omega(n log n) lower bound).</li>
+                        </ul>
+                      </div>
+                    
+                  </div>
+                
+              </section>
+            
+
+            
+              <section id="modules">
+                <div class="eyebrow">04 / IN-DEPTH SYLLABUS MODULES</div>
+                <h2>Core Theoretical Modules</h2>
+                <p>Comprehensive subject breakdown containing foundational principles, key theorems, and common examination pitfalls.</p>
+                <div class="subject-modules-container">
+                  
+                    <div class="module-card">
+                      <div class="module-header">
+                        <span class="pill gold">MODULE 01</span>
+                        <h3 class="module-title">Unit 01 · Asymptotic Analysis &amp; Algorithmic Complexity Lifecycle</h3>
+                      </div>
+                      <ul class="module-keypoints">
+                        <li>The 8-Stage Algorithm Life Cycle: (1) Formal Problem Specification, (2) Algorithmic Paradigm Selection, (3) Correctness Invariant Proof (Initialization, Maintenance, Termination), (4) Asymptotic Complexity Analysis, (5) Implementation &amp; Profiling, (6) Empirical Benchmarking, (7) Hardware-Aware Optimisation (Cache locality &amp; branch prediction), (8) Adversarial Verification &amp; Red Teaming.</li><li>A Priori vs. A Posteriori: A priori determines machine-independent asymptotic bounds (O, Omega, Theta) as n -&gt; infinity; A posteriori measures empirical wall-clock time, system calls, and hardware cache hit ratios.</li><li>Mathematical Limit Definitions: Big-O: lim_{n-&gt;inf} f(n)/g(n) &lt; inf; Big-Omega: lim_{n-&gt;inf} f(n)/g(n) &gt; 0; Big-Theta: 0 &lt; lim_{n-&gt;inf} f(n)/g(n) &lt; inf; Little-o: lim_{n-&gt;inf} f(n)/g(n) = 0; Little-omega: lim_{n-&gt;inf} f(n)/g(n) = inf.</li><li>Universal Growth-Order Hierarchy: 1 &lt;&lt; log log n &lt;&lt; log n &lt;&lt; (log n)^k &lt;&lt; sqrt(n) &lt;&lt; n &lt;&lt; n log n &lt;&lt; n^c &lt;&lt; c^n &lt;&lt; n! &lt;&lt; n^n. Note Stirling&#39;s approximation: n! approx sqrt(2*pi*n) * (n/e)^n =&gt; log(n!) = Theta(n log n).</li><li>Loop Analysis Counting Patterns: Linear nested loops sum_{i=1}^n sum_{j=1}^i 1 = n(n+1)/2 = Theta(n^2); Multiplicative index jumps (i *= 2) execute floor(log_2 n) + 1 times = Theta(log n); Harmonic nested loops sum_{i=1}^n n/i = n H_n = Theta(n log n).</li><li>Extended Master Theorem with Poly-Log Factors: For T(n) = a T(n/b) + Theta(n^k log^p n) where a = b^k: yields Theta(n^k log^{p+1} n) if p &gt; -1; Theta(n^k log log n) if p = -1; and Theta(n^k) if p &lt; -1.</li><li>Space Complexity Framework: Total Space S_{total}(n) = S_{input}(n) + S_{aux}(n). Call stack depth consumes O(d) frames; tail recursion elimination reduces auxiliary space to O(1).</li>
+                      </ul>
+                      
+                        <div class="module-theorem-box">
+                          <strong>Essential Theorem & Principle</strong>
+                          <span>Extended Master Theorem for Poly-Logarithmic Gaps: For recurrences of the form T(n) = a T(n/b) + Theta(n^{log_b a} * log^p n), when p = -1, the solution is T(n) = Theta(n^{log_b a} * log log n), solving recurrences that violate standard polynomial-gap Master theorem.</span>
+                        </div>
+                      
+                      
+                        <div class="module-trap-box">
+                          <strong>⚠️ GATE Exam Trap & Common Mistake</strong>
+                          <span>Non-Polynomial Gap Trap: Standard Master Theorem CANNOT solve recurrences where f(n) differs from n^{log_b a} by a non-polynomial margin (e.g. T(n) = 2T(n/2) + n / log n). In this case a = 2, b = 2, k = 1, p = -1, giving Theta(n log log n), NOT Theta(n) or Theta(n log n).</span>
+                        </div>
+                      
+                    </div>
+                  
+                    <div class="module-card">
+                      <div class="module-header">
+                        <span class="pill gold">MODULE 02</span>
+                        <h3 class="module-title">Unit 02 · Divide &amp; Conquer, Recurrence Frameworks &amp; Selection Bounds</h3>
+                      </div>
+                      <ul class="module-keypoints">
+                        <li>Tournament Min/Max Comparison Bounds: Simultaneous discovery of minimum and maximum requires exactly ceil(3n/2) - 2 comparisons by comparing elements in adjacent pairs first, contrasting with naive 2n - 3 comparisons.</li><li>Exponentiation by Squaring: Computes a^k using Theta(log k) multiplications via recursive rule: (a^{k/2})^2 for even k and a * (a^{(k-1)/2})^2 for odd k.</li><li>Merge Sort Mechanics &amp; Stability: Two-pointer merge requires Theta(n) auxiliary memory; retains stability (L[i] &lt;= R[j] preserves original relative order of duplicate keys). T(n) = 2T(n/2) + Theta(n) =&gt; Theta(n log n) in all cases.</li><li>Quicksort Partition Recurrences: Worst case occurs with extreme pivot (sorted array, Lomuto partition): T(n) = T(n-1) + Theta(n) =&gt; Theta(n^2). Best case: T(n) = 2T(n/2) + Theta(n) =&gt; Theta(n log n). Randomized pivot guarantees expected running time of 2n ln n approx 1.386 n log_2 n = Theta(n log n).</li><li>Inversion Counting via Augmented Merge: Inversion count increases by (mid - i + 1) whenever an element from right subarray is placed into output before left subarray; runs in Theta(n log n).</li><li>Order Statistics &amp; Selection: Quickselect achieves expected Theta(n) time. Median-of-Medians (BFPRT) with 5-element columns guarantees deterministic worst-case Theta(n) time via recurrence T(n) &lt;= T(ceil(n/5)) + T(7n/10 + 6) + Theta(n).</li><li>Strassen&#39;s Sub-Cubic Matrix Multiplication: Multiplies two n x n matrices using 7 block multiplications instead of 8: T(n) = 7T(n/2) + Theta(n^2) =&gt; Theta(n^{log_2 7}) approx Theta(n^{2.807}).</li>
+                      </ul>
+                      
+                        <div class="module-theorem-box">
+                          <strong>Essential Theorem & Principle</strong>
+                          <span>Comparison-Based Sorting Lower Bound: Any comparison-based sorting algorithm requires at least ceil(log_2(n!)) = Omega(n log n) comparisons in the worst case, derived from a decision tree with n! leaves and minimum height log_2(n!).</span>
+                        </div>
+                      
+                      
+                        <div class="module-trap-box">
+                          <strong>⚠️ GATE Exam Trap & Common Mistake</strong>
+                          <span>Quicksort Call Stack Overhead: In the worst case, quicksort can consume O(n) auxiliary call stack frames. Guaranteeing O(log n) stack depth requires tail-call optimization: always recurse on the smaller partition first and loop on the larger partition.</span>
+                        </div>
+                      
+                    </div>
+                  
+                    <div class="module-card">
+                      <div class="module-header">
+                        <span class="pill gold">MODULE 03</span>
+                        <h3 class="module-title">Unit 03 · Greedy Paradigms, Matroid Optimization &amp; Spanning Trees</h3>
+                      </div>
+                      <ul class="module-keypoints">
+                        <li>Greedy Choice Property &amp; Exchange Argument: Proves optimality by assuming an alternative optimal solution O* exists, finding the first decision where greedy choice g differs from O*, and exchanging the element without diminishing objective value.</li><li>Fractional Knapsack: Sorts items by ratio v_i / w_i in descending order. Total time O(n log n) (sorting) + O(n) (greedy loading); yields strictly optimal solution.</li><li>Job Sequencing with Deadlines &amp; Disjoint Sets: Greedily assigns highest-profit jobs to their latest available time slot &lt;= d_i. Naive array lookup takes O(n^2); Disjoint Set Union (DSU) path compression optimizes slot discovery to O(n alpha(m)).</li><li>Optimal Merge Pattern: Merging n sorted files with minimal record movements is equivalent to constructing an optimal 2-way merge tree using a min-heap in O(n log n).</li><li>Huffman Coding Trie: Greedy prefix-free encoding selects two lowest-frequency forest nodes, links under parent with summed weight, and reinserts into min-heap. Produces full binary tree with 2n - 1 total nodes (n leaves, n - 1 internal nodes).</li><li>Minimum Spanning Tree (MST) Cut &amp; Cycle Properties: Cut Property guarantees the minimum-weight edge crossing any cut (S, V \ S) belongs to an MST. Prim&#39;s algorithm runs in O((V+E) log V) using binary heap; Kruskal&#39;s runs in O(E log V) using DSU.</li><li>Single-Source Shortest Paths: Dijkstra&#39;s algorithm uses greedy non-negative edge relaxation in O((V+E) log V); fails completely with negative edge weights. Bellman-Ford relaxes all edges V - 1 times in O(VE) and detects negative weight cycles.</li>
+                      </ul>
+                      
+                        <div class="module-theorem-box">
+                          <strong>Essential Theorem & Principle</strong>
+                          <span>MST Cut Property: For any partition (cut) of the vertices of a connected graph G = (V, E) into two non-empty disjoint sets S and V \ S, if edge e = (u, v) is the strictly lightest edge crossing the cut, then e must belong to every MST of G.</span>
+                        </div>
+                      
+                      
+                        <div class="module-trap-box">
+                          <strong>⚠️ GATE Exam Trap & Common Mistake</strong>
+                          <span>Dijkstra Negative Edge Trap: Adding a positive constant C to all edge weights in a graph with negative edges does NOT fix Dijkstra&#39;s algorithm! Paths with more edges accumulate more added weight, altering the true shortest path.</span>
+                        </div>
+                      
+                    </div>
+                  
+                    <div class="module-card">
+                      <div class="module-header">
+                        <span class="pill gold">MODULE 04</span>
+                        <h3 class="module-title">Unit 04 · Dynamic Programming, Multi-Stage Decisions &amp; Recurrences</h3>
+                      </div>
+                      <ul class="module-keypoints">
+                        <li>The 5-Step Dynamic Programming Framework: (1) Define Subproblem in clear English and index bounds, (2) Guess / Identify optimal local choice, (3) State Bellman recurrence relation, (4) Verify topological DAG dependency order &amp; base cases, (5) Traceback solution and reconstruct choices.</li><li>Fibonacci Optimization Progression: Naive recursion O(2^n) time -&gt; Memoized top-down O(n) time &amp; O(n) space -&gt; Bottom-up tabulation O(n) time &amp; O(1) space -&gt; Matrix exponentiation [[1, 1], [1, 0]]^n in O(log n) time.</li><li>Weighted Interval Scheduling: Sort intervals by finish time f_1 &lt;= f_2 &lt;= ... &lt;= f_n. Compute p(j) = max {i &lt; j | f_i &lt;= s_j} using binary search in O(log n). Recurrence: OPT(j) = max(OPT(j-1), v_j + OPT(p(j))). Total time O(n log n).</li><li>Longest Common Subsequence (LCS): For sequences X_{1..m} and Y_{1..n}, c[i, j] = c[i-1, j-1] + 1 if x_i == y_j, else max(c[i-1, j], c[i, j-1]). Time O(mn), space reducible to O(min(m, n)) using two rows.</li><li>Matrix-Chain Multiplication: Parenthesizing n matrices involves Catalan number C(n-1) = [1/n] * Binomial(2n-2, n-1) = Omega(4^n / n^{1.5}) possibilities. DP recurrence: m[i, j] = min_{i &lt;= k &lt; j} {m[i, k] + m[k+1, j] + p_{i-1} * p_k * p_j} solved along diagonals in O(n^3) time and O(n^2) space.</li><li>0/1 Knapsack &amp; 1D Space Optimization: Discrete items with weights w_i, values v_i. Recurrence K[i, w] = max(K[i-1, w], v_i + K[i-1, w - w_i]). Time O(nW) (pseudo-polynomial). Space optimized to 1D array of size W+1 by iterating weight w downward from W to w_i to prevent using the same item twice.</li><li>Subset Sum Problem: Boolean recurrence B[i, s] = B[i-1, s] or B[i-1, s - A[i]] with base case B[0, 0] = True. Runs in O(n * S) pseudo-polynomial time; NP-complete in general.</li>
+                      </ul>
+                      
+                        <div class="module-theorem-box">
+                          <strong>Essential Theorem & Principle</strong>
+                          <span>Bellman&#39;s Principle of Optimality: An optimal policy has the property that whatever the initial state and initial decision are, the remaining decisions must constitute an optimal policy with regard to the state resulting from the first decision.</span>
+                        </div>
+                      
+                      
+                        <div class="module-trap-box">
+                          <strong>⚠️ GATE Exam Trap & Common Mistake</strong>
+                          <span>0/1 Knapsack 1D Direction Trap: When reducing 0/1 Knapsack table to a 1D array, the inner loop MUST iterate downward (w = W down to w_i). Iterating upward (w = w_i up to W) solves the Unbounded Knapsack problem (allowing items to be picked infinitely many times).</span>
+                        </div>
+                      
+                    </div>
+                  
+                    <div class="module-card">
+                      <div class="module-header">
+                        <span class="pill gold">MODULE 05</span>
+                        <h3 class="module-title">Unit 05 · The Algorithms Revision Laboratory &amp; Conceptual Checkpoints</h3>
+                      </div>
+                      <ul class="module-keypoints">
+                        <li>Checkpoint 01-04 (Asymptotics): f(n) = O(g(n)) does not imply g(n) = O(f(n)). For any constant c &gt; 0, (log n)^c = o(n^epsilon) for any epsilon &gt; 0. log(n!) = Theta(n log n) via Stirling&#39;s formula. Recurrence T(n) = 2T(n/2) + n/log n gives Theta(n log log n).</li><li>Checkpoint 05-08 (Divide &amp; Conquer): Tournament min/max takes ceil(3n/2) - 2 comparisons. Quickselect expected time is Theta(n), worst-case Theta(n^2). Median-of-Medians with group size 5 gives worst-case Theta(n). Strassen&#39;s uses 7 multiplications giving Theta(n^2.807).</li><li>Checkpoint 09-12 (Greedy &amp; Trees): Huffman tree with n symbols has exactly 2n - 1 total nodes. Job sequencing with deadlines can be solved in O(n alpha(n)) using DSU. Adding positive constant C to all edges changes shortest paths but preserves MSTs. Prim&#39;s with Fibonacci heap takes O(E + V log V).</li><li>Checkpoint 13-16 (Dynamic Programming): Number of ways to parenthesize n matrices is Catalan number C(n-1) = [1/n] * Binomial(2n-2, n-1). 0/1 Knapsack is weakly NP-complete because O(nW) is polynomial in value of W but exponential in input length log_2 W. LCS of two strings of length n takes O(n^2) time and O(n) space.</li><li>Checkpoint 17-18 (Graph &amp; Bounds): Decision tree height &gt;= log_2(n!) = Omega(n log n) establishes comparison sorting lower bound. Dijkstra&#39;s fails on negative edges; Bellman-Ford correctly identifies negative cycles reachable from source in V - 1 iterations.</li>
+                      </ul>
+                      
+                        <div class="module-theorem-box">
+                          <strong>Essential Theorem & Principle</strong>
+                          <span>Catalog of Exact Boundary Solutions: Standard recurrence formulas: T(n) = T(sqrt(n)) + Theta(1) =&gt; Theta(log log n); T(n) = 2T(sqrt(n)) + log n =&gt; Theta(log n * log log n); T(n) = T(n-1) + 1/n =&gt; Theta(log n) (Harmonic Series H_n).</span>
+                        </div>
+                      
+                      
+                        <div class="module-trap-box">
+                          <strong>⚠️ GATE Exam Trap & Common Mistake</strong>
+                          <span>Pseudo-Polynomial vs Polynomial Trap: An algorithm running in O(nW) time where W is an integer parameter is pseudo-polynomial, NOT polynomial. If W is encoded in binary, input size is B = log_2 W bits, making running time O(n * 2^B), which is exponential in input size.</span>
+                        </div>
+                      
+                    </div>
+                  
+                </div>
+              </section>
+            
+
+            
+              <section id="comparison">
+                <div class="eyebrow">05 / CANONICAL COMPARISON MATRIX</div>
+                <h2>Dynamic Programming vs. Greedy Method</h2>
+                <p>Detailed architectural and mathematical comparison of fundamental contrasting concepts frequently tested in GATE:</p>
+                <div class="comparison-table-wrapper">
+                  <table class="comparison-table">
+                    <thead>
+                      <tr>
+                        <th>COMPARISON DIMENSION</th>
+                        <th>Dynamic Programming (DP)</th>
+                        <th>Greedy Strategy</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      
+                        <tr>
+                          <td>Core Decision Paradigm</td>
+                          <td>Solves all overlapping subproblems; makes decisions based on optimal sub-solutions.</td>
+                          <td>Makes locally optimal choice at each step without ever backtracking or revising.</td>
+                        </tr>
+                      
+                        <tr>
+                          <td>Optimality Pre-condition</td>
+                          <td>Requires Optimal Substructure and Overlapping Subproblems.</td>
+                          <td>Requires Optimal Substructure and Greedy Choice Property (proven via exchange proof).</td>
+                        </tr>
+                      
+                        <tr>
+                          <td>Subproblem Dependency</td>
+                          <td>Subproblems heavily overlap; memoization or bottom-up tabulation saves exponential work.</td>
+                          <td>Subproblems do not overlap; each greedy decision reduces instance to a single subproblem.</td>
+                        </tr>
+                      
+                        <tr>
+                          <td>Computational Time Complexity</td>
+                          <td>Typically polynomial or pseudo-polynomial (e.g. O(nW) for Knapsack, O(n^3) for MCM).</td>
+                          <td>Typically faster: O(n log n) sorting or O(n) greedy scans (e.g. O(n log n) for Fractional Knapsack).</td>
+                        </tr>
+                      
+                        <tr>
+                          <td>Reversibility &amp; Search Space</td>
+                          <td>Evaluates candidate choices at each state (e.g. include vs. exclude item).</td>
+                          <td>Commits irrevocably to local optimum; zero exploration of alternative branches.</td>
+                        </tr>
+                      
+                        <tr>
+                          <td>GATE Examination Pitfall</td>
+                          <td>0/1 Knapsack CANNOT be solved with greedy ratio sorting; DP is strictly required.</td>
+                          <td>Greedy choice works for Fractional Knapsack, but fails for discrete 0/1 Knapsack.</td>
+                        </tr>
+                      
+                    </tbody>
+                  </table>
+                </div>
+              </section>
+            
+
+            
+              <section id="derivation">
+                <div class="eyebrow">06 / MATHEMATICAL FORMULATION</div>
+                <h2>Extended Master Theorem & Recurrence Hierarchy</h2>
+                <div class="derivation-container">
+                  <div class="derivation-titlebar">
+                    <div class="derivation-titlebar-left">
+                      <span class="mac-dot red"></span>
+                      <span class="mac-dot yellow"></span>
+                      <span class="mac-dot green"></span>
+                      <span style="margin-left: 8px;">Algorithm Complexity & Recurrences</span>
+                    </div>
+                    <button class="copy-trigger-btn" data-text="// Extended Master Theorem with Poly-Logarithmic Factors
+Recurrence: T(n) = a * T(n / b) + Theta(n^k * log^p(n))
+Critical Exponent: c_crit = log_b(a)
+
+Case 1: a &gt; b^k (i.e., log_b(a) &gt; k)
+  =&gt; T(n) = Theta(n^{log_b(a)})
+
+Case 2: a = b^k (i.e., log_b(a) == k)
+  Subcase 2a: p &gt; -1  =&gt; T(n) = Theta(n^k * log^{p+1}(n))
+  Subcase 2b: p == -1 =&gt; T(n) = Theta(n^k * log(log(n)))
+  Subcase 2c: p &lt; -1  =&gt; T(n) = Theta(n^k)
+
+Case 3: a &lt; b^k (i.e., log_b(a) &lt; k)
+  Subcase 3a: p &gt;= 0  =&gt; T(n) = Theta(n^k * log^p(n))
+  Subcase 3b: p &lt; 0   =&gt; T(n) = Theta(n^k)
+
+Strassen&#39;s Matrix Multiplication:
+  T(n) = 7 * T(n/2) + Theta(n^2)
+  a = 7, b = 2, k = 2 =&gt; log_2(7) approx 2.807 &gt; 2 =&gt; Case 1
+  =&gt; T(n) = Theta(n^{log_2 7}) = Theta(n^{2.807})
+
+Matrix-Chain Parenthesizations (Catalan Number):
+  C(n-1) = [1 / n] * Binomial(2n - 2, n - 1) = Omega(4^n / n^{1.5})
+DP Recurrence:
+  m[i, j] = min_{i &lt;= k &lt; j} { m[i, k] + m[k+1, j] + p_{i-1} * p_k * p_j } (Time: Theta(n^3), Space: Theta(n^2))">Copy Formula</button>
+                  </div>
+                  <pre class="derivation-code-body"><code>// Extended Master Theorem with Poly-Logarithmic Factors
+Recurrence: T(n) = a * T(n / b) + Theta(n^k * log^p(n))
+Critical Exponent: c_crit = log_b(a)
+
+Case 1: a &gt; b^k (i.e., log_b(a) &gt; k)
+  =&gt; T(n) = Theta(n^{log_b(a)})
+
+Case 2: a = b^k (i.e., log_b(a) == k)
+  Subcase 2a: p &gt; -1  =&gt; T(n) = Theta(n^k * log^{p+1}(n))
+  Subcase 2b: p == -1 =&gt; T(n) = Theta(n^k * log(log(n)))
+  Subcase 2c: p &lt; -1  =&gt; T(n) = Theta(n^k)
+
+Case 3: a &lt; b^k (i.e., log_b(a) &lt; k)
+  Subcase 3a: p &gt;= 0  =&gt; T(n) = Theta(n^k * log^p(n))
+  Subcase 3b: p &lt; 0   =&gt; T(n) = Theta(n^k)
+
+Strassen&#39;s Matrix Multiplication:
+  T(n) = 7 * T(n/2) + Theta(n^2)
+  a = 7, b = 2, k = 2 =&gt; log_2(7) approx 2.807 &gt; 2 =&gt; Case 1
+  =&gt; T(n) = Theta(n^{log_2 7}) = Theta(n^{2.807})
+
+Matrix-Chain Parenthesizations (Catalan Number):
+  C(n-1) = [1 / n] * Binomial(2n - 2, n - 1) = Omega(4^n / n^{1.5})
+DP Recurrence:
+  m[i, j] = min_{i &lt;= k &lt; j} { m[i, k] + m[k+1, j] + p_{i-1} * p_k * p_j } (Time: Theta(n^3), Space: Theta(n^2))</code></pre>
+                </div>
+              </section>
+
+              <section id="schematic">
+                <div class="eyebrow">07 / ARCHITECTURAL SCHEMATIC</div>
+                <h2>Visual Concept Schematic</h2>
+                <div class="lookbook-grid" style="grid-template-columns: 1fr;">
+                  <div class="lookbook-card" id="open-diagram-card">
+                    <div class="lookbook-svg-frame">
+                      <svg viewBox="0 0 400 240" width="100%" height="100%"><rect width="400" height="240" fill="transparent"/><text x="200" y="24" fill="#c5a059" font-family="'Cormorant Garamond', serif" font-size="14" font-weight="700" text-anchor="middle">RECURSION TREE LEVEL WORK SUMMATION</text><circle cx="200" cy="55" r="16" fill="rgba(197,160,89,0.2)" stroke="#c5a059" stroke-width="2"/><text x="200" y="59" fill="#c5a059" font-family="monospace" font-size="10" font-weight="700" text-anchor="middle">c*n</text><text x="350" y="59" fill="#999" font-family="monospace" font-size="10">Level 0: c*n</text><line x1="188" y1="69" x2="120" y2="105" stroke="#666" stroke-width="1.5"/><line x1="212" y1="69" x2="280" y2="105" stroke="#666" stroke-width="1.5"/><circle cx="120" cy="115" r="14" fill="rgba(197,160,89,0.2)" stroke="#c5a059" stroke-width="2"/><text x="120" y="119" fill="#c5a059" font-family="monospace" font-size="9" text-anchor="middle">c*n/2</text><circle cx="280" cy="115" r="14" fill="rgba(197,160,89,0.2)" stroke="#c5a059" stroke-width="2"/><text x="280" y="119" fill="#c5a059" font-family="monospace" font-size="9" text-anchor="middle">c*n/2</text><text x="350" y="119" fill="#999" font-family="monospace" font-size="10">Level 1: c*n</text><line x1="110" y1="127" x2="70" y2="160" stroke="#666" stroke-dasharray="2,2"/><line x1="130" y1="127" x2="170" y2="160" stroke="#666" stroke-dasharray="2,2"/><line x1="270" y1="127" x2="230" y2="160" stroke="#666" stroke-dasharray="2,2"/><line x1="290" y1="127" x2="330" y2="160" stroke="#666" stroke-dasharray="2,2"/><circle cx="70" cy="172" r="12" fill="rgba(5,150,105,0.2)" stroke="#059669" stroke-width="1.5"/><circle cx="170" cy="172" r="12" fill="rgba(5,150,105,0.2)" stroke="#059669" stroke-width="1.5"/><circle cx="230" cy="172" r="12" fill="rgba(5,150,105,0.2)" stroke="#059669" stroke-width="1.5"/><circle cx="330" cy="172" r="12" fill="rgba(5,150,105,0.2)" stroke="#059669" stroke-width="1.5"/><text x="350" y="176" fill="#999" font-family="monospace" font-size="10">Level 2: c*n</text><path d="M 50 195 L 350 195" stroke="#c5a059" stroke-width="1" stroke-dasharray="4,4"/><text x="200" y="215" fill="#c5a059" font-family="monospace" font-size="10" text-anchor="middle">Tree Depth = log_b(n)  |  Total Work = sum c*n = Theta(n log n)</text><text x="200" y="232" fill="#888" font-size="9" text-anchor="middle">Standard D&C Balance: Merge Sort & Balanced Quicksort Tree Structure</text></svg>
+                    </div>
+                    <div class="lookbook-caption">
+                      <strong>Recursion Tree Level-Wise Cost Partitioning & Master Theorem Geometry</strong>
+                      <span>Click to inspect full resolution in native inspection dialog ↗</span>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            
+
+            
+              <section id="gfg-topics">
+                <div class="eyebrow">08 / GEEKSFORGEEKS CURATED GUIDES</div>
+                <h2>Syllabus Sub-Category Tutorials</h2>
+                <p>Direct granular tutorials and practice sets from GeeksforGeeks corresponding to each syllabus sub-domain:</p>
+                <div class="gfg-subcat-grid">
+                  
+                    <a class="gfg-subcat-card" href="https://www.geeksforgeeks.org/analysis-of-algorithms-set-1-asymptotic-analysis/" target="_blank" rel="noopener">
+                      <div class="gfg-subcat-top">
+                        <span class="gfg-badge">Complexity Theory</span>
+                        <span class="gfg-arrow">↗</span>
+                      </div>
+                      <div class="gfg-subcat-title">Asymptotic Analysis &amp; Recurrences</div>
+                      <div class="gfg-subcat-desc">Big-O, Omega, Theta asymptotic definitions, Master Theorem extended cases, recursion tree methods, and substitution proofs.</div>
+                    </a>
+                  
+                    <a class="gfg-subcat-card" href="https://www.geeksforgeeks.org/divide-and-conquer-algorithm-introduction/" target="_blank" rel="noopener">
+                      <div class="gfg-subcat-top">
+                        <span class="gfg-badge">Sorting &amp; Searching</span>
+                        <span class="gfg-arrow">↗</span>
+                      </div>
+                      <div class="gfg-subcat-title">Divide &amp; Conquer and Sorting Algorithms</div>
+                      <div class="gfg-subcat-desc">Tournament min/max (3n/2 - 2), merge sort stability, quicksort randomized pivot, median-of-medians, and Strassen&#39;s matrix multiply.</div>
+                    </a>
+                  
+                    <a class="gfg-subcat-card" href="https://www.geeksforgeeks.org/greedy-algorithms/" target="_blank" rel="noopener">
+                      <div class="gfg-subcat-top">
+                        <span class="gfg-badge">Greedy Strategy</span>
+                        <span class="gfg-arrow">↗</span>
+                      </div>
+                      <div class="gfg-subcat-title">Greedy Algorithms &amp; Matroids</div>
+                      <div class="gfg-subcat-desc">Greedy choice property, exchange arguments, fractional knapsack, job sequencing with DSU, optimal merge, and Huffman coding.</div>
+                    </a>
+                  
+                    <a class="gfg-subcat-card" href="https://www.geeksforgeeks.org/dynamic-programming/" target="_blank" rel="noopener">
+                      <div class="gfg-subcat-top">
+                        <span class="gfg-badge">Dynamic Programming</span>
+                        <span class="gfg-arrow">↗</span>
+                      </div>
+                      <div class="gfg-subcat-title">Dynamic Programming Paradigms</div>
+                      <div class="gfg-subcat-desc">5-step framework, weighted interval scheduling, LCS 2D table, Matrix Chain Multiplication, 0/1 knapsack 1D loop, and subset sum.</div>
+                    </a>
+                  
+                    <a class="gfg-subcat-card" href="https://www.geeksforgeeks.org/graph-data-structure-and-algorithms/" target="_blank" rel="noopener">
+                      <div class="gfg-subcat-top">
+                        <span class="gfg-badge">Graph Algorithms</span>
+                        <span class="gfg-arrow">↗</span>
+                      </div>
+                      <div class="gfg-subcat-title">Graph Traversals &amp; Topological Sort</div>
+                      <div class="gfg-subcat-desc">BFS queue shortest path, DFS discovery/finish timestamps, DAG cycle detection, and Kahn&#39;s in-degree topological sort.</div>
+                    </a>
+                  
+                    <a class="gfg-subcat-card" href="https://www.geeksforgeeks.org/prims-minimum-spanning-tree-mst-greedy-algo-5/" target="_blank" rel="noopener">
+                      <div class="gfg-subcat-top">
+                        <span class="gfg-badge">Network Optimization</span>
+                        <span class="gfg-arrow">↗</span>
+                      </div>
+                      <div class="gfg-subcat-title">Shortest Paths &amp; Minimum Spanning Trees</div>
+                      <div class="gfg-subcat-desc">Kruskal&#39;s union-find MST, Prim&#39;s priority queue MST, Cut and Cycle properties, Dijkstra vs. Bellman-Ford shortest paths.</div>
+                    </a>
+                  
+                </div>
+              </section>
+            
+
+            
+              <section id="handoffs">
+                <div class="eyebrow">09 / CURATED PLATFORM HANDOFFS</div>
+                <h2>Implementation & Deep Dives</h2>
+                <p>External verified learning portals for code implementations and official NPTEL lectures:</p>
+                <div class="deepdive-grid">
+                  <a class="deepdive-card" href="https://www.geeksforgeeks.org/fundamentals-of-algorithms/" target="_blank" rel="noopener">
+                    <span>GeeksforGeeks · Subject Guide</span>
+                    <span>↗</span>
+                  </a>
+                  <div class="deepdive-card" style="cursor: default;">
+                    <span>NPTEL: noc21-cs68 (IIT Delhi - Design and Analysis of Algorithms)</span>
+                    <span style="font-size: 0.75rem; color: var(--accent-gold);">Official Series</span>
+                  </div>
+                </div>
+              </section>
+            
+
+            <section id="pyq">
+              <div class="eyebrow">10 / EXAMINATION PRACTICE</div>
+              <h2>Previous-Year Questions</h2>
+              <p>Explore official past papers and verification keys from the GATE archive.</p>
+              <div style="display: flex; gap: 14px; flex-wrap: wrap; margin-top: 16px;">
+                <a class="button gold small" href="https://gate2027.iitm.ac.in/download" target="_blank" rel="noopener">Download Official Papers & Keys ↗</a>
+                <a class="button outline small" href="../../practice/">Interactive Practice Quizzes ↗</a>
+              </div>
+            </section>
+          </article>
+        </div>
+  
+  </main>
+  <footer>
+    <div>
+      <strong>STUDY GATE <span>WITH ARSHAD</span></strong>
+      <p>Learning with clarity, one concept at a time.</p>
+    </div>
+    <div>
+      <a href="https://gate2027.iitm.ac.in/">Official GATE 2027 ↗</a>
+      <a href="https://github.com/Arshad9999/Study-Gate-Exam-with-Arshad">GitHub ↗</a>
+    </div>
+    <p>Independent educational resource. Not affiliated with or endorsed by GATE or IIT Madras.</p>
+  </footer>
+</body>
+</html>

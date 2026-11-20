@@ -1,1 +1,482 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="An independent GATE CS and DA study directory with syllabus references and local progress tracking."><title>Theory of Computation | Study GATE Exam with Arshad</title><link rel="stylesheet" href="../../assets/styles.css"><script defer src="../../assets/app.js"></script></head><body data-root="../../" data-page="subject" data-id="theory-of-computation"><a class="skip" href="#main">Skip to content</a><header class="site-header"><a class="brand" href="../../"><span class="logo">A<span>↗</span></span><span>STUDY GATE <small>WITH ARSHAD</small></span></a><button id="menu" class="menu" aria-expanded="false" aria-controls="nav">Menu</button><nav id="nav" aria-label="Main navigation"><a href="../../cs/">CS</a><a href="../../da/">DA</a><a href="../../#subjects">Subjects</a><a href="../../pyqs/">PYQs</a><a href="../../practice/">Practice</a><a href="../../planner/">Planner</a><a href="../../resources/">Resources</a></nav></header><main id="main"><p>Loading the study directory…</p></main><footer><div><strong>STUDY GATE <span>WITH ARSHAD</span></strong><p>Learning with clarity, one concept at a time.</p></div><div><a href="https://gate2027.iitm.ac.in/">Official GATE 2027 ↗</a> <a href="https://github.com/Arshad9999/Study-Gate-Exam-with-Arshad">GitHub ↗</a></div><p>Independent educational resource. Not affiliated with or endorsed by GATE or IIT Madras.</p></footer></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="An independent GATE CS and DA study directory with syllabus references and local progress tracking.">
+  <title>Theory of Computation | Study GATE Exam with Arshad</title>
+  <link rel="stylesheet" href="../../assets/styles.css?v=2.2">
+  <script defer src="../../assets/app.js?v=2.2"></script>
+</head>
+<body data-root="../../" data-page="subject" data-id="theory-of-computation">
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header">
+    <a class="brand" href="../../">
+      <span class="logo">A<span>↗</span></span>
+      <span>STUDY GATE <small>WITH ARSHAD</small></span>
+    </a>
+    <button id="menu" class="menu" aria-expanded="false" aria-controls="nav">Menu</button>
+    <nav id="nav" aria-label="Main navigation">
+      <a href="../../cs/">CS</a>
+      <a href="../../da/">DA</a>
+      <a href="../../#subjects">Subjects</a>
+      <a href="../../pyqs/">PYQs</a>
+      <a href="../../practice/">Practice</a>
+      <a href="../../planner/">Planner</a>
+      <a href="../../resources/">Resources</a>
+    </nav>
+  </header>
+  <main id="main">
+
+        <div class="crumb"><a href="../../">Home</a> / Theory of Computation</div>
+        <section class="page-title">
+          <div class="eyebrow">SUBJECT DOSSIER · CS</div>
+          <h1>Theory of Computation</h1>
+          <p>Structured syllabus scope, technical formulations, conceptual schematics, and previous-year question references.</p>
+        </section>
+
+        <div class="guide">
+          <aside class="sidebar">
+            <strong>DOCUMENT SECTIONS</strong>
+            <a href="#overview" class="active">01. Overview</a>
+            <a href="#scope">02. Syllabus Scope</a>
+            
+            <a href="#definitions">03. Core Definitions</a>
+            <a href="#modules">04. Curriculum Modules</a>
+            <a href="#comparison">05. Comparison Matrix</a>
+            <a href="#derivation">06. Key Formulation</a>
+            <a href="#schematic">07. Visual Schematic</a>
+            <a href="#gfg-topics">08. GeeksforGeeks Guides</a>
+            <a href="#handoffs">09. Deep-Dive Links</a>
+            <a href="#pyq">10. Examination Practice</a>
+            <div style="margin-top: 24px; border-top: 1px solid var(--border-line); padding-top: 16px; display: flex; flex-direction: column; gap: 8px;">
+              
+              <button class="button gold small" id="subject-docket-add-btn" style="width: 100%;">+ Queue in Docket</button>
+              <button class="button outline small calc-trigger" style="text-align: center;">🧮 GATE Calculator</button>
+              <a class="button outline small" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=GATE%202027%20Study%3A%20Theory%20of%20Computation%20(CS)&dates=20261122T123000Z/20261122T143000Z&details=Comprehensive%20revision%20session.%0ASyllabus%20outline%3A%20Regular%20expressions%20and%20finite%20automata%3B%20context-free%20grammars%2C%20pushdown%20automata%20and%20languages%3B%20pumping%20lemma%3B%20Turing%20machines%20and%20undecidability." target="_blank" style="text-align: center;">Schedule Google Cal ↗</a>
+              <button class="button outline small" id="print-sheet-btn" style="text-align: center;">Print Study Sheet ⎙</button>
+            </div>
+          </aside>
+
+          <article>
+            
+  <aside class="notice">
+    <strong>Official Curriculum Alignment · GATE 2027</strong>
+    <p>Verified against IIT Madras official notification. Outlines are aligned with official syllabus codes.</p>
+  </aside>
+
+
+            <section id="overview">
+              <div class="eyebrow">01 / CONCEPTUAL FOUNDATION</div>
+              <h2>Start with the fundamentals</h2>
+              <p>A deterministic finite automaton has one transition per state and input symbol. Its finite memory makes it appropriate for recognising regular languages.</p>
+              <div style="margin-top: 20px;">
+                <label class="check">
+                  <input type="checkbox" id="complete">
+                  Mark this subject introduction as reviewed
+                </label>
+              </div>
+            </section>
+
+            <section id="scope">
+              <div class="eyebrow">02 / OFFICIAL SCOPE</div>
+              <h2>Prescribed Curriculum</h2>
+              <p>Regular expressions and finite automata; context-free grammars, pushdown automata and languages; pumping lemma; Turing machines and undecidability.</p>
+              <div class="mac-window" style="padding: 16px 20px; margin-top: 20px; font-size: 0.85rem; background: var(--bg-page);">
+                <strong>Authoritative Source:</strong>
+                <a href="https://gate2027.iitm.ac.in/static/doc/GATE2027_Syllabus/CS_GATE2027_Syllabus.pdf" target="_blank" style="margin-right: 14px;">CS Official Syllabus PDF ↗</a>
+              </div>
+
+              
+            </section>
+
+            
+
+            
+              <section id="definitions">
+                <div class="eyebrow">03 / FOUNDATIONAL TERMINOLOGY & TAXONOMY</div>
+                <h2>Core Definitions & Classifications</h2>
+                <p>Standardized academic definitions and structural classifications essential for conceptual questions:</p>
+                
+                <div class="definitions-grid">
+                  
+                    <div class="definition-card">
+                      <div>
+                        <div class="def-top">
+                          <span class="def-term">Regular Language</span>
+                          <span class="def-pill">Automata Theory</span>
+                        </div>
+                        <p class="def-body">A formal language recognized by a Deterministic Finite Automaton (DFA), or equivalently generated by a Regular Expression or Regular Grammar.</p>
+                      </div>
+                      <div class="def-note"><strong>Note:</strong> Closed under union, intersection, complement, concatenation, and Kleene star.</div>
+                    </div>
+                  
+                    <div class="definition-card">
+                      <div>
+                        <div class="def-top">
+                          <span class="def-term">Pumping Lemma for Regular Languages</span>
+                          <span class="def-pill">Non-Regularity</span>
+                        </div>
+                        <p class="def-body">For any regular language L with pumping length p, any string w in L with |w| &gt;= p can be split into w = xyz with |y| &gt;= 1, |xy| &lt;= p such that x (y^i) z in L for all i &gt;= 0.</p>
+                      </div>
+                      <div class="def-note"><strong>Note:</strong> Used via contrapositive to prove a language is NOT regular.</div>
+                    </div>
+                  
+                    <div class="definition-card">
+                      <div>
+                        <div class="def-top">
+                          <span class="def-term">Deterministic Pushdown Automaton (DPDA)</span>
+                          <span class="def-pill">CFLs</span>
+                        </div>
+                        <p class="def-body">A Pushdown Automaton with deterministic transition relations. Accepts Deterministic Context-Free Languages (DCFLs).</p>
+                      </div>
+                      <div class="def-note"><strong>Note:</strong> DPDAs are strictly less expressive than Non-deterministic PDAs (NPDAs).</div>
+                    </div>
+                  
+                    <div class="definition-card">
+                      <div>
+                        <div class="def-top">
+                          <span class="def-term">Turing Decidable (Recursive) Language</span>
+                          <span class="def-pill">Computability</span>
+                        </div>
+                        <p class="def-body">A language for which there exists a Turing Machine that halts on ALL inputs: accepts if w in L, and rejects if w not in L.</p>
+                      </div>
+                      <div class="def-note"><strong>Note:</strong> Closed under complement. Recursively Enumerable languages may loop forever on non-members.</div>
+                    </div>
+                  
+                    <div class="definition-card">
+                      <div>
+                        <div class="def-top">
+                          <span class="def-term">Rice’s Theorem</span>
+                          <span class="def-pill">Undecidability</span>
+                        </div>
+                        <p class="def-body">Any non-trivial semantic property of the language recognized by a Turing Machine is undecidable.</p>
+                      </div>
+                      <div class="def-note"><strong>Note:</strong> Applies strictly to properties of L(M), not syntactic properties of machine M itself.</div>
+                    </div>
+                  
+                </div>
+
+                
+                  <div class="taxonomy-container">
+                    
+                      <div class="taxonomy-card">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                          <strong>The Chomsky Language Hierarchy</strong>
+                          <span class="pill gold" style="font-size: 0.65rem;">Formal Grammars</span>
+                        </div>
+                        <ul>
+                          <li>Type 3 (Regular Languages): Recognized by Finite Automata (DFA/NFA); generated by right-linear grammars A -&gt; aB | a.</li><li>Type 2 (Context-Free Languages): Recognized by Pushdown Automata (PDA); generated by CFGs A -&gt; alpha; pumping lemma for CFLs.</li><li>Type 1 (Context-Sensitive Languages): Recognized by Linear Bounded Automata (LBA); productions alpha -&gt; beta with |alpha| &lt;= |beta|.</li><li>Type 0 (Recursively Enumerable): Recognized by Turing Machines; unrestricted production rules alpha -&gt; beta.</li>
+                        </ul>
+                      </div>
+                    
+                      <div class="taxonomy-card">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                          <strong>Decidability &amp; Computability Boundary</strong>
+                          <span class="pill gold" style="font-size: 0.65rem;">Turing Classes</span>
+                        </div>
+                        <ul>
+                          <li>Decidable / Recursive (R): Turing machine halts and decides membership on ALL input strings in finite steps.</li><li>Recognizable / Recursively Enumerable (RE): Turing machine accepts valid strings, but may loop infinitely on invalid strings.</li><li>Co-RE: Complement of language is RE; if a language is both RE and Co-RE, it is strictly Decidable (R).</li><li>Undecidable Problems: Halting Problem (H_TM), State-Entry Problem, Emptiness Problem for Turing Machines (Rice&#39;s Theorem).</li>
+                        </ul>
+                      </div>
+                    
+                  </div>
+                
+              </section>
+            
+
+            
+              <section id="modules">
+                <div class="eyebrow">04 / IN-DEPTH SYLLABUS MODULES</div>
+                <h2>Core Theoretical Modules</h2>
+                <p>Comprehensive subject breakdown containing foundational principles, key theorems, and common examination pitfalls.</p>
+                <div class="subject-modules-container">
+                  
+                    <div class="module-card">
+                      <div class="module-header">
+                        <span class="pill gold">MODULE 01</span>
+                        <h3 class="module-title">Finite Automata, Regular Expressions &amp; Minimization</h3>
+                      </div>
+                      <ul class="module-keypoints">
+                        <li>DFA: Transition function delta: Q x Sigma -&gt; Q. Exactly one transition per input symbol.</li><li>NFA equivalence: Every NFA can be converted into an equivalent DFA with at most 2^{|Q|} states via powerset construction.</li><li>DFA Minimization: Myhill-Nerode theorem equivalence classes and table-filling algorithm partition reachable states.</li><li>Regular Closure: Closed under union, intersection, complement, concatenation, Kleene star, reverse, and homomorphism.</li>
+                      </ul>
+                      
+                        <div class="module-theorem-box">
+                          <strong>Essential Theorem & Principle</strong>
+                          <span>Myhill-Nerode Theorem: A language L is regular if and only if the number of equivalence classes of its indistinguishability relation R_L is finite; this number is the minimum state count of any DFA accepting L.</span>
+                        </div>
+                      
+                      
+                        <div class="module-trap-box">
+                          <strong>⚠️ GATE Exam Trap & Common Mistake</strong>
+                          <span>Regular Subset Fallacy: Do not assume a subset of a regular language is regular! For instance, {a^n b^n | n &gt;= 0} is a non-regular subset of the regular language a* b*.</span>
+                        </div>
+                      
+                    </div>
+                  
+                    <div class="module-card">
+                      <div class="module-header">
+                        <span class="pill gold">MODULE 02</span>
+                        <h3 class="module-title">Context-Free Grammars, Pushdown Automata &amp; Ambiguity</h3>
+                      </div>
+                      <ul class="module-keypoints">
+                        <li>CFG: V -&gt; (V v Sigma)*. Ambiguity exists if a string has two distinct parse trees or leftmost derivations.</li><li>Pushdown Automata (PDA): Finite automaton equipped with a single LIFO stack storage.</li><li>DPDA vs NPDA: NPDAs are strictly more powerful than DPDAs. DPDAs accept Deterministic CFLs (DCFLs).</li><li>CFL Closure: Closed under union, concatenation, Kleene star; NOT closed under intersection or complement!</li>
+                      </ul>
+                      
+                        <div class="module-theorem-box">
+                          <strong>Essential Theorem & Principle</strong>
+                          <span>DPDA vs NPDA Inexpressibility: The language of even palindromes L = {w w^R | w in {a, b}*} is context-free and accepted by an NPDA, but cannot be accepted by any Deterministic PDA.</span>
+                        </div>
+                      
+                      
+                        <div class="module-trap-box">
+                          <strong>⚠️ GATE Exam Trap & Common Mistake</strong>
+                          <span>CFL Intersection Trap: The intersection of two context-free languages is NOT necessarily context-free! For example, L_1 = {a^n b^n c^m} and L_2 = {a^m b^n c^n} are CFLs, but L_1 cap L_2 = {a^n b^n c^n} is not context-free.</span>
+                        </div>
+                      
+                    </div>
+                  
+                    <div class="module-card">
+                      <div class="module-header">
+                        <span class="pill gold">MODULE 03</span>
+                        <h3 class="module-title">Turing Machines, Computability &amp; Rice’s Theorem</h3>
+                      </div>
+                      <ul class="module-keypoints">
+                        <li>Turing Machine: Tape head can read, write, and move Left/Right. Halts in accept or reject state, or loops forever.</li><li>Recursive Languages (Decidable): TM halts on ALL inputs (accepts or rejects). Closed under complement.</li><li>Recursively Enumerable (Turing Recognizable): TM halts and accepts valid strings, but may loop endlessly on invalid strings.</li><li>Halting Problem: Determining whether an arbitrary TM halts on an arbitrary input is undecidable.</li>
+                      </ul>
+                      
+                        <div class="module-theorem-box">
+                          <strong>Essential Theorem & Principle</strong>
+                          <span>Rice’s Theorem: Any non-trivial semantic property of the language recognized by a Turing Machine is undecidable.</span>
+                        </div>
+                      
+                      
+                        <div class="module-trap-box">
+                          <strong>⚠️ GATE Exam Trap & Common Mistake</strong>
+                          <span>Syntactic vs Semantic Property Trap: Rice’s theorem applies ONLY to semantic properties of the language recognized by a TM (e.g., &quot;is L(M) empty?&quot;). It does NOT apply to syntactic properties of the TM itself (e.g., &quot;does M have 10 states?&quot;), which are trivially decidable.</span>
+                        </div>
+                      
+                    </div>
+                  
+                </div>
+              </section>
+            
+
+            
+              <section id="comparison">
+                <div class="eyebrow">05 / CANONICAL COMPARISON MATRIX</div>
+                <h2>Deterministic Finite Automata (DFA) vs. Non-Deterministic Finite Automata (NFA)</h2>
+                <p>Detailed architectural and mathematical comparison of fundamental contrasting concepts frequently tested in GATE:</p>
+                <div class="comparison-table-wrapper">
+                  <table class="comparison-table">
+                    <thead>
+                      <tr>
+                        <th>COMPARISON DIMENSION</th>
+                        <th>Deterministic Finite Automata (DFA)</th>
+                        <th>Non-Deterministic Finite Automata (NFA)</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      
+                        <tr>
+                          <td>Transition Function Domain</td>
+                          <td>delta: Q x Sigma -&gt; Q (exactly ONE deterministic next state per symbol).</td>
+                          <td>delta: Q x (Sigma U {epsilon}) -&gt; 2^Q (set of candidate states, includes epsilon-moves).</td>
+                        </tr>
+                      
+                        <tr>
+                          <td>Expressive Language Power</td>
+                          <td>Recognizes exactly the class of Regular Languages.</td>
+                          <td>Recognizes exactly the class of Regular Languages: L(DFA) == L(NFA).</td>
+                        </tr>
+                      
+                        <tr>
+                          <td>State Conversion Bounds</td>
+                          <td>An n-state DFA is already minimal or minimizable via Myhill-Nerode in O(n log n).</td>
+                          <td>Subset construction can convert an n-state NFA to an equivalent DFA with up to 2^n states.</td>
+                        </tr>
+                      
+                        <tr>
+                          <td>String Simulation Runtime</td>
+                          <td>O(|w|) deterministic time; strictly 1 state transition per input character.</td>
+                          <td>O(|Q|^2 * |w|) simulation time if tracking candidate active states online.</td>
+                        </tr>
+                      
+                        <tr>
+                          <td>Language Complement Operation</td>
+                          <td>Trivial: swap accept and non-accept states (F&#39; = Q \ F) on complete DFA.</td>
+                          <td>CANNOT simply invert accept states! Must first convert NFA to complete DFA, then swap.</td>
+                        </tr>
+                      
+                        <tr>
+                          <td>GATE Examination Pitfall</td>
+                          <td>DFA must be complete (dead/trap state must be explicitly included) before complementing.</td>
+                          <td>An NFA can accept epsilon without reading any input symbol; DFA must explicitly transition.</td>
+                        </tr>
+                      
+                    </tbody>
+                  </table>
+                </div>
+              </section>
+            
+
+            
+              <section id="derivation">
+                <div class="eyebrow">06 / MATHEMATICAL FORMULATION</div>
+                <h2>Pumping Lemma for Regular Languages</h2>
+                <div class="derivation-container">
+                  <div class="derivation-titlebar">
+                    <div class="derivation-titlebar-left">
+                      <span class="mac-dot red"></span>
+                      <span class="mac-dot yellow"></span>
+                      <span class="mac-dot green"></span>
+                      <span style="margin-left: 8px;">Formal Languages</span>
+                    </div>
+                    <button class="copy-trigger-btn" data-text="Let L be a regular language with pumping length p.
+Any string w in L with |w| &gt;= p can be split into w = x y z such that:
+  1. |y| &gt;= 1  (non-empty pumpable segment)
+  2. |x y| &lt;= p (pump occurs in the prefix)
+  3. For all i &gt;= 0, x (y^i) z in L
+Contrapositive Method:
+  Choose string w in L of length &gt;= p.
+  Show that for EVERY partition w = xyz meeting (1) &amp; (2),
+  there exists some i such that x (y^i) z NOT in L =&gt; L is NOT regular.">Copy Formula</button>
+                  </div>
+                  <pre class="derivation-code-body"><code>Let L be a regular language with pumping length p.
+Any string w in L with |w| &gt;= p can be split into w = x y z such that:
+  1. |y| &gt;= 1  (non-empty pumpable segment)
+  2. |x y| &lt;= p (pump occurs in the prefix)
+  3. For all i &gt;= 0, x (y^i) z in L
+Contrapositive Method:
+  Choose string w in L of length &gt;= p.
+  Show that for EVERY partition w = xyz meeting (1) &amp; (2),
+  there exists some i such that x (y^i) z NOT in L =&gt; L is NOT regular.</code></pre>
+                </div>
+              </section>
+
+              <section id="schematic">
+                <div class="eyebrow">07 / ARCHITECTURAL SCHEMATIC</div>
+                <h2>Visual Concept Schematic</h2>
+                <div class="lookbook-grid" style="grid-template-columns: 1fr;">
+                  <div class="lookbook-card" id="open-diagram-card">
+                    <div class="lookbook-svg-frame">
+                      <svg viewBox="0 0 320 180" width="100%" height="100%"><ellipse cx="160" cy="90" rx="145" ry="75" fill="none" stroke="#666" stroke-width="1.5"/><text x="160" y="32" fill="#777" font-size="9" text-anchor="middle">Type 0: Recursively Enumerable (Turing Machine)</text><ellipse cx="160" cy="98" rx="115" ry="58" fill="none" stroke="#c5a059" stroke-width="1.5"/><text x="160" y="58" fill="#c5a059" font-size="9" text-anchor="middle">Type 1: Context-Sensitive</text><ellipse cx="160" cy="105" rx="85" ry="42" fill="none" stroke="#059669" stroke-width="1.5"/><text x="160" y="80" fill="#059669" font-size="9" text-anchor="middle">Type 2: Context-Free (PDA)</text><ellipse cx="160" cy="112" rx="55" ry="26" fill="rgba(197,160,89,0.2)" stroke="#e0443e" stroke-width="2"/><text x="160" y="117" fill="#e0443e" font-size="10" text-anchor="middle" font-weight="700">Type 3: Regular (DFA)</text></svg>
+                    </div>
+                    <div class="lookbook-caption">
+                      <strong>Chomsky Hierarchy of Formal Languages & Automata</strong>
+                      <span>Click to inspect full resolution in native inspection dialog ↗</span>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            
+
+            
+              <section id="gfg-topics">
+                <div class="eyebrow">08 / GEEKSFORGEEKS CURATED GUIDES</div>
+                <h2>Syllabus Sub-Category Tutorials</h2>
+                <p>Direct granular tutorials and practice sets from GeeksforGeeks corresponding to each syllabus sub-domain:</p>
+                <div class="gfg-subcat-grid">
+                  
+                    <a class="gfg-subcat-card" href="https://www.geeksforgeeks.org/introduction-of-finite-automata/" target="_blank" rel="noopener">
+                      <div class="gfg-subcat-top">
+                        <span class="gfg-badge">Automata Theory</span>
+                        <span class="gfg-arrow">↗</span>
+                      </div>
+                      <div class="gfg-subcat-title">Finite Automata: DFA, NFA &amp; Conversions</div>
+                      <div class="gfg-subcat-desc">DFA 5-tuple, NFA with epsilon transitions, subset construction 2^Q bound, and DFA state minimization.</div>
+                    </a>
+                  
+                    <a class="gfg-subcat-card" href="https://www.geeksforgeeks.org/pumping-lemma-in-theory-of-computation/" target="_blank" rel="noopener">
+                      <div class="gfg-subcat-top">
+                        <span class="gfg-badge">Regular Languages</span>
+                        <span class="gfg-arrow">↗</span>
+                      </div>
+                      <div class="gfg-subcat-title">Regular Expressions &amp; Pumping Lemma</div>
+                      <div class="gfg-subcat-desc">Arden’s theorem, regular expressions, closure properties, and proving non-regularity via Pumping Lemma.</div>
+                    </a>
+                  
+                    <a class="gfg-subcat-card" href="https://www.geeksforgeeks.org/pushdown-automata-in-theory-of-computation/" target="_blank" rel="noopener">
+                      <div class="gfg-subcat-top">
+                        <span class="gfg-badge">Context-Free Languages</span>
+                        <span class="gfg-arrow">↗</span>
+                      </div>
+                      <div class="gfg-subcat-title">Context-Free Grammars &amp; Pushdown Automata</div>
+                      <div class="gfg-subcat-desc">CFG productions, derivation ambiguity, Chomsky Normal Form (CNF), Deterministic PDA vs NPDA.</div>
+                    </a>
+                  
+                    <a class="gfg-subcat-card" href="https://www.geeksforgeeks.org/pumping-lemma-for-cfl/" target="_blank" rel="noopener">
+                      <div class="gfg-subcat-top">
+                        <span class="gfg-badge">CFL Properties</span>
+                        <span class="gfg-arrow">↗</span>
+                      </div>
+                      <div class="gfg-subcat-title">Pumping Lemma for CFLs &amp; Closure Properties</div>
+                      <div class="gfg-subcat-desc">Pumping lemma uvwxy split for CFLs, proving languages like a^n b^n c^n non-CFL, and closure operations.</div>
+                    </a>
+                  
+                    <a class="gfg-subcat-card" href="https://www.geeksforgeeks.org/turing-machine-in-toc/" target="_blank" rel="noopener">
+                      <div class="gfg-subcat-top">
+                        <span class="gfg-badge">Computability</span>
+                        <span class="gfg-arrow">↗</span>
+                      </div>
+                      <div class="gfg-subcat-title">Turing Machines &amp; Chomsky Hierarchy</div>
+                      <div class="gfg-subcat-desc">Turing Machine 7-tuple, tape head transitions, Type 0 to Type 3 languages, multi-tape equivalence.</div>
+                    </a>
+                  
+                    <a class="gfg-subcat-card" href="https://www.geeksforgeeks.org/undecidability-and-reducibility-in-toc/" target="_blank" rel="noopener">
+                      <div class="gfg-subcat-top">
+                        <span class="gfg-badge">Undecidability</span>
+                        <span class="gfg-arrow">↗</span>
+                      </div>
+                      <div class="gfg-subcat-title">Decidability, Halting Problem &amp; Rice’s Theorem</div>
+                      <div class="gfg-subcat-desc">Halting problem undecidability, Post Correspondence Problem (PCP), reduction proofs, and Rice’s theorem.</div>
+                    </a>
+                  
+                </div>
+              </section>
+            
+
+            
+              <section id="handoffs">
+                <div class="eyebrow">09 / CURATED PLATFORM HANDOFFS</div>
+                <h2>Implementation & Deep Dives</h2>
+                <p>External verified learning portals for code implementations and official NPTEL lectures:</p>
+                <div class="deepdive-grid">
+                  <a class="deepdive-card" href="https://www.geeksforgeeks.org/theory-of-computation-automata-tutorials/" target="_blank" rel="noopener">
+                    <span>GeeksforGeeks · Subject Guide</span>
+                    <span>↗</span>
+                  </a>
+                  <div class="deepdive-card" style="cursor: default;">
+                    <span>NPTEL: noc20-cs78 (IIT Kanpur - Theory of Computation)</span>
+                    <span style="font-size: 0.75rem; color: var(--accent-gold);">Official Series</span>
+                  </div>
+                </div>
+              </section>
+            
+
+            <section id="pyq">
+              <div class="eyebrow">10 / EXAMINATION PRACTICE</div>
+              <h2>Previous-Year Questions</h2>
+              <p>Explore official past papers and verification keys from the GATE archive.</p>
+              <div style="display: flex; gap: 14px; flex-wrap: wrap; margin-top: 16px;">
+                <a class="button gold small" href="https://gate2027.iitm.ac.in/download" target="_blank" rel="noopener">Download Official Papers & Keys ↗</a>
+                <a class="button outline small" href="../../practice/">Interactive Practice Quizzes ↗</a>
+              </div>
+            </section>
+          </article>
+        </div>
+  
+  </main>
+  <footer>
+    <div>
+      <strong>STUDY GATE <span>WITH ARSHAD</span></strong>
+      <p>Learning with clarity, one concept at a time.</p>
+    </div>
+    <div>
+      <a href="https://gate2027.iitm.ac.in/">Official GATE 2027 ↗</a>
+      <a href="https://github.com/Arshad9999/Study-Gate-Exam-with-Arshad">GitHub ↗</a>
+    </div>
+    <p>Independent educational resource. Not affiliated with or endorsed by GATE or IIT Madras.</p>
+  </footer>
+</body>
+</html>

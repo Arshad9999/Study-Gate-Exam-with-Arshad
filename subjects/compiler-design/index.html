@@ -1,1 +1,680 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="An independent GATE CS and DA study directory with syllabus references and local progress tracking."><title>Compiler Design | Study GATE Exam with Arshad</title><link rel="stylesheet" href="../../assets/styles.css"><script defer src="../../assets/app.js"></script></head><body data-root="../../" data-page="subject" data-id="compiler-design"><a class="skip" href="#main">Skip to content</a><header class="site-header"><a class="brand" href="../../"><span class="logo">A<span>↗</span></span><span>STUDY GATE <small>WITH ARSHAD</small></span></a><button id="menu" class="menu" aria-expanded="false" aria-controls="nav">Menu</button><nav id="nav" aria-label="Main navigation"><a href="../../cs/">CS</a><a href="../../da/">DA</a><a href="../../#subjects">Subjects</a><a href="../../pyqs/">PYQs</a><a href="../../practice/">Practice</a><a href="../../planner/">Planner</a><a href="../../resources/">Resources</a></nav></header><main id="main"><p>Loading the study directory…</p></main><footer><div><strong>STUDY GATE <span>WITH ARSHAD</span></strong><p>Learning with clarity, one concept at a time.</p></div><div><a href="https://gate2027.iitm.ac.in/">Official GATE 2027 ↗</a> <a href="https://github.com/Arshad9999/Study-Gate-Exam-with-Arshad">GitHub ↗</a></div><p>Independent educational resource. Not affiliated with or endorsed by GATE or IIT Madras.</p></footer></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="An independent GATE CS and DA study directory with syllabus references and local progress tracking.">
+  <title>Compiler Design | Study GATE Exam with Arshad</title>
+  <link rel="stylesheet" href="../../assets/styles.css?v=2.2">
+  <script defer src="../../assets/app.js?v=2.2"></script>
+</head>
+<body data-root="../../" data-page="subject" data-id="compiler-design">
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header">
+    <a class="brand" href="../../">
+      <span class="logo">A<span>↗</span></span>
+      <span>STUDY GATE <small>WITH ARSHAD</small></span>
+    </a>
+    <button id="menu" class="menu" aria-expanded="false" aria-controls="nav">Menu</button>
+    <nav id="nav" aria-label="Main navigation">
+      <a href="../../cs/">CS</a>
+      <a href="../../da/">DA</a>
+      <a href="../../#subjects">Subjects</a>
+      <a href="../../pyqs/">PYQs</a>
+      <a href="../../practice/">Practice</a>
+      <a href="../../planner/">Planner</a>
+      <a href="../../resources/">Resources</a>
+    </nav>
+  </header>
+  <main id="main">
+
+        <div class="crumb"><a href="../../">Home</a> / Compiler Design</div>
+        <section class="page-title">
+          <div class="eyebrow">SUBJECT DOSSIER · CS</div>
+          <h1>Compiler Design</h1>
+          <p>Structured syllabus scope, technical formulations, conceptual schematics, and previous-year question references.</p>
+        </section>
+
+        <div class="guide">
+          <aside class="sidebar">
+            <strong>DOCUMENT SECTIONS</strong>
+            <a href="#overview" class="active">01. Overview</a>
+            <a href="#scope">02. Syllabus Scope</a>
+            <a href="#pdf-guide" style="color: var(--accent-gold); font-weight: 600;">📥 Visual Study Guide PDF (33p)</a>
+            <a href="#definitions">03. Core Definitions</a>
+            <a href="#modules">04. Curriculum Modules</a>
+            <a href="#comparison">05. Comparison Matrix</a>
+            <a href="#derivation">06. Key Formulation</a>
+            <a href="#schematic">07. Visual Schematic</a>
+            <a href="#gfg-topics">08. GeeksforGeeks Guides</a>
+            <a href="#handoffs">09. Deep-Dive Links</a>
+            <a href="#pyq">10. Examination Practice</a>
+            <div style="margin-top: 24px; border-top: 1px solid var(--border-line); padding-top: 16px; display: flex; flex-direction: column; gap: 8px;">
+              
+                <a class="button gold small" href="../../assets/docs/compiler-design-visual-study-guide.pdf" download="compiler-design-visual-study-guide.pdf" style="width: 100%; text-align: center; text-decoration: none;">📥 Download 33p PDF</a>
+              
+              <button class="button gold small" id="subject-docket-add-btn" style="width: 100%;">+ Queue in Docket</button>
+              <button class="button outline small calc-trigger" style="text-align: center;">🧮 GATE Calculator</button>
+              <a class="button outline small" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=GATE%202027%20Study%3A%20Compiler%20Design%20(CS)&dates=20261122T123000Z/20261122T143000Z&details=Comprehensive%20revision%20session.%0ASyllabus%20outline%3A%20Lexical%20analysis%2C%20parsing%2C%20syntax-directed%20translation%2C%20runtime%20environments%2C%20intermediate%20code%20generation%2C%20local%20optimization%20and%20data-flow%20analyses%20including%20constant%20propagation%2C%20liveness%20and%20common%20subexpression%20elimination." target="_blank" style="text-align: center;">Schedule Google Cal ↗</a>
+              <button class="button outline small" id="print-sheet-btn" style="text-align: center;">Print Study Sheet ⎙</button>
+            </div>
+          </aside>
+
+          <article>
+            
+  <aside class="notice">
+    <strong>Official Curriculum Alignment · GATE 2027</strong>
+    <p>Verified against IIT Madras official notification. Outlines are aligned with official syllabus codes.</p>
+  </aside>
+
+
+            <section id="overview">
+              <div class="eyebrow">01 / CONCEPTUAL FOUNDATION</div>
+              <h2>Start with the fundamentals</h2>
+              <p>Lexical analysis groups characters into tokens; parsing checks how tokens fit a grammar. For x = 2, an identifier, assignment operator and numeric literal are distinct tokens.</p>
+              <div style="margin-top: 20px;">
+                <label class="check">
+                  <input type="checkbox" id="complete">
+                  Mark this subject introduction as reviewed
+                </label>
+              </div>
+            </section>
+
+            <section id="scope">
+              <div class="eyebrow">02 / OFFICIAL SCOPE</div>
+              <h2>Prescribed Curriculum</h2>
+              <p>Lexical analysis, parsing, syntax-directed translation, runtime environments, intermediate code generation, local optimization and data-flow analyses including constant propagation, liveness and common subexpression elimination.</p>
+              <div class="mac-window" style="padding: 16px 20px; margin-top: 20px; font-size: 0.85rem; background: var(--bg-page);">
+                <strong>Authoritative Source:</strong>
+                <a href="https://gate2027.iitm.ac.in/static/doc/GATE2027_Syllabus/CS_GATE2027_Syllabus.pdf" target="_blank" style="margin-right: 14px;">CS Official Syllabus PDF ↗</a>
+              </div>
+
+              
+            </section>
+
+            
+              <section id="pdf-guide">
+                <div class="eyebrow">OFFICIAL VISUAL DOSSIER · COMPLETE SYLLABUS HANDBOOK</div>
+                <div class="pdf-dossier-card">
+                  <div class="pdf-dossier-header">
+                    <div>
+                      <span class="pill gold" style="font-size: 0.68rem; letter-spacing: 0.05em;">VERIFIED COMPREHENSIVE DOSSIER · 33 PAGES · 968 KB</span>
+                      <h2 class="pdf-dossier-title">COMPILER DESIGN: The Complete Visual Study Guide</h2>
+                      <div class="pdf-dossier-meta">Official 33-Page Visual Dossier &amp; Comprehensive Handbook</div>
+                    </div>
+                    <a class="button gold" href="../../assets/docs/compiler-design-visual-study-guide.pdf" download="compiler-design-visual-study-guide.pdf" style="white-space: nowrap; text-decoration: none; font-size: 0.86rem; padding: 10px 18px;">
+                      📥 Download Full PDF (968 KB)
+                    </a>
+                  </div>
+                  <p style="font-size: 0.86rem; color: var(--text-secondary); line-height: 1.5; margin: 0;">
+                    Comprehensive 33-page visual study handbook covering the full compiler pipeline from source code to optimized machine instructions. Includes detailed treatments of the 6 compiler phases, analysis vs. synthesis, LL(1) predictive parsing tables, LR(0)/SLR(1)/LALR(1)/CLR(1) item automata and conflict resolution, lexical scanning and token counting rules, syntax-directed translation (S- &amp; L-attributed SDDs), intermediate representations (TAC, Triples, Quadruples, SSA with phi functions, DAGs, Basic Blocks &amp; CFG), and all 7 major code optimization techniques plus peephole transformations.
+                  </p>
+                  <div class="pdf-dossier-units">
+                    
+                      <div class="pdf-unit-item">
+                        <strong>Unit 01: Compiler Foundations &amp; Phase Architecture</strong>
+                        <p>Translation concepts, Analysis (Front-End) vs. Synthesis (Back-End), The 6 Compiler Phases (Lexical, Syntax, Semantic, Intermediate Code Gen, Optimization, Code Gen), Symbol Table structure, Error Handler diagnostics, Static vs. Runtime error boundaries, and Worked Mini-Trace.</p>
+                      </div>
+                    
+                      <div class="pdf-unit-item">
+                        <strong>Unit 02: Parsing, Grammars &amp; Automata</strong>
+                        <p>Type 3 Regular vs. Type 2 Context-Free Grammars, Derivations (LMD/RMD), Parse Trees vs. ASTs, Ambiguity &amp; Operator Precedence/Associativity, Parser Taxonomy, Nonrecursive LL(1) table construction, Elimination of Left Recursion &amp; Left Factoring, FIRST &amp; FOLLOW sets, Assignment Grammar counterexample, Operator-Precedence, Bottom-up LR item notation (LR(0), SLR, LALR, CLR), Inadequate states, Shift/Reduce &amp; Reduce/Reduce conflicts, and CLR-to-LALR state merging invariants.</p>
+                      </div>
+                    
+                      <div class="pdf-unit-item">
+                        <strong>Unit 03: Lexical Analysis, Tokenization &amp; DFA</strong>
+                        <p>Lexeme vs. Token vs. Attribute, Token categories (Identifiers, Keywords, Operators, Literals, Delimiters), Maximal Munch (longest match) rule, Token priority (Keyword over Identifier tie-breaking), Lex/Flex tool architecture, Lexical error taxonomy, and 9 Standard Token-Counting Worked Examples with step-by-step verification.</p>
+                      </div>
+                    
+                      <div class="pdf-unit-item">
+                        <strong>Unit 04: Syntax-Directed Translation (SDT / SDD)</strong>
+                        <p>Syntax-Directed Definitions (SDDs) vs. Translation Schemes (SDTs), Synthesized attributes (bottom-up child-to-parent flow) vs. Inherited attributes (top-down parent/left-sibling flow), S-attributed SDDs (bottom-up LR evaluation) vs. L-attributed SDDs (depth-first dependency-respecting evaluation), Action placement in RHS, and Dependency Graph topological sorting.</p>
+                      </div>
+                    
+                      <div class="pdf-unit-item">
+                        <strong>Unit 05: Intermediate Code Generation &amp; Optimization</strong>
+                        <p>Linear IR (Postfix, TAC, SSA) vs. Nonlinear IR (AST, DAG, CFG), Shared subexpression DAGs vs. ASTs, Three-Address Code (TAC) representations: Quadruples, Triples, and Indirect Triples, Minimum-name temporary lifetime analysis, Static Single Assignment (SSA) with phi-functions, Basic Blocks &amp; 3-rule Leader identification, Control-Flow Graphs (CFG), and the 7 Major Code Optimization passes (Constant Folding, Copy/Constant Propagation, Strength Reduction, Dead-Code Elimination, Common-Subexpression Elimination, Loop-Invariant Code Motion, Induction-Variable Simplification, Loop Fusion, Loop Unrolling, and Peephole Optimization).</p>
+                      </div>
+                    
+                      <div class="pdf-unit-item">
+                        <strong>Unit 06: Exam Toolkit &amp; Verification Laboratory</strong>
+                        <p>Fast Reference Matrix (Need to Structure/Trigger mapping), Comparative Parser Properties Matrix, Comprehensive List of Examination Traps, and 15 High-Yield Practice Verification Questions with Complete Step-by-Step Solutions directly from the official guide.</p>
+                      </div>
+                    
+                  </div>
+                  <div class="pdf-dossier-actions">
+                    <a class="button gold small" href="../../assets/docs/compiler-design-visual-study-guide.pdf" download="compiler-design-visual-study-guide.pdf" style="text-decoration: none;">
+                      Download PDF (968 KB) ⬇
+                    </a>
+                    <a class="button outline small" href="../../assets/docs/compiler-design-visual-study-guide.pdf" target="_blank" rel="noopener" style="text-decoration: none;">
+                      Open in Browser Tab ↗
+                    </a>
+                    <span style="font-size: 0.78rem; color: var(--text-secondary);">Direct download hosted on GitHub Pages repository asset pipeline.</span>
+                  </div>
+                </div>
+              </section>
+            
+
+            
+              <section id="definitions">
+                <div class="eyebrow">03 / FOUNDATIONAL TERMINOLOGY & TAXONOMY</div>
+                <h2>Core Definitions & Classifications</h2>
+                <p>Standardized academic definitions and structural classifications essential for conceptual questions:</p>
+                
+                <div class="definitions-grid">
+                  
+                    <div class="definition-card">
+                      <div>
+                        <div class="def-top">
+                          <span class="def-term">Abstract Syntax Tree (AST)</span>
+                          <span class="def-pill">Syntax Analysis</span>
+                        </div>
+                        <p class="def-body">A condensed, hierarchical representation of program syntax where interior nodes represent operators and leaf nodes represent operands, stripping punctuation and nonterminal scaffolding.</p>
+                      </div>
+                      <div class="def-note"><strong>Note:</strong> Contrasts with a concrete parse tree by omitting redundant grammar nonterminals.</div>
+                    </div>
+                  
+                    <div class="definition-card">
+                      <div>
+                        <div class="def-top">
+                          <span class="def-term">Maximal Munch Rule</span>
+                          <span class="def-pill">Lexical Analysis</span>
+                        </div>
+                        <p class="def-body">The scanning disambiguation rule stating that the lexical analyzer always selects the longest sequence of source characters that matches any valid token pattern.</p>
+                      </div>
+                      <div class="def-note"><strong>Note:</strong> Prevents ++ from being incorrectly split into two separate + tokens.</div>
+                    </div>
+                  
+                    <div class="definition-card">
+                      <div>
+                        <div class="def-top">
+                          <span class="def-term">S-Attributed &amp; L-Attributed SDD</span>
+                          <span class="def-pill">Semantic Analysis</span>
+                        </div>
+                        <p class="def-body">An S-attributed SDD uses exclusively synthesized attributes (evaluated bottom-up); An L-attributed SDD permits synthesized attributes and restricted inherited attributes that depend only on parent attributes and left-sibling attributes.</p>
+                      </div>
+                      <div class="def-note"><strong>Note:</strong> Every S-attributed definition is strictly L-attributed (S-attributed subset of L-attributed).</div>
+                    </div>
+                  
+                    <div class="definition-card">
+                      <div>
+                        <div class="def-top">
+                          <span class="def-term">Inadequate State (Parsing Conflict)</span>
+                          <span class="def-pill">Parsing Theory</span>
+                        </div>
+                        <p class="def-body">A state in an LR parsing automaton whose ACTION table cannot be deterministically resolved due to a Shift/Reduce (SR) conflict or a Reduce/Reduce (RR) conflict.</p>
+                      </div>
+                      <div class="def-note"><strong>Note:</strong> LALR state merging can introduce RR conflicts, but never creates new SR conflicts.</div>
+                    </div>
+                  
+                    <div class="definition-card">
+                      <div>
+                        <div class="def-top">
+                          <span class="def-term">Basic Block &amp; Leader</span>
+                          <span class="def-pill">Code Optimization</span>
+                        </div>
+                        <p class="def-body">A basic block is a maximal sequence of consecutive instructions with single-entry and single-exit semantics. The first instruction of a basic block is called a Leader.</p>
+                      </div>
+                      <div class="def-note"><strong>Note:</strong> Leaders are instruction 1, jump targets, and instructions immediately following jumps.</div>
+                    </div>
+                  
+                    <div class="definition-card">
+                      <div>
+                        <div class="def-top">
+                          <span class="def-term">Static Single Assignment (SSA) Form</span>
+                          <span class="def-pill">Intermediate Representation</span>
+                        </div>
+                        <p class="def-body">An intermediate representation wherein every variable is assigned exactly once. Multiple reaching definitions at control-flow merge points are reconciled using phi (phi) functions.</p>
+                      </div>
+                      <div class="def-note"><strong>Note:</strong> Simplifies data-flow analysis, dead code elimination, and register allocation.</div>
+                    </div>
+                  
+                </div>
+
+                
+                  <div class="taxonomy-container">
+                    
+                      <div class="taxonomy-card">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                          <strong>Grammar Parsing Class Hierarchy</strong>
+                          <span class="pill gold" style="font-size: 0.65rem;">Syntax Analysis</span>
+                        </div>
+                        <ul>
+                          <li>LL(1) Predictive: Top-down parser scanning Left-to-right with Leftmost derivation; requires conflict-free FIRST/FOLLOW sets.</li><li>SLR(1) Simple LR: Bottom-up shift-reduce parser using LR(0) items and FOLLOW sets for reduce actions.</li><li>LALR(1) Lookahead LR: Merges LR(1) items with identical cores; reduces state count to SLR(1) while eliminating many reduce conflicts.</li><li>Canonical LR(1): Most powerful deterministic bottom-up parser; tracks exact lookahead terminals; largest parsing table size.</li>
+                        </ul>
+                      </div>
+                    
+                      <div class="taxonomy-card">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                          <strong>Intermediate Representation Taxonomy</strong>
+                          <span class="pill gold" style="font-size: 0.65rem;">IR Hierarchy</span>
+                        </div>
+                        <ul>
+                          <li>Linear Sequential IR: Postfix (Reverse Polish notation), Three-Address Code (TAC), Static Single Assignment (SSA).</li><li>Nonlinear Tree IR: Parse Trees (full grammar expansion) and Abstract Syntax Trees (ASTs, stripped operator trees).</li><li>Graph-Based IR: Directed Acyclic Graphs (DAGs, shared common subexpressions) and Control-Flow Graphs (CFGs, basic blocks).</li><li>Machine-Level IR: Target-specific register transfer lists and assembly instructions.</li>
+                        </ul>
+                      </div>
+                    
+                      <div class="taxonomy-card">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                          <strong>Compiler Code Optimization Passes</strong>
+                          <span class="pill gold" style="font-size: 0.65rem;">Optimization</span>
+                        </div>
+                        <ul>
+                          <li>Constant Folding &amp; Propagation: Evaluates compile-time constant expressions and replaces variables with known constants.</li><li>Common Subexpression Elimination (CSE): Identifies identical expressions evaluated across basic blocks using DAGs.</li><li>Loop Invariant Code Motion (Hoisting): Moves computations whose operands never change outside loop pre-headers.</li><li>Induction Variable Elimination: Replaces multiplicative loop indexing with incremental additions.</li><li>Dead Code Elimination: Removes instructions whose output variables are never used or whose execution is unreachable.</li><li>Peephole Optimization: Local window replacing redundant instructions, jump-to-jumps, and algebraic identities.</li>
+                        </ul>
+                      </div>
+                    
+                  </div>
+                
+              </section>
+            
+
+            
+              <section id="modules">
+                <div class="eyebrow">04 / IN-DEPTH SYLLABUS MODULES</div>
+                <h2>Core Theoretical Modules</h2>
+                <p>Comprehensive subject breakdown containing foundational principles, key theorems, and common examination pitfalls.</p>
+                <div class="subject-modules-container">
+                  
+                    <div class="module-card">
+                      <div class="module-header">
+                        <span class="pill gold">MODULE 01</span>
+                        <h3 class="module-title">Unit 01 · Compiler Foundations, Analysis-Synthesis &amp; Phase Pipeline</h3>
+                      </div>
+                      <ul class="module-keypoints">
+                        <li>Compiler Definition &amp; Workflow: Translates a high-level source language program into a semantically equivalent lower-level machine or assembly representation (e.g. area = length * width + offset -&gt; LOAD, MUL, ADD, STORE).</li><li>Analysis (Front End) vs. Synthesis (Back End): Analysis breaks source code into components, builds AST/IR, and verifies syntax/types; Synthesis optimizes IR and emits machine instructions.</li><li>The 6 Distinct Compiler Phases: (1) Lexical Analysis (scans characters into tokens), (2) Syntax Analysis (constructs parse tree / AST from grammar), (3) Semantic Analysis (checks types, declarations, and scope), (4) Intermediate Code Generation (emits machine-independent 3AC/TAC), (5) Code Optimization (removes redundancy, hoists invariants), (6) Code Generation (allocates registers and emits target machine assembly).</li><li>Supporting Subsystems: The Symbol Table records identifier metadata (name, kind, type, scope, storage offset, parameter lists) and is consulted by all phases; Error Handler records line/column diagnostics.</li><li>Static Checks vs. Runtime Behavior: Semantic analysis statically diagnoses type mismatches and undeclared identifiers; Stack overflow and out-of-memory errors are runtime failures outside purely static verification.</li><li>Worked Mini-Trace: result = a + b * c; -&gt; Lexer emits id = id + id * id ; -&gt; Parser establishes operator precedence (b * c first) -&gt; Semantic verifies type compatibility -&gt; IR generates t1 = b * c; result = a + t1; -&gt; Optimizer reuses registers -&gt; Code generator emits target load/multiply/add/store sequence.</li>
+                      </ul>
+                      
+                        <div class="module-theorem-box">
+                          <strong>Essential Theorem & Principle</strong>
+                          <span>Phase Independence &amp; Portability: By decoupling machine-independent analysis (Front End) from machine-dependent synthesis (Back End) via an intermediate representation (IR), a compiler supporting M source languages and N hardware architectures requires only M front-ends and N back-ends (M + N modules) instead of M x N direct translators.</span>
+                        </div>
+                      
+                      
+                        <div class="module-trap-box">
+                          <strong>⚠️ GATE Exam Trap & Common Mistake</strong>
+                          <span>Static vs Runtime Classification Trap: A compiler can detect that a variable is used without declaration or with an incompatible type statically during semantic analysis. However, runtime exceptions like stack overflow or array index out-of-bounds with dynamic indices CANNOT be guaranteed to be caught at compile time.</span>
+                        </div>
+                      
+                    </div>
+                  
+                    <div class="module-card">
+                      <div class="module-header">
+                        <span class="pill gold">MODULE 02</span>
+                        <h3 class="module-title">Unit 02 · Parsing, Grammars, LL(1) and LR Parser Construction</h3>
+                      </div>
+                      <ul class="module-keypoints">
+                        <li>Grammar Types &amp; Syntax Trees: Type 3 (Regular) describes lexical patterns; Type 2 (CFG) describes nested block structures and expressions. Parse trees preserve all grammar nonterminals and reductions; Abstract Syntax Trees (ASTs) strip syntactic scaffolding, keeping operators at interior nodes and operands at leaves.</li><li>Ambiguity &amp; Disambiguation: A CFG is ambiguous if any string admits two or more distinct parse trees (or leftmost derivations). Ambiguous grammars like E -&gt; E+E | E*E | id require explicit operator precedence and associativity rules.</li><li>Predictive LL(1) Parsing: Scans Left-to-right, constructs Leftmost derivation, using 1 lookahead token. Requires elimination of immediate left recursion (A -&gt; A alpha | beta =&gt; A -&gt; beta A&#39;; A&#39; -&gt; alpha A&#39; | epsilon) and Left Factoring (A -&gt; alpha beta_1 | alpha beta_2 | gamma =&gt; A -&gt; alpha A&#39; | gamma; A&#39; -&gt; beta_1 | beta_2).</li><li>FIRST and FOLLOW Sets: FIRST(alpha) contains leading terminals; can include epsilon. FOLLOW(A) contains terminals that can appear immediately to the right of A; ALWAYS contains $ for start symbol; NEVER contains epsilon.</li><li>LL(1) Table Condition: A grammar is LL(1) iff for every A -&gt; alpha | beta: (1) FIRST(alpha) n FIRST(beta) = empty_set, and (2) if alpha derives epsilon, then FOLLOW(A) n FIRST(beta) = empty_set.</li><li>LR Item Notation &amp; Parsers: An LR item is a production with a dot tracking progress (A -&gt; alpha . beta). An item is completed (A -&gt; alpha .) when the dot reaches the right end. LR(0) reduces on ALL terminals; SLR(1) reduces ONLY on FOLLOW(LHS); CLR(1) reduces ONLY on item-specific lookahead tokens; LALR(1) merges CLR(1) states with identical LR(0) cores.</li><li>Conflicts &amp; Parsing Power: Shift/Reduce (SR) and Reduce/Reduce (RR) conflicts make a state inadequate. Hierarchy: LR(0) subset SLR(1) subset LALR(1) subset CLR(1). Merging CLR(1) states into LALR(1) NEVER creates new SR conflicts, but MAY introduce new RR conflicts! Unambiguous odd palindromes S -&gt; aSa | bSb | a | b are not deterministic CFG (no LR parser exists).</li>
+                      </ul>
+                      
+                        <div class="module-theorem-box">
+                          <strong>Essential Theorem & Principle</strong>
+                          <span>LALR(1) Conflict Invariant Theorem: Merging states in a canonical LR(1) automaton that have identical LR(0) cores can NEVER introduce a new Shift/Reduce conflict that was not already present in the canonical machine; it can ONLY introduce new Reduce/Reduce conflicts by unioning distinct lookahead sets.</span>
+                        </div>
+                      
+                      
+                        <div class="module-trap-box">
+                          <strong>⚠️ GATE Exam Trap & Common Mistake</strong>
+                          <span>FOLLOW Epsilon &amp; Assignment Grammar Trap: FOLLOW sets can NEVER contain epsilon! Also, eliminating apparent common prefixes does NOT guarantee an LL(1) grammar; the assignment grammar S -&gt; L = R | R; L -&gt; *R | id; R -&gt; L has FIRST(L=R) n FIRST(R) = {*, id} != empty_set, making it non-LL(1) even after factoring.</span>
+                        </div>
+                      
+                    </div>
+                  
+                    <div class="module-card">
+                      <div class="module-header">
+                        <span class="pill gold">MODULE 03</span>
+                        <h3 class="module-title">Unit 03 · Lexical Analysis, Tokenization Patterns &amp; Lexer Design</h3>
+                      </div>
+                      <ul class="module-keypoints">
+                        <li>Lexeme vs. Token vs. Attribute: A lexeme is the concrete character sequence in source code (e.g. counter42); A token is the symbolic category returned to the parser (e.g. IDENTIFIER); An attribute carries auxiliary metadata (e.g. pointer to symbol table entry, literal value).</li><li>Token Categories: Identifiers (letter/underscore followed by alphanumeric), Keywords (reserved words), Operators (+, -, *, /, ==, !=, ++), Literals/Constants (10, 3.14, &#39;A&#39;, &quot;gate&quot;), Special Delimiters ((, ), {, }, ;, ,).</li><li>Maximal Munch (Longest Match) Principle: The lexer always consumes the longest prefix of source characters that matches any valid token pattern. Example: count++ != 10 is tokenized as [count] [++] [!=] [10], NOT splitting ++ into + and +.</li><li>Token Priority Rules: When two rules match an equally long lexeme (e.g. &quot;if&quot; matches both KEYWORD and IDENTIFIER), the higher-priority rule defined first in the lexer specification wins (KEYWORD wins on tie).</li><li>Lexer Implementation via Lex/Flex: Regular expressions are converted to non-deterministic finite automata (NFA) via Thompson&#39;s construction, then determinized to DFAs via subset construction, generating lex.yy.c.</li><li>Lexical Errors: Occur when no token pattern matches the current input. Examples include illegal characters, identifiers beginning with numbers (e.g. 1x23), unmatched quotes (&#39;A), unterminated string literals (&quot;gate;), and unclosed block comments (/* ...).</li><li>The 9 Canonical Token-Counting Cases: (1) void main() { printf(&quot;gate&quot;); } = 11 tokens; (2) int x, *P; x=10; p=&amp;x; x++; = 18 tokens; (3) int x; x=y; x==y; = 11 tokens; (4) int 1x23; = Lexical error; (5) char ch = &#39;A&#39;; = 5 tokens; (6) char ch = &#39;A; = Lexical error; (7) char *p = &quot;gate&quot;; = 6 tokens; (8) char *p = &quot;gate; = Lexical error; (9) int x=10; /* comment ... = Lexical error (unterminated comment).</li>
+                      </ul>
+                      
+                        <div class="module-theorem-box">
+                          <strong>Essential Theorem & Principle</strong>
+                          <span>Maximal Munch Automaton Guarantee: A lexical analyzer using a DFA with prioritized accepting states uniquely partitions a valid input character stream into a sequence of maximal-length valid tokens with zero backtracking under lookahead buffering.</span>
+                        </div>
+                      
+                      
+                        <div class="module-trap-box">
+                          <strong>⚠️ GATE Exam Trap & Common Mistake</strong>
+                          <span>Token Counting Operator &amp; Literal Trap: In token counting, a string literal like &quot;gate&quot; is ONE single token regardless of length; multi-character operators like == and ++ count as ONE single operator token; semicolons, braces, and commas are distinct punctuation tokens.</span>
+                        </div>
+                      
+                    </div>
+                  
+                    <div class="module-card">
+                      <div class="module-header">
+                        <span class="pill gold">MODULE 04</span>
+                        <h3 class="module-title">Unit 04 · Syntax-Directed Translation &amp; Attribute Evaluation</h3>
+                      </div>
+                      <ul class="module-keypoints">
+                        <li>SDT vs. SDD: A Syntax-Directed Definition (SDD) is a context-free grammar augmented with attributes and mathematical semantic rules; A Syntax-Directed Translation Scheme (SDT) explicitly embeds program action fragments inside the right-hand sides of productions.</li><li>Synthesized Attributes: An attribute is synthesized if its value at a parse tree node is computed from the attribute values of its children (or token lexical values). Flows bottom-up from leaves to root. Example: E -&gt; E_1 + T { E.val = E_1.val + T.val }.</li><li>Inherited Attributes: An attribute is inherited if its value at a node is computed from the attributes of its parent and/or its siblings. Flows top-down or sideways across the parse tree. Example: D -&gt; T L { L.in = T.type }.</li><li>S-Attributed Definitions: An SDD is S-attributed if EVERY attribute in the grammar is synthesized. S-attributed SDDs can be evaluated naturally during bottom-up LR parsing on production reductions.</li><li>L-Attributed Definitions: An SDD is L-attributed if every inherited attribute of a grammar symbol X_i in production A -&gt; X_1 X_2 ... X_n depends ONLY on: (1) inherited attributes of parent A, and (2) attributes of symbols X_1 ... X_{i-1} appearing to the LEFT of X_i (never on right siblings!).</li><li>Class Inclusion: Every S-attributed definition is strictly L-attributed (S-attributed subset of L-attributed). The converse is FALSE: an L-attributed definition can contain inherited attributes.</li><li>Dependency Graphs &amp; Topological Ordering: A dependency graph has a directed edge from attribute u to attribute v if v depends on u. An SDD is semantically valid iff its dependency graph contains NO directed cycles; evaluation order is any valid topological sort.</li>
+                      </ul>
+                      
+                        <div class="module-theorem-box">
+                          <strong>Essential Theorem & Principle</strong>
+                          <span>S-to-L Class Inclusion &amp; LR Evaluation: Every S-attributed grammar is an L-attributed grammar. An S-attributed grammar can always be evaluated on an LR parser by executing semantic actions precisely upon handle reductions without building an explicit parse tree.</span>
+                        </div>
+                      
+                      
+                        <div class="module-trap-box">
+                          <strong>⚠️ GATE Exam Trap & Common Mistake</strong>
+                          <span>Right-Sibling Inheritance Trap: If an attribute of symbol X_i depends on an attribute of symbol X_{i+1} (a symbol to its RIGHT on the production RHS), the grammar is NOT L-attributed, even if it is completely cycle-free. L-attributed definitions strictly forbid right-to-left dependencies.</span>
+                        </div>
+                      
+                    </div>
+                  
+                    <div class="module-card">
+                      <div class="module-header">
+                        <span class="pill gold">MODULE 05</span>
+                        <h3 class="module-title">Unit 05 · Intermediate Representations, Basic Blocks &amp; Code Optimization</h3>
+                      </div>
+                      <ul class="module-keypoints">
+                        <li>Intermediate Representation Taxonomy: Linear IRs (Postfix notation, Three-Address Code / TAC, Static Single Assignment / SSA) vs. Nonlinear / Graph IRs (Abstract Syntax Tree / AST, Directed Acyclic Graph / DAG, Control-Flow Graph / CFG).</li><li>AST vs. DAG for Expressions: For expression (y + z) * (y + z), an AST creates two separate nodes for the syntactic occurrences of y + z, whereas a DAG identifies common subexpressions and creates a single shared node with multiple incoming directed edges.</li><li>Three-Address Code (TAC) Representations: (1) Quadruples: 4 fields (op, arg1, arg2, result) with explicit temporary names; (2) Triples: 3 fields (op, arg1, arg2) referring to results by instruction index (0), (1); (3) Indirect Triples: Array of pointers to triples, allowing instruction reordering without rewriting operand index references.</li><li>Static Single Assignment (SSA) Form: Every variable is assigned EXACTLY ONCE. Reassignments create new versioned names (x_1 = a - b; x_2 = x_1 * c). At control-flow join points, phi (phi) functions select incoming version: x_3 = phi(x_1, x_2).</li><li>Basic Blocks &amp; Leader Identification: A basic block is a maximal straight-line sequence of instructions entered only at the first statement and exited only at the last. Leaders are: (1) First instruction, (2) Target of any jump/goto, (3) Instruction immediately following any jump/goto.</li><li>Control-Flow Graph (CFG): Directed graph where nodes are basic blocks and edges represent branch/jump transfers; includes ENTRY and EXIT nodes; enables global data-flow analysis and loop detection.</li><li>The 7 Major Optimization Passes: (1) Constant Folding (compile-time constant arithmetic 2*3+y -&gt; 6+y), (2) Copy &amp; Constant Propagation (substitute known values x=3; z=x+a -&gt; z=3+a), (3) Strength Reduction (replace expensive ops with cheaper: i*8 -&gt; i&lt;&lt;3, x*2 -&gt; x+x), (4) Dead-Code Elimination (remove unreachable blocks or unused computations), (5) Common-Subexpression Elimination / CSE (compute identical subexpression once via DAG), (6) Loop-Invariant Code Motion / LICM (hoist computations independent of loop iterations outside loop pre-header), (7) Induction-Variable Simplification (replace loop multiplications with additions).</li><li>Peephole Optimization: Sliding window over short instruction sequences: eliminates redundant instructions (MOV R1, R1), optimizes control flow (jump to jump -&gt; direct jump), applies algebraic simplification (ADD R2, 0 -&gt; deleted), and exploits machine idioms.</li>
+                      </ul>
+                      
+                        <div class="module-theorem-box">
+                          <strong>Essential Theorem & Principle</strong>
+                          <span>Basic Block Partitioning Correctness: The three-rule leader identification algorithm partitions any straight-line intermediate code sequence into disjoint, maximal basic blocks such that execution entering the leader must execute every statement in the block sequentially without branching.</span>
+                        </div>
+                      
+                      
+                        <div class="module-trap-box">
+                          <strong>⚠️ GATE Exam Trap & Common Mistake</strong>
+                          <span>Signed Right Shift Strength Reduction Trap: Replacing integer division by 2^k with a right shift (x &gt;&gt; k) is NOT universally valid for signed numbers! In C/C++, integer division rounds toward zero (-7 / 2 = -3), whereas arithmetic right shift rounds toward negative infinity (-7 &gt;&gt; 1 = -4). Strength reduction is only valid when sign semantics match.</span>
+                        </div>
+                      
+                    </div>
+                  
+                    <div class="module-card">
+                      <div class="module-header">
+                        <span class="pill gold">MODULE 06</span>
+                        <h3 class="module-title">Unit 06 · The Compiler Design Revision Laboratory &amp; Checkpoints</h3>
+                      </div>
+                      <ul class="module-keypoints">
+                        <li>Checkpoint 01-03: Phase Responsibilities: Semantic analysis statically detects type mismatches; Syntax analysis detects unmatched parentheses; Lexical analysis detects illegal characters or malformed identifier names like 1x23.</li><li>Checkpoint 04-06: FIRST/FOLLOW &amp; Parsing: In grammar E -&gt; E+T | T, immediate left recursion must be eliminated to obtain E -&gt; TE&#39; and E&#39; -&gt; +TE&#39; | epsilon before LL(1) parsing. FOLLOW of start symbol always contains $. LR(0) reductions appear on ALL terminal columns.</li><li>Checkpoint 07-09: LR Conflicts &amp; Attributes: Merging CLR(1) states into LALR(1) can introduce Reduce/Reduce (RR) conflicts by unioning lookahead sets, but NEVER creates new Shift/Reduce (SR) conflicts. An attribute carrying type information from parent to child is an Inherited attribute. All S-attributed SDDs are L-attributed.</li><li>Checkpoint 10-12: Intermediate Code &amp; Tokens: A DAG shares identical subexpression nodes to save redundant computation, while an AST preserves separate syntactic occurrences. Quadruples explicitly store temporary result names; Triples refer to results implicitly by instruction position. In char* p = &quot;hello;, the lexer flags an unmatched string quote error.</li><li>Checkpoint 13-15: Optimization &amp; Leaders: Loop-invariant code motion hoists loop-independent computations outside the loop. Right shift is not a drop-in replacement for division due to negative signed rounding. Basic block leaders are: instruction 1, branch targets, and instructions immediately following a branch.</li>
+                      </ul>
+                      
+                        <div class="module-theorem-box">
+                          <strong>Essential Theorem & Principle</strong>
+                          <span>Universal Parser Inclusion Hierarchy: LR(0) strictly subset of SLR(1) strictly subset of LALR(1) strictly subset of CLR(1). Every LL(1) grammar is an unambiguous deterministic context-free grammar parseable by CLR(1).</span>
+                        </div>
+                      
+                      
+                        <div class="module-trap-box">
+                          <strong>⚠️ GATE Exam Trap & Common Mistake</strong>
+                          <span>Accept Item Trap: The completed augmented start item [S&#39; -&gt; S ., $] triggers the ACCEPT action when the lookahead is $, NOT an ordinary reduction! It halts parsing and signals successful syntax recognition.</span>
+                        </div>
+                      
+                    </div>
+                  
+                </div>
+              </section>
+            
+
+            
+              <section id="comparison">
+                <div class="eyebrow">05 / CANONICAL COMPARISON MATRIX</div>
+                <h2>LL(1) Predictive Parsing vs. LR(1) Bottom-Up Parsing</h2>
+                <p>Detailed architectural and mathematical comparison of fundamental contrasting concepts frequently tested in GATE:</p>
+                <div class="comparison-table-wrapper">
+                  <table class="comparison-table">
+                    <thead>
+                      <tr>
+                        <th>COMPARISON DIMENSION</th>
+                        <th>LL(1) Top-Down Parser</th>
+                        <th>LR(1) Bottom-Up Shift-Reduce Parser</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      
+                        <tr>
+                          <td>Derivation Direction</td>
+                          <td>Left-to-right scan; constructs Leftmost derivation in top-down fashion.</td>
+                          <td>Left-to-right scan; constructs Rightmost derivation in reverse (bottom-up).</td>
+                        </tr>
+                      
+                        <tr>
+                          <td>Grammar Handling Scope</td>
+                          <td>Strictly smaller class of grammars; cannot parse left-recursive or non-left-factored CFGs.</td>
+                          <td>Significantly larger class of grammars; naturally parses left-recursive grammars; LL(1) is a proper subset.</td>
+                        </tr>
+                      
+                        <tr>
+                          <td>Parser Table Conflicts</td>
+                          <td>FIRST/FIRST conflicts or FIRST/FOLLOW conflicts in table entries.</td>
+                          <td>Shift/Reduce (S/R) conflicts or Reduce/Reduce (R/R) conflicts in parse action table.</td>
+                        </tr>
+                      
+                        <tr>
+                          <td>Table Memory Footprint</td>
+                          <td>Small parsing table size: O(|Non-terminals| x |Terminals|).</td>
+                          <td>Much larger table size: O(|States| x |Terminals|), where state count can reach thousands.</td>
+                        </tr>
+                      
+                        <tr>
+                          <td>Error Detection Timing</td>
+                          <td>Detects syntax error on the first terminal where derivation cannot proceed.</td>
+                          <td>Detects syntax error immediately on shift-reduce invalid lookup without performing unwanted reductions.</td>
+                        </tr>
+                      
+                        <tr>
+                          <td>GATE Examination Pitfall</td>
+                          <td>Left recursion ALWAYS produces conflicts in LL(1) tables; must eliminate left recursion first.</td>
+                          <td>Ambiguous grammars can NEVER be parsed by either LL(1) or LR(1); ambiguity causes conflicts in both.</td>
+                        </tr>
+                      
+                    </tbody>
+                  </table>
+                </div>
+              </section>
+            
+
+            
+              <section id="derivation">
+                <div class="eyebrow">06 / MATHEMATICAL FORMULATION</div>
+                <h2>FIRST/FOLLOW Computation & LR Item Conflict Invariants</h2>
+                <div class="derivation-container">
+                  <div class="derivation-titlebar">
+                    <div class="derivation-titlebar-left">
+                      <span class="mac-dot red"></span>
+                      <span class="mac-dot yellow"></span>
+                      <span class="mac-dot green"></span>
+                      <span style="margin-left: 8px;">Syntax Analysis & Parser Theory</span>
+                    </div>
+                    <button class="copy-trigger-btn" data-text="// 1. FIRST and FOLLOW Equations for LL(1) Parsing
+FIRST(X):
+  - If X is terminal: FIRST(X) = {X}
+  - If X -&gt; epsilon is a production: epsilon in FIRST(X)
+  - If X -&gt; Y_1 Y_2 ... Y_k:
+      FIRST(X) contains FIRST(Y_1) - {epsilon}
+      If epsilon in FIRST(Y_i), add FIRST(Y_{i+1}) - {epsilon}
+      If all Y_1...Y_k contain epsilon, add epsilon to FIRST(X)
+
+FOLLOW(A):
+  - Place $ in FOLLOW(S) where S is start symbol
+  - For production A -&gt; alpha B beta:
+      Add FIRST(beta) - {epsilon} to FOLLOW(B)
+      If beta =&gt; epsilon (or beta is absent):
+        Add FOLLOW(A) to FOLLOW(B)
+
+// 2. LL(1) Table Condition Without Table Construction
+For every nonterminal A with productions A -&gt; alpha_1 | alpha_2 | ... | alpha_n:
+  1. FIRST(alpha_i) n FIRST(alpha_j) = empty_set  for all i != j (ignoring epsilon)
+  2. If epsilon in FIRST(alpha_i):
+       FOLLOW(A) n FIRST(alpha_j) = empty_set  for all j != i
+
+// 3. LR Parser Reduction Placement Rules
+- LR(0):  Place reduce r_i on EVERY terminal column in state where A -&gt; alpha . is completed
+- SLR(1): Place reduce r_i ONLY on columns a in FOLLOW(A)
+- CLR(1): Place reduce r_i ONLY on columns a in Lookahead([A -&gt; alpha ., a])
+- LALR(1): Merge CLR states with identical LR(0) cores; unions lookaheads
+
+// 4. Basic Block Leader Rules
+Instruction i is a Leader iff:
+  1. i is the first instruction of the program (instruction 1)
+  2. i is the target of a conditional or unconditional jump/goto
+  3. i immediately follows a conditional or unconditional jump/goto">Copy Formula</button>
+                  </div>
+                  <pre class="derivation-code-body"><code>// 1. FIRST and FOLLOW Equations for LL(1) Parsing
+FIRST(X):
+  - If X is terminal: FIRST(X) = {X}
+  - If X -&gt; epsilon is a production: epsilon in FIRST(X)
+  - If X -&gt; Y_1 Y_2 ... Y_k:
+      FIRST(X) contains FIRST(Y_1) - {epsilon}
+      If epsilon in FIRST(Y_i), add FIRST(Y_{i+1}) - {epsilon}
+      If all Y_1...Y_k contain epsilon, add epsilon to FIRST(X)
+
+FOLLOW(A):
+  - Place $ in FOLLOW(S) where S is start symbol
+  - For production A -&gt; alpha B beta:
+      Add FIRST(beta) - {epsilon} to FOLLOW(B)
+      If beta =&gt; epsilon (or beta is absent):
+        Add FOLLOW(A) to FOLLOW(B)
+
+// 2. LL(1) Table Condition Without Table Construction
+For every nonterminal A with productions A -&gt; alpha_1 | alpha_2 | ... | alpha_n:
+  1. FIRST(alpha_i) n FIRST(alpha_j) = empty_set  for all i != j (ignoring epsilon)
+  2. If epsilon in FIRST(alpha_i):
+       FOLLOW(A) n FIRST(alpha_j) = empty_set  for all j != i
+
+// 3. LR Parser Reduction Placement Rules
+- LR(0):  Place reduce r_i on EVERY terminal column in state where A -&gt; alpha . is completed
+- SLR(1): Place reduce r_i ONLY on columns a in FOLLOW(A)
+- CLR(1): Place reduce r_i ONLY on columns a in Lookahead([A -&gt; alpha ., a])
+- LALR(1): Merge CLR states with identical LR(0) cores; unions lookaheads
+
+// 4. Basic Block Leader Rules
+Instruction i is a Leader iff:
+  1. i is the first instruction of the program (instruction 1)
+  2. i is the target of a conditional or unconditional jump/goto
+  3. i immediately follows a conditional or unconditional jump/goto</code></pre>
+                </div>
+              </section>
+
+              <section id="schematic">
+                <div class="eyebrow">07 / ARCHITECTURAL SCHEMATIC</div>
+                <h2>Visual Concept Schematic</h2>
+                <div class="lookbook-grid" style="grid-template-columns: 1fr;">
+                  <div class="lookbook-card" id="open-diagram-card">
+                    <div class="lookbook-svg-frame">
+                      <svg viewBox="0 0 420 220" width="100%" height="100%"><rect width="420" height="220" fill="transparent"/><text x="210" y="24" fill="#c5a059" font-family="'Cormorant Garamond', serif" font-size="14" font-weight="700" text-anchor="middle">SIX-PHASE COMPILER PIPELINE &amp; INTERMEDIATE FLOW</text><rect x="15" y="45" width="55" height="34" rx="4" fill="rgba(197,160,89,0.15)" stroke="#c5a059" stroke-width="1.5"/><text x="42" y="66" fill="#c5a059" font-family="sans-serif" font-size="9" font-weight="700" text-anchor="middle">LEXICAL</text><line x1="70" y1="62" x2="80" y2="62" stroke="#c5a059" stroke-width="1.5"/><rect x="80" y="45" width="55" height="34" rx="4" fill="rgba(197,160,89,0.15)" stroke="#c5a059" stroke-width="1.5"/><text x="107" y="66" fill="#c5a059" font-family="sans-serif" font-size="9" font-weight="700" text-anchor="middle">SYNTAX</text><line x1="135" y1="62" x2="145" y2="62" stroke="#c5a059" stroke-width="1.5"/><rect x="145" y="45" width="60" height="34" rx="4" fill="rgba(197,160,89,0.15)" stroke="#c5a059" stroke-width="1.5"/><text x="175" y="66" fill="#c5a059" font-family="sans-serif" font-size="9" font-weight="700" text-anchor="middle">SEMANTIC</text><line x1="205" y1="62" x2="215" y2="62" stroke="#c5a059" stroke-width="1.5"/><rect x="215" y="45" width="55" height="34" rx="4" fill="rgba(5,150,105,0.15)" stroke="#059669" stroke-width="1.5"/><text x="242" y="66" fill="#059669" font-family="sans-serif" font-size="9" font-weight="700" text-anchor="middle">IR GEN</text><line x1="270" y1="62" x2="280" y2="62" stroke="#059669" stroke-width="1.5"/><rect x="280" y="45" width="60" height="34" rx="4" fill="rgba(5,150,105,0.15)" stroke="#059669" stroke-width="1.5"/><text x="310" y="66" fill="#059669" font-family="sans-serif" font-size="9" font-weight="700" text-anchor="middle">OPTIMIZE</text><line x1="340" y1="62" x2="350" y2="62" stroke="#059669" stroke-width="1.5"/><rect x="350" y="45" width="55" height="34" rx="4" fill="rgba(5,150,105,0.15)" stroke="#059669" stroke-width="1.5"/><text x="377" y="66" fill="#059669" font-family="sans-serif" font-size="9" font-weight="700" text-anchor="middle">CODE GEN</text><rect x="15" y="110" width="185" height="35" rx="4" fill="rgba(255,255,255,0.03)" stroke="#555" stroke-width="1"/><text x="107" y="132" fill="#aaa" font-family="sans-serif" font-size="9" text-anchor="middle">FRONT END (Analysis · Machine Indep.)</text><rect x="215" y="110" width="190" height="35" rx="4" fill="rgba(255,255,255,0.03)" stroke="#555" stroke-width="1"/><text x="310" y="132" fill="#aaa" font-family="sans-serif" font-size="9" text-anchor="middle">BACK END (Synthesis · Machine Dep.)</text><rect x="120" y="165" width="180" height="38" rx="6" fill="rgba(197,160,89,0.1)" stroke="#c5a059" stroke-dasharray="3,3"/><text x="210" y="184" fill="#c5a059" font-family="monospace" font-size="10" font-weight="700" text-anchor="middle">SYMBOL TABLE &amp; DIAGNOSTICS</text><text x="210" y="196" fill="#888" font-size="8" text-anchor="middle">Shared across all 6 compiler phases</text></svg>
+                    </div>
+                    <div class="lookbook-caption">
+                      <strong>Six-Phase Compiler Pipeline Architecture & Intermediate Subsystems</strong>
+                      <span>Click to inspect full resolution in native inspection dialog ↗</span>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            
+
+            
+              <section id="gfg-topics">
+                <div class="eyebrow">08 / GEEKSFORGEEKS CURATED GUIDES</div>
+                <h2>Syllabus Sub-Category Tutorials</h2>
+                <p>Direct granular tutorials and practice sets from GeeksforGeeks corresponding to each syllabus sub-domain:</p>
+                <div class="gfg-subcat-grid">
+                  
+                    <a class="gfg-subcat-card" href="https://www.geeksforgeeks.org/introduction-of-lexical-analysis/" target="_blank" rel="noopener">
+                      <div class="gfg-subcat-top">
+                        <span class="gfg-badge">Lexical Phase</span>
+                        <span class="gfg-arrow">↗</span>
+                      </div>
+                      <div class="gfg-subcat-title">Lexical Analysis &amp; Tokenization</div>
+                      <div class="gfg-subcat-desc">Tokens, lexemes, attributes, regular expressions to DFA, maximal munch principle, and token counting rules.</div>
+                    </a>
+                  
+                    <a class="gfg-subcat-card" href="https://www.geeksforgeeks.org/construction-of-ll1-parsing-table/" target="_blank" rel="noopener">
+                      <div class="gfg-subcat-top">
+                        <span class="gfg-badge">Syntax Phase</span>
+                        <span class="gfg-arrow">↗</span>
+                      </div>
+                      <div class="gfg-subcat-title">Top-Down LL(1) Parsing &amp; FIRST/FOLLOW</div>
+                      <div class="gfg-subcat-desc">Left recursion elimination, left factoring, FIRST and FOLLOW set computation, and non-recursive predictive parsing tables.</div>
+                    </a>
+                  
+                    <a class="gfg-subcat-card" href="https://www.geeksforgeeks.org/bottom-up-parser-compiler-design/" target="_blank" rel="noopener">
+                      <div class="gfg-subcat-top">
+                        <span class="gfg-badge">Syntax Phase</span>
+                        <span class="gfg-arrow">↗</span>
+                      </div>
+                      <div class="gfg-subcat-title">Bottom-Up LR Parsing &amp; Conflict Resolution</div>
+                      <div class="gfg-subcat-desc">LR(0), SLR(1), LALR(1), and CLR(1) parsing tables, LR items, shift/reduce conflicts, and reduce/reduce conflicts.</div>
+                    </a>
+                  
+                    <a class="gfg-subcat-card" href="https://www.geeksforgeeks.org/syntax-directed-translation-sdt-compiler-design/" target="_blank" rel="noopener">
+                      <div class="gfg-subcat-top">
+                        <span class="gfg-badge">Semantic Phase</span>
+                        <span class="gfg-arrow">↗</span>
+                      </div>
+                      <div class="gfg-subcat-title">Syntax-Directed Translation (SDT &amp; SDD)</div>
+                      <div class="gfg-subcat-desc">S-attributed and L-attributed definitions, synthesized vs. inherited attributes, and dependency graph evaluations.</div>
+                    </a>
+                  
+                    <a class="gfg-subcat-card" href="https://www.geeksforgeeks.org/intermediate-code-generation-in-compiler-design/" target="_blank" rel="noopener">
+                      <div class="gfg-subcat-top">
+                        <span class="gfg-badge">Intermediate Phase</span>
+                        <span class="gfg-arrow">↗</span>
+                      </div>
+                      <div class="gfg-subcat-title">Intermediate Code Generation (TAC &amp; SSA)</div>
+                      <div class="gfg-subcat-desc">Three-Address Code (TAC), quadruples, triples, indirect triples, AST vs. DAG representations, and SSA phi-functions.</div>
+                    </a>
+                  
+                    <a class="gfg-subcat-card" href="https://www.geeksforgeeks.org/code-optimization-in-compiler-design/" target="_blank" rel="noopener">
+                      <div class="gfg-subcat-top">
+                        <span class="gfg-badge">Optimization Phase</span>
+                        <span class="gfg-arrow">↗</span>
+                      </div>
+                      <div class="gfg-subcat-title">Code Optimization &amp; Basic Blocks</div>
+                      <div class="gfg-subcat-desc">Basic block leader partitioning, Control-Flow Graphs (CFG), loop optimizations, constant folding, and peephole passes.</div>
+                    </a>
+                  
+                </div>
+              </section>
+            
+
+            
+              <section id="handoffs">
+                <div class="eyebrow">09 / CURATED PLATFORM HANDOFFS</div>
+                <h2>Implementation & Deep Dives</h2>
+                <p>External verified learning portals for code implementations and official NPTEL lectures:</p>
+                <div class="deepdive-grid">
+                  <a class="deepdive-card" href="https://www.geeksforgeeks.org/compiler-design-tutorials/" target="_blank" rel="noopener">
+                    <span>GeeksforGeeks · Subject Guide</span>
+                    <span>↗</span>
+                  </a>
+                  <div class="deepdive-card" style="cursor: default;">
+                    <span>NPTEL: noc21-cs63 (IIT Kharagpur - Compiler Design)</span>
+                    <span style="font-size: 0.75rem; color: var(--accent-gold);">Official Series</span>
+                  </div>
+                </div>
+              </section>
+            
+
+            <section id="pyq">
+              <div class="eyebrow">10 / EXAMINATION PRACTICE</div>
+              <h2>Previous-Year Questions</h2>
+              <p>Explore official past papers and verification keys from the GATE archive.</p>
+              <div style="display: flex; gap: 14px; flex-wrap: wrap; margin-top: 16px;">
+                <a class="button gold small" href="https://gate2027.iitm.ac.in/download" target="_blank" rel="noopener">Download Official Papers & Keys ↗</a>
+                <a class="button outline small" href="../../practice/">Interactive Practice Quizzes ↗</a>
+              </div>
+            </section>
+          </article>
+        </div>
+  
+  </main>
+  <footer>
+    <div>
+      <strong>STUDY GATE <span>WITH ARSHAD</span></strong>
+      <p>Learning with clarity, one concept at a time.</p>
+    </div>
+    <div>
+      <a href="https://gate2027.iitm.ac.in/">Official GATE 2027 ↗</a>
+      <a href="https://github.com/Arshad9999/Study-Gate-Exam-with-Arshad">GitHub ↗</a>
+    </div>
+    <p>Independent educational resource. Not affiliated with or endorsed by GATE or IIT Madras.</p>
+  </footer>
+</body>
+</html>

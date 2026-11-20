@@ -5315,7 +5315,8 @@ fetch(root + 'data/subjects.json')
       const extra = SUBJECT_EXTRAS[s.id];
       const textbook = STANDARD_TEXTBOOKS.find(t => s.title.toLowerCase().includes(t.subject.toLowerCase()) || t.subject.toLowerCase().includes(s.title.toLowerCase()));
 
-      main.innerHTML = `
+      if (!main.querySelector('.guide')) {
+        main.innerHTML = `
         ${crumb(escapeText(s.title))}
         <section class="page-title">
           <div class="eyebrow">SUBJECT DOSSIER · ${s.papers.join(' / ')}</div>
@@ -5610,23 +5611,28 @@ fetch(root + 'data/subjects.json')
           </article>
         </div>
       `;
+      }
 
-      document.querySelector('#complete').addEventListener('change', e => {
-        const v = getProgress();
-        v[s.id] = e.target.checked;
-        saveProgress(v);
-      });
+      const completeBox = document.querySelector('#complete');
+      if (completeBox) {
+        completeBox.checked = !!progress[s.id];
+        completeBox.addEventListener('change', e => {
+          const v = getProgress();
+          v[s.id] = e.target.checked;
+          saveProgress(v);
+        });
+      }
 
-      document.querySelector('#subject-docket-add-btn').addEventListener('click', () => {
+      document.querySelector('#subject-docket-add-btn')?.addEventListener('click', () => {
         addToDocket(s.id);
       });
 
-      document.getElementById('print-sheet-btn').addEventListener('click', () => {
+      document.getElementById('print-sheet-btn')?.addEventListener('click', () => {
         window.print();
       });
 
       if (extra) {
-        document.querySelector('#open-diagram-card').addEventListener('click', () => {
+        document.querySelector('#open-diagram-card')?.addEventListener('click', () => {
           openDiagramModal(extra.caption, extra.svgDiagram, s.title + ' conceptual model for GATE 2027.');
         });
       }
